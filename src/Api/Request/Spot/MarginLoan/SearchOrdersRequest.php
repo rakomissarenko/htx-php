@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -30,13 +31,6 @@ class SearchOrdersRequest extends AbstractRequest
         self::STATE_CREATED,
         self::STATE_FAILED,
         self::STATE_INVALID,
-    ];
-
-    private const DIRECT_NEXT = 'next';
-    private const DIRECT_PREV = 'prev';
-    private const DIRECTS = [
-        self::DIRECT_NEXT,
-        self::DIRECT_PREV,
     ];
 
     private const SIZE_MIN = 1;
@@ -116,7 +110,7 @@ class SearchOrdersRequest extends AbstractRequest
             }
         }
         if ($this->direct) {
-            $this->validateList($this->direct, self::FIELD_DIRECT, self::DIRECTS);
+            $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
             $this->validateRange((string) $this->size, self::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);

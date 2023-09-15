@@ -2,12 +2,13 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class HistoryRequest extends AbstractRequest
 {
-    private const FIELD_SYMBOL = 'symbol';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
     private const FIELD_DIRECT = 'direct';
@@ -15,13 +16,6 @@ class HistoryRequest extends AbstractRequest
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/history';
-
-    private const DIRECT_NEXT = 'next';
-    private const DIRECT_PREV = 'prev';
-    private const DIRECTS = [
-        self::DIRECT_NEXT,
-        self::DIRECT_PREV,
-    ];
 
     private const SIZE_MIN = 10;
     private const SIZE_MAX = 1000;
@@ -72,7 +66,7 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->direct) {
-            $this->validateList($this->direct, self::FIELD_DIRECT, self::DIRECTS);
+            $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
             $this->validateRange(
@@ -88,7 +82,7 @@ class HistoryRequest extends AbstractRequest
     {
         $result = [];
         if ($this->symbol) {
-            $result[self::FIELD_SYMBOL] = $this->symbol;
+            $result[FieldHelper::FIELD_SYMBOL] = $this->symbol;
         }
         if ($this->startTime) {
             $result[self::FIELD_START_TIME] = $this->startTime;

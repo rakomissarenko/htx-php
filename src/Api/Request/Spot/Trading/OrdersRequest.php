@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -19,37 +20,6 @@ class OrdersRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/orders';
 
-    private const TYPE_BUY_IOC = 'buy-ioc';
-    private const TYPE_BUY_LIMIT = 'buy-limit';
-    private const TYPE_BUY_LIMIT_FOK = 'buy-limit-fok';
-    private const TYPE_BUY_LIMIT_MARKET = 'buy-limit-maker';
-    private const TYPE_BUY_MARKET = 'buy-market';
-    private const TYPE_BUY_STOP_LIMIT = 'buy-stop-limit';
-    private const TYPE_BUY_STOP_LIMIT_FOK = 'buy-stop-limit-fok';
-    private const TYPE_SELL_IOC = 'sell-ioc';
-    private const TYPE_SELL_LIMIT = 'sell-limit';
-    private const TYPE_SELL_LIMIT_FOK = 'sell-limit-fok';
-    private const TYPE_SELL_LIMIT_MARKET = 'sell-limit-maker';
-    private const TYPE_SELL_MARKET = 'sell-market';
-    private const TYPE_SELL_STOP_LIMIT = 'sell-stop-limit';
-    private const TYPE_SELL_STOP_LIMIT_FOK = 'sell-stop-limit-fok';
-    private const TYPES = [
-        self::TYPE_BUY_IOC,
-        self::TYPE_BUY_LIMIT,
-        self::TYPE_BUY_LIMIT_FOK,
-        self::TYPE_BUY_LIMIT_MARKET,
-        self::TYPE_BUY_MARKET,
-        self::TYPE_BUY_STOP_LIMIT,
-        self::TYPE_BUY_STOP_LIMIT_FOK,
-        self::TYPE_SELL_IOC,
-        self::TYPE_SELL_LIMIT,
-        self::TYPE_SELL_LIMIT_FOK,
-        self::TYPE_SELL_LIMIT_MARKET,
-        self::TYPE_SELL_MARKET,
-        self::TYPE_SELL_STOP_LIMIT,
-        self::TYPE_SELL_STOP_LIMIT_FOK,
-    ];
-
     private const STATE_CANCELED = 'canceled';
     private const STATE_FILLED = 'filled';
     private const STATE_PARTIAL_CANCELED = 'partial-canceled';
@@ -57,13 +27,6 @@ class OrdersRequest extends AbstractRequest
         self::STATE_CANCELED,
         self::STATE_FILLED,
         self::STATE_PARTIAL_CANCELED,
-    ];
-
-    private const DIRECT_NEXT = 'next';
-    private const DIRECT_PREV = 'prev';
-    private const DIRECTS = [
-        self::DIRECT_NEXT,
-        self::DIRECT_PREV,
     ];
 
     private const TIME_MIN = 180 * 24 * 3600 * 1000;
@@ -131,7 +94,7 @@ class OrdersRequest extends AbstractRequest
                 if (!is_scalar($type)) {
                     $this->throwValidateException(self::FIELD_TYPES);
                 }
-                $this->validateList($type, self::FIELD_TYPES, self::TYPES);
+                $this->validateList($type, self::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
         if ($this->startTime) {
@@ -170,7 +133,7 @@ class OrdersRequest extends AbstractRequest
             }
         }
         if ($this->direct) {
-            $this->validateList($this->direct, self::FIELD_DIRECT, self::DIRECTS);
+            $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
             $this->validateRange(

@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -17,13 +18,6 @@ class RepayInfoRequest extends AbstractRequest
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/repayment';
-
-    private const SORT_ASC = 'asc';
-    private const SORT_DESC = 'desc';
-    private const SORTS = [
-        self::SORT_ASC,
-        self::SORT_DESC,
-    ];
 
     private const LIMIT_MIN = 1;
     private const LIMIT_MAX = 100;
@@ -89,7 +83,7 @@ class RepayInfoRequest extends AbstractRequest
             $this->validateInteger($this->endTime, self::FIELD_END_TIME);
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, self::SORTS);
+            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(

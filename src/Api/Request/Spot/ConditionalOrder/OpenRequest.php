@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\ConditionalOrder;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -18,25 +19,11 @@ class OpenRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/opening';
 
-    private const ORDER_SIDE_BUY = 'buy';
-    private const ORDER_SIDE_SELL = 'sell';
-    private const ORDER_SIDES = [
-        self::ORDER_SIDE_BUY,
-        self::ORDER_SIDE_SELL,
-    ];
-
     private const ORDER_TYPE_LIMIT = 'limit';
     private const ORDER_TYPE_MARKET = 'market';
     private const ORDER_TYPES = [
         self::ORDER_TYPE_LIMIT,
         self::ORDER_TYPE_MARKET,
-    ];
-
-    private const SORT_ASC = 'asc';
-    private const SORT_DESC = 'desc';
-    private const SORTS = [
-        self::SORT_ASC,
-        self::SORT_DESC,
     ];
 
     private const LIMIT_MIN = 1;
@@ -73,10 +60,10 @@ class OpenRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateList($this->orderSide, self::FIELD_ORDER_SIDE, self::ORDER_SIDES);
+        $this->validateList($this->orderSide, self::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         $this->validateList($this->orderType, self::FIELD_ORDER_TYPE, self::ORDER_TYPES);
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, self::SORTS);
+            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(

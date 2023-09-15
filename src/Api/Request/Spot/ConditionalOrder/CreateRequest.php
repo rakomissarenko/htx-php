@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\ConditionalOrder;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -20,13 +21,6 @@ class CreateRequest extends AbstractRequest
 
     protected const PATH = '/v2/algo-orders';
     protected const PERMISSION = self::PERMISSION_TRADE;
-
-    private const ORDER_SIDE_BUY = 'buy';
-    private const ORDER_SIDE_SELL = 'sell';
-    private const ORDER_SIDES = [
-        self::ORDER_SIDE_BUY,
-        self::ORDER_SIDE_SELL,
-    ];
 
     private const ORDER_TYPE_LIMIT = 'limit';
     private const ORDER_TYPE_MARKET = 'market';
@@ -101,7 +95,7 @@ class CreateRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateList($this->orderSide, self::FIELD_ORDER_SIDE, self::ORDER_SIDES);
+        $this->validateList($this->orderSide, self::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         $this->validateList($this->orderType, self::FIELD_ORDER_TYPE, self::ORDER_TYPES);
         $this->validateSize($this->clientOrderId, self::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
@@ -112,13 +106,13 @@ class CreateRequest extends AbstractRequest
         }
         if ($this->orderSize) {
             $this->validateNumeric($this->orderSize, self::FIELD_ORDER_SIZE);
-            if ($this->orderType === self::ORDER_TYPE_MARKET && $this->orderSide === self::ORDER_SIDE_BUY) {
+            if ($this->orderType === self::ORDER_TYPE_MARKET && $this->orderSide === EnumHelper::ORDER_SIDE_BUY) {
                 $this->throwValidateException(self::FIELD_ORDER_SIZE);
             }
         }
         if ($this->orderValue) {
             $this->validateNumeric($this->orderValue, self::FIELD_ORDER_VALUE);
-            if ($this->orderType !== self::ORDER_TYPE_MARKET || $this->orderSide !== self::ORDER_SIDE_BUY) {
+            if ($this->orderType !== self::ORDER_TYPE_MARKET || $this->orderSide !== EnumHelper::ORDER_SIDE_BUY) {
                 $this->throwValidateException(self::FIELD_ORDER_SIZE);
             }
         }

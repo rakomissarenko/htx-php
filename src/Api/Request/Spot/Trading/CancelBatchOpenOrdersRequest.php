@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -17,44 +18,6 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
     protected const PERMISSION = self::PERMISSION_TRADE;
 
     private const SYMBOLS_SIZE = 10;
-
-    private const TYPE_BUY_IOC = 'buy-ioc';
-    private const TYPE_BUY_LIMIT = 'buy-limit';
-    private const TYPE_BUY_LIMIT_FOK = 'buy-limit-fok';
-    private const TYPE_BUY_LIMIT_MARKET = 'buy-limit-maker';
-    private const TYPE_BUY_MARKET = 'buy-market';
-    private const TYPE_BUY_STOP_LIMIT = 'buy-stop-limit';
-    private const TYPE_BUY_STOP_LIMIT_FOK = 'buy-stop-limit-fok';
-    private const TYPE_SELL_IOC = 'sell-ioc';
-    private const TYPE_SELL_LIMIT = 'sell-limit';
-    private const TYPE_SELL_LIMIT_FOK = 'sell-limit-fok';
-    private const TYPE_SELL_LIMIT_MARKET = 'sell-limit-maker';
-    private const TYPE_SELL_MARKET = 'sell-market';
-    private const TYPE_SELL_STOP_LIMIT = 'sell-stop-limit';
-    private const TYPE_SELL_STOP_LIMIT_FOK = 'sell-stop-limit-fok';
-    private const TYPES = [
-        self::TYPE_BUY_IOC,
-        self::TYPE_BUY_LIMIT,
-        self::TYPE_BUY_LIMIT_FOK,
-        self::TYPE_BUY_LIMIT_MARKET,
-        self::TYPE_BUY_MARKET,
-        self::TYPE_BUY_STOP_LIMIT,
-        self::TYPE_BUY_STOP_LIMIT_FOK,
-        self::TYPE_SELL_IOC,
-        self::TYPE_SELL_LIMIT,
-        self::TYPE_SELL_LIMIT_FOK,
-        self::TYPE_SELL_LIMIT_MARKET,
-        self::TYPE_SELL_MARKET,
-        self::TYPE_SELL_STOP_LIMIT,
-        self::TYPE_SELL_STOP_LIMIT_FOK,
-    ];
-
-    private const SIDE_BUY = 'buy';
-    private const SIDE_SELL = 'sell';
-    private const SIDES = [
-        self::SIDE_BUY,
-        self::SIDE_SELL,
-    ];
 
     private const SIZE_MIN = 1;
     private const SIZE_MAX = 100;
@@ -106,11 +69,11 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
                 if (!is_scalar($type)) {
                     $this->throwValidateException(self::FIELD_TYPES);
                 }
-                $this->validateList((string) $type, self::FIELD_TYPES, self::TYPES);
+                $this->validateList((string) $type, self::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
         if ($this->side) {
-            $this->validateList($this->side, self::FIELD_SIDE, self::SIDES);
+            $this->validateList($this->side, self::FIELD_SIDE, EnumHelper::ORDER_SIDES);
         }
         if ($this->size) {
             $this->validateRange(

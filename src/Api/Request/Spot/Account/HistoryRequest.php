@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -51,13 +52,6 @@ class HistoryRequest extends AbstractRequest
 
     private const TIME_MIN = 30 * 24 * 3600 * 1000;
     private const TIME_RANGE_MAX = 3600 * 1000;
-
-    private const SORT_ASC = 'asc';
-    private const SORT_DESC = 'desc';
-    private const SORTS = [
-        self::SORT_ASC,
-        self::SORT_DESC,
-    ];
 
     private const SIZE_MIN = 1;
     private const SIZE_MAX = 500;
@@ -152,7 +146,7 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, self::SORTS);
+            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->size) {
             $this->validateRange($this->size, self::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);

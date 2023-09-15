@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Wallet;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -24,13 +25,6 @@ class SearchRequest extends AbstractRequest
 
     private const SIZE_MIN = 1;
     private const SIZE_MAX = 500;
-
-    private const DIRECT_PREV = 'prev';
-    private const DIRECT_NEXT = 'next';
-    private const DIRECTS = [
-        self::DIRECT_PREV,
-        self::DIRECT_NEXT,
-    ];
 
     private ?string $currency = null;
     private ?string $type = null;
@@ -80,7 +74,7 @@ class SearchRequest extends AbstractRequest
             );
         }
         if ($this->direct) {
-            $this->validateList($this->direct, self::FIELD_DIRECT, self::DIRECTS);
+            $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
     }
 

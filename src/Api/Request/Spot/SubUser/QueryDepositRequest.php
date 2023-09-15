@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -18,13 +19,6 @@ class QueryDepositRequest extends AbstractRequest
     protected const PATH = '/v2/sub-user/query-deposit';
 
     private const TIME_MIN = 30 * 24 * 3600 * 1000;
-
-    private const SORT_ASC = 'asc';
-    private const SORT_DESC = 'desc';
-    private const SORTS = [
-        self::SORT_ASC,
-        self::SORT_DESC,
-    ];
 
     private const LIMIT_MIN = 1;
     private const LIMIT_MAX = 500;
@@ -87,7 +81,7 @@ class QueryDepositRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, self::SORTS);
+            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(
