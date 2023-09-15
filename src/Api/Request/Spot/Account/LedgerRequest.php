@@ -1,0 +1,169 @@
+<?php
+
+namespace Feralonso\Htx\Api\Request\Spot\Account;
+
+use Feralonso\Htx\Api\Request\AbstractRequest;
+use Feralonso\Htx\Exceptions\HtxValidateException;
+
+class LedgerRequest extends AbstractRequest
+{
+    private const FIELD_ACCOUNT_ID = 'accountId';
+    private const FIELD_TRANSACT_TYPES = 'transactTypes';
+    private const FIELD_START_TIME = 'startTime';
+    private const FIELD_END_TIME = 'endTime';
+    private const FIELD_SORT = 'sort';
+    private const FIELD_LIMIT = 'limit';
+    private const FIELD_FROM_ID = 'fromId';
+
+    protected const METHOD = self::METHOD_GET;
+    protected const PATH = '/v2/account/ledger';
+
+    private const TYPE_TRANSFER = 'transfer';
+    private const TYPES = [
+        self::TYPE_TRANSFER,
+    ];
+
+    private const TIME_MIN = 180 * 24 * 3600 * 1000;
+    private const TIME_RANGE_MAX = 10 * 24 * 3600 * 1000;
+
+    private const SORT_ASC = 'asc';
+    private const SORT_DESC = 'desc';
+    private const SORTS = [
+        self::SORT_ASC,
+        self::SORT_DESC,
+    ];
+
+    private const LIMIT_MIN = 1;
+    private const LIMIT_MAX = 500;
+
+    private ?string $accountId = null;
+    private ?string $currency = null;
+    private ?array $transactTypes = null;
+    private ?string $startTime = null;
+    private ?string $endTime = null;
+    private ?string $sort = null;
+    private ?int $limit = null;
+    private ?string $fromId = null;
+
+    public function setAccountId(?string $accountId): void
+    {
+        $this->accountId = $accountId;
+    }
+
+    public function setCurrency(?string $currency): void
+    {
+        $this->currency = $currency;
+    }
+
+    public function setTransactTypes(?array $transactTypes): void
+    {
+        $this->transactTypes = $transactTypes;
+    }
+
+    public function setStartTime(?string $startTime): void
+    {
+        $this->startTime = $startTime;
+    }
+
+    public function setEndTime(?string $endTime): void
+    {
+        $this->endTime = $endTime;
+    }
+
+    public function setSort(?string $sort): void
+    {
+        $this->sort = $sort;
+    }
+
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
+
+    public function setFromId(?string $fromId): void
+    {
+        $this->fromId = $fromId;
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    public function validate(): void
+    {
+        if ($this->transactTypes) {
+            foreach ($this->transactTypes as $type) {
+                if (!is_scalar($type)) {
+                    $this->throwValidateException(self::FIELD_TRANSACT_TYPES);
+                }
+                $this->validateList((string) $type, self::FIELD_TRANSACT_TYPES, self::TYPES);
+            }
+        }
+        if ($this->startTime) {
+            $this->validateInteger($this->startTime, self::FIELD_START_TIME);
+            $this->validateRange(
+                $this->startTime,
+                self::FIELD_START_TIME,
+                (string) (microtime(true) * 1000 - self::TIME_MIN),
+                (string) (microtime(true) * 1000),
+            );
+        }
+        if ($this->endTime) {
+            $this->validateInteger($this->endTime, self::FIELD_END_TIME);
+            if ($this->startTime) {
+                $this->validateRange(
+                    $this->startTime,
+                    self::FIELD_START_TIME,
+                    (string) $this->startTime,
+                    (string) ($this->startTime + self::TIME_RANGE_MAX),
+                );
+            } else {
+                $this->validateRange(
+                    $this->endTime,
+                    self::FIELD_END_TIME,
+                    (string) (microtime(true) * 1000 - self::TIME_MIN + self::TIME_RANGE_MAX),
+                    (string) (microtime(true) * 1000),
+                );
+            }
+        }
+        if ($this->sort) {
+            $this->validateList($this->sort, self::FIELD_SORT, self::SORTS);
+        }
+        if ($this->limit) {
+            $this->validateRange($this->limit, self::FIELD_LIMIT, (string) self::LIMIT_MIN, (string) self::LIMIT_MAX);
+        }
+        if ($this->fromId) {
+            $this->validateInteger($this->fromId, self::FIELD_FROM_ID);
+        }
+    }
+
+    public function toArray(): array
+    {
+        $result = [];
+        if ($this->accountId) {
+            $result[self::FIELD_ACCOUNT_ID] = $this->accountId;
+        }
+        if ($this->currency) {
+            $result[self::FIELD_CURRENCY] = $this->currency;
+        }
+        if ($this->transactTypes) {
+            $result[self::FIELD_TRANSACT_TYPES] = implode(',', $this->transactTypes);
+        }
+        if ($this->startTime) {
+            $result[self::FIELD_START_TIME] = $this->startTime;
+        }
+        if ($this->endTime) {
+            $result[self::FIELD_END_TIME] = $this->endTime;
+        }
+        if ($this->sort) {
+            $result[self::FIELD_SORT] = $this->sort;
+        }
+        if ($this->limit) {
+            $result[self::FIELD_LIMIT] = $this->limit;
+        }
+        if ($this->fromId) {
+            $result[self::FIELD_FROM_ID] = $this->fromId;
+        }
+
+        return $result;
+    }
+}
