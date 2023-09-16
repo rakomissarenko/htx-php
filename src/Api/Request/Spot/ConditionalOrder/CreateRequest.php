@@ -96,7 +96,7 @@ class CreateRequest extends AbstractRequest
     {
         $this->validateList($this->orderSide, self::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         $this->validateList($this->orderType, self::FIELD_ORDER_TYPE, self::ORDER_TYPES);
-        $this->validateSize($this->clientOrderId, self::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
+        $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
             $this->validateNumeric($this->orderPrice, self::FIELD_ORDER_PRICE);
             if ($this->orderType === self::ORDER_TYPE_MARKET) {
@@ -141,11 +141,11 @@ class CreateRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
-            FieldHelper::FIELD_SYMBOL     => $this->symbol,
-            self::FIELD_ORDER_SIDE        => $this->orderSide,
-            self::FIELD_ORDER_TYPE        => $this->orderType,
-            self::FIELD_CLIENT_ORDER_ID   => $this->clientOrderId,
+            FieldHelper::FIELD_ACCOUNT_ID      => $this->accountId,
+            FieldHelper::FIELD_SYMBOL          => $this->symbol,
+            self::FIELD_ORDER_SIDE             => $this->orderSide,
+            self::FIELD_ORDER_TYPE             => $this->orderType,
+            FieldHelper::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
         ];
         if ($this->orderPrice) {
             $result[self::FIELD_ORDER_PRICE] = $this->orderPrice;

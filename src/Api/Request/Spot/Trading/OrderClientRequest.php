@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class OrderClientRequest extends AbstractRequest
@@ -14,7 +15,7 @@ class OrderClientRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
+            FieldHelper::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
         ];
     }
 }

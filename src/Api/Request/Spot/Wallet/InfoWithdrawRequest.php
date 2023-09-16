@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Wallet;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -20,13 +21,13 @@ class InfoWithdrawRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateSize($this->clientOrderId, self::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_MAX_SIZE);
+        $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_MAX_SIZE);
     }
 
     public function toArray(): array
     {
         return [
-            self::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
+            FieldHelper::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
         ];
     }
 }

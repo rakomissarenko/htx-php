@@ -47,11 +47,11 @@ class TransferRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_SUB_UID         => $this->subUid,
-            FieldHelper::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT          => $this->amount,
-            self::FIELD_TYPE            => $this->type,
-            self::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
+            self::FIELD_SUB_UID                => $this->subUid,
+            FieldHelper::FIELD_CURRENCY        => $this->currency,
+            self::FIELD_AMOUNT                 => $this->amount,
+            self::FIELD_TYPE                   => $this->type,
+            FieldHelper::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
         ];
     }
 }

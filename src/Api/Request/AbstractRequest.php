@@ -6,8 +6,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 abstract class AbstractRequest implements RequestInterface
 {
-    protected const FIELD_CLIENT_ORDER_ID = 'clientOrderId';
-
     protected const METHOD_GET = 'GET';
     private const METHOD_POST = 'POST';
 
