@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class QueryDepositRequest extends AbstractRequest
 {
     private const FIELD_SUB_UID = 'subUid';
-    private const FIELD_END_TIME = 'endTime';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/sub-user/query-deposit';
@@ -72,9 +71,9 @@ class QueryDepositRequest extends AbstractRequest
             );
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, self::FIELD_END_TIME);
+            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
             if ($this->startTime && $this->startTime > $this->endTime) {
-                $this->throwValidateException(self::FIELD_END_TIME);
+                $this->throwValidateException(FieldHelper::FIELD_END_TIME);
             }
         }
         if ($this->sort) {
@@ -103,7 +102,7 @@ class QueryDepositRequest extends AbstractRequest
             $result[FieldHelper::FIELD_START_TIME] = $this->startTime;
         }
         if ($this->endTime) {
-            $result[self::FIELD_END_TIME] = $this->endTime;
+            $result[FieldHelper::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->sort) {
             $result[FieldHelper::FIELD_SORT] = $this->sort;

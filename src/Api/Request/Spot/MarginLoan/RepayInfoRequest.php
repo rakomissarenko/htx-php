@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class RepayInfoRequest extends AbstractRequest
 {
-    private const FIELD_END_TIME = 'endTime';
     private const FIELD_REPAY_ID = 'repayId';
 
     protected const METHOD = self::METHOD_GET;
@@ -76,7 +75,7 @@ class RepayInfoRequest extends AbstractRequest
             $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, self::FIELD_END_TIME);
+            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
         }
         if ($this->sort) {
             $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
@@ -110,7 +109,7 @@ class RepayInfoRequest extends AbstractRequest
             $result[FieldHelper::FIELD_START_TIME] = $this->startTime;
         }
         if ($this->endTime) {
-            $result[self::FIELD_END_TIME] = $this->endTime;
+            $result[FieldHelper::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->sort) {
             $result[FieldHelper::FIELD_SORT] = $this->sort;
