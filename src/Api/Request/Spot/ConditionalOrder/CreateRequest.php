@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -15,7 +16,6 @@ class CreateRequest extends AbstractRequest
     private const FIELD_ORDER_TYPE = 'orderType';
     private const FIELD_ORDER_VALUE = 'orderValue';
     private const FIELD_STOP_PRICE = 'stopPrice';
-    private const FIELD_SYMBOL = 'symbol';
     private const FIELD_TIME_IN_FORCE = 'timeInForce';
     private const FIELD_TRAILING_RATE = 'trailingRate';
 
@@ -143,7 +143,7 @@ class CreateRequest extends AbstractRequest
     {
         $result = [
             self::FIELD_ACCOUNT_ID      => $this->accountId,
-            self::FIELD_SYMBOL          => $this->symbol,
+            FieldHelper::FIELD_SYMBOL   => $this->symbol,
             self::FIELD_ORDER_SIDE      => $this->orderSide,
             self::FIELD_ORDER_TYPE      => $this->orderType,
             self::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,

@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -11,7 +12,6 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
     private const FIELD_ACCOUNT_ID = 'account-id';
     private const FIELD_SIDE = 'side';
     private const FIELD_SIZE = 'size';
-    private const FIELD_SYMBOL = 'symbol';
     private const FIELD_TYPES = 'types';
 
     protected const PATH = '/v1/order/orders/batchCancelOpenOrders';
@@ -56,11 +56,11 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
     {
         if ($this->symbols) {
             if (count($this->symbols) > self::SYMBOLS_SIZE) {
-                $this->throwValidateException(self::FIELD_SYMBOL);
+                $this->throwValidateException(FieldHelper::FIELD_SYMBOL);
             }
             foreach ($this->symbols as $symbol) {
                 if (!is_scalar($symbol)) {
-                    $this->throwValidateException(self::FIELD_SYMBOL);
+                    $this->throwValidateException(FieldHelper::FIELD_SYMBOL);
                 }
             }
         }
@@ -91,7 +91,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
             self::FIELD_ACCOUNT_ID => $this->accountId,
         ];
         if ($this->symbols) {
-            $result[self::FIELD_SYMBOL] = implode(',', $this->symbols);
+            $result[FieldHelper::FIELD_SYMBOL] = implode(',', $this->symbols);
         }
         if ($this->types) {
             $result[self::FIELD_TYPES] = implode(',', $this->types);

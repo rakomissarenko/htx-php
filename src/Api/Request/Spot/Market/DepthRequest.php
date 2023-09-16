@@ -2,13 +2,13 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Market;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class DepthRequest extends AbstractRequest
 {
     private const FIELD_DEPTH = 'depth';
-    private const FIELD_SYMBOL = 'symbol';
     private const FIELD_TYPE = 'type';
 
     protected const METHOD = self::METHOD_GET;
@@ -69,7 +69,7 @@ class DepthRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_SYMBOL => $this->symbol,
+            FieldHelper::FIELD_SYMBOL => $this->symbol,
         ];
         if ($this->depth) {
             $result[self::FIELD_DEPTH] = $this->depth;

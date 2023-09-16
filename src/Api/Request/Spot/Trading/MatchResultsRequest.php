@@ -3,12 +3,12 @@
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class MatchResultsRequest extends AbstractRequest
 {
-    private const FIELD_SYMBOL = 'symbol';
     private const FIELD_TYPES = 'types';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
@@ -125,7 +125,7 @@ class MatchResultsRequest extends AbstractRequest
     {
         $result = [];
         if ($this->symbol) {
-            $result[self::FIELD_SYMBOL] = $this->symbol;
+            $result[FieldHelper::FIELD_SYMBOL] = $this->symbol;
         }
         if ($this->types) {
             $result[self::FIELD_TYPES] = implode(',', $this->types);

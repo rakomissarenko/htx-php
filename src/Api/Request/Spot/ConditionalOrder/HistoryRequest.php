@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -17,7 +18,6 @@ class HistoryRequest extends AbstractRequest
     private const FIELD_ORDER_TYPE = 'orderType';
     private const FIELD_SORT = 'sort';
     private const FIELD_START_TIME = 'startTime';
-    private const FIELD_SYMBOL = 'symbol';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/history';
@@ -97,8 +97,8 @@ class HistoryRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID => $this->accountId,
-            self::FIELD_SYMBOL     => $this->symbol,
+            self::FIELD_ACCOUNT_ID    => $this->accountId,
+            FieldHelper::FIELD_SYMBOL => $this->symbol,
         ];
         if ($this->orderSide) {
             $result[self::FIELD_ORDER_SIDE] = $this->orderSide;

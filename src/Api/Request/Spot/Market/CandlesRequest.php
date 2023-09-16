@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Market;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -9,7 +10,6 @@ class CandlesRequest extends AbstractRequest
 {
     private const FIELD_PERIOD = 'period';
     private const FIELD_SIZE = 'size';
-    private const FIELD_SYMBOL = 'symbol';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/market/history/kline';
@@ -71,8 +71,8 @@ class CandlesRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_SYMBOL => $this->symbol,
-            self::FIELD_PERIOD => $this->period,
+            FieldHelper::FIELD_SYMBOL => $this->symbol,
+            self::FIELD_PERIOD        => $this->period,
         ];
         if ($this->size) {
             $result[self::FIELD_SIZE] = $this->size;

@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -13,7 +14,6 @@ class OpenOrdersRequest extends AbstractRequest
     private const FIELD_FROM = 'from';
     private const FIELD_SIDE = 'side';
     private const FIELD_SIZE = 'size';
-    private const FIELD_SYMBOL = 'symbol';
     private const FIELD_TYPES = 'types';
 
     protected const METHOD = self::METHOD_GET;
@@ -83,9 +83,9 @@ class OpenOrdersRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID => $this->accountId,
-            self::FIELD_SYMBOL     => $this->symbol,
-            self::FIELD_SIDE       => $this->side,
+            self::FIELD_ACCOUNT_ID    => $this->accountId,
+            FieldHelper::FIELD_SYMBOL => $this->symbol,
+            self::FIELD_SIDE          => $this->side,
         ];
         if ($this->types) {
             $result[self::FIELD_TYPES] = implode(',', $this->types);

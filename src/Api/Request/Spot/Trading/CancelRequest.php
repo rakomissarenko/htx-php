@@ -2,12 +2,12 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class CancelRequest extends AbstractRequest
 {
     private const FIELD_ORDER_ID = 'order-id';
-    private const FIELD_SYMBOL = 'symbol';
 
     protected const PATH = '/v1/order/orders/';
     private const PATH_AFTER = '/submitcancel';
@@ -26,8 +26,8 @@ class CancelRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_ORDER_ID => $this->orderId,
-            self::FIELD_SYMBOL   => $this->symbol,
+            self::FIELD_ORDER_ID      => $this->orderId,
+            FieldHelper::FIELD_SYMBOL => $this->symbol,
         ];
     }
 }

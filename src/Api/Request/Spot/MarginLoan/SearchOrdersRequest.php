@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -15,7 +16,6 @@ class SearchOrdersRequest extends AbstractRequest
     private const FIELD_START_DATE = 'start-date';
     private const FIELD_STATES = 'states';
     private const FIELD_SUB_UID = 'sub-uid';
-    private const FIELD_SYMBOL = 'symbol';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/margin/loan-orders';
@@ -121,7 +121,7 @@ class SearchOrdersRequest extends AbstractRequest
     {
         $result = [];
         if ($this->symbol) {
-            $result[self::FIELD_SYMBOL] = $this->symbol;
+            $result[FieldHelper::FIELD_SYMBOL] = $this->symbol;
         }
         if ($this->states) {
             $result[self::FIELD_STATES] = implode(',', $this->states);

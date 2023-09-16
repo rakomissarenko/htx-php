@@ -2,13 +2,13 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferInMarginRequest extends AbstractRequest
 {
     private const FIELD_AMOUNT = 'amount';
-    private const FIELD_SYMBOL = 'symbol';
 
     protected const PATH = '/v1/dw/transfer-in/margin';
     protected const PERMISSION = self::PERMISSION_TRADE;
@@ -30,9 +30,9 @@ class TransferInMarginRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_SYMBOL   => $this->symbol,
-            self::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT   => $this->amount,
+            FieldHelper::FIELD_SYMBOL => $this->symbol,
+            self::FIELD_CURRENCY      => $this->currency,
+            self::FIELD_AMOUNT        => $this->amount,
         ];
     }
 }
