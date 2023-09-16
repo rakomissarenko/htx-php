@@ -2,12 +2,12 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class RepayRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'accountId';
     private const FIELD_AMOUNT = 'amount';
     private const FIELD_TRANSACT_ID = 'transactId';
 
@@ -32,10 +32,10 @@ class RepayRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_ACCOUNT_ID  => $this->accountId,
-            self::FIELD_CURRENCY    => $this->currency,
-            self::FIELD_AMOUNT      => $this->amount,
-            self::FIELD_TRANSACT_ID => $this->transactId,
+            FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
+            self::FIELD_CURRENCY          => $this->currency,
+            self::FIELD_AMOUNT            => $this->amount,
+            self::FIELD_TRANSACT_ID       => $this->transactId,
         ];
     }
 }

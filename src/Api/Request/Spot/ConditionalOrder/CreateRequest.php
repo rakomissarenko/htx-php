@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CreateRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'accountId';
     private const FIELD_ORDER_PRICE = 'orderPrice';
     private const FIELD_ORDER_SIDE = 'orderSide';
     private const FIELD_ORDER_SIZE = 'orderSize';
@@ -142,11 +141,11 @@ class CreateRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID      => $this->accountId,
-            FieldHelper::FIELD_SYMBOL   => $this->symbol,
-            self::FIELD_ORDER_SIDE      => $this->orderSide,
-            self::FIELD_ORDER_TYPE      => $this->orderType,
-            self::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
+            FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
+            FieldHelper::FIELD_SYMBOL     => $this->symbol,
+            self::FIELD_ORDER_SIDE        => $this->orderSide,
+            self::FIELD_ORDER_TYPE        => $this->orderType,
+            self::FIELD_CLIENT_ORDER_ID   => $this->clientOrderId,
         ];
         if ($this->orderPrice) {
             $result[self::FIELD_ORDER_PRICE] = $this->orderPrice;

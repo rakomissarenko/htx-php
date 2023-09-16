@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OpenRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'accountId';
     private const FIELD_ORDER_SIDE = 'orderSide';
     private const FIELD_ORDER_TYPE = 'orderType';
     private const FIELD_SORT = 'sort';
@@ -78,10 +77,10 @@ class OpenRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID    => $this->accountId,
-            FieldHelper::FIELD_SYMBOL => $this->symbol,
-            self::FIELD_ORDER_SIDE    => $this->orderSide,
-            self::FIELD_ORDER_TYPE    => $this->orderType,
+            FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
+            FieldHelper::FIELD_SYMBOL     => $this->symbol,
+            self::FIELD_ORDER_SIDE        => $this->orderSide,
+            self::FIELD_ORDER_TYPE        => $this->orderType,
         ];
         if ($this->sort) {
             $result[self::FIELD_SORT] = $this->sort;

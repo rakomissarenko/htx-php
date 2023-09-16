@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class HistoryRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'accountId';
     private const FIELD_END_TIME = 'endTime';
     private const FIELD_FROM_ID = 'fromId';
     private const FIELD_LIMIT = 'limit';
@@ -97,8 +96,8 @@ class HistoryRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID    => $this->accountId,
-            FieldHelper::FIELD_SYMBOL => $this->symbol,
+            FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
+            FieldHelper::FIELD_SYMBOL     => $this->symbol,
         ];
         if ($this->orderSide) {
             $result[self::FIELD_ORDER_SIDE] = $this->orderSide;

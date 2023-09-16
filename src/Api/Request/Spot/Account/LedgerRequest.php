@@ -3,12 +3,12 @@
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class LedgerRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'accountId';
     private const FIELD_TRANSACT_TYPES = 'transactTypes';
     private const FIELD_START_TIME = 'startTime';
     private const FIELD_END_TIME = 'endTime';
@@ -134,7 +134,7 @@ class LedgerRequest extends AbstractRequest
     {
         $result = [];
         if ($this->accountId) {
-            $result[self::FIELD_ACCOUNT_ID] = $this->accountId;
+            $result[FieldHelper::FIELD_ACCOUNT_ID] = $this->accountId;
         }
         if ($this->currency) {
             $result[self::FIELD_CURRENCY] = $this->currency;

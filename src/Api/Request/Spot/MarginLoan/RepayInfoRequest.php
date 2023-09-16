@@ -3,12 +3,12 @@
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class RepayInfoRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'accountId';
     private const FIELD_END_TIME = 'endTime';
     private const FIELD_FROM_ID = 'fromId';
     private const FIELD_LIMIT = 'limit';
@@ -105,7 +105,7 @@ class RepayInfoRequest extends AbstractRequest
             $result[self::FIELD_REPAY_ID] = $this->repayId;
         }
         if ($this->accountId) {
-            $result[self::FIELD_ACCOUNT_ID] = $this->accountId;
+            $result[FieldHelper::FIELD_ACCOUNT_ID] = $this->accountId;
         }
         if ($this->currency) {
             $result[self::FIELD_CURRENCY] = $this->currency;
