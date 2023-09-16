@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -9,7 +10,6 @@ class TradableMarketRequest extends AbstractRequest
 {
     private const FIELD_ACCOUNT_TYPE = 'accountType';
     private const FIELD_ACTIVATION = 'activation';
-    private const FIELD_SUB_UIDS = 'subUids';
 
     protected const PATH = '/v2/sub-user/tradable-market';
     protected const PERMISSION = self::PERMISSION_TRADE;
@@ -42,10 +42,10 @@ class TradableMarketRequest extends AbstractRequest
     public function validate(): void
     {
         foreach ($this->subUids as $subUid) {
-            $this->validateInteger((string) $subUid, self::FIELD_SUB_UIDS);
+            $this->validateInteger((string) $subUid, FieldHelper::FIELD_SUB_UIDS);
         }
         if (count($this->subUids) > self::SUB_UIDS_SIZE) {
-            $this->throwValidateException(self::FIELD_SUB_UIDS);
+            $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
         $this->validateList($this->accountType, self::FIELD_ACCOUNT_TYPE, self::ACCOUNT_TYPES);
         $this->validateList($this->activation, self::FIELD_ACTIVATION, self::ACTIVATIONS);
@@ -54,9 +54,9 @@ class TradableMarketRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_SUB_UIDS     => implode(',', $this->subUids),
-            self::FIELD_ACCOUNT_TYPE => $this->accountType,
-            self::FIELD_ACTIVATION   => $this->activation,
+            FieldHelper::FIELD_SUB_UIDS => implode(',', $this->subUids),
+            self::FIELD_ACCOUNT_TYPE    => $this->accountType,
+            self::FIELD_ACTIVATION      => $this->activation,
         ];
     }
 }
