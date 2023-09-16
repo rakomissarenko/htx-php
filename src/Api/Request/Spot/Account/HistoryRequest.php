@@ -13,7 +13,6 @@ class HistoryRequest extends AbstractRequest
     private const FIELD_TRANSACT_TYPES = 'transact-types';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
-    private const FIELD_SIZE = 'size';
     private const FIELD_FROM_ID = 'from-id';
 
     protected const METHOD = self::METHOD_GET;
@@ -149,7 +148,7 @@ class HistoryRequest extends AbstractRequest
             $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->size) {
-            $this->validateRange($this->size, self::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
+            $this->validateRange($this->size, FieldHelper::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
         }
         if ($this->fromId) {
             $this->validateInteger($this->fromId, self::FIELD_FROM_ID);
@@ -178,7 +177,7 @@ class HistoryRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->size) {
-            $result[self::FIELD_SIZE] = $this->size;
+            $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
         if ($this->fromId) {
             $result[self::FIELD_FROM_ID] = $this->fromId;

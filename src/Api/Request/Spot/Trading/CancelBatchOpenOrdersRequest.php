@@ -11,7 +11,6 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
 {
     private const FIELD_ACCOUNT_ID = 'account-id';
     private const FIELD_SIDE = 'side';
-    private const FIELD_SIZE = 'size';
     private const FIELD_TYPES = 'types';
 
     protected const PATH = '/v1/order/orders/batchCancelOpenOrders';
@@ -78,7 +77,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
         if ($this->size) {
             $this->validateRange(
                 (string) $this->size,
-                self::FIELD_SIZE,
+                FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,
                 (string) self::SIZE_MAX,
             );
@@ -100,7 +99,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
             $result[self::FIELD_SIDE] = $this->side;
         }
         if ($this->size) {
-            $result[self::FIELD_SIZE] = $this->size;
+            $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
 
         return $result;

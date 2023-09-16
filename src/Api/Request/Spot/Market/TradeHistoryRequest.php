@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TradeHistoryRequest extends AbstractRequest
 {
-    private const FIELD_SIZE = 'size';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/market/history/trade';
 
@@ -33,7 +31,7 @@ class TradeHistoryRequest extends AbstractRequest
         if ($this->size) {
             $this->validateRange(
                 (string) $this->size,
-                self::FIELD_SIZE,
+                FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,
                 (string) self::SIZE_MAX,
             );
@@ -46,7 +44,7 @@ class TradeHistoryRequest extends AbstractRequest
             FieldHelper::FIELD_SYMBOL => $this->symbol,
         ];
         if ($this->size) {
-            $result[self::FIELD_SIZE] = $this->size;
+            $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
 
         return $result;

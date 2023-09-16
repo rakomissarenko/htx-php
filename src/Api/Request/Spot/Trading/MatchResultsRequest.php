@@ -14,7 +14,6 @@ class MatchResultsRequest extends AbstractRequest
     private const FIELD_END_TIME = 'end-time';
     private const FIELD_FROM = 'from';
     private const FIELD_DIRECT = 'direct';
-    private const FIELD_SIZE = 'size';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/matchresults';
@@ -114,7 +113,7 @@ class MatchResultsRequest extends AbstractRequest
         if ($this->size) {
             $this->validateRange(
                 (string) $this->size,
-                self::FIELD_SIZE,
+                FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,
                 (string) self::SIZE_MAX,
             );
@@ -143,7 +142,7 @@ class MatchResultsRequest extends AbstractRequest
             $result[self::FIELD_DIRECT] = $this->direct;
         }
         if ($this->size) {
-            $result[self::FIELD_SIZE] = $this->size;
+            $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
 
         return $result;

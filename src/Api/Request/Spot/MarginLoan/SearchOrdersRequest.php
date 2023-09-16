@@ -12,7 +12,6 @@ class SearchOrdersRequest extends AbstractRequest
     private const FIELD_DIRECT = 'direct';
     private const FIELD_END_DATE = 'end-date';
     private const FIELD_FROM = 'from';
-    private const FIELD_SIZE = 'size';
     private const FIELD_START_DATE = 'start-date';
     private const FIELD_STATES = 'states';
     private const FIELD_SUB_UID = 'sub-uid';
@@ -113,7 +112,7 @@ class SearchOrdersRequest extends AbstractRequest
             $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
-            $this->validateRange((string) $this->size, self::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);
+            $this->validateRange((string) $this->size, FieldHelper::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);
         }
     }
 
@@ -139,7 +138,7 @@ class SearchOrdersRequest extends AbstractRequest
             $result[self::FIELD_DIRECT] = $this->direct;
         }
         if ($this->size) {
-            $result[self::FIELD_SIZE] = $this->size;
+            $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
         if ($this->subUid) {
             $result[self::FIELD_SUB_UID] = $this->subUid;

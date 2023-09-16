@@ -9,6 +9,7 @@ class FieldHelper
     public const FIELD_CURRENCY = 'currency';
     public const FIELD_LIMIT = 'limit';
     public const FIELD_ORDER_SIDE = 'orderSide';
+    public const FIELD_SIZE = 'size';
     public const FIELD_SORT = 'sort';
     public const FIELD_SUB_UIDS = 'subUids';
     public const FIELD_SYMBOL = 'symbol';

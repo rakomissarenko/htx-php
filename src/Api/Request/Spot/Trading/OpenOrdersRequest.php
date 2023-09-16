@@ -13,7 +13,6 @@ class OpenOrdersRequest extends AbstractRequest
     private const FIELD_DIRECT = 'direct';
     private const FIELD_FROM = 'from';
     private const FIELD_SIDE = 'side';
-    private const FIELD_SIZE = 'size';
     private const FIELD_TYPES = 'types';
 
     protected const METHOD = self::METHOD_GET;
@@ -73,7 +72,7 @@ class OpenOrdersRequest extends AbstractRequest
         if ($this->size) {
             $this->validateRange(
                 (string) $this->size,
-                self::FIELD_SIZE,
+                FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,
                 (string) self::SIZE_MAX,
             );
@@ -97,7 +96,7 @@ class OpenOrdersRequest extends AbstractRequest
             $result[self::FIELD_DIRECT] = $this->direct;
         }
         if ($this->size) {
-            $result[self::FIELD_SIZE] = $this->size;
+            $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
 
         return $result;
