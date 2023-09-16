@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class LedgerRequest extends AbstractRequest
 {
     private const FIELD_TRANSACT_TYPES = 'transactTypes';
-    private const FIELD_START_TIME = 'startTime';
     private const FIELD_END_TIME = 'endTime';
 
     protected const METHOD = self::METHOD_GET;
@@ -90,10 +89,10 @@ class LedgerRequest extends AbstractRequest
             }
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, self::FIELD_START_TIME);
+            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
             $this->validateRange(
                 $this->startTime,
-                self::FIELD_START_TIME,
+                FieldHelper::FIELD_START_TIME,
                 (string) (microtime(true) * 1000 - self::TIME_MIN),
                 (string) (microtime(true) * 1000),
             );
@@ -103,7 +102,7 @@ class LedgerRequest extends AbstractRequest
             if ($this->startTime) {
                 $this->validateRange(
                     $this->startTime,
-                    self::FIELD_START_TIME,
+                    FieldHelper::FIELD_START_TIME,
                     (string) $this->startTime,
                     (string) ($this->startTime + self::TIME_RANGE_MAX),
                 );
@@ -140,7 +139,7 @@ class LedgerRequest extends AbstractRequest
             $result[self::FIELD_TRANSACT_TYPES] = implode(',', $this->transactTypes);
         }
         if ($this->startTime) {
-            $result[self::FIELD_START_TIME] = $this->startTime;
+            $result[FieldHelper::FIELD_START_TIME] = $this->startTime;
         }
         if ($this->endTime) {
             $result[self::FIELD_END_TIME] = $this->endTime;

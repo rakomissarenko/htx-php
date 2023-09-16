@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class QueryDepositRequest extends AbstractRequest
 {
     private const FIELD_SUB_UID = 'subUid';
-    private const FIELD_START_TIME = 'startTime';
     private const FIELD_END_TIME = 'endTime';
 
     protected const METHOD = self::METHOD_GET;
@@ -64,10 +63,10 @@ class QueryDepositRequest extends AbstractRequest
     {
         $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, self::FIELD_START_TIME);
+            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
             $this->validateRange(
                 $this->startTime,
-                self::FIELD_START_TIME,
+                FieldHelper::FIELD_START_TIME,
                 (string) (microtime(true) * 1000 - self::TIME_MIN),
                 (string) (microtime(true) * 1000),
             );
@@ -101,7 +100,7 @@ class QueryDepositRequest extends AbstractRequest
             FieldHelper::FIELD_CURRENCY => $this->currency,
         ];
         if ($this->startTime) {
-            $result[self::FIELD_START_TIME] = $this->startTime;
+            $result[FieldHelper::FIELD_START_TIME] = $this->startTime;
         }
         if ($this->endTime) {
             $result[self::FIELD_END_TIME] = $this->endTime;

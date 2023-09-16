@@ -12,7 +12,6 @@ class HistoryRequest extends AbstractRequest
     private const FIELD_END_TIME = 'endTime';
     private const FIELD_ORDER_STATUS = 'orderStatus';
     private const FIELD_ORDER_TYPE = 'orderType';
-    private const FIELD_START_TIME = 'startTime';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/history';
@@ -65,7 +64,7 @@ class HistoryRequest extends AbstractRequest
             $this->validateList($this->orderStatus, self::FIELD_ORDER_STATUS, self::ORDER_STATUSES);
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, self::FIELD_START_TIME);
+            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
         }
         if ($this->endTime) {
             $this->validateInteger($this->endTime, self::FIELD_END_TIME);
@@ -105,7 +104,7 @@ class HistoryRequest extends AbstractRequest
             $result[self::FIELD_ORDER_STATUS] = $this->orderStatus;
         }
         if ($this->startTime) {
-            $result[self::FIELD_START_TIME] = $this->startTime;
+            $result[FieldHelper::FIELD_START_TIME] = $this->startTime;
         }
         if ($this->endTime) {
             $result[self::FIELD_END_TIME] = $this->endTime;

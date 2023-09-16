@@ -11,7 +11,6 @@ class RepayInfoRequest extends AbstractRequest
 {
     private const FIELD_END_TIME = 'endTime';
     private const FIELD_REPAY_ID = 'repayId';
-    private const FIELD_START_TIME = 'startTime';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/repayment';
@@ -74,7 +73,7 @@ class RepayInfoRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, self::FIELD_START_TIME);
+            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
         }
         if ($this->endTime) {
             $this->validateInteger($this->endTime, self::FIELD_END_TIME);
@@ -108,7 +107,7 @@ class RepayInfoRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->startTime) {
-            $result[self::FIELD_START_TIME] = $this->startTime;
+            $result[FieldHelper::FIELD_START_TIME] = $this->startTime;
         }
         if ($this->endTime) {
             $result[self::FIELD_END_TIME] = $this->endTime;
