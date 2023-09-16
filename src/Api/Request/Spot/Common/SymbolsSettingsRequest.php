@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Common;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -23,7 +24,7 @@ class SymbolsSettingsRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->ts) {
-            $this->validateInteger($this->ts, self::FIELD_TS);
+            $this->validateInteger($this->ts, FieldHelper::FIELD_TS);
         }
     }
 
@@ -31,7 +32,7 @@ class SymbolsSettingsRequest extends AbstractRequest
     {
         $result = [];
         if ($this->ts) {
-            $result[self::FIELD_TS] = $this->ts;
+            $result[FieldHelper::FIELD_TS] = $this->ts;
         }
 
         return $result;

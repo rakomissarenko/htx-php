@@ -50,7 +50,7 @@ class ChainsRequest extends AbstractRequest
             $this->validateList($this->showDesc, self::FIELD_SHOW_DESC, self::SHOWS);
         }
         if ($this->ts) {
-            $this->validateInteger($this->ts, self::FIELD_TS);
+            $this->validateInteger($this->ts, FieldHelper::FIELD_TS);
         }
     }
 
@@ -64,7 +64,7 @@ class ChainsRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->ts) {
-            $result[self::FIELD_TS] = $this->ts;
+            $result[FieldHelper::FIELD_TS] = $this->ts;
         }
 
         return $result;
