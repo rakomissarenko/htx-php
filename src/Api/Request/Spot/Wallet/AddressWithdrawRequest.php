@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class AddressWithdrawRequest extends AbstractRequest
 {
     private const FIELD_CHAIN = 'chain';
-    private const FIELD_FROM_ID = 'fromId';
     private const FIELD_NOTE = 'note';
 
     protected const METHOD = self::METHOD_GET;
@@ -60,7 +59,7 @@ class AddressWithdrawRequest extends AbstractRequest
             );
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, self::FIELD_FROM_ID);
+            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 
@@ -79,7 +78,7 @@ class AddressWithdrawRequest extends AbstractRequest
             $result[FieldHelper::FIELD_LIMIT] = $this->limit;
         }
         if ($this->fromId) {
-            $result[self::FIELD_FROM_ID] = $this->fromId;
+            $result[FieldHelper::FIELD_FROM_ID] = $this->fromId;
         }
 
         return $result;

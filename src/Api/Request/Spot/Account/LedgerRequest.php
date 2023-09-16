@@ -12,7 +12,6 @@ class LedgerRequest extends AbstractRequest
     private const FIELD_TRANSACT_TYPES = 'transactTypes';
     private const FIELD_START_TIME = 'startTime';
     private const FIELD_END_TIME = 'endTime';
-    private const FIELD_FROM_ID = 'fromId';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/ledger';
@@ -124,7 +123,7 @@ class LedgerRequest extends AbstractRequest
             $this->validateRange($this->limit, FieldHelper::FIELD_LIMIT, (string) self::LIMIT_MIN, (string) self::LIMIT_MAX);
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, self::FIELD_FROM_ID);
+            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 
@@ -153,7 +152,7 @@ class LedgerRequest extends AbstractRequest
             $result[FieldHelper::FIELD_LIMIT] = $this->limit;
         }
         if ($this->fromId) {
-            $result[self::FIELD_FROM_ID] = $this->fromId;
+            $result[FieldHelper::FIELD_FROM_ID] = $this->fromId;
         }
 
         return $result;

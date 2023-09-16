@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class RepayInfoRequest extends AbstractRequest
 {
     private const FIELD_END_TIME = 'endTime';
-    private const FIELD_FROM_ID = 'fromId';
     private const FIELD_REPAY_ID = 'repayId';
     private const FIELD_START_TIME = 'startTime';
 
@@ -92,7 +91,7 @@ class RepayInfoRequest extends AbstractRequest
             );
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, self::FIELD_FROM_ID);
+            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 
@@ -121,7 +120,7 @@ class RepayInfoRequest extends AbstractRequest
             $result[FieldHelper::FIELD_LIMIT] = $this->limit;
         }
         if ($this->fromId) {
-            $result[self::FIELD_FROM_ID] = $this->fromId;
+            $result[FieldHelper::FIELD_FROM_ID] = $this->fromId;
         }
 
         return $result;

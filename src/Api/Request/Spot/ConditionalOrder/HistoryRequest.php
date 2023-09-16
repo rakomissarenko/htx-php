@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class HistoryRequest extends AbstractRequest
 {
     private const FIELD_END_TIME = 'endTime';
-    private const FIELD_FROM_ID = 'fromId';
     private const FIELD_ORDER_STATUS = 'orderStatus';
     private const FIELD_ORDER_TYPE = 'orderType';
     private const FIELD_START_TIME = 'startTime';
@@ -86,7 +85,7 @@ class HistoryRequest extends AbstractRequest
             );
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, self::FIELD_FROM_ID);
+            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 
@@ -118,7 +117,7 @@ class HistoryRequest extends AbstractRequest
             $result[FieldHelper::FIELD_LIMIT] = $this->limit;
         }
         if ($this->fromId) {
-            $result[self::FIELD_FROM_ID] = $this->fromId;
+            $result[FieldHelper::FIELD_FROM_ID] = $this->fromId;
         }
 
         return $result;
