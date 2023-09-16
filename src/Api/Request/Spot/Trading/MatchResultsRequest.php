@@ -12,7 +12,6 @@ class MatchResultsRequest extends AbstractRequest
     private const FIELD_TYPES = 'types';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
-    private const FIELD_FROM = 'from';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/matchresults';
@@ -135,7 +134,7 @@ class MatchResultsRequest extends AbstractRequest
             $result[self::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->from) {
-            $result[self::FIELD_FROM] = $this->from;
+            $result[FieldHelper::FIELD_FROM] = $this->from;
         }
         if ($this->direct) {
             $result[FieldHelper::FIELD_DIRECT] = $this->direct;

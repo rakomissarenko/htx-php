@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class OpenOrdersRequest extends AbstractRequest
 {
     private const FIELD_ACCOUNT_ID = 'account-id';
-    private const FIELD_FROM = 'from';
     private const FIELD_SIDE = 'side';
     private const FIELD_TYPES = 'types';
 
@@ -89,7 +88,7 @@ class OpenOrdersRequest extends AbstractRequest
             $result[self::FIELD_TYPES] = implode(',', $this->types);
         }
         if ($this->from) {
-            $result[self::FIELD_FROM] = $this->from;
+            $result[FieldHelper::FIELD_FROM] = $this->from;
         }
         if ($this->direct) {
             $result[FieldHelper::FIELD_DIRECT] = $this->direct;

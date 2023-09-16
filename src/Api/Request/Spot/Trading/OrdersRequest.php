@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class OrdersRequest extends AbstractRequest
 {
     private const FIELD_END_TIME = 'end-time';
-    private const FIELD_FROM = 'from';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_STATES = 'states';
     private const FIELD_TYPES = 'types';
@@ -162,7 +161,7 @@ class OrdersRequest extends AbstractRequest
             $result[self::FIELD_STATES] = implode(',', $this->states);
         }
         if ($this->from) {
-            $result[self::FIELD_FROM] = $this->from;
+            $result[FieldHelper::FIELD_FROM] = $this->from;
         }
         if ($this->direct) {
             $result[FieldHelper::FIELD_DIRECT] = $this->direct;

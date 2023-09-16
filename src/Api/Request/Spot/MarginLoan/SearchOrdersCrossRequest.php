@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class SearchOrdersCrossRequest extends AbstractRequest
 {
     private const FIELD_END_DATE = 'end-date';
-    private const FIELD_FROM = 'from';
     private const FIELD_START_DATE = 'start-date';
     private const FIELD_STATE = 'state';
     private const FIELD_SUB_UID = 'sub-uid';
@@ -127,7 +126,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
             $result[self::FIELD_END_DATE] = $this->endDate;
         }
         if ($this->from) {
-            $result[self::FIELD_FROM] = $this->from;
+            $result[FieldHelper::FIELD_FROM] = $this->from;
         }
         if ($this->direct) {
             $result[FieldHelper::FIELD_DIRECT] = $this->direct;

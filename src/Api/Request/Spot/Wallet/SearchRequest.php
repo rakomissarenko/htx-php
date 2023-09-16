@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class SearchRequest extends AbstractRequest
 {
-    private const FIELD_FROM = 'from';
     private const FIELD_TYPE = 'type';
 
     protected const METHOD = self::METHOD_GET;
@@ -87,7 +86,7 @@ class SearchRequest extends AbstractRequest
             $result[self::FIELD_TYPE] = $this->type;
         }
         if ($this->from) {
-            $result[self::FIELD_FROM] = $this->from;
+            $result[FieldHelper::FIELD_FROM] = $this->from;
         }
         if ($this->size) {
             $result[FieldHelper::FIELD_SIZE] = $this->size;

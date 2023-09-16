@@ -8,6 +8,7 @@ class FieldHelper
     public const FIELD_CLIENT_ORDER_ID = 'clientOrderId';
     public const FIELD_CURRENCY = 'currency';
     public const FIELD_DIRECT = 'direct';
+    public const FIELD_FROM = 'from';
     public const FIELD_FROM_ID = 'fromId';
     public const FIELD_LIMIT = 'limit';
     public const FIELD_ORDER_SIDE = 'orderSide';
