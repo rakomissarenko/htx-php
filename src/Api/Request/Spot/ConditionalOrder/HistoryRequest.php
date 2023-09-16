@@ -15,7 +15,6 @@ class HistoryRequest extends AbstractRequest
     private const FIELD_ORDER_SIDE = 'orderSide';
     private const FIELD_ORDER_STATUS = 'orderStatus';
     private const FIELD_ORDER_TYPE = 'orderType';
-    private const FIELD_SORT = 'sort';
     private const FIELD_START_TIME = 'startTime';
 
     protected const METHOD = self::METHOD_GET;
@@ -78,7 +77,7 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
+            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(
@@ -115,7 +114,7 @@ class HistoryRequest extends AbstractRequest
             $result[self::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->sort) {
-            $result[self::FIELD_SORT] = $this->sort;
+            $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->limit) {
             $result[self::FIELD_LIMIT] = $this->limit;

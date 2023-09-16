@@ -11,7 +11,6 @@ class OpenRequest extends AbstractRequest
 {
     private const FIELD_ORDER_SIDE = 'orderSide';
     private const FIELD_ORDER_TYPE = 'orderType';
-    private const FIELD_SORT = 'sort';
     private const FIELD_LIMIT = 'limit';
     private const FIELD_FROM_ID = 'fromId';
 
@@ -62,7 +61,7 @@ class OpenRequest extends AbstractRequest
         $this->validateList($this->orderSide, self::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         $this->validateList($this->orderType, self::FIELD_ORDER_TYPE, self::ORDER_TYPES);
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
+            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(
@@ -83,7 +82,7 @@ class OpenRequest extends AbstractRequest
             self::FIELD_ORDER_TYPE        => $this->orderType,
         ];
         if ($this->sort) {
-            $result[self::FIELD_SORT] = $this->sort;
+            $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->limit) {
             $result[self::FIELD_LIMIT] = $this->limit;

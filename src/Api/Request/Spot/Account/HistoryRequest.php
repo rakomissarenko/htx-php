@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -12,7 +13,6 @@ class HistoryRequest extends AbstractRequest
     private const FIELD_TRANSACT_TYPES = 'transact-types';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
-    private const FIELD_SORT = 'sort';
     private const FIELD_SIZE = 'size';
     private const FIELD_FROM_ID = 'from-id';
 
@@ -146,7 +146,7 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
+            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->size) {
             $this->validateRange($this->size, self::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
@@ -175,7 +175,7 @@ class HistoryRequest extends AbstractRequest
             $result[self::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->sort) {
-            $result[self::FIELD_SORT] = $this->sort;
+            $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->size) {
             $result[self::FIELD_SIZE] = $this->size;

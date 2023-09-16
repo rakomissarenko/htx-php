@@ -12,7 +12,6 @@ class LedgerRequest extends AbstractRequest
     private const FIELD_TRANSACT_TYPES = 'transactTypes';
     private const FIELD_START_TIME = 'startTime';
     private const FIELD_END_TIME = 'endTime';
-    private const FIELD_SORT = 'sort';
     private const FIELD_LIMIT = 'limit';
     private const FIELD_FROM_ID = 'fromId';
 
@@ -120,7 +119,7 @@ class LedgerRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
+            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange($this->limit, self::FIELD_LIMIT, (string) self::LIMIT_MIN, (string) self::LIMIT_MAX);
@@ -149,7 +148,7 @@ class LedgerRequest extends AbstractRequest
             $result[self::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->sort) {
-            $result[self::FIELD_SORT] = $this->sort;
+            $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->limit) {
             $result[self::FIELD_LIMIT] = $this->limit;

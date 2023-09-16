@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -11,7 +12,6 @@ class QueryDepositRequest extends AbstractRequest
     private const FIELD_SUB_UID = 'subUid';
     private const FIELD_START_TIME = 'startTime';
     private const FIELD_END_TIME = 'endTime';
-    private const FIELD_SORT = 'sort';
     private const FIELD_LIMIT = 'limit';
     private const FIELD_FROM_ID = 'fromId';
 
@@ -81,7 +81,7 @@ class QueryDepositRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
+            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(
@@ -109,7 +109,7 @@ class QueryDepositRequest extends AbstractRequest
             $result[self::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->sort) {
-            $result[self::FIELD_SORT] = $this->sort;
+            $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->limit) {
             $result[self::FIELD_LIMIT] = $this->limit;

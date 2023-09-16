@@ -14,7 +14,6 @@ class RepayInfoRequest extends AbstractRequest
     private const FIELD_LIMIT = 'limit';
     private const FIELD_REPAY_ID = 'repayId';
     private const FIELD_START_TIME = 'startTime';
-    private const FIELD_SORT = 'sort';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/repayment';
@@ -83,7 +82,7 @@ class RepayInfoRequest extends AbstractRequest
             $this->validateInteger($this->endTime, self::FIELD_END_TIME);
         }
         if ($this->sort) {
-            $this->validateList($this->sort, self::FIELD_SORT, EnumHelper::SORTS);
+            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(
@@ -117,7 +116,7 @@ class RepayInfoRequest extends AbstractRequest
             $result[self::FIELD_END_TIME] = $this->endTime;
         }
         if ($this->sort) {
-            $result[self::FIELD_SORT] = $this->sort;
+            $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->limit) {
             $result[self::FIELD_LIMIT] = $this->limit;
