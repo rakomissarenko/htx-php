@@ -11,7 +11,6 @@ class HistoryRequest extends AbstractRequest
 {
     private const FIELD_END_TIME = 'endTime';
     private const FIELD_FROM_ID = 'fromId';
-    private const FIELD_ORDER_SIDE = 'orderSide';
     private const FIELD_ORDER_STATUS = 'orderStatus';
     private const FIELD_ORDER_TYPE = 'orderType';
     private const FIELD_START_TIME = 'startTime';
@@ -58,7 +57,7 @@ class HistoryRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->orderSide) {
-            $this->validateList($this->orderSide, self::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
+            $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         }
         if ($this->orderType) {
             $this->validateList($this->orderType, self::FIELD_ORDER_TYPE, self::ORDER_TYPES);
@@ -98,7 +97,7 @@ class HistoryRequest extends AbstractRequest
             FieldHelper::FIELD_SYMBOL     => $this->symbol,
         ];
         if ($this->orderSide) {
-            $result[self::FIELD_ORDER_SIDE] = $this->orderSide;
+            $result[FieldHelper::FIELD_ORDER_SIDE] = $this->orderSide;
         }
         if ($this->orderType) {
             $result[self::FIELD_ORDER_TYPE] = $this->orderType;

@@ -2,8 +2,6 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
-use Feralonso\Htx\Api\Request\AbstractRequest;
-
 class RepayOrderCrossRequest extends RepayOrderRequest
 {
     protected const PATH = '/v1/cross-margin/orders/';
