@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class ApiKeyCreateRequest extends AbstractRequest
 {
     private const FIELD_OTP_TOKEN = 'otpToken';
-    private const FIELD_NOTE = 'note';
     private const FIELD_PERMISSION = 'permission';
     private const FIELD_IP = 'ipAddresses';
 
@@ -50,7 +49,7 @@ class ApiKeyCreateRequest extends AbstractRequest
         $this->validateSize($this->otpToken, self::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
         $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if (mb_strlen($this->note) > self::NOTE_SIZE) {
-            $this->throwValidateException(self::FIELD_NOTE);
+            $this->throwValidateException(FieldHelper::FIELD_NOTE);
         }
         foreach ($this->permission as $permission) {
             $this->validateList($permission, self::FIELD_PERMISSION, self::PERMISSIONS);
@@ -75,7 +74,7 @@ class ApiKeyCreateRequest extends AbstractRequest
         $result = [
             self::FIELD_OTP_TOKEN      => $this->otpToken,
             FieldHelper::FIELD_SUB_UID => $this->subUid,
-            self::FIELD_NOTE           => $this->note,
+            FieldHelper::FIELD_NOTE    => $this->note,
             self::FIELD_PERMISSION     => implode(',', $this->permission),
         ];
         if ($this->ips) {

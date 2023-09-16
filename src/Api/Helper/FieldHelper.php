@@ -12,6 +12,7 @@ class FieldHelper
     public const FIELD_FROM = 'from';
     public const FIELD_FROM_ID = 'fromId';
     public const FIELD_LIMIT = 'limit';
+    public const FIELD_NOTE = 'note';
     public const FIELD_ORDER_SIDE = 'orderSide';
     public const FIELD_SIZE = 'size';
     public const FIELD_SORT = 'sort';

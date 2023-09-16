@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class AddressWithdrawRequest extends AbstractRequest
 {
     private const FIELD_CHAIN = 'chain';
-    private const FIELD_NOTE = 'note';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/withdraw/address';
@@ -72,7 +71,7 @@ class AddressWithdrawRequest extends AbstractRequest
             $result[self::FIELD_CHAIN] = $this->chain;
         }
         if ($this->note) {
-            $result[self::FIELD_NOTE] = $this->note;
+            $result[FieldHelper::FIELD_NOTE] = $this->note;
         }
         if ($this->limit) {
             $result[FieldHelper::FIELD_LIMIT] = $this->limit;
