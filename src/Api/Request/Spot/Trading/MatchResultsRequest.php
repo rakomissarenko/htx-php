@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class MatchResultsRequest extends AbstractRequest
 {
-    private const FIELD_TYPES = 'types';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
 
@@ -73,9 +72,9 @@ class MatchResultsRequest extends AbstractRequest
         if ($this->types) {
             foreach ($this->types as $type) {
                 if (!is_scalar($type)) {
-                    $this->throwValidateException(self::FIELD_TYPES);
+                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
                 }
-                $this->validateList($type, self::FIELD_TYPES, EnumHelper::ORDER_TYPES);
+                $this->validateList($type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
         if ($this->startTime) {
@@ -125,7 +124,7 @@ class MatchResultsRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SYMBOL] = $this->symbol;
         }
         if ($this->types) {
-            $result[self::FIELD_TYPES] = implode(',', $this->types);
+            $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);
         }
         if ($this->startTime) {
             $result[self::FIELD_START_TIME] = $this->startTime;

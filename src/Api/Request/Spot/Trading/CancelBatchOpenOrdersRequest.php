@@ -11,7 +11,6 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
 {
     private const FIELD_ACCOUNT_ID = 'account-id';
     private const FIELD_SIDE = 'side';
-    private const FIELD_TYPES = 'types';
 
     protected const PATH = '/v1/order/orders/batchCancelOpenOrders';
     protected const PERMISSION = self::PERMISSION_TRADE;
@@ -66,9 +65,9 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
         if ($this->types) {
             foreach ($this->types as $type) {
                 if (!is_scalar($type)) {
-                    $this->throwValidateException(self::FIELD_TYPES);
+                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
                 }
-                $this->validateList((string) $type, self::FIELD_TYPES, EnumHelper::ORDER_TYPES);
+                $this->validateList((string) $type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
         if ($this->side) {
@@ -93,7 +92,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SYMBOL] = implode(',', $this->symbols);
         }
         if ($this->types) {
-            $result[self::FIELD_TYPES] = implode(',', $this->types);
+            $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);
         }
         if ($this->side) {
             $result[self::FIELD_SIDE] = $this->side;

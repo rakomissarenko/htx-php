@@ -11,7 +11,6 @@ class OpenOrdersRequest extends AbstractRequest
 {
     private const FIELD_ACCOUNT_ID = 'account-id';
     private const FIELD_SIDE = 'side';
-    private const FIELD_TYPES = 'types';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/openOrders';
@@ -59,9 +58,9 @@ class OpenOrdersRequest extends AbstractRequest
         if ($this->types) {
             foreach ($this->types as $type) {
                 if (!is_scalar($type)) {
-                    $this->throwValidateException(self::FIELD_TYPES);
+                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
                 }
-                $this->validateList((string) $type, self::FIELD_TYPES, EnumHelper::ORDER_TYPES);
+                $this->validateList((string) $type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
         if ($this->direct) {
@@ -85,7 +84,7 @@ class OpenOrdersRequest extends AbstractRequest
             self::FIELD_SIDE          => $this->side,
         ];
         if ($this->types) {
-            $result[self::FIELD_TYPES] = implode(',', $this->types);
+            $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);
         }
         if ($this->from) {
             $result[FieldHelper::FIELD_FROM] = $this->from;

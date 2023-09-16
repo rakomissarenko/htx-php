@@ -12,7 +12,6 @@ class OrdersRequest extends AbstractRequest
     private const FIELD_END_TIME = 'end-time';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_STATES = 'states';
-    private const FIELD_TYPES = 'types';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/orders';
@@ -89,9 +88,9 @@ class OrdersRequest extends AbstractRequest
         if ($this->types) {
             foreach ($this->types as $type) {
                 if (!is_scalar($type)) {
-                    $this->throwValidateException(self::FIELD_TYPES);
+                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
                 }
-                $this->validateList($type, self::FIELD_TYPES, EnumHelper::ORDER_TYPES);
+                $this->validateList($type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
         if ($this->startTime) {
@@ -149,7 +148,7 @@ class OrdersRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SYMBOL] = $this->symbol;
         }
         if ($this->types) {
-            $result[self::FIELD_TYPES] = implode(',', $this->types);
+            $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);
         }
         if ($this->startTime) {
             $result[self::FIELD_START_TIME] = $this->startTime;
