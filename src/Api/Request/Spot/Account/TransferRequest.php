@@ -8,7 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferRequest extends AbstractRequest
 {
-    private const FIELD_AMOUNT = 'amount';
     private const FIELD_FROM_USER = 'from-user';
     private const FIELD_FROM_ACCOUNT_TYPE = 'from-account-type';
     private const FIELD_FROM_ACCOUNT = 'from-account';
@@ -39,7 +38,7 @@ class TransferRequest extends AbstractRequest
         $this->validateInteger($this->fromAccount, self::FIELD_FROM_ACCOUNT);
         $this->validateInteger($this->toUser, self::FIELD_TO_USER);
         $this->validateInteger($this->toAccount, self::FIELD_TO_ACCOUNT);
-        $this->validateNumeric($this->amount, self::FIELD_AMOUNT);
+        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
     public function toArray(): array
@@ -52,7 +51,7 @@ class TransferRequest extends AbstractRequest
             self::FIELD_TO_ACCOUNT_TYPE   => $this->toAccountType,
             self::FIELD_TO_ACCOUNT        => $this->toAccount,
             FieldHelper::FIELD_CURRENCY   => $this->currency,
-            self::FIELD_AMOUNT            => $this->amount,
+            FieldHelper::FIELD_AMOUNT     => $this->amount,
         ];
     }
 }

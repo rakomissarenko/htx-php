@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class RepayOrderRequest extends AbstractRequest
 {
-    private const FIELD_AMOUNT = 'amount';
-
     protected const PATH = '/v1/margin/orders/';
     private const PATH_AFTER = '/repay';
     protected const PERMISSION = self::PERMISSION_TRADE;
@@ -34,13 +32,13 @@ class RepayOrderRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateNumeric($this->amount, self::FIELD_AMOUNT);
+        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
     public function toArray(): array
     {
         return [
-            self::FIELD_AMOUNT          => $this->amount,
+            FieldHelper::FIELD_AMOUNT   => $this->amount,
             FieldHelper::FIELD_ORDER_ID => $this->orderId,
         ];
     }

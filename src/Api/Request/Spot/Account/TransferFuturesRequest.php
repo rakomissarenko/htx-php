@@ -8,7 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferFuturesRequest extends AbstractRequest
 {
-    private const FIELD_AMOUNT = 'amount';
     private const FIELD_TYPE = 'type';
 
     protected const PATH = '/v1/futures/transfer';
@@ -32,7 +31,7 @@ class TransferFuturesRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateNumeric($this->amount, self::FIELD_AMOUNT);
+        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         $this->validateList($this->type, self::FIELD_TYPE, self::TYPES);
     }
 
@@ -40,7 +39,7 @@ class TransferFuturesRequest extends AbstractRequest
     {
         return [
             FieldHelper::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT          => $this->amount,
+            FieldHelper::FIELD_AMOUNT   => $this->amount,
             self::FIELD_TYPE            => $this->type,
         ];
     }

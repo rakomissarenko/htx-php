@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferInMarginRequest extends AbstractRequest
 {
-    private const FIELD_AMOUNT = 'amount';
-
     protected const PATH = '/v1/dw/transfer-in/margin';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -24,7 +22,7 @@ class TransferInMarginRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateNumeric($this->amount, self::FIELD_AMOUNT);
+        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
     public function toArray(): array
@@ -32,7 +30,7 @@ class TransferInMarginRequest extends AbstractRequest
         return [
             FieldHelper::FIELD_SYMBOL   => $this->symbol,
             FieldHelper::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT          => $this->amount,
+            FieldHelper::FIELD_AMOUNT   => $this->amount,
         ];
     }
 }

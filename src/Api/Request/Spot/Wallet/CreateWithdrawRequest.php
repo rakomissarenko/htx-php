@@ -10,7 +10,6 @@ class CreateWithdrawRequest extends AbstractRequest
 {
     private const FIELD_ADDR_TAG = 'addr-tag';
     private const FIELD_ADDRESS = 'address';
-    private const FIELD_AMOUNT = 'amount';
     private const FIELD_CHAIN = 'chain';
     private const FIELD_FEE = 'fee';
 
@@ -53,7 +52,7 @@ class CreateWithdrawRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateNumeric($this->amount, self::FIELD_AMOUNT);
+        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         if ($this->fee) {
             $this->validateNumeric($this->fee, self::FIELD_FEE);
         }
@@ -64,7 +63,7 @@ class CreateWithdrawRequest extends AbstractRequest
         $result = [
             self::FIELD_ADDRESS         => $this->address,
             FieldHelper::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT          => $this->amount,
+            FieldHelper::FIELD_AMOUNT   => $this->amount,
         ];
         if ($this->fee) {
             $result[self::FIELD_FEE] = $this->fee;

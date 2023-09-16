@@ -8,7 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class RepayRequest extends AbstractRequest
 {
-    private const FIELD_AMOUNT = 'amount';
     private const FIELD_TRANSACT_ID = 'transactId';
 
     protected const PATH = '/v2/account/repayment';
@@ -26,7 +25,7 @@ class RepayRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateNumeric($this->amount, self::FIELD_AMOUNT);
+        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
     public function toArray(): array
@@ -34,7 +33,7 @@ class RepayRequest extends AbstractRequest
         return [
             FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
             FieldHelper::FIELD_CURRENCY   => $this->currency,
-            self::FIELD_AMOUNT            => $this->amount,
+            FieldHelper::FIELD_AMOUNT     => $this->amount,
             self::FIELD_TRANSACT_ID       => $this->transactId,
         ];
     }
