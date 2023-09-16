@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class DepositAddressRequest extends AbstractRequest
 {
-    private const FIELD_SUB_UID = 'subUid';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/sub-user/deposit-address';
 
@@ -23,13 +21,13 @@ class DepositAddressRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
+        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
     }
 
     public function toArray(): array
     {
         return [
-            self::FIELD_SUB_UID         => $this->subUid,
+            FieldHelper::FIELD_SUB_UID  => $this->subUid,
             FieldHelper::FIELD_CURRENCY => $this->currency,
         ];
     }

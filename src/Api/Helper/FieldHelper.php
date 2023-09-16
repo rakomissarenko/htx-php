@@ -15,6 +15,7 @@ class FieldHelper
     public const FIELD_ORDER_SIDE = 'orderSide';
     public const FIELD_SIZE = 'size';
     public const FIELD_SORT = 'sort';
+    public const FIELD_SUB_UID = 'subUid';
     public const FIELD_SUB_UIDS = 'subUids';
     public const FIELD_START_TIME = 'startTime';
     public const FIELD_SYMBOL = 'symbol';

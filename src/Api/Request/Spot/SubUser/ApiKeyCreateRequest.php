@@ -2,13 +2,13 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ApiKeyCreateRequest extends AbstractRequest
 {
     private const FIELD_OTP_TOKEN = 'otpToken';
-    private const FIELD_SUB_UID = 'subUid';
     private const FIELD_NOTE = 'note';
     private const FIELD_PERMISSION = 'permission';
     private const FIELD_IP = 'ipAddresses';
@@ -48,7 +48,7 @@ class ApiKeyCreateRequest extends AbstractRequest
     {
         $this->validateInteger($this->otpToken, self::FIELD_OTP_TOKEN);
         $this->validateSize($this->otpToken, self::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
-        $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
+        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if (mb_strlen($this->note) > self::NOTE_SIZE) {
             $this->throwValidateException(self::FIELD_NOTE);
         }
@@ -73,10 +73,10 @@ class ApiKeyCreateRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_OTP_TOKEN  => $this->otpToken,
-            self::FIELD_SUB_UID    => $this->subUid,
-            self::FIELD_NOTE       => $this->note,
-            self::FIELD_PERMISSION => implode(',', $this->permission),
+            self::FIELD_OTP_TOKEN      => $this->otpToken,
+            FieldHelper::FIELD_SUB_UID => $this->subUid,
+            self::FIELD_NOTE           => $this->note,
+            self::FIELD_PERMISSION     => implode(',', $this->permission),
         ];
         if ($this->ips) {
             $result[self::FIELD_IP] = implode(',', $this->ips);

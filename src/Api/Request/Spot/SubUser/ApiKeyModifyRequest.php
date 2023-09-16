@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -11,7 +12,6 @@ class ApiKeyModifyRequest extends AbstractRequest
     private const FIELD_IP = 'ipAddresses';
     private const FIELD_NOTE = 'note';
     private const FIELD_PERMISSION = 'permission';
-    private const FIELD_SUB_UID = 'subUid';
 
     protected const PATH = '/v2/sub-user/api-key-modification';
     protected const PERMISSION = self::PERMISSION_TRADE;
@@ -45,7 +45,7 @@ class ApiKeyModifyRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
+        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if (mb_strlen($this->note) > self::NOTE_SIZE) {
             $this->throwValidateException(self::FIELD_NOTE);
         }
@@ -70,10 +70,10 @@ class ApiKeyModifyRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_SUB_UID    => $this->subUid,
-            self::FIELD_ACCESS_KEY => $this->accessKey,
-            self::FIELD_NOTE       => $this->note,
-            self::FIELD_PERMISSION => implode(',', $this->permission),
+            FieldHelper::FIELD_SUB_UID => $this->subUid,
+            self::FIELD_ACCESS_KEY     => $this->accessKey,
+            self::FIELD_NOTE           => $this->note,
+            self::FIELD_PERMISSION     => implode(',', $this->permission),
         ];
         if ($this->ips) {
             $result[self::FIELD_IP] = implode(',', $this->ips);

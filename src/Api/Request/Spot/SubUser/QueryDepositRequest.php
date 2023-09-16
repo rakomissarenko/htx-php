@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class QueryDepositRequest extends AbstractRequest
 {
-    private const FIELD_SUB_UID = 'subUid';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/sub-user/query-deposit';
 
@@ -60,7 +58,7 @@ class QueryDepositRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
+        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if ($this->startTime) {
             $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
             $this->validateRange(
@@ -95,7 +93,7 @@ class QueryDepositRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_SUB_UID         => $this->subUid,
+            FieldHelper::FIELD_SUB_UID  => $this->subUid,
             FieldHelper::FIELD_CURRENCY => $this->currency,
         ];
         if ($this->startTime) {
