@@ -12,5 +12,6 @@ class FieldHelper
     public const FIELD_SORT = 'sort';
     public const FIELD_SUB_UIDS = 'subUids';
     public const FIELD_SYMBOL = 'symbol';
+    public const FIELD_SYMBOLS = 'symbols';
     public const FIELD_TS = 'ts';
 }

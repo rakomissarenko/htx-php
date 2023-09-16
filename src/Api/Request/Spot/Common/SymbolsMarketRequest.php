@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class SymbolsMarketRequest extends AbstractRequest
 {
-    private const FIELD_SYMBOLS = 'symbols';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/settings/common/market-symbols';
 
@@ -34,7 +32,7 @@ class SymbolsMarketRequest extends AbstractRequest
         if ($this->symbols) {
             foreach ($this->symbols as $symbol) {
                 if (!is_scalar($symbol)) {
-                    $this->throwValidateException(self::FIELD_SYMBOLS);
+                    $this->throwValidateException(FieldHelper::FIELD_SYMBOLS);
                 }
             }
         }
@@ -47,7 +45,7 @@ class SymbolsMarketRequest extends AbstractRequest
     {
         $result = [];
         if ($this->symbols) {
-            $result[self::FIELD_SYMBOLS] = implode(',', $this->symbols);
+            $result[FieldHelper::FIELD_SYMBOLS] = implode(',', $this->symbols);
         }
         if ($this->ts) {
             $result[FieldHelper::FIELD_TS] = $this->ts;
