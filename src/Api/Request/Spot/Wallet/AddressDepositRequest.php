@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Wallet;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class AddressDepositRequest extends AbstractRequest
@@ -15,7 +16,7 @@ class AddressDepositRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_CURRENCY => $this->currency,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
         ];
     }
 }

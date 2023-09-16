@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -50,7 +51,7 @@ class TransferRequest extends AbstractRequest
             self::FIELD_TO_USER           => $this->toUser,
             self::FIELD_TO_ACCOUNT_TYPE   => $this->toAccountType,
             self::FIELD_TO_ACCOUNT        => $this->toAccount,
-            self::FIELD_CURRENCY          => $this->currency,
+            FieldHelper::FIELD_CURRENCY   => $this->currency,
             self::FIELD_AMOUNT            => $this->amount,
         ];
     }

@@ -135,7 +135,7 @@ class LedgerRequest extends AbstractRequest
             $result[FieldHelper::FIELD_ACCOUNT_ID] = $this->accountId;
         }
         if ($this->currency) {
-            $result[self::FIELD_CURRENCY] = $this->currency;
+            $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->transactTypes) {
             $result[self::FIELD_TRANSACT_TYPES] = implode(',', $this->transactTypes);

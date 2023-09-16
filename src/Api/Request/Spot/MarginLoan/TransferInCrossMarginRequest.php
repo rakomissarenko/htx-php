@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -28,8 +29,8 @@ class TransferInCrossMarginRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT   => $this->amount,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
+            self::FIELD_AMOUNT          => $this->amount,
         ];
     }
 }

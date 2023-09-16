@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -27,11 +28,11 @@ class LimitRequest extends AbstractRequest
         if ($this->currencies) {
             foreach ($this->currencies as $currency) {
                 if (!is_scalar($currency)) {
-                    $this->throwValidateException(self::FIELD_CURRENCY);
+                    $this->throwValidateException(FieldHelper::FIELD_CURRENCY);
                 }
             }
             if (count($this->currencies) > self::CURRENCIES_SIZE) {
-                $this->throwValidateException(self::FIELD_CURRENCY);
+                $this->throwValidateException(FieldHelper::FIELD_CURRENCY);
             }
         }
     }
@@ -39,8 +40,8 @@ class LimitRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [];
-        if ($this->currency) {
-            $result[self::FIELD_CURRENCY] = implode(',', $this->currencies);
+        if ($this->currencies) {
+            $result[FieldHelper::FIELD_CURRENCY] = implode(',', $this->currencies);
         }
 
         return $result;

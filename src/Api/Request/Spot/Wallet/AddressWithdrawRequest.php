@@ -67,7 +67,7 @@ class AddressWithdrawRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_CURRENCY => $this->currency,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
         ];
         if ($this->chain) {
             $result[self::FIELD_CHAIN] = $this->chain;

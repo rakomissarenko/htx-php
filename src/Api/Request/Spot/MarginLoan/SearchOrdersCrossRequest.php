@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -116,7 +117,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
     {
         $result = [];
         if ($this->currency) {
-            $result[self::FIELD_CURRENCY] = $this->currency;
+            $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->state) {
             $result[self::FIELD_STATE] = $this->state;

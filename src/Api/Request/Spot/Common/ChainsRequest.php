@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Common;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -60,7 +61,7 @@ class ChainsRequest extends AbstractRequest
             $result[self::FIELD_SHOW_DESC] = $this->showDesc;
         }
         if ($this->currency) {
-            $result[self::FIELD_CURRENCY] = $this->currency;
+            $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->ts) {
             $result[self::FIELD_TS] = $this->ts;

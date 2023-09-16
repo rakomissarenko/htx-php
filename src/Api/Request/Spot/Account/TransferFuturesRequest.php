@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -38,9 +39,9 @@ class TransferFuturesRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT   => $this->amount,
-            self::FIELD_TYPE     => $this->type,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
+            self::FIELD_AMOUNT          => $this->amount,
+            self::FIELD_TYPE            => $this->type,
         ];
     }
 }

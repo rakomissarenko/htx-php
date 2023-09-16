@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -28,8 +29,8 @@ class DepositAddressRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_SUB_UID  => $this->subUid,
-            self::FIELD_CURRENCY => $this->currency,
+            self::FIELD_SUB_UID         => $this->subUid,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
         ];
     }
 }

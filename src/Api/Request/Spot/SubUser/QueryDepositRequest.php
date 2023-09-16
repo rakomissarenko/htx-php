@@ -98,8 +98,8 @@ class QueryDepositRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_SUB_UID  => $this->subUid,
-            self::FIELD_CURRENCY => $this->currency,
+            self::FIELD_SUB_UID         => $this->subUid,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
         ];
         if ($this->startTime) {
             $result[self::FIELD_START_TIME] = $this->startTime;

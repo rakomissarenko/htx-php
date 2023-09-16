@@ -33,7 +33,7 @@ class RepayRequest extends AbstractRequest
     {
         return [
             FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
-            self::FIELD_CURRENCY          => $this->currency,
+            FieldHelper::FIELD_CURRENCY   => $this->currency,
             self::FIELD_AMOUNT            => $this->amount,
             self::FIELD_TRANSACT_ID       => $this->transactId,
         ];

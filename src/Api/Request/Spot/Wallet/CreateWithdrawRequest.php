@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Wallet;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -61,9 +62,9 @@ class CreateWithdrawRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ADDRESS  => $this->address,
-            self::FIELD_CURRENCY => $this->currency,
-            self::FIELD_AMOUNT   => $this->amount,
+            self::FIELD_ADDRESS         => $this->address,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
+            self::FIELD_AMOUNT          => $this->amount,
         ];
         if ($this->fee) {
             $result[self::FIELD_FEE] = $this->fee;

@@ -30,9 +30,9 @@ class TransferInMarginRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            FieldHelper::FIELD_SYMBOL => $this->symbol,
-            self::FIELD_CURRENCY      => $this->currency,
-            self::FIELD_AMOUNT        => $this->amount,
+            FieldHelper::FIELD_SYMBOL   => $this->symbol,
+            FieldHelper::FIELD_CURRENCY => $this->currency,
+            self::FIELD_AMOUNT          => $this->amount,
         ];
     }
 }
