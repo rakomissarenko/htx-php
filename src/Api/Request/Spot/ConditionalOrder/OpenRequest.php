@@ -11,7 +11,6 @@ class OpenRequest extends AbstractRequest
 {
     private const FIELD_ORDER_SIDE = 'orderSide';
     private const FIELD_ORDER_TYPE = 'orderType';
-    private const FIELD_LIMIT = 'limit';
     private const FIELD_FROM_ID = 'fromId';
 
     protected const METHOD = self::METHOD_GET;
@@ -66,7 +65,7 @@ class OpenRequest extends AbstractRequest
         if ($this->limit) {
             $this->validateRange(
                 (string) $this->limit,
-                self::FIELD_LIMIT,
+                FieldHelper::FIELD_LIMIT,
                 (string) self::LIMIT_MIN,
                 (string) self::LIMIT_MAX,
             );
@@ -85,7 +84,7 @@ class OpenRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->limit) {
-            $result[self::FIELD_LIMIT] = $this->limit;
+            $result[FieldHelper::FIELD_LIMIT] = $this->limit;
         }
         if ($this->fromId) {
             $result[self::FIELD_FROM_ID] = $this->fromId;

@@ -11,7 +11,6 @@ class RepayInfoRequest extends AbstractRequest
 {
     private const FIELD_END_TIME = 'endTime';
     private const FIELD_FROM_ID = 'fromId';
-    private const FIELD_LIMIT = 'limit';
     private const FIELD_REPAY_ID = 'repayId';
     private const FIELD_START_TIME = 'startTime';
 
@@ -87,7 +86,7 @@ class RepayInfoRequest extends AbstractRequest
         if ($this->limit) {
             $this->validateRange(
                 (string) $this->limit,
-                self::FIELD_LIMIT,
+                FieldHelper::FIELD_LIMIT,
                 (string) self::LIMIT_MIN,
                 (string) self::LIMIT_MAX,
             );
@@ -119,7 +118,7 @@ class RepayInfoRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SORT] = $this->sort;
         }
         if ($this->limit) {
-            $result[self::FIELD_LIMIT] = $this->limit;
+            $result[FieldHelper::FIELD_LIMIT] = $this->limit;
         }
         if ($this->fromId) {
             $result[self::FIELD_FROM_ID] = $this->fromId;
