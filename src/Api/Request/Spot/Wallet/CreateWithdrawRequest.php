@@ -10,7 +10,6 @@ class CreateWithdrawRequest extends AbstractRequest
 {
     private const FIELD_ADDR_TAG = 'addr-tag';
     private const FIELD_ADDRESS = 'address';
-    private const FIELD_CHAIN = 'chain';
     private const FIELD_FEE = 'fee';
 
     protected const PATH = '/v1/dw/withdraw/api/create';
@@ -69,7 +68,7 @@ class CreateWithdrawRequest extends AbstractRequest
             $result[self::FIELD_FEE] = $this->fee;
         }
         if ($this->chain) {
-            $result[self::FIELD_CHAIN] = $this->chain;
+            $result[FieldHelper::FIELD_CHAIN] = $this->chain;
         }
         if ($this->addrTag) {
             $result[self::FIELD_ADDR_TAG] = $this->addrTag;
