@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class OpenOrdersRequest extends AbstractRequest
 {
     private const FIELD_ACCOUNT_ID = 'account-id';
-    private const FIELD_DIRECT = 'direct';
     private const FIELD_FROM = 'from';
     private const FIELD_SIDE = 'side';
     private const FIELD_TYPES = 'types';
@@ -67,7 +66,7 @@ class OpenOrdersRequest extends AbstractRequest
             }
         }
         if ($this->direct) {
-            $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
+            $this->validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
             $this->validateRange(
@@ -93,7 +92,7 @@ class OpenOrdersRequest extends AbstractRequest
             $result[self::FIELD_FROM] = $this->from;
         }
         if ($this->direct) {
-            $result[self::FIELD_DIRECT] = $this->direct;
+            $result[FieldHelper::FIELD_DIRECT] = $this->direct;
         }
         if ($this->size) {
             $result[FieldHelper::FIELD_SIZE] = $this->size;

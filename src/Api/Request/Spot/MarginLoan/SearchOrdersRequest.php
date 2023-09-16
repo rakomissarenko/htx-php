@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class SearchOrdersRequest extends AbstractRequest
 {
-    private const FIELD_DIRECT = 'direct';
     private const FIELD_END_DATE = 'end-date';
     private const FIELD_FROM = 'from';
     private const FIELD_START_DATE = 'start-date';
@@ -109,7 +108,7 @@ class SearchOrdersRequest extends AbstractRequest
             }
         }
         if ($this->direct) {
-            $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
+            $this->validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
             $this->validateRange((string) $this->size, FieldHelper::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);
@@ -135,7 +134,7 @@ class SearchOrdersRequest extends AbstractRequest
             $result[self::FIELD_FROM] = $this->from;
         }
         if ($this->direct) {
-            $result[self::FIELD_DIRECT] = $this->direct;
+            $result[FieldHelper::FIELD_DIRECT] = $this->direct;
         }
         if ($this->size) {
             $result[FieldHelper::FIELD_SIZE] = $this->size;

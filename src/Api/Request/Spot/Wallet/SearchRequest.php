@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class SearchRequest extends AbstractRequest
 {
-    private const FIELD_DIRECT = 'direct';
     private const FIELD_FROM = 'from';
     private const FIELD_TYPE = 'type';
 
@@ -74,7 +73,7 @@ class SearchRequest extends AbstractRequest
             );
         }
         if ($this->direct) {
-            $this->validateList($this->direct, self::FIELD_DIRECT, EnumHelper::DIRECTS);
+            $this->validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
     }
 
@@ -94,7 +93,7 @@ class SearchRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
         if ($this->direct) {
-            $result[self::FIELD_DIRECT] = $this->direct;
+            $result[FieldHelper::FIELD_DIRECT] = $this->direct;
         }
 
         return $result;
