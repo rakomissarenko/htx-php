@@ -33,11 +33,14 @@ class FieldHelper
     public const FIELD_START_DATE_HYPHEN = 'start-date';
     public const FIELD_START_TIME = 'startTime';
     public const FIELD_START_TIME_HYPHEN = 'start-time';
+    public const FIELD_STOP_PRICE = 'stopPrice';
     public const FIELD_SUB_UID = 'subUid';
     public const FIELD_SUB_UID_HYPHEN = 'sub-uid';
     public const FIELD_SUB_UIDS = 'subUids';
     public const FIELD_SYMBOL = 'symbol';
     public const FIELD_SYMBOLS = 'symbols';
+    public const FIELD_TIME_IN_FORCE = 'timeInForce';
+    public const FIELD_TRAILING_RATE = 'trailingRate';
     public const FIELD_TS = 'ts';
     public const FIELD_TYPE = 'type';
     public const FIELD_TYPES = 'types';

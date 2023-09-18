@@ -9,10 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CreateRequest extends AbstractRequest
 {
-    private const FIELD_STOP_PRICE = 'stopPrice';
-    private const FIELD_TIME_IN_FORCE = 'timeInForce';
-    private const FIELD_TRAILING_RATE = 'trailingRate';
-
     protected const PATH = '/v2/algo-orders';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -111,22 +107,22 @@ class CreateRequest extends AbstractRequest
             }
         }
         if ($this->timeInForce) {
-            $this->validateList($this->timeInForce, self::FIELD_TIME_IN_FORCE, self::TIMES);
+            $this->validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, self::TIMES);
             if ($this->orderType === self::ORDER_TYPE_MARKET && in_array($this->timeInForce, [
                 self::TIME_BOC,
                 self::TIME_GTC,
                 self::TIME_FOK,
             ], true)) {
-                $this->throwValidateException(self::FIELD_TIME_IN_FORCE);
+                $this->throwValidateException(FieldHelper::FIELD_TIME_IN_FORCE);
             }
         }
         if ($this->stopPrice) {
-            $this->validateNumeric($this->stopPrice, self::FIELD_STOP_PRICE);
+            $this->validateNumeric($this->stopPrice, FieldHelper::FIELD_STOP_PRICE);
         }
         if ($this->trailingRate) {
             $this->validateRange(
                 $this->trailingRate,
-                self::FIELD_TRAILING_RATE,
+                FieldHelper::FIELD_TRAILING_RATE,
                 (string) self::TRAILING_RATE_MIN,
                 (string) self::TRAILING_RATE_MAX,
             );
@@ -152,13 +148,13 @@ class CreateRequest extends AbstractRequest
             $result[FieldHelper::FIELD_ORDER_VALUE] = $this->orderValue;
         }
         if ($this->timeInForce) {
-            $result[self::FIELD_TIME_IN_FORCE] = $this->timeInForce;
+            $result[FieldHelper::FIELD_TIME_IN_FORCE] = $this->timeInForce;
         }
         if ($this->stopPrice) {
-            $result[self::FIELD_STOP_PRICE] = $this->stopPrice;
+            $result[FieldHelper::FIELD_STOP_PRICE] = $this->stopPrice;
         }
         if ($this->trailingRate) {
-            $result[self::FIELD_TRAILING_RATE] = $this->trailingRate;
+            $result[FieldHelper::FIELD_TRAILING_RATE] = $this->trailingRate;
         }
 
         return $result;
