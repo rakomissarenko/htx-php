@@ -232,6 +232,11 @@ class EnumHelper
         self::TRANSFER_FUTURES_TYPE_PRO_TO_FUTURES,
     ];
 
+    private const TRANSFER_LEDGER_TYPE_TRANSFER = 'transfer';
+    public const TRANSFER_LEDGER_TYPES = [
+        self::TRANSFER_LEDGER_TYPE_TRANSFER,
+    ];
+
     private const TRANSFER_TYPE_MASTER_TRANSFER_IN = 'master-transfer-in';
     private const TRANSFER_TYPE_MASTER_TRANSFER_OUT = 'master-transfer-out';
     private const TRANSFER_TYPE_MASTER_POINT_TRANSFER_IN = 'master-point-transfer-in';

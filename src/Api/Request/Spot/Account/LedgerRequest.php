@@ -12,11 +12,6 @@ class LedgerRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/ledger';
 
-    private const TYPE_TRANSFER = 'transfer';
-    private const TYPES = [
-        self::TYPE_TRANSFER,
-    ];
-
     private const TIME_MIN = 180 * 24 * 3600 * 1000;
     private const TIME_RANGE_MAX = 10 * 24 * 3600 * 1000;
 
@@ -82,7 +77,7 @@ class LedgerRequest extends AbstractRequest
                 if (!is_scalar($type)) {
                     $this->throwValidateException(FieldHelper::FIELD_TRANSACT_TYPES);
                 }
-                $this->validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES, self::TYPES);
+                $this->validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES, EnumHelper::TRANSFER_LEDGER_TYPES);
             }
         }
         if ($this->startTime) {
