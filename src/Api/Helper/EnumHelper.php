@@ -4,6 +4,15 @@ namespace Feralonso\Htx\Api\Helper;
 
 class EnumHelper
 {
+    private const DEPTH_5 = 5;
+    private const DEPTH_10 = 10;
+    private const DEPTH_20 = 20;
+    public const DEPTHS = [
+        self::DEPTH_5,
+        self::DEPTH_10,
+        self::DEPTH_20,
+    ];
+
     private const DIRECT_NEXT = 'next';
     private const DIRECT_PREV = 'prev';
     public const DIRECTS = [
@@ -61,5 +70,20 @@ class EnumHelper
     public const SORTS = [
         self::SORT_ASC,
         self::SORT_DESC,
+    ];
+
+    private const STEP_0 = 'step0';
+    private const STEP_1 = 'step1';
+    private const STEP_2 = 'step2';
+    private const STEP_3 = 'step3';
+    private const STEP_4 = 'step4';
+    private const STEP_5 = 'step5';
+    public const STEPS = [
+        self::STEP_0,
+        self::STEP_1,
+        self::STEP_2,
+        self::STEP_3,
+        self::STEP_4,
+        self::STEP_5,
     ];
 }
