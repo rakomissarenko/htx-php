@@ -37,6 +37,7 @@ class FieldHelper
     public const FIELD_LIMIT = 'limit';
     public const FIELD_NOTE = 'note';
     public const FIELD_ORDER_ID = 'order-id';
+    public const FIELD_ORDER_IDS_HYPHEN = 'order-ids';
     public const FIELD_ORDER_PRICE = 'orderPrice';
     public const FIELD_ORDER_SIDE = 'orderSide';
     public const FIELD_ORDER_SIZE = 'orderSize';
@@ -48,6 +49,7 @@ class FieldHelper
     public const FIELD_PERIOD = 'period';
     public const FIELD_PERMISSION = 'permission';
     public const FIELD_REPAY_ID = 'repayId';
+    public const FIELD_SHOW_DESC_HYPHEN = 'show-desc';
     public const FIELD_SIDE = 'side';
     public const FIELD_SIZE = 'size';
     public const FIELD_SORT = 'sort';

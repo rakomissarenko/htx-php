@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ChainsRequest extends AbstractRequest
 {
-    private const FIELD_SHOW_DESC = 'show-desc';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/settings/common/chains';
 
@@ -47,7 +45,7 @@ class ChainsRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->showDesc !== null) {
-            $this->validateList($this->showDesc, self::FIELD_SHOW_DESC, self::SHOWS);
+            $this->validateList($this->showDesc, FieldHelper::FIELD_SHOW_DESC_HYPHEN, self::SHOWS);
         }
         if ($this->ts) {
             $this->validateInteger($this->ts, FieldHelper::FIELD_TS);
@@ -58,7 +56,7 @@ class ChainsRequest extends AbstractRequest
     {
         $result = [];
         if ($this->showDesc !== null) {
-            $result[self::FIELD_SHOW_DESC] = $this->showDesc;
+            $result[FieldHelper::FIELD_SHOW_DESC_HYPHEN] = $this->showDesc;
         }
         if ($this->currency) {
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
