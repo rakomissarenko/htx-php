@@ -41,6 +41,7 @@ class FieldHelper
     public const FIELD_OTP_TOKEN = 'otpToken';
     public const FIELD_PERIOD = 'period';
     public const FIELD_PERMISSION = 'permission';
+    public const FIELD_SIDE = 'side';
     public const FIELD_SIZE = 'size';
     public const FIELD_SORT = 'sort';
     public const FIELD_START_DATE_HYPHEN = 'start-date';
@@ -63,4 +64,5 @@ class FieldHelper
     public const FIELD_TS = 'ts';
     public const FIELD_TYPE = 'type';
     public const FIELD_TYPES = 'types';
+    public const FIELD_UID = 'uid';
 }

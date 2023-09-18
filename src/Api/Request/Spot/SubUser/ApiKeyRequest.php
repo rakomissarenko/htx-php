@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ApiKeyRequest extends AbstractRequest
 {
-    private const FIELD_UID = 'uid';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/user/api-key';
 
@@ -27,13 +25,13 @@ class ApiKeyRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->uid, self::FIELD_UID);
+        $this->validateInteger($this->uid, FieldHelper::FIELD_UID);
     }
 
     public function toArray(): array
     {
         $result = [
-            self::FIELD_UID => $this->uid,
+            FieldHelper::FIELD_UID => $this->uid,
         ];
         if ($this->accessKey) {
             $result[FieldHelper::FIELD_ACCESS_KEY] = $this->accessKey;

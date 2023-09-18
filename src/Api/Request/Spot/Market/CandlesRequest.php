@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CandlesRequest extends AbstractRequest
 {
-    private const FIELD_PERIOD = 'period';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/market/history/kline';
 

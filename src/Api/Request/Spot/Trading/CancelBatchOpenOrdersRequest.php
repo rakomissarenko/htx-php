@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CancelBatchOpenOrdersRequest extends AbstractRequest
 {
-    private const FIELD_SIDE = 'side';
-
     protected const PATH = '/v1/order/orders/batchCancelOpenOrders';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -70,7 +68,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
             }
         }
         if ($this->side) {
-            $this->validateList($this->side, self::FIELD_SIDE, EnumHelper::ORDER_SIDES);
+            $this->validateList($this->side, FieldHelper::FIELD_SIDE, EnumHelper::ORDER_SIDES);
         }
         if ($this->size) {
             $this->validateRange(
@@ -94,7 +92,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
             $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);
         }
         if ($this->side) {
-            $result[self::FIELD_SIDE] = $this->side;
+            $result[FieldHelper::FIELD_SIDE] = $this->side;
         }
         if ($this->size) {
             $result[FieldHelper::FIELD_SIZE] = $this->size;
