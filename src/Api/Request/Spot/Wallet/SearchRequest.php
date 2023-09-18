@@ -12,13 +12,6 @@ class SearchRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/query/deposit-withdraw';
 
-    private const TYPE_DEPOSIT = 'deposit';
-    private const TYPE_WITHDRAW = 'withdraw';
-    private const TYPES = [
-        self::TYPE_DEPOSIT,
-        self::TYPE_WITHDRAW,
-    ];
-
     private const SIZE_MIN = 1;
     private const SIZE_MAX = 500;
 
@@ -59,7 +52,7 @@ class SearchRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->type) {
-            $this->validateList($this->type, FieldHelper::FIELD_TYPE, self::TYPES);
+            $this->validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::WALLET_TYPES);
         }
         if ($this->size) {
             $this->validateRange(

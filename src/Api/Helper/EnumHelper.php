@@ -254,4 +254,11 @@ class EnumHelper
         self::TRANSFER_TYPE_MASTER_POINT_TRANSFER_IN,
         self::TRANSFER_TYPE_MASTER_POINT_TRANSFER_OUT,
     ];
+
+    private const WALLET_TYPE_DEPOSIT = 'deposit';
+    private const WALLET_TYPE_WITHDRAW = 'withdraw';
+    public const WALLET_TYPES = [
+        self::WALLET_TYPE_DEPOSIT,
+        self::WALLET_TYPE_WITHDRAW,
+    ];
 }
