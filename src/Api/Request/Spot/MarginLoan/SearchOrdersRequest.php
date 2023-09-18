@@ -12,19 +12,6 @@ class SearchOrdersRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/margin/loan-orders';
 
-    private const STATE_ACCRUAL = 'accrual';
-    private const STATE_CLEARED = 'cleared';
-    private const STATE_CREATED = 'created';
-    private const STATE_FAILED = 'failed';
-    private const STATE_INVALID = 'invalid';
-    private const STATES = [
-        self::STATE_ACCRUAL,
-        self::STATE_CLEARED,
-        self::STATE_CREATED,
-        self::STATE_FAILED,
-        self::STATE_INVALID,
-    ];
-
     private const SIZE_MIN = 1;
     private const SIZE_MAX = 100;
 
@@ -87,7 +74,7 @@ class SearchOrdersRequest extends AbstractRequest
                 if (!is_scalar($state)) {
                     $this->throwValidateException(FieldHelper::FIELD_STATES);
                 }
-                $this->validateList((string) $state, FieldHelper::FIELD_STATES, self::STATES);
+                $this->validateList((string) $state, FieldHelper::FIELD_STATES, EnumHelper::ORDER_CROSS_STATES);
             }
         }
         if ($this->startDate && !preg_match('/\d{4}-\d{2}-\d{2}/', $this->startDate)) {

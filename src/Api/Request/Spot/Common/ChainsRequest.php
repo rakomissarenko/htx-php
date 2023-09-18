@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Common;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
@@ -10,15 +11,6 @@ class ChainsRequest extends AbstractRequest
 {
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/settings/common/chains';
-
-    private const SHOW_NO = 0;
-    private const SHOW_ALL = 1;
-    private const SHOW_SUSPEND = 2;
-    private const SHOWS = [
-        self::SHOW_NO,
-        self::SHOW_ALL,
-        self::SHOW_SUSPEND,
-    ];
 
     private ?int $showDesc = null;
     private ?string $currency = null;
@@ -45,7 +37,7 @@ class ChainsRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->showDesc !== null) {
-            $this->validateList($this->showDesc, FieldHelper::FIELD_SHOW_DESC_HYPHEN, self::SHOWS);
+            $this->validateList($this->showDesc, FieldHelper::FIELD_SHOW_DESC_HYPHEN, EnumHelper::SHOWS);
         }
         if ($this->ts) {
             $this->validateInteger($this->ts, FieldHelper::FIELD_TS);

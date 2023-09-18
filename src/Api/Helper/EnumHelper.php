@@ -72,11 +72,13 @@ class EnumHelper
     private const ORDER_CROSS_STATE_ACCRUAL = 'accrual';
     private const ORDER_CROSS_STATE_CLEARED = 'cleared';
     private const ORDER_CROSS_STATE_CREATED = 'created';
+    private const ORDER_CROSS_STATE_FAILED = 'failed';
     private const ORDER_CROSS_STATE_INVALID = 'invalid';
     public const ORDER_CROSS_STATES = [
         self::ORDER_CROSS_STATE_ACCRUAL,
         self::ORDER_CROSS_STATE_CLEARED,
         self::ORDER_CROSS_STATE_CREATED,
+        self::ORDER_CROSS_STATE_FAILED,
         self::ORDER_CROSS_STATE_INVALID,
     ];
 
@@ -148,6 +150,15 @@ class EnumHelper
     public const PERMISSIONS = [
         self::PERMISSION_KEY_READ_ONLY,
         self::PERMISSION_KEY_TRADE,
+    ];
+
+    private const SHOW_NO = 0;
+    private const SHOW_ALL = 1;
+    private const SHOW_SUSPEND = 2;
+    public const SHOWS = [
+        self::SHOW_NO,
+        self::SHOW_ALL,
+        self::SHOW_SUSPEND,
     ];
 
     private const SORT_ASC = 'asc';
