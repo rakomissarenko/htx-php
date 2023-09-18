@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class LedgerRequest extends AbstractRequest
 {
-    private const FIELD_TRANSACT_TYPES = 'transactTypes';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/ledger';
 
@@ -82,9 +80,9 @@ class LedgerRequest extends AbstractRequest
         if ($this->transactTypes) {
             foreach ($this->transactTypes as $type) {
                 if (!is_scalar($type)) {
-                    $this->throwValidateException(self::FIELD_TRANSACT_TYPES);
+                    $this->throwValidateException(FieldHelper::FIELD_TRANSACT_TYPES);
                 }
-                $this->validateList((string) $type, self::FIELD_TRANSACT_TYPES, self::TYPES);
+                $this->validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES, self::TYPES);
             }
         }
         if ($this->startTime) {
@@ -135,7 +133,7 @@ class LedgerRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->transactTypes) {
-            $result[self::FIELD_TRANSACT_TYPES] = implode(',', $this->transactTypes);
+            $result[FieldHelper::FIELD_TRANSACT_TYPES] = implode(',', $this->transactTypes);
         }
         if ($this->startTime) {
             $result[FieldHelper::FIELD_START_TIME] = $this->startTime;

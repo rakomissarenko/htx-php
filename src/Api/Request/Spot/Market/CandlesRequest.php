@@ -56,7 +56,7 @@ class CandlesRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateList($this->period, self::FIELD_PERIOD, self::PERIODS);
+        $this->validateList($this->period, FieldHelper::FIELD_PERIOD, self::PERIODS);
         if ($this->size) {
             $this->validateRange(
                 (string) $this->size,
@@ -71,7 +71,7 @@ class CandlesRequest extends AbstractRequest
     {
         $result = [
             FieldHelper::FIELD_SYMBOL => $this->symbol,
-            self::FIELD_PERIOD        => $this->period,
+            FieldHelper::FIELD_PERIOD => $this->period,
         ];
         if ($this->size) {
             $result[FieldHelper::FIELD_SIZE] = $this->size;

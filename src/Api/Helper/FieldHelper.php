@@ -39,6 +39,7 @@ class FieldHelper
     public const FIELD_ORDER_VALUE = 'orderValue';
     public const FIELD_ORDERS = 'orders';
     public const FIELD_OTP_TOKEN = 'otpToken';
+    public const FIELD_PERIOD = 'period';
     public const FIELD_PERMISSION = 'permission';
     public const FIELD_SIZE = 'size';
     public const FIELD_SORT = 'sort';
@@ -58,6 +59,7 @@ class FieldHelper
     public const FIELD_TO_ACCOUNT_TYPE_HYPHEN = 'to-account-type';
     public const FIELD_TO_USER_HYPHEN = 'to-user';
     public const FIELD_TRAILING_RATE = 'trailingRate';
+    public const FIELD_TRANSACT_TYPES = 'transactTypes';
     public const FIELD_TS = 'ts';
     public const FIELD_TYPE = 'type';
     public const FIELD_TYPES = 'types';
