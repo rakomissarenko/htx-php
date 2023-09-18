@@ -2,12 +2,12 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CancelBatchRequest extends AbstractRequest
 {
-    private const FIELD_CLIENT_ORDER_IDS = 'client-order-ids';
     private const FIELD_ORDER_IDS = 'order-ids';
 
     protected const PATH = '/v1/order/orders/batchcancel';
@@ -49,11 +49,11 @@ class CancelBatchRequest extends AbstractRequest
         }
         if ($this->clientOrderIds) {
             if (count($this->clientOrderIds) > self::CLIENT_ORDER_IDS_SIZE) {
-                $this->throwValidateException(self::FIELD_CLIENT_ORDER_IDS);
+                $this->throwValidateException(FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN);
             }
             foreach ($this->clientOrderIds as $clientOrderId) {
                 if (!is_scalar($clientOrderId)) {
-                    $this->throwValidateException(self::FIELD_CLIENT_ORDER_IDS);
+                    $this->throwValidateException(FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN);
                 }
             }
         }
@@ -66,7 +66,7 @@ class CancelBatchRequest extends AbstractRequest
             $result[self::FIELD_ORDER_IDS] = implode(',', $this->orderIds);
         }
         if ($this->clientOrderIds) {
-            $result[self::FIELD_CLIENT_ORDER_IDS] = implode(',', $this->clientOrderIds);
+            $result[FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN] = implode(',', $this->clientOrderIds);
         }
 
         return $result;

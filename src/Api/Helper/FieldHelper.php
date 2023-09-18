@@ -16,7 +16,9 @@ class FieldHelper
     public const FIELD_AUTHORIZED_USER = 'authorizedUser';
     public const FIELD_CHAIN = 'chain';
     public const FIELD_CLIENT_ORDER_ID = 'clientOrderId';
+    public const FIELD_CLIENT_ORDER_ID_HYPHEN = 'client-order-id';
     public const FIELD_CLIENT_ORDER_IDS = 'clientOrderIds';
+    public const FIELD_CLIENT_ORDER_IDS_HYPHEN = 'client-order-ids';
     public const FIELD_CURRENCY = 'currency';
     public const FIELD_DEDUCT_MODE = 'deductMode';
     public const FIELD_DEPTH = 'depth';
