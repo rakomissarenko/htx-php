@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class OrdersRequest extends AbstractRequest
 {
     private const FIELD_END_TIME = 'end-time';
-    private const FIELD_START_TIME = 'start-time';
     private const FIELD_STATES = 'states';
 
     protected const METHOD = self::METHOD_GET;
@@ -94,10 +93,10 @@ class OrdersRequest extends AbstractRequest
             }
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, self::FIELD_START_TIME);
+            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
             $this->validateRange(
                 $this->startTime,
-                self::FIELD_START_TIME,
+                FieldHelper::FIELD_START_TIME_HYPHEN,
                 (string) (microtime(true) * 1000 - self::TIME_MIN),
                 (string) (microtime(true) * 1000),
             );
@@ -107,7 +106,7 @@ class OrdersRequest extends AbstractRequest
             if ($this->startTime) {
                 $this->validateRange(
                     $this->startTime,
-                    self::FIELD_START_TIME,
+                    FieldHelper::FIELD_START_TIME_HYPHEN,
                     (string) $this->startTime,
                     (string) ($this->startTime + self::TIME_RANGE_MAX),
                 );
@@ -151,7 +150,7 @@ class OrdersRequest extends AbstractRequest
             $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);
         }
         if ($this->startTime) {
-            $result[self::FIELD_START_TIME] = $this->startTime;
+            $result[FieldHelper::FIELD_START_TIME_HYPHEN] = $this->startTime;
         }
         if ($this->endTime) {
             $result[self::FIELD_END_TIME] = $this->endTime;

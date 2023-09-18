@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class HistoryRequest extends AbstractRequest
 {
     private const FIELD_TRANSACT_TYPES = 'transact-types';
-    private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
     private const FIELD_FROM_ID = 'from-id';
 
@@ -117,10 +116,10 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, self::FIELD_START_TIME);
+            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
             $this->validateRange(
                 $this->startTime,
-                self::FIELD_START_TIME,
+                FieldHelper::FIELD_START_TIME_HYPHEN,
                 (string) (microtime(true) * 1000 - self::TIME_MIN),
                 (string) (microtime(true) * 1000),
             );
@@ -130,7 +129,7 @@ class HistoryRequest extends AbstractRequest
             if ($this->startTime) {
                 $this->validateRange(
                     $this->startTime,
-                    self::FIELD_START_TIME,
+                    FieldHelper::FIELD_START_TIME_HYPHEN,
                     (string) $this->startTime,
                     (string) ($this->startTime + self::TIME_RANGE_MAX),
                 );
@@ -167,7 +166,7 @@ class HistoryRequest extends AbstractRequest
             $result[self::FIELD_TRANSACT_TYPES] = implode(',', $this->transactTypes);
         }
         if ($this->startTime) {
-            $result[self::FIELD_START_TIME] = $this->startTime;
+            $result[FieldHelper::FIELD_START_TIME_HYPHEN] = $this->startTime;
         }
         if ($this->endTime) {
             $result[self::FIELD_END_TIME] = $this->endTime;
