@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CreateWithdrawRequest extends AbstractRequest
 {
-    private const FIELD_ADDR_TAG = 'addr-tag';
-
     protected const PATH = '/v1/dw/withdraw/api/create';
     protected const PERMISSION = self::PERMISSION_WITHDRAW;
 
@@ -69,7 +67,7 @@ class CreateWithdrawRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CHAIN] = $this->chain;
         }
         if ($this->addrTag) {
-            $result[self::FIELD_ADDR_TAG] = $this->addrTag;
+            $result[FieldHelper::FIELD_ADDR_TAG_HYPHEN] = $this->addrTag;
         }
         if ($this->clientOrderId) {
             $result[FieldHelper::FIELD_CLIENT_ORDER_ID] = $this->clientOrderId;
