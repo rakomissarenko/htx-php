@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ApiKeyModifyRequest extends AbstractRequest
 {
-    private const FIELD_PERMISSION = 'permission';
-
     protected const PATH = '/v2/sub-user/api-key-modification';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -47,10 +45,10 @@ class ApiKeyModifyRequest extends AbstractRequest
             $this->throwValidateException(FieldHelper::FIELD_NOTE);
         }
         foreach ($this->permission as $permission) {
-            $this->validateList($permission, self::FIELD_PERMISSION, self::PERMISSIONS);
+            $this->validateList($permission, FieldHelper::FIELD_PERMISSION, self::PERMISSIONS);
         }
         if (!in_array(self::PERMISSION_KEY_READ_ONLY, $this->permission, true)) {
-            $this->throwValidateException(self::FIELD_PERMISSION);
+            $this->throwValidateException(FieldHelper::FIELD_PERMISSION);
         }
         if ($this->ips) {
             if (count($this->ips) > self::IPS_SIZE) {
@@ -70,7 +68,7 @@ class ApiKeyModifyRequest extends AbstractRequest
             FieldHelper::FIELD_SUB_UID    => $this->subUid,
             FieldHelper::FIELD_ACCESS_KEY => $this->accessKey,
             FieldHelper::FIELD_NOTE       => $this->note,
-            self::FIELD_PERMISSION        => implode(',', $this->permission),
+            FieldHelper::FIELD_PERMISSION => implode(',', $this->permission),
         ];
         if ($this->ips) {
             $result[FieldHelper::FIELD_IP] = implode(',', $this->ips);
