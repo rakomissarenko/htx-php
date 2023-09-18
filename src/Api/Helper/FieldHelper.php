@@ -18,6 +18,7 @@ class FieldHelper
     public const FIELD_END_TIME_HYPHEN = 'end-time';
     public const FIELD_FROM = 'from';
     public const FIELD_FROM_ID = 'fromId';
+    public const FIELD_IP = 'ipAddresses';
     public const FIELD_LIMIT = 'limit';
     public const FIELD_NOTE = 'note';
     public const FIELD_ORDER_ID = 'order-id';

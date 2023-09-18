@@ -10,7 +10,6 @@ class ApiKeyCreateRequest extends AbstractRequest
 {
     private const FIELD_OTP_TOKEN = 'otpToken';
     private const FIELD_PERMISSION = 'permission';
-    private const FIELD_IP = 'ipAddresses';
 
     protected const PATH = '/v2/sub-user/api-key-generation';
     protected const PERMISSION = self::PERMISSION_TRADE;
@@ -59,11 +58,11 @@ class ApiKeyCreateRequest extends AbstractRequest
         }
         if ($this->ips) {
             if (count($this->ips) > self::IPS_SIZE) {
-                $this->throwValidateException(self::FIELD_IP);
+                $this->throwValidateException(FieldHelper::FIELD_IP);
             }
             foreach ($this->ips as $ip) {
                 if (!is_scalar($ip) || !filter_var($ip, FILTER_VALIDATE_IP)) {
-                    $this->throwValidateException(self::FIELD_IP);
+                    $this->throwValidateException(FieldHelper::FIELD_IP);
                 }
             }
         }
@@ -78,7 +77,7 @@ class ApiKeyCreateRequest extends AbstractRequest
             self::FIELD_PERMISSION     => implode(',', $this->permission),
         ];
         if ($this->ips) {
-            $result[self::FIELD_IP] = implode(',', $this->ips);
+            $result[FieldHelper::FIELD_IP] = implode(',', $this->ips);
         }
 
         return $result;
