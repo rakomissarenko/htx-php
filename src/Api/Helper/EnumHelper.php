@@ -55,6 +55,15 @@ class EnumHelper
         self::ORDER_SIDE_SELL,
     ];
 
+    private const ORDER_STATE_CANCELED = 'canceled';
+    private const ORDER_STATE_FILLED = 'filled';
+    private const ORDER_STATE_PARTIAL_CANCELED = 'partial-canceled';
+    public const ORDER_STATES = [
+        self::ORDER_STATE_CANCELED,
+        self::ORDER_STATE_FILLED,
+        self::ORDER_STATE_PARTIAL_CANCELED,
+    ];
+
     private const ORDER_STATUS_CANCELED = 'canceled';
     private const ORDER_STATUS_REJECTED = 'rejected';
     private const ORDER_STATUS_TRIGGERED = 'triggered';

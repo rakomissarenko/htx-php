@@ -12,15 +12,6 @@ class OrdersRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/orders';
 
-    private const STATE_CANCELED = 'canceled';
-    private const STATE_FILLED = 'filled';
-    private const STATE_PARTIAL_CANCELED = 'partial-canceled';
-    private const STATES = [
-        self::STATE_CANCELED,
-        self::STATE_FILLED,
-        self::STATE_PARTIAL_CANCELED,
-    ];
-
     private const TIME_MIN = 180 * 24 * 3600 * 1000;
     private const TIME_RANGE_MAX = 2 * 3600 * 1000;
 
@@ -121,7 +112,7 @@ class OrdersRequest extends AbstractRequest
                 if (!is_scalar($state)) {
                     $this->throwValidateException(FieldHelper::FIELD_STATES);
                 }
-                $this->validateList($state, FieldHelper::FIELD_STATES, self::STATES);
+                $this->validateList($state, FieldHelper::FIELD_STATES, EnumHelper::ORDER_STATES);
             }
         }
         if ($this->direct) {
