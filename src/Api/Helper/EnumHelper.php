@@ -4,6 +4,11 @@ namespace Feralonso\Htx\Api\Helper;
 
 class EnumHelper
 {
+    private const ACCOUNT_TYPE_SPOT = 'spot';
+    public const ACCOUNT_TYPES = [
+        self::ACCOUNT_TYPE_SPOT,
+    ];
+
     private const ACTION_LOCK = 'lock';
     private const ACTION_UNLOCK = 'unlock';
     public const ACTIONS = [
