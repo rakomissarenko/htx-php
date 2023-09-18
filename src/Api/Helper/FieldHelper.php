@@ -67,9 +67,11 @@ class FieldHelper
     public const FIELD_TRAILING_RATE = 'trailingRate';
     public const FIELD_TRANSACT_ID = 'transactId';
     public const FIELD_TRANSACT_TYPES = 'transactTypes';
+    public const FIELD_TRANSFERRABLE = 'transferrable';
     public const FIELD_TS = 'ts';
     public const FIELD_TYPE = 'type';
     public const FIELD_TYPES = 'types';
     public const FIELD_UID = 'uid';
     public const FIELD_USER_LIST = 'userList';
+    public const FIELD_WITHDRAW_ID_HYPHEN = 'withdraw-id';
 }

@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferabilityRequest extends AbstractRequest
 {
-    private const FIELD_TRANSFERRABLE = 'transferrable';
-
     protected const PATH = '/v2/sub-user/transferability';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -43,9 +41,9 @@ class TransferabilityRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            FieldHelper::FIELD_SUB_UIDS     => implode(',', $this->subUids),
-            FieldHelper::FIELD_ACCOUNT_TYPE => $this->accountType,
-            self::FIELD_TRANSFERRABLE       => $this->transferrable,
+            FieldHelper::FIELD_SUB_UIDS      => implode(',', $this->subUids),
+            FieldHelper::FIELD_ACCOUNT_TYPE  => $this->accountType,
+            FieldHelper::FIELD_TRANSFERRABLE => $this->transferrable,
         ];
     }
 }
