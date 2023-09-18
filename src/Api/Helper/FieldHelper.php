@@ -69,4 +69,5 @@ class FieldHelper
     public const FIELD_TYPE = 'type';
     public const FIELD_TYPES = 'types';
     public const FIELD_UID = 'uid';
+    public const FIELD_USER_LIST = 'userList';
 }

@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class SearchOrdersRequest extends AbstractRequest
 {
-    private const FIELD_STATES = 'states';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/margin/loan-orders';
 
@@ -87,9 +85,9 @@ class SearchOrdersRequest extends AbstractRequest
         if ($this->states) {
             foreach ($this->states as $state) {
                 if (!is_scalar($state)) {
-                    $this->throwValidateException(self::FIELD_STATES);
+                    $this->throwValidateException(FieldHelper::FIELD_STATES);
                 }
-                $this->validateList((string) $state, self::FIELD_STATES, self::STATES);
+                $this->validateList((string) $state, FieldHelper::FIELD_STATES, self::STATES);
             }
         }
         if ($this->startDate && !preg_match('/\d{4}-\d{2}-\d{2}/', $this->startDate)) {
@@ -118,7 +116,7 @@ class SearchOrdersRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SYMBOL] = $this->symbol;
         }
         if ($this->states) {
-            $result[self::FIELD_STATES] = implode(',', $this->states);
+            $result[FieldHelper::FIELD_STATES] = implode(',', $this->states);
         }
         if ($this->startDate) {
             $result[FieldHelper::FIELD_START_DATE_HYPHEN] = $this->startDate;
