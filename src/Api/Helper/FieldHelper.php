@@ -12,6 +12,7 @@ class FieldHelper
     public const FIELD_CLIENT_ORDER_ID = 'clientOrderId';
     public const FIELD_CURRENCY = 'currency';
     public const FIELD_DIRECT = 'direct';
+    public const FIELD_END_DATE_HYPHEN = 'end-date';
     public const FIELD_END_TIME = 'endTime';
     public const FIELD_END_TIME_HYPHEN = 'end-time';
     public const FIELD_FROM = 'from';
