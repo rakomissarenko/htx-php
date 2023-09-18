@@ -22,6 +22,7 @@ class FieldHelper
     public const FIELD_LIMIT = 'limit';
     public const FIELD_NOTE = 'note';
     public const FIELD_ORDER_ID = 'order-id';
+    public const FIELD_ORDER_PRICE = 'orderPrice';
     public const FIELD_ORDER_SIDE = 'orderSide';
     public const FIELD_ORDER_TYPE = 'orderType';
     public const FIELD_PERMISSION = 'permission';

@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CreateRequest extends AbstractRequest
 {
-    private const FIELD_ORDER_PRICE = 'orderPrice';
     private const FIELD_ORDER_SIZE = 'orderSize';
     private const FIELD_ORDER_VALUE = 'orderValue';
     private const FIELD_STOP_PRICE = 'stopPrice';
@@ -96,9 +95,9 @@ class CreateRequest extends AbstractRequest
         $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, self::ORDER_TYPES);
         $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
-            $this->validateNumeric($this->orderPrice, self::FIELD_ORDER_PRICE);
+            $this->validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
             if ($this->orderType === self::ORDER_TYPE_MARKET) {
-                $this->throwValidateException(self::FIELD_ORDER_PRICE);
+                $this->throwValidateException(FieldHelper::FIELD_ORDER_PRICE);
             }
         }
         if ($this->orderSize) {
@@ -146,7 +145,7 @@ class CreateRequest extends AbstractRequest
             FieldHelper::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
         ];
         if ($this->orderPrice) {
-            $result[self::FIELD_ORDER_PRICE] = $this->orderPrice;
+            $result[FieldHelper::FIELD_ORDER_PRICE] = $this->orderPrice;
         }
         if ($this->orderSize) {
             $result[self::FIELD_ORDER_SIZE] = $this->orderSize;
