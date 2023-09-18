@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class CreateWithdrawRequest extends AbstractRequest
 {
     private const FIELD_ADDR_TAG = 'addr-tag';
-    private const FIELD_FEE = 'fee';
 
     protected const PATH = '/v1/dw/withdraw/api/create';
     protected const PERMISSION = self::PERMISSION_WITHDRAW;
@@ -52,7 +51,7 @@ class CreateWithdrawRequest extends AbstractRequest
     {
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         if ($this->fee) {
-            $this->validateNumeric($this->fee, self::FIELD_FEE);
+            $this->validateNumeric($this->fee, FieldHelper::FIELD_FEE);
         }
     }
 
@@ -64,7 +63,7 @@ class CreateWithdrawRequest extends AbstractRequest
             FieldHelper::FIELD_AMOUNT   => $this->amount,
         ];
         if ($this->fee) {
-            $result[self::FIELD_FEE] = $this->fee;
+            $result[FieldHelper::FIELD_FEE] = $this->fee;
         }
         if ($this->chain) {
             $result[FieldHelper::FIELD_CHAIN] = $this->chain;

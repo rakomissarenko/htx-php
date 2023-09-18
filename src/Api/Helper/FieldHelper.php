@@ -18,6 +18,7 @@ class FieldHelper
     public const FIELD_END_DATE_HYPHEN = 'end-date';
     public const FIELD_END_TIME = 'endTime';
     public const FIELD_END_TIME_HYPHEN = 'end-time';
+    public const FIELD_FEE = 'fee';
     public const FIELD_FROM = 'from';
     public const FIELD_FROM_ACCOUNT_HYPHEN = 'from-account';
     public const FIELD_FROM_ACCOUNT_TYPE_HYPHEN = 'from-account-type';
