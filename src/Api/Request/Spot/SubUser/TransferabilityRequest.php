@@ -8,7 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferabilityRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_TYPE = 'accountType';
     private const FIELD_TRANSFERRABLE = 'transferrable';
 
     protected const PATH = '/v2/sub-user/transferability';
@@ -38,15 +37,15 @@ class TransferabilityRequest extends AbstractRequest
         if (count($this->subUids) > self::SUB_UIDS_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
-        $this->validateList($this->accountType, self::FIELD_ACCOUNT_TYPE, self::ACCOUNT_TYPES);
+        $this->validateList($this->accountType, FieldHelper::FIELD_ACCOUNT_TYPE, self::ACCOUNT_TYPES);
     }
 
     public function toArray(): array
     {
         return [
-            FieldHelper::FIELD_SUB_UIDS => implode(',', $this->subUids),
-            self::FIELD_ACCOUNT_TYPE    => $this->accountType,
-            self::FIELD_TRANSFERRABLE   => $this->transferrable,
+            FieldHelper::FIELD_SUB_UIDS     => implode(',', $this->subUids),
+            FieldHelper::FIELD_ACCOUNT_TYPE => $this->accountType,
+            self::FIELD_TRANSFERRABLE       => $this->transferrable,
         ];
     }
 }
