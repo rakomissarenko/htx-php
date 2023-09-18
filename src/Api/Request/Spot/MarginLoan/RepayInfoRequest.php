@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class RepayInfoRequest extends AbstractRequest
 {
-    private const FIELD_REPAY_ID = 'repayId';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/account/repayment';
 
@@ -97,7 +95,7 @@ class RepayInfoRequest extends AbstractRequest
     {
         $result = [];
         if ($this->repayId) {
-            $result[self::FIELD_REPAY_ID] = $this->repayId;
+            $result[FieldHelper::FIELD_REPAY_ID] = $this->repayId;
         }
         if ($this->accountId) {
             $result[FieldHelper::FIELD_ACCOUNT_ID] = $this->accountId;
