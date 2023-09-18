@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OrdersRequest extends AbstractRequest
 {
-    private const FIELD_STATES = 'states';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/orders';
 
@@ -121,9 +119,9 @@ class OrdersRequest extends AbstractRequest
         if ($this->states) {
             foreach ($this->states as $state) {
                 if (!is_scalar($state)) {
-                    $this->throwValidateException(self::FIELD_STATES);
+                    $this->throwValidateException(FieldHelper::FIELD_STATES);
                 }
-                $this->validateList($state, self::FIELD_STATES, self::STATES);
+                $this->validateList($state, FieldHelper::FIELD_STATES, self::STATES);
             }
         }
         if ($this->direct) {
@@ -155,7 +153,7 @@ class OrdersRequest extends AbstractRequest
             $result[FieldHelper::FIELD_END_TIME_HYPHEN] = $this->endTime;
         }
         if ($this->states) {
-            $result[self::FIELD_STATES] = implode(',', $this->states);
+            $result[FieldHelper::FIELD_STATES] = implode(',', $this->states);
         }
         if ($this->from) {
             $result[FieldHelper::FIELD_FROM] = $this->from;

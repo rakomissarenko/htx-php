@@ -8,6 +8,7 @@ class FieldHelper
     public const FIELD_ACCOUNT_ID = 'accountId';
     public const FIELD_ACCOUNT_ID_HYPHEN = 'account-id';
     public const FIELD_ACCOUNT_TYPE = 'accountType';
+    public const FIELD_ACTION = 'action';
     public const FIELD_ACTIVATION = 'activation';
     public const FIELD_ADDR_TAG_HYPHEN = 'addr-tag';
     public const FIELD_ADDRESS = 'address';
@@ -49,6 +50,7 @@ class FieldHelper
     public const FIELD_START_TIME = 'startTime';
     public const FIELD_START_TIME_HYPHEN = 'start-time';
     public const FIELD_STATE = 'state';
+    public const FIELD_STATES = 'states';
     public const FIELD_STOP_PRICE = 'stopPrice';
     public const FIELD_SUB_UID = 'subUid';
     public const FIELD_SUB_UID_HYPHEN = 'sub-uid';

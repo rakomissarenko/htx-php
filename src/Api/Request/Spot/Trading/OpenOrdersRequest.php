@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OpenOrdersRequest extends AbstractRequest
 {
-    private const FIELD_SIDE = 'side';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/openOrders';
 
@@ -53,7 +51,7 @@ class OpenOrdersRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateList($this->side, self::FIELD_SIDE, EnumHelper::ORDER_SIDES);
+        $this->validateList($this->side, FieldHelper::FIELD_SIDE, EnumHelper::ORDER_SIDES);
         if ($this->types) {
             foreach ($this->types as $type) {
                 if (!is_scalar($type)) {
@@ -80,7 +78,7 @@ class OpenOrdersRequest extends AbstractRequest
         $result = [
             FieldHelper::FIELD_ACCOUNT_ID_HYPHEN => $this->accountId,
             FieldHelper::FIELD_SYMBOL            => $this->symbol,
-            self::FIELD_SIDE                     => $this->side,
+            FieldHelper::FIELD_SIDE              => $this->side,
         ];
         if ($this->types) {
             $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);

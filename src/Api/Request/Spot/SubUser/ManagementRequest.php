@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ManagementRequest extends AbstractRequest
 {
-    private const FIELD_ACTION = 'action';
-
     protected const PATH = '/v2/sub-user/management';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -31,14 +29,14 @@ class ManagementRequest extends AbstractRequest
     public function validate(): void
     {
         $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
-        $this->validateList($this->action, self::FIELD_ACTION, self::ACTIONS);
+        $this->validateList($this->action, FieldHelper::FIELD_ACTION, self::ACTIONS);
     }
 
     public function toArray(): array
     {
         return [
             FieldHelper::FIELD_SUB_UID => $this->subUid,
-            self::FIELD_ACTION         => $this->action,
+            FieldHelper::FIELD_ACTION  => $this->action,
         ];
     }
 }
