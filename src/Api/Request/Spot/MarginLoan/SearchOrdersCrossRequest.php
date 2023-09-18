@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class SearchOrdersCrossRequest extends AbstractRequest
 {
     private const FIELD_END_DATE = 'end-date';
-    private const FIELD_START_DATE = 'start-date';
     private const FIELD_STATE = 'state';
     private const FIELD_SUB_UID = 'sub-uid';
 
@@ -89,7 +88,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
             $this->validateList($this->state, self::FIELD_STATE, self::STATES);
         }
         if ($this->startDate && !preg_match('/\d{4}-\d{2}-\d{2}/', $this->startDate)) {
-            $this->throwValidateException(self::FIELD_START_DATE);
+            $this->throwValidateException(FieldHelper::FIELD_START_DATE_HYPHEN);
         }
         if ($this->endDate) {
             if (!preg_match('/\d{4}-\d{2}-\d{2}/', $this->endDate)) {
@@ -120,7 +119,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
             $result[self::FIELD_STATE] = $this->state;
         }
         if ($this->startDate) {
-            $result[self::FIELD_START_DATE] = $this->startDate;
+            $result[FieldHelper::FIELD_START_DATE_HYPHEN] = $this->startDate;
         }
         if ($this->endDate) {
             $result[self::FIELD_END_DATE] = $this->endDate;
