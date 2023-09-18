@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CreateRequest extends AbstractRequest
 {
-    private const FIELD_ORDER_SIZE = 'orderSize';
     private const FIELD_ORDER_VALUE = 'orderValue';
     private const FIELD_STOP_PRICE = 'stopPrice';
     private const FIELD_TIME_IN_FORCE = 'timeInForce';
@@ -101,15 +100,15 @@ class CreateRequest extends AbstractRequest
             }
         }
         if ($this->orderSize) {
-            $this->validateNumeric($this->orderSize, self::FIELD_ORDER_SIZE);
+            $this->validateNumeric($this->orderSize, FieldHelper::FIELD_ORDER_SIZE);
             if ($this->orderType === self::ORDER_TYPE_MARKET && $this->orderSide === EnumHelper::ORDER_SIDE_BUY) {
-                $this->throwValidateException(self::FIELD_ORDER_SIZE);
+                $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
         }
         if ($this->orderValue) {
             $this->validateNumeric($this->orderValue, self::FIELD_ORDER_VALUE);
             if ($this->orderType !== self::ORDER_TYPE_MARKET || $this->orderSide !== EnumHelper::ORDER_SIDE_BUY) {
-                $this->throwValidateException(self::FIELD_ORDER_SIZE);
+                $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
         }
         if ($this->timeInForce) {
@@ -148,7 +147,7 @@ class CreateRequest extends AbstractRequest
             $result[FieldHelper::FIELD_ORDER_PRICE] = $this->orderPrice;
         }
         if ($this->orderSize) {
-            $result[self::FIELD_ORDER_SIZE] = $this->orderSize;
+            $result[FieldHelper::FIELD_ORDER_SIZE] = $this->orderSize;
         }
         if ($this->orderValue) {
             $result[self::FIELD_ORDER_VALUE] = $this->orderValue;
