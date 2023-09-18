@@ -88,6 +88,29 @@ class EnumHelper
         self::ORDER_TYPE_SELL_STOP_LIMIT_FOK,
     ];
 
+    private const PERIOD_1MIN = '1min';
+    private const PERIOD_5MIN = '5min';
+    private const PERIOD_15MIN = '15min';
+    private const PERIOD_30MIN = '30min';
+    private const PERIOD_60MIN = '60min';
+    private const PERIOD_4HOUR = '4hour';
+    private const PERIOD_1DAY = '1day';
+    private const PERIOD_1MON = '1mon';
+    private const PERIOD_1WEEK = '1week';
+    private const PERIOD_1YEAR = '1year';
+    public const PERIODS = [
+        self::PERIOD_1MIN,
+        self::PERIOD_5MIN,
+        self::PERIOD_15MIN,
+        self::PERIOD_30MIN,
+        self::PERIOD_60MIN,
+        self::PERIOD_4HOUR,
+        self::PERIOD_1DAY,
+        self::PERIOD_1MON,
+        self::PERIOD_1WEEK,
+        self::PERIOD_1YEAR,
+    ];
+
     private const SORT_ASC = 'asc';
     private const SORT_DESC = 'desc';
     public const SORTS = [
