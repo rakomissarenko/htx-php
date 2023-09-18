@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CreateRequest extends AbstractRequest
 {
-    private const FIELD_ORDER_VALUE = 'orderValue';
     private const FIELD_STOP_PRICE = 'stopPrice';
     private const FIELD_TIME_IN_FORCE = 'timeInForce';
     private const FIELD_TRAILING_RATE = 'trailingRate';
@@ -106,7 +105,7 @@ class CreateRequest extends AbstractRequest
             }
         }
         if ($this->orderValue) {
-            $this->validateNumeric($this->orderValue, self::FIELD_ORDER_VALUE);
+            $this->validateNumeric($this->orderValue, FieldHelper::FIELD_ORDER_VALUE);
             if ($this->orderType !== self::ORDER_TYPE_MARKET || $this->orderSide !== EnumHelper::ORDER_SIDE_BUY) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
@@ -150,7 +149,7 @@ class CreateRequest extends AbstractRequest
             $result[FieldHelper::FIELD_ORDER_SIZE] = $this->orderSize;
         }
         if ($this->orderValue) {
-            $result[self::FIELD_ORDER_VALUE] = $this->orderValue;
+            $result[FieldHelper::FIELD_ORDER_VALUE] = $this->orderValue;
         }
         if ($this->timeInForce) {
             $result[self::FIELD_TIME_IN_FORCE] = $this->timeInForce;
