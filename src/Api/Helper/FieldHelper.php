@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Helper;
 
 class FieldHelper
 {
+    public const FIELD_ACCESS_KEY = 'accessKey';
     public const FIELD_ACCOUNT_ID = 'accountId';
     public const FIELD_ACCOUNT_ID_HYPHEN = 'account-id';
     public const FIELD_ACCOUNT_TYPE = 'accountType';

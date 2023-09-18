@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ApiKeyDeleteRequest extends AbstractRequest
 {
-    private const FIELD_ACCESS_KEY = 'accessKey';
-
     protected const PATH = '/v2/sub-user/api-key-deletion';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -29,8 +27,8 @@ class ApiKeyDeleteRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            FieldHelper::FIELD_SUB_UID => $this->subUid,
-            self::FIELD_ACCESS_KEY     => $this->accessKey,
+            FieldHelper::FIELD_SUB_UID    => $this->subUid,
+            FieldHelper::FIELD_ACCESS_KEY => $this->accessKey,
         ];
     }
 }

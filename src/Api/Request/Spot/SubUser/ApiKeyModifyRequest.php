@@ -8,7 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ApiKeyModifyRequest extends AbstractRequest
 {
-    private const FIELD_ACCESS_KEY = 'accessKey';
     private const FIELD_IP = 'ipAddresses';
     private const FIELD_PERMISSION = 'permission';
 
@@ -69,10 +68,10 @@ class ApiKeyModifyRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            FieldHelper::FIELD_SUB_UID => $this->subUid,
-            self::FIELD_ACCESS_KEY     => $this->accessKey,
-            FieldHelper::FIELD_NOTE    => $this->note,
-            self::FIELD_PERMISSION     => implode(',', $this->permission),
+            FieldHelper::FIELD_SUB_UID    => $this->subUid,
+            FieldHelper::FIELD_ACCESS_KEY => $this->accessKey,
+            FieldHelper::FIELD_NOTE       => $this->note,
+            self::FIELD_PERMISSION        => implode(',', $this->permission),
         ];
         if ($this->ips) {
             $result[self::FIELD_IP] = implode(',', $this->ips);

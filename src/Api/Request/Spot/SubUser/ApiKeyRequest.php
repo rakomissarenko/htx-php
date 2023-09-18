@@ -2,12 +2,12 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ApiKeyRequest extends AbstractRequest
 {
-    private const FIELD_ACCESS_KEY = 'accessKey';
     private const FIELD_UID = 'uid';
 
     protected const METHOD = self::METHOD_GET;
@@ -36,7 +36,7 @@ class ApiKeyRequest extends AbstractRequest
             self::FIELD_UID => $this->uid,
         ];
         if ($this->accessKey) {
-            $result[self::FIELD_ACCESS_KEY] = $this->accessKey;
+            $result[FieldHelper::FIELD_ACCESS_KEY] = $this->accessKey;
         }
 
         return $result;
