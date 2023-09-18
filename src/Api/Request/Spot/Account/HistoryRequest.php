@@ -12,37 +12,6 @@ class HistoryRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/account/history';
 
-    private const TYPE_CREDIT = 'credit';
-    private const TYPE_DEPOSIT = 'deposit';
-    private const TYPE_ETF = 'etf';
-    private const TYPE_EXCHANGE = 'exchange';
-    private const TYPE_FEE = 'fee-deduction';
-    private const TYPE_INTEREST = 'interest';
-    private const TYPE_LIQUIDATION = 'liquidation';
-    private const TYPE_OTHER_TYPES = 'other-types';
-    private const TYPE_REBATE = 'rebate';
-    private const TYPE_TRADE = 'trade';
-    private const TYPE_TRANSACT_FEE = 'transact-fee';
-    private const TYPE_TRANSFER = 'transfer';
-    private const TYPE_WITHDRAW = 'withdraw';
-    private const TYPE_WITHDRAW_FEE = 'withdraw-fee';
-    private const TYPES = [
-        self::TYPE_CREDIT,
-        self::TYPE_DEPOSIT,
-        self::TYPE_ETF,
-        self::TYPE_EXCHANGE,
-        self::TYPE_FEE,
-        self::TYPE_INTEREST,
-        self::TYPE_LIQUIDATION,
-        self::TYPE_OTHER_TYPES,
-        self::TYPE_REBATE,
-        self::TYPE_TRADE,
-        self::TYPE_TRANSACT_FEE,
-        self::TYPE_TRANSFER,
-        self::TYPE_WITHDRAW,
-        self::TYPE_WITHDRAW_FEE,
-    ];
-
     private const TIME_MIN = 30 * 24 * 3600 * 1000;
     private const TIME_RANGE_MAX = 3600 * 1000;
 
@@ -108,7 +77,7 @@ class HistoryRequest extends AbstractRequest
                 if (!is_scalar($type)) {
                     $this->throwValidateException(FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN);
                 }
-                $this->validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN, self::TYPES);
+                $this->validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN, EnumHelper::TRANSACTION_TYPES);
             }
         }
         if ($this->startTime) {

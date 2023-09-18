@@ -109,4 +109,35 @@ class EnumHelper
         self::STEP_4,
         self::STEP_5,
     ];
+
+    private const TRANSACTION_TYPE_CREDIT = 'credit';
+    private const TRANSACTION_TYPE_DEPOSIT = 'deposit';
+    private const TRANSACTION_TYPE_ETF = 'etf';
+    private const TRANSACTION_TYPE_EXCHANGE = 'exchange';
+    private const TRANSACTION_TYPE_FEE = 'fee-deduction';
+    private const TRANSACTION_TYPE_INTEREST = 'interest';
+    private const TRANSACTION_TYPE_LIQUIDATION = 'liquidation';
+    private const TRANSACTION_TYPE_OTHER_TYPES = 'other-types';
+    private const TRANSACTION_TYPE_REBATE = 'rebate';
+    private const TRANSACTION_TYPE_TRADE = 'trade';
+    private const TRANSACTION_TYPE_TRANSACT_FEE = 'transact-fee';
+    private const TRANSACTION_TYPE_TRANSFER = 'transfer';
+    private const TRANSACTION_TYPE_WITHDRAW = 'withdraw';
+    private const TRANSACTION_TYPE_WITHDRAW_FEE = 'withdraw-fee';
+    public const TRANSACTION_TYPES = [
+        self::TRANSACTION_TYPE_CREDIT,
+        self::TRANSACTION_TYPE_DEPOSIT,
+        self::TRANSACTION_TYPE_ETF,
+        self::TRANSACTION_TYPE_EXCHANGE,
+        self::TRANSACTION_TYPE_FEE,
+        self::TRANSACTION_TYPE_INTEREST,
+        self::TRANSACTION_TYPE_LIQUIDATION,
+        self::TRANSACTION_TYPE_OTHER_TYPES,
+        self::TRANSACTION_TYPE_REBATE,
+        self::TRANSACTION_TYPE_TRADE,
+        self::TRANSACTION_TYPE_TRANSACT_FEE,
+        self::TRANSACTION_TYPE_TRANSFER,
+        self::TRANSACTION_TYPE_WITHDRAW,
+        self::TRANSACTION_TYPE_WITHDRAW_FEE,
+    ];
 }
