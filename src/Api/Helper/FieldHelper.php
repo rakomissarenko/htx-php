@@ -11,6 +11,7 @@ class FieldHelper
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_CHAIN = 'chain';
     public const FIELD_CLIENT_ORDER_ID = 'clientOrderId';
+    public const FIELD_CLIENT_ORDER_IDS = 'clientOrderIds';
     public const FIELD_CURRENCY = 'currency';
     public const FIELD_DIRECT = 'direct';
     public const FIELD_END_DATE_HYPHEN = 'end-date';
