@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class ApiKeyCreateRequest extends AbstractRequest
 {
-    private const FIELD_OTP_TOKEN = 'otpToken';
-
     protected const PATH = '/v2/sub-user/api-key-generation';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -43,8 +41,8 @@ class ApiKeyCreateRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->otpToken, self::FIELD_OTP_TOKEN);
-        $this->validateSize($this->otpToken, self::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
+        $this->validateInteger($this->otpToken, FieldHelper::FIELD_OTP_TOKEN);
+        $this->validateSize($this->otpToken, FieldHelper::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
         $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if (mb_strlen($this->note) > self::NOTE_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_NOTE);
@@ -70,7 +68,7 @@ class ApiKeyCreateRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_OTP_TOKEN         => $this->otpToken,
+            FieldHelper::FIELD_OTP_TOKEN  => $this->otpToken,
             FieldHelper::FIELD_SUB_UID    => $this->subUid,
             FieldHelper::FIELD_NOTE       => $this->note,
             FieldHelper::FIELD_PERMISSION => implode(',', $this->permission),
