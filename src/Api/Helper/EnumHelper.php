@@ -11,6 +11,13 @@ class EnumHelper
         self::ACTION_UNLOCK,
     ];
 
+    private const DEDUCT_MODE_MASTER = 'master';
+    private const DEDUCT_MODE_SUB = 'sub';
+    public const DEDUCT_MODES = [
+        self::DEDUCT_MODE_MASTER,
+        self::DEDUCT_MODE_SUB,
+    ];
+
     private const DEPTH_5 = 5;
     private const DEPTH_10 = 10;
     private const DEPTH_20 = 20;
@@ -39,6 +46,15 @@ class EnumHelper
     public const ORDER_SIDES = [
         self::ORDER_SIDE_BUY,
         self::ORDER_SIDE_SELL,
+    ];
+
+    private const ORDER_STATUS_CANCELED = 'canceled';
+    private const ORDER_STATUS_REJECTED = 'rejected';
+    private const ORDER_STATUS_TRIGGERED = 'triggered';
+    public const ORDER_STATUSES = [
+        self::ORDER_STATUS_CANCELED,
+        self::ORDER_STATUS_REJECTED,
+        self::ORDER_STATUS_TRIGGERED,
     ];
 
     private const ORDER_TYPE_BUY_IOC = 'buy-ioc';

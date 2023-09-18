@@ -12,15 +12,6 @@ class HistoryRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/history';
 
-    private const ORDER_STATUS_CANCELED = 'canceled';
-    private const ORDER_STATUS_REJECTED = 'rejected';
-    private const ORDER_STATUS_TRIGGERED = 'triggered';
-    private const ORDER_STATUSES = [
-        self::ORDER_STATUS_CANCELED,
-        self::ORDER_STATUS_REJECTED,
-        self::ORDER_STATUS_TRIGGERED,
-    ];
-
     private const LIMIT_MIN = 1;
     private const LIMIT_MAX = 500;
 
@@ -50,7 +41,7 @@ class HistoryRequest extends AbstractRequest
             $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         }
         if ($this->orderStatus) {
-            $this->validateList($this->orderStatus, FieldHelper::FIELD_ORDER_STATUS, self::ORDER_STATUSES);
+            $this->validateList($this->orderStatus, FieldHelper::FIELD_ORDER_STATUS, EnumHelper::ORDER_STATUSES);
         }
         if ($this->startTime) {
             $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
