@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class HistoryRequest extends AbstractRequest
 {
-    private const FIELD_END_TIME = 'end-time';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/order/history';
 
@@ -57,9 +55,9 @@ class HistoryRequest extends AbstractRequest
             $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, self::FIELD_END_TIME);
+            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME_HYPHEN);
             if ($this->startTime && $this->startTime > $this->endTime) {
-                $this->throwValidateException(self::FIELD_END_TIME);
+                $this->throwValidateException(FieldHelper::FIELD_END_TIME_HYPHEN);
             }
         }
         if ($this->direct) {
@@ -85,7 +83,7 @@ class HistoryRequest extends AbstractRequest
             $result[FieldHelper::FIELD_START_TIME_HYPHEN] = $this->startTime;
         }
         if ($this->endTime) {
-            $result[self::FIELD_END_TIME] = $this->endTime;
+            $result[FieldHelper::FIELD_END_TIME_HYPHEN] = $this->endTime;
         }
         if ($this->direct) {
             $result[FieldHelper::FIELD_DIRECT] = $this->direct;

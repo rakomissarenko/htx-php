@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OrdersRequest extends AbstractRequest
 {
-    private const FIELD_END_TIME = 'end-time';
     private const FIELD_STATES = 'states';
 
     protected const METHOD = self::METHOD_GET;
@@ -102,7 +101,7 @@ class OrdersRequest extends AbstractRequest
             );
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, self::FIELD_END_TIME);
+            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME_HYPHEN);
             if ($this->startTime) {
                 $this->validateRange(
                     $this->startTime,
@@ -113,7 +112,7 @@ class OrdersRequest extends AbstractRequest
             } else {
                 $this->validateRange(
                     $this->endTime,
-                    self::FIELD_END_TIME,
+                    FieldHelper::FIELD_END_TIME_HYPHEN,
                     (string) (microtime(true) * 1000 - self::TIME_MIN + self::TIME_RANGE_MAX),
                     (string) (microtime(true) * 1000),
                 );
@@ -153,7 +152,7 @@ class OrdersRequest extends AbstractRequest
             $result[FieldHelper::FIELD_START_TIME_HYPHEN] = $this->startTime;
         }
         if ($this->endTime) {
-            $result[self::FIELD_END_TIME] = $this->endTime;
+            $result[FieldHelper::FIELD_END_TIME_HYPHEN] = $this->endTime;
         }
         if ($this->states) {
             $result[self::FIELD_STATES] = implode(',', $this->states);
