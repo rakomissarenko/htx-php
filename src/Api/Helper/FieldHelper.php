@@ -8,6 +8,7 @@ class FieldHelper
     public const FIELD_ACCOUNT_ID = 'accountId';
     public const FIELD_ACCOUNT_ID_HYPHEN = 'account-id';
     public const FIELD_ACCOUNT_TYPE = 'accountType';
+    public const FIELD_ADDRESS = 'address';
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_CHAIN = 'chain';
     public const FIELD_CLIENT_ORDER_ID = 'clientOrderId';

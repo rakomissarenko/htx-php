@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class CreateWithdrawRequest extends AbstractRequest
 {
     private const FIELD_ADDR_TAG = 'addr-tag';
-    private const FIELD_ADDRESS = 'address';
     private const FIELD_FEE = 'fee';
 
     protected const PATH = '/v1/dw/withdraw/api/create';
@@ -60,7 +59,7 @@ class CreateWithdrawRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ADDRESS         => $this->address,
+            FieldHelper::FIELD_ADDRESS  => $this->address,
             FieldHelper::FIELD_CURRENCY => $this->currency,
             FieldHelper::FIELD_AMOUNT   => $this->amount,
         ];
