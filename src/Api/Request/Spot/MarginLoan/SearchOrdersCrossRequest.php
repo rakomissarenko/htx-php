@@ -12,17 +12,6 @@ class SearchOrdersCrossRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/cross-margin/loan-orders';
 
-    private const STATE_ACCRUAL = 'accrual';
-    private const STATE_CLEARED = 'cleared';
-    private const STATE_CREATED = 'created';
-    private const STATE_INVALID = 'invalid';
-    private const STATES = [
-        self::STATE_ACCRUAL,
-        self::STATE_CLEARED,
-        self::STATE_CREATED,
-        self::STATE_INVALID,
-    ];
-
     private const SIZE_MIN = 1;
     private const SIZE_MAX = 100;
 
@@ -81,7 +70,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->state) {
-            $this->validateList($this->state, FieldHelper::FIELD_STATE, self::STATES);
+            $this->validateList($this->state, FieldHelper::FIELD_STATE, EnumHelper::ORDER_CROSS_STATES);
         }
         if ($this->startDate && !preg_match('/\d{4}-\d{2}-\d{2}/', $this->startDate)) {
             $this->throwValidateException(FieldHelper::FIELD_START_DATE_HYPHEN);

@@ -69,6 +69,17 @@ class EnumHelper
         self::ORDER_STATE_PARTIAL_CANCELED,
     ];
 
+    private const ORDER_CROSS_STATE_ACCRUAL = 'accrual';
+    private const ORDER_CROSS_STATE_CLEARED = 'cleared';
+    private const ORDER_CROSS_STATE_CREATED = 'created';
+    private const ORDER_CROSS_STATE_INVALID = 'invalid';
+    public const ORDER_CROSS_STATES = [
+        self::ORDER_CROSS_STATE_ACCRUAL,
+        self::ORDER_CROSS_STATE_CLEARED,
+        self::ORDER_CROSS_STATE_CREATED,
+        self::ORDER_CROSS_STATE_INVALID,
+    ];
+
     private const ORDER_STATUS_CANCELED = 'canceled';
     private const ORDER_STATUS_REJECTED = 'rejected';
     private const ORDER_STATUS_TRIGGERED = 'triggered';
