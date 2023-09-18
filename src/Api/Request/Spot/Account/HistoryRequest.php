@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class HistoryRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'account-id';
     private const FIELD_TRANSACT_TYPES = 'transact-types';
     private const FIELD_START_TIME = 'start-time';
     private const FIELD_END_TIME = 'end-time';
@@ -159,7 +158,7 @@ class HistoryRequest extends AbstractRequest
     {
         $result = [];
         if ($this->accountId) {
-            $result[self::FIELD_ACCOUNT_ID] = $this->accountId;
+            $result[FieldHelper::FIELD_ACCOUNT_ID_HYPHEN] = $this->accountId;
         }
         if ($this->currency) {
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;

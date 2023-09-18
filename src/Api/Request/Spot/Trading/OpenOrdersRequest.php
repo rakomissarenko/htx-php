@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OpenOrdersRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'account-id';
     private const FIELD_SIDE = 'side';
 
     protected const METHOD = self::METHOD_GET;
@@ -79,9 +78,9 @@ class OpenOrdersRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID    => $this->accountId,
-            FieldHelper::FIELD_SYMBOL => $this->symbol,
-            self::FIELD_SIDE          => $this->side,
+            FieldHelper::FIELD_ACCOUNT_ID_HYPHEN => $this->accountId,
+            FieldHelper::FIELD_SYMBOL            => $this->symbol,
+            self::FIELD_SIDE                     => $this->side,
         ];
         if ($this->types) {
             $result[FieldHelper::FIELD_TYPES] = implode(',', $this->types);

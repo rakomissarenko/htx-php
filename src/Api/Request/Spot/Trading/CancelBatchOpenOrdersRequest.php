@@ -9,7 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CancelBatchOpenOrdersRequest extends AbstractRequest
 {
-    private const FIELD_ACCOUNT_ID = 'account-id';
     private const FIELD_SIDE = 'side';
 
     protected const PATH = '/v1/order/orders/batchCancelOpenOrders';
@@ -86,7 +85,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID => $this->accountId,
+            FieldHelper::FIELD_ACCOUNT_ID_HYPHEN => $this->accountId,
         ];
         if ($this->symbols) {
             $result[FieldHelper::FIELD_SYMBOL] = implode(',', $this->symbols);
