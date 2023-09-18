@@ -225,6 +225,13 @@ class EnumHelper
         self::TRANSACTION_TYPE_WITHDRAW_FEE,
     ];
 
+    private const TRANSFER_FUTURES_TYPE_FUTURES_TO_PRO = 'futures-to-pro';
+    private const TRANSFER_FUTURES_TYPE_PRO_TO_FUTURES = 'pro-to-futures';
+    public const TRANSFER_FUTURES_TYPES = [
+        self::TRANSFER_FUTURES_TYPE_FUTURES_TO_PRO,
+        self::TRANSFER_FUTURES_TYPE_PRO_TO_FUTURES,
+    ];
+
     private const TRANSFER_TYPE_MASTER_TRANSFER_IN = 'master-transfer-in';
     private const TRANSFER_TYPE_MASTER_TRANSFER_OUT = 'master-transfer-out';
     private const TRANSFER_TYPE_MASTER_POINT_TRANSFER_IN = 'master-point-transfer-in';

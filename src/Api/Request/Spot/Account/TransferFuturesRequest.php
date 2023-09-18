@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
@@ -10,13 +11,6 @@ class TransferFuturesRequest extends AbstractRequest
 {
     protected const PATH = '/v1/futures/transfer';
     protected const PERMISSION = self::PERMISSION_TRADE;
-
-    private const TYPE_FUTURES_TO_PRO = 'futures-to-pro';
-    private const TYPE_PRO_TO_FUTURES = 'pro-to-futures';
-    private const TYPES = [
-        self::TYPE_FUTURES_TO_PRO,
-        self::TYPE_PRO_TO_FUTURES,
-    ];
 
     public function __construct(
         private string $currency,
@@ -30,7 +24,7 @@ class TransferFuturesRequest extends AbstractRequest
     public function validate(): void
     {
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
-        $this->validateList($this->type, FieldHelper::FIELD_TYPE, self::TYPES);
+        $this->validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_FUTURES_TYPES);
     }
 
     public function toArray(): array
