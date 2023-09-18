@@ -11,6 +11,13 @@ class EnumHelper
         self::ACTION_UNLOCK,
     ];
 
+    private const ACTIVATION_ACTIVATED = 'activated';
+    private const ACTIVATION_DEACTIVATED = 'deactivated';
+    public const ACTIVATIONS = [
+        self::ACTIVATION_ACTIVATED,
+        self::ACTIVATION_DEACTIVATED,
+    ];
+
     private const DEDUCT_MODE_MASTER = 'master';
     private const DEDUCT_MODE_SUB = 'sub';
     public const DEDUCT_MODES = [

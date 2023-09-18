@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
@@ -18,13 +19,6 @@ class TradableMarketRequest extends AbstractRequest
     private const ACCOUNT_TYPES = [
         self::ACCOUNT_TYPE_CROSS,
         self::ACCOUNT_TYPE_ISOLATED,
-    ];
-
-    private const ACTIVATION_ACTIVATED = 'activated';
-    private const ACTIVATION_DEACTIVATED = 'deactivated';
-    private const ACTIVATIONS = [
-        self::ACTIVATION_ACTIVATED,
-        self::ACTIVATION_DEACTIVATED,
     ];
 
     public function __construct(
@@ -45,7 +39,7 @@ class TradableMarketRequest extends AbstractRequest
             $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
         $this->validateList($this->accountType, FieldHelper::FIELD_ACCOUNT_TYPE, self::ACCOUNT_TYPES);
-        $this->validateList($this->activation, FieldHelper::FIELD_ACTIVATION, self::ACTIVATIONS);
+        $this->validateList($this->activation, FieldHelper::FIELD_ACTIVATION, EnumHelper::ACTIVATIONS);
     }
 
     public function toArray(): array
