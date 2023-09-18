@@ -7,8 +7,6 @@ use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class CurrencyChainsRequest extends AbstractRequest
 {
-    private const FIELD_AUTHORIZED_USER = 'authorizedUser';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/reference/currencies';
 
@@ -32,7 +30,7 @@ class CurrencyChainsRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->authorizedUser !== null) {
-            $result[self::FIELD_AUTHORIZED_USER] = $this->authorizedUser;
+            $result[FieldHelper::FIELD_AUTHORIZED_USER] = $this->authorizedUser;
         }
 
         return $result;

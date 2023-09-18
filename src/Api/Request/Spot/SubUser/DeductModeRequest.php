@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class DeductModeRequest extends AbstractRequest
 {
-    private const FIELD_DEDUCT_MODE = 'deductMode';
-
     protected const PATH = '/v2/sub-user/deduct-mode';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -38,14 +36,14 @@ class DeductModeRequest extends AbstractRequest
         if (count($this->subUids) > self::SUB_UIDS_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
-        $this->validateList($this->deductMode, self::FIELD_DEDUCT_MODE, self::DEDUCT_MODES);
+        $this->validateList($this->deductMode, FieldHelper::FIELD_DEDUCT_MODE, self::DEDUCT_MODES);
     }
 
     public function toArray(): array
     {
         return [
-            FieldHelper::FIELD_SUB_UIDS => implode(',', $this->subUids),
-            self::FIELD_DEDUCT_MODE     => $this->deductMode,
+            FieldHelper::FIELD_SUB_UIDS    => implode(',', $this->subUids),
+            FieldHelper::FIELD_DEDUCT_MODE => $this->deductMode,
         ];
     }
 }
