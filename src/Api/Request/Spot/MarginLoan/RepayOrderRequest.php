@@ -38,8 +38,8 @@ class RepayOrderRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            FieldHelper::FIELD_AMOUNT   => $this->amount,
-            FieldHelper::FIELD_ORDER_ID => $this->orderId,
+            FieldHelper::FIELD_AMOUNT          => $this->amount,
+            FieldHelper::FIELD_ORDER_ID_HYPHEN => $this->orderId,
         ];
     }
 }
