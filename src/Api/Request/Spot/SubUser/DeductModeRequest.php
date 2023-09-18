@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -30,7 +31,7 @@ class DeductModeRequest extends AbstractRequest
         if (count($this->subUids) > self::SUB_UIDS_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
-        $this->validateList($this->deductMode, FieldHelper::FIELD_DEDUCT_MODE, EnumHelper::DEDUCT_MODES);
+        ValidateHelper::validateList($this->deductMode, FieldHelper::FIELD_DEDUCT_MODE, EnumHelper::DEDUCT_MODES);
     }
 
     public function toArray(): array

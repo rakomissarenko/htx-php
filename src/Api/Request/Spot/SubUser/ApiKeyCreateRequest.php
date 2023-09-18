@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -42,7 +43,7 @@ class ApiKeyCreateRequest extends AbstractRequest
             $this->throwValidateException(FieldHelper::FIELD_NOTE);
         }
         foreach ($this->permission as $permission) {
-            $this->validateList($permission, FieldHelper::FIELD_PERMISSION, EnumHelper::PERMISSIONS);
+            ValidateHelper::validateList((string) $permission, FieldHelper::FIELD_PERMISSION, EnumHelper::PERMISSIONS);
         }
         if (!in_array(EnumHelper::PERMISSION_KEY_READ_ONLY, $this->permission, true)) {
             $this->throwValidateException(FieldHelper::FIELD_PERMISSION);

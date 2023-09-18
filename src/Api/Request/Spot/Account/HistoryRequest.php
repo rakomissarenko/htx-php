@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\Account;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -77,7 +78,7 @@ class HistoryRequest extends AbstractRequest
                 if (!is_scalar($type)) {
                     $this->throwValidateException(FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN);
                 }
-                $this->validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN, EnumHelper::TRANSACTION_TYPES);
+                ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN, EnumHelper::TRANSACTION_TYPES);
             }
         }
         if ($this->startTime) {
@@ -108,7 +109,7 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
+            ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->size) {
             $this->validateRange($this->size, FieldHelper::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);

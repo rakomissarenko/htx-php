@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\Market;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -36,7 +37,7 @@ class DepthRequest extends AbstractRequest
             $this->validateList($this->depth, FieldHelper::FIELD_DEPTH, EnumHelper::DEPTHS);
         }
         if ($this->type) {
-            $this->validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::STEPS);
+            ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::STEPS);
         }
     }
 

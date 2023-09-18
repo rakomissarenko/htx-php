@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -76,7 +77,7 @@ class RepayInfoRequest extends AbstractRequest
             $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
         }
         if ($this->sort) {
-            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
+            ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(

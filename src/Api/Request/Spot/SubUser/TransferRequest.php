@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -27,7 +28,7 @@ class TransferRequest extends AbstractRequest
     {
         $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
-        $this->validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_TYPES);
+        ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_TYPES);
     }
 
     public function toArray(): array

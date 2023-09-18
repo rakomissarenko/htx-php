@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -35,13 +36,13 @@ class HistoryRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->orderSide) {
-            $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
+            ValidateHelper::validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         }
         if ($this->orderType) {
-            $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
+            ValidateHelper::validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         }
         if ($this->orderStatus) {
-            $this->validateList($this->orderStatus, FieldHelper::FIELD_ORDER_STATUS, EnumHelper::ORDER_STATUSES);
+            ValidateHelper::validateList($this->orderStatus, FieldHelper::FIELD_ORDER_STATUS, EnumHelper::ORDER_STATUSES);
         }
         if ($this->startTime) {
             $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
@@ -53,7 +54,7 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->sort) {
-            $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
+            ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
             $this->validateRange(

@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -31,8 +32,8 @@ class TradableMarketRequest extends AbstractRequest
         if (count($this->subUids) > self::SUB_UIDS_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
-        $this->validateList($this->accountType, FieldHelper::FIELD_ACCOUNT_TYPE, EnumHelper::ACCOUNT_MARKET_TYPES);
-        $this->validateList($this->activation, FieldHelper::FIELD_ACTIVATION, EnumHelper::ACTIVATIONS);
+        ValidateHelper::validateList($this->accountType, FieldHelper::FIELD_ACCOUNT_TYPE, EnumHelper::ACCOUNT_MARKET_TYPES);
+        ValidateHelper::validateList($this->activation, FieldHelper::FIELD_ACTIVATION, EnumHelper::ACTIVATIONS);
     }
 
     public function toArray(): array

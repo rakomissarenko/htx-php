@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\Market;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -32,7 +33,7 @@ class CandlesRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateList($this->period, FieldHelper::FIELD_PERIOD, EnumHelper::PERIODS);
+        ValidateHelper::validateList($this->period, FieldHelper::FIELD_PERIOD, EnumHelper::PERIODS);
         if ($this->size) {
             $this->validateRange(
                 (string) $this->size,

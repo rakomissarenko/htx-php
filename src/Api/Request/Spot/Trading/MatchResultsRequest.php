@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -71,7 +72,7 @@ class MatchResultsRequest extends AbstractRequest
                 if (!is_scalar($type)) {
                     $this->throwValidateException(FieldHelper::FIELD_TYPES);
                 }
-                $this->validateList($type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
+                ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
         if ($this->startTime) {
@@ -102,7 +103,7 @@ class MatchResultsRequest extends AbstractRequest
             }
         }
         if ($this->direct) {
-            $this->validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
+            ValidateHelper::validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
             $this->validateRange(

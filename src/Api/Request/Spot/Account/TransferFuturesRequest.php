@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\Account;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -24,7 +25,7 @@ class TransferFuturesRequest extends AbstractRequest
     public function validate(): void
     {
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
-        $this->validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_FUTURES_TYPES);
+        ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_FUTURES_TYPES);
     }
 
     public function toArray(): array

@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\Wallet;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -52,7 +53,7 @@ class SearchRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->type) {
-            $this->validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::WALLET_TYPES);
+            ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::WALLET_TYPES);
         }
         if ($this->size) {
             $this->validateRange(
@@ -63,7 +64,7 @@ class SearchRequest extends AbstractRequest
             );
         }
         if ($this->direct) {
-            $this->validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
+            ValidateHelper::validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
     }
 

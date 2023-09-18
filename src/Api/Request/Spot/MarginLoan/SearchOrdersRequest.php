@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -74,7 +75,7 @@ class SearchOrdersRequest extends AbstractRequest
                 if (!is_scalar($state)) {
                     $this->throwValidateException(FieldHelper::FIELD_STATES);
                 }
-                $this->validateList((string) $state, FieldHelper::FIELD_STATES, EnumHelper::ORDER_CROSS_STATES);
+                ValidateHelper::validateList((string) $state, FieldHelper::FIELD_STATES, EnumHelper::ORDER_CROSS_STATES);
             }
         }
         if ($this->startDate && !preg_match('/\d{4}-\d{2}-\d{2}/', $this->startDate)) {
@@ -89,7 +90,7 @@ class SearchOrdersRequest extends AbstractRequest
             }
         }
         if ($this->direct) {
-            $this->validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
+            ValidateHelper::validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
             $this->validateRange((string) $this->size, FieldHelper::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);

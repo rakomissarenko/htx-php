@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -67,8 +68,8 @@ class CreateRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
-        $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
+        ValidateHelper::validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
+        ValidateHelper::validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
             $this->validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
@@ -89,7 +90,7 @@ class CreateRequest extends AbstractRequest
             }
         }
         if ($this->timeInForce) {
-            $this->validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, EnumHelper::TIMES);
+            ValidateHelper::validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, EnumHelper::TIMES);
             if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET && in_array($this->timeInForce, [
                 EnumHelper::TIME_BOC,
                 EnumHelper::TIME_GTC,
