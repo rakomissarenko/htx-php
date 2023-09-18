@@ -8,9 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferRequest extends AbstractRequest
 {
-    private const FIELD_FROM_USER = 'from-user';
-    private const FIELD_FROM_ACCOUNT_TYPE = 'from-account-type';
-    private const FIELD_FROM_ACCOUNT = 'from-account';
     private const FIELD_TO_USER = 'to-user';
     private const FIELD_TO_ACCOUNT_TYPE = 'to-account-type';
     private const FIELD_TO_ACCOUNT = 'to-account';
@@ -34,8 +31,8 @@ class TransferRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->fromUser, self::FIELD_FROM_USER);
-        $this->validateInteger($this->fromAccount, self::FIELD_FROM_ACCOUNT);
+        $this->validateInteger($this->fromUser, FieldHelper::FIELD_FROM_USER_HYPHEN);
+        $this->validateInteger($this->fromAccount, FieldHelper::FIELD_FROM_ACCOUNT_HYPHEN);
         $this->validateInteger($this->toUser, self::FIELD_TO_USER);
         $this->validateInteger($this->toAccount, self::FIELD_TO_ACCOUNT);
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
@@ -44,14 +41,14 @@ class TransferRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_FROM_USER         => $this->fromUser,
-            self::FIELD_FROM_ACCOUNT_TYPE => $this->fromAccountType,
-            self::FIELD_FROM_ACCOUNT      => $this->fromAccount,
-            self::FIELD_TO_USER           => $this->toUser,
-            self::FIELD_TO_ACCOUNT_TYPE   => $this->toAccountType,
-            self::FIELD_TO_ACCOUNT        => $this->toAccount,
-            FieldHelper::FIELD_CURRENCY   => $this->currency,
-            FieldHelper::FIELD_AMOUNT     => $this->amount,
+            FieldHelper::FIELD_FROM_USER_HYPHEN         => $this->fromUser,
+            FieldHelper::FIELD_FROM_ACCOUNT_TYPE_HYPHEN => $this->fromAccountType,
+            FieldHelper::FIELD_FROM_ACCOUNT_HYPHEN      => $this->fromAccount,
+            self::FIELD_TO_USER                         => $this->toUser,
+            self::FIELD_TO_ACCOUNT_TYPE                 => $this->toAccountType,
+            self::FIELD_TO_ACCOUNT                      => $this->toAccount,
+            FieldHelper::FIELD_CURRENCY                 => $this->currency,
+            FieldHelper::FIELD_AMOUNT                   => $this->amount,
         ];
     }
 }

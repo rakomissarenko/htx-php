@@ -19,7 +19,10 @@ class FieldHelper
     public const FIELD_END_TIME = 'endTime';
     public const FIELD_END_TIME_HYPHEN = 'end-time';
     public const FIELD_FROM = 'from';
+    public const FIELD_FROM_ACCOUNT_HYPHEN = 'from-account';
+    public const FIELD_FROM_ACCOUNT_TYPE_HYPHEN = 'from-account-type';
     public const FIELD_FROM_ID = 'fromId';
+    public const FIELD_FROM_USER_HYPHEN = 'from-user';
     public const FIELD_IP = 'ipAddresses';
     public const FIELD_LIMIT = 'limit';
     public const FIELD_NOTE = 'note';
