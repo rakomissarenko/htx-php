@@ -186,4 +186,15 @@ class EnumHelper
         self::TRANSACTION_TYPE_WITHDRAW,
         self::TRANSACTION_TYPE_WITHDRAW_FEE,
     ];
+
+    private const TRANSFER_TYPE_MASTER_TRANSFER_IN = 'master-transfer-in';
+    private const TRANSFER_TYPE_MASTER_TRANSFER_OUT = 'master-transfer-out';
+    private const TRANSFER_TYPE_MASTER_POINT_TRANSFER_IN = 'master-point-transfer-in';
+    private const TRANSFER_TYPE_MASTER_POINT_TRANSFER_OUT = 'master-point-transfer-out';
+    public const TRANSFER_TYPES = [
+        self::TRANSFER_TYPE_MASTER_TRANSFER_IN,
+        self::TRANSFER_TYPE_MASTER_TRANSFER_OUT,
+        self::TRANSFER_TYPE_MASTER_POINT_TRANSFER_IN,
+        self::TRANSFER_TYPE_MASTER_POINT_TRANSFER_OUT,
+    ];
 }

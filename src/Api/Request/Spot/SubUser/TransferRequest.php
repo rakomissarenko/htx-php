@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
@@ -10,17 +11,6 @@ class TransferRequest extends AbstractRequest
 {
     protected const PATH = '/v1/subuser/transfer';
     protected const PERMISSION = self::PERMISSION_TRADE;
-
-    private const TYPE_MASTER_TRANSFER_IN = 'master-transfer-in';
-    private const TYPE_MASTER_TRANSFER_OUT = 'master-transfer-out';
-    private const TYPE_MASTER_POINT_TRANSFER_IN = 'master-point-transfer-in';
-    private const TYPE_MASTER_POINT_TRANSFER_OUT = 'master-point-transfer-out';
-    private const TYPES = [
-        self::TYPE_MASTER_TRANSFER_IN,
-        self::TYPE_MASTER_TRANSFER_OUT,
-        self::TYPE_MASTER_POINT_TRANSFER_IN,
-        self::TYPE_MASTER_POINT_TRANSFER_OUT,
-    ];
 
     public function __construct(
         private string $subUid,
@@ -37,7 +27,7 @@ class TransferRequest extends AbstractRequest
     {
         $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
-        $this->validateList($this->type, FieldHelper::FIELD_TYPE, self::TYPES);
+        $this->validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_TYPES);
     }
 
     public function toArray(): array
