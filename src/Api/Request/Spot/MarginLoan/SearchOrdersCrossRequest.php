@@ -10,7 +10,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 class SearchOrdersCrossRequest extends AbstractRequest
 {
     private const FIELD_STATE = 'state';
-    private const FIELD_SUB_UID = 'sub-uid';
 
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/cross-margin/loan-orders';
@@ -104,7 +103,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
             $this->validateRange((string) $this->size, FieldHelper::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);
         }
         if ($this->subUid) {
-            $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
+            $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         }
     }
 
@@ -133,7 +132,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
         if ($this->subUid) {
-            $result[self::FIELD_SUB_UID] = $this->subUid;
+            $result[FieldHelper::FIELD_SUB_UID_HYPHEN] = $this->subUid;
         }
 
         return $result;

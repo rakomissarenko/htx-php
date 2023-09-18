@@ -8,7 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferRequest extends AbstractRequest
 {
-    private const FIELD_SUB_UID = 'sub-uid';
     private const FIELD_TYPE = 'type';
 
     protected const PATH = '/v1/subuser/transfer';
@@ -38,7 +37,7 @@ class TransferRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
+        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         $this->validateList($this->type, self::FIELD_TYPE, self::TYPES);
     }
@@ -46,9 +45,9 @@ class TransferRequest extends AbstractRequest
     public function toArray(): array
     {
         return [
-            self::FIELD_SUB_UID                => $this->subUid,
+            FieldHelper::FIELD_SUB_UID_HYPHEN  => $this->subUid,
             FieldHelper::FIELD_CURRENCY        => $this->currency,
-            FieldHelper::FIELD_AMOUNT                 => $this->amount,
+            FieldHelper::FIELD_AMOUNT          => $this->amount,
             self::FIELD_TYPE                   => $this->type,
             FieldHelper::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
         ];

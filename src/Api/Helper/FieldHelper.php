@@ -28,6 +28,7 @@ class FieldHelper
     public const FIELD_START_TIME = 'startTime';
     public const FIELD_START_TIME_HYPHEN = 'start-time';
     public const FIELD_SUB_UID = 'subUid';
+    public const FIELD_SUB_UID_HYPHEN = 'sub-uid';
     public const FIELD_SUB_UIDS = 'subUids';
     public const FIELD_SYMBOL = 'symbol';
     public const FIELD_SYMBOLS = 'symbols';

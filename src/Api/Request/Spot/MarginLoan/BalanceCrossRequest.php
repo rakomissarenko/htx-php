@@ -2,13 +2,12 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class BalanceCrossRequest extends AbstractRequest
 {
-    private const FIELD_SUB_UID = 'sub-uid';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/cross-margin/accounts/balance';
 
@@ -25,7 +24,7 @@ class BalanceCrossRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->subUid) {
-            $this->validateInteger($this->subUid, self::FIELD_SUB_UID);
+            $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         }
     }
 
@@ -33,7 +32,7 @@ class BalanceCrossRequest extends AbstractRequest
     {
         $result = [];
         if ($this->subUid) {
-            $result[self::FIELD_SUB_UID] = $this->subUid;
+            $result[FieldHelper::FIELD_SUB_UID_HYPHEN] = $this->subUid;
         }
 
         return $result;
