@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class HistoryRequest extends AbstractRequest
 {
-    private const FIELD_ORDER_STATUS = 'orderStatus';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/history';
 
@@ -59,7 +57,7 @@ class HistoryRequest extends AbstractRequest
             $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, self::ORDER_TYPES);
         }
         if ($this->orderStatus) {
-            $this->validateList($this->orderStatus, self::FIELD_ORDER_STATUS, self::ORDER_STATUSES);
+            $this->validateList($this->orderStatus, FieldHelper::FIELD_ORDER_STATUS, self::ORDER_STATUSES);
         }
         if ($this->startTime) {
             $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
@@ -99,7 +97,7 @@ class HistoryRequest extends AbstractRequest
             $result[FieldHelper::FIELD_ORDER_TYPE] = $this->orderType;
         }
         if ($this->orderStatus) {
-            $result[self::FIELD_ORDER_STATUS] = $this->orderStatus;
+            $result[FieldHelper::FIELD_ORDER_STATUS] = $this->orderStatus;
         }
         if ($this->startTime) {
             $result[FieldHelper::FIELD_START_TIME] = $this->startTime;
