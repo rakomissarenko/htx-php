@@ -11,7 +11,6 @@ class CreateRequest extends AbstractRequest
 {
     private const FIELD_ORDER_PRICE = 'orderPrice';
     private const FIELD_ORDER_SIZE = 'orderSize';
-    private const FIELD_ORDER_TYPE = 'orderType';
     private const FIELD_ORDER_VALUE = 'orderValue';
     private const FIELD_STOP_PRICE = 'stopPrice';
     private const FIELD_TIME_IN_FORCE = 'timeInForce';
@@ -94,7 +93,7 @@ class CreateRequest extends AbstractRequest
     public function validate(): void
     {
         $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
-        $this->validateList($this->orderType, self::FIELD_ORDER_TYPE, self::ORDER_TYPES);
+        $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, self::ORDER_TYPES);
         $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
             $this->validateNumeric($this->orderPrice, self::FIELD_ORDER_PRICE);
@@ -143,7 +142,7 @@ class CreateRequest extends AbstractRequest
             FieldHelper::FIELD_ACCOUNT_ID      => $this->accountId,
             FieldHelper::FIELD_SYMBOL          => $this->symbol,
             FieldHelper::FIELD_ORDER_SIDE      => $this->orderSide,
-            self::FIELD_ORDER_TYPE             => $this->orderType,
+            FieldHelper::FIELD_ORDER_TYPE      => $this->orderType,
             FieldHelper::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
         ];
         if ($this->orderPrice) {

@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OpenRequest extends AbstractRequest
 {
-    private const FIELD_ORDER_TYPE = 'orderType';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/opening';
 
@@ -56,7 +54,7 @@ class OpenRequest extends AbstractRequest
     public function validate(): void
     {
         $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
-        $this->validateList($this->orderType, self::FIELD_ORDER_TYPE, self::ORDER_TYPES);
+        $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, self::ORDER_TYPES);
         if ($this->sort) {
             $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
@@ -76,7 +74,7 @@ class OpenRequest extends AbstractRequest
             FieldHelper::FIELD_ACCOUNT_ID => $this->accountId,
             FieldHelper::FIELD_SYMBOL     => $this->symbol,
             FieldHelper::FIELD_ORDER_SIDE => $this->orderSide,
-            self::FIELD_ORDER_TYPE        => $this->orderType,
+            FieldHelper::FIELD_ORDER_TYPE => $this->orderType,
         ];
         if ($this->sort) {
             $result[FieldHelper::FIELD_SORT] = $this->sort;
