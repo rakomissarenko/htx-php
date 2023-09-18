@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class SearchRequest extends AbstractRequest
 {
-    private const FIELD_TYPE = 'type';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/query/deposit-withdraw';
 
@@ -61,7 +59,7 @@ class SearchRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->type) {
-            $this->validateList($this->type, self::FIELD_TYPE, self::TYPES);
+            $this->validateList($this->type, FieldHelper::FIELD_TYPE, self::TYPES);
         }
         if ($this->size) {
             $this->validateRange(
@@ -83,7 +81,7 @@ class SearchRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->type) {
-            $result[self::FIELD_TYPE] = $this->type;
+            $result[FieldHelper::FIELD_TYPE] = $this->type;
         }
         if ($this->from) {
             $result[FieldHelper::FIELD_FROM] = $this->from;

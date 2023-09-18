@@ -34,5 +34,6 @@ class FieldHelper
     public const FIELD_SYMBOL = 'symbol';
     public const FIELD_SYMBOLS = 'symbols';
     public const FIELD_TS = 'ts';
+    public const FIELD_TYPE = 'type';
     public const FIELD_TYPES = 'types';
 }
