@@ -48,6 +48,9 @@ class FieldHelper
     public const FIELD_SYMBOL = 'symbol';
     public const FIELD_SYMBOLS = 'symbols';
     public const FIELD_TIME_IN_FORCE = 'timeInForce';
+    public const FIELD_TO_ACCOUNT_HYPHEN = 'to-account';
+    public const FIELD_TO_ACCOUNT_TYPE_HYPHEN = 'to-account-type';
+    public const FIELD_TO_USER_HYPHEN = 'to-user';
     public const FIELD_TRAILING_RATE = 'trailingRate';
     public const FIELD_TS = 'ts';
     public const FIELD_TYPE = 'type';

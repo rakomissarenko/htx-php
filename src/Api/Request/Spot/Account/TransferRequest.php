@@ -8,10 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class TransferRequest extends AbstractRequest
 {
-    private const FIELD_TO_USER = 'to-user';
-    private const FIELD_TO_ACCOUNT_TYPE = 'to-account-type';
-    private const FIELD_TO_ACCOUNT = 'to-account';
-
     protected const PATH = '/v1/account/transfer';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -33,8 +29,8 @@ class TransferRequest extends AbstractRequest
     {
         $this->validateInteger($this->fromUser, FieldHelper::FIELD_FROM_USER_HYPHEN);
         $this->validateInteger($this->fromAccount, FieldHelper::FIELD_FROM_ACCOUNT_HYPHEN);
-        $this->validateInteger($this->toUser, self::FIELD_TO_USER);
-        $this->validateInteger($this->toAccount, self::FIELD_TO_ACCOUNT);
+        $this->validateInteger($this->toUser, FieldHelper::FIELD_TO_USER_HYPHEN);
+        $this->validateInteger($this->toAccount, FieldHelper::FIELD_TO_ACCOUNT_HYPHEN);
         $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
@@ -44,9 +40,9 @@ class TransferRequest extends AbstractRequest
             FieldHelper::FIELD_FROM_USER_HYPHEN         => $this->fromUser,
             FieldHelper::FIELD_FROM_ACCOUNT_TYPE_HYPHEN => $this->fromAccountType,
             FieldHelper::FIELD_FROM_ACCOUNT_HYPHEN      => $this->fromAccount,
-            self::FIELD_TO_USER                         => $this->toUser,
-            self::FIELD_TO_ACCOUNT_TYPE                 => $this->toAccountType,
-            self::FIELD_TO_ACCOUNT                      => $this->toAccount,
+            FieldHelper::FIELD_TO_USER_HYPHEN           => $this->toUser,
+            FieldHelper::FIELD_TO_ACCOUNT_TYPE_HYPHEN   => $this->toAccountType,
+            FieldHelper::FIELD_TO_ACCOUNT_HYPHEN        => $this->toAccount,
             FieldHelper::FIELD_CURRENCY                 => $this->currency,
             FieldHelper::FIELD_AMOUNT                   => $this->amount,
         ];
