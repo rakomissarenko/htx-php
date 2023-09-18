@@ -9,6 +9,13 @@ class EnumHelper
         self::ACCOUNT_TYPE_SPOT,
     ];
 
+    private const ACCOUNT_MARKET_TYPE_CROSS = 'cross-margin';
+    private const ACCOUNT_MARKET_TYPE_ISOLATED = 'isolated-margin';
+    public const ACCOUNT_MARKET_TYPES = [
+        self::ACCOUNT_MARKET_TYPE_CROSS,
+        self::ACCOUNT_MARKET_TYPE_ISOLATED,
+    ];
+
     private const ACTION_LOCK = 'lock';
     private const ACTION_UNLOCK = 'unlock';
     public const ACTIONS = [

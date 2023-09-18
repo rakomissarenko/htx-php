@@ -14,13 +14,6 @@ class TradableMarketRequest extends AbstractRequest
 
     private const SUB_UIDS_SIZE = 50;
 
-    private const ACCOUNT_TYPE_CROSS = 'cross-margin';
-    private const ACCOUNT_TYPE_ISOLATED = 'isolated-margin';
-    private const ACCOUNT_TYPES = [
-        self::ACCOUNT_TYPE_CROSS,
-        self::ACCOUNT_TYPE_ISOLATED,
-    ];
-
     public function __construct(
         private array $subUids,
         private string $accountType,
@@ -38,7 +31,7 @@ class TradableMarketRequest extends AbstractRequest
         if (count($this->subUids) > self::SUB_UIDS_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
-        $this->validateList($this->accountType, FieldHelper::FIELD_ACCOUNT_TYPE, self::ACCOUNT_TYPES);
+        $this->validateList($this->accountType, FieldHelper::FIELD_ACCOUNT_TYPE, EnumHelper::ACCOUNT_MARKET_TYPES);
         $this->validateList($this->activation, FieldHelper::FIELD_ACTIVATION, EnumHelper::ACTIVATIONS);
     }
 
