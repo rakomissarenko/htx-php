@@ -111,6 +111,13 @@ class EnumHelper
         self::PERIOD_1YEAR,
     ];
 
+    public const PERMISSION_KEY_READ_ONLY = 'readOnly';
+    private const PERMISSION_KEY_TRADE = 'trade';
+    public const PERMISSIONS = [
+        self::PERMISSION_KEY_READ_ONLY,
+        self::PERMISSION_KEY_TRADE,
+    ];
+
     private const SORT_ASC = 'asc';
     private const SORT_DESC = 'desc';
     public const SORTS = [

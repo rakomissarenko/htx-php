@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
@@ -14,13 +15,6 @@ class ApiKeyCreateRequest extends AbstractRequest
     private const OTP_TOKEN_SIZE = 6;
     private const NOTE_SIZE = 255;
     private const IPS_SIZE = 20;
-
-    private const PERMISSION_KEY_READ_ONLY = 'readOnly';
-    private const PERMISSION_KEY_TRADE = 'trade';
-    private const PERMISSIONS = [
-        self::PERMISSION_KEY_READ_ONLY,
-        self::PERMISSION_KEY_TRADE,
-    ];
 
     private ?array $ips = null;
 
@@ -48,9 +42,9 @@ class ApiKeyCreateRequest extends AbstractRequest
             $this->throwValidateException(FieldHelper::FIELD_NOTE);
         }
         foreach ($this->permission as $permission) {
-            $this->validateList($permission, FieldHelper::FIELD_PERMISSION, self::PERMISSIONS);
+            $this->validateList($permission, FieldHelper::FIELD_PERMISSION, EnumHelper::PERMISSIONS);
         }
-        if (!in_array(self::PERMISSION_KEY_READ_ONLY, $this->permission, true)) {
+        if (!in_array(EnumHelper::PERMISSION_KEY_READ_ONLY, $this->permission, true)) {
             $this->throwValidateException(FieldHelper::FIELD_PERMISSION);
         }
         if ($this->ips) {
