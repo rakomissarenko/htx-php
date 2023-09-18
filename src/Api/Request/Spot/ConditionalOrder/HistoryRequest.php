@@ -12,13 +12,6 @@ class HistoryRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/history';
 
-    private const ORDER_TYPE_LIMIT = 'limit';
-    private const ORDER_TYPE_MARKET = 'market';
-    private const ORDER_TYPES = [
-        self::ORDER_TYPE_LIMIT,
-        self::ORDER_TYPE_MARKET,
-    ];
-
     private const ORDER_STATUS_CANCELED = 'canceled';
     private const ORDER_STATUS_REJECTED = 'rejected';
     private const ORDER_STATUS_TRIGGERED = 'triggered';
@@ -54,7 +47,7 @@ class HistoryRequest extends AbstractRequest
             $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         }
         if ($this->orderType) {
-            $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, self::ORDER_TYPES);
+            $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         }
         if ($this->orderStatus) {
             $this->validateList($this->orderStatus, FieldHelper::FIELD_ORDER_STATUS, self::ORDER_STATUSES);

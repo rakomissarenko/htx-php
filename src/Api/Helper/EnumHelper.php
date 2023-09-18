@@ -11,6 +11,13 @@ class EnumHelper
         self::DIRECT_PREV,
     ];
 
+    private const ORDER_BID_TYPE_LIMIT = 'limit';
+    public const ORDER_BID_TYPE_MARKET = 'market';
+    public const ORDER_BID_TYPES = [
+        self::ORDER_BID_TYPE_LIMIT,
+        self::ORDER_BID_TYPE_MARKET,
+    ];
+
     public const ORDER_SIDE_BUY = 'buy';
     private const ORDER_SIDE_SELL = 'sell';
     public const ORDER_SIDES = [

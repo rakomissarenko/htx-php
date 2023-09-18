@@ -12,13 +12,6 @@ class OpenRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/algo-orders/opening';
 
-    private const ORDER_TYPE_LIMIT = 'limit';
-    private const ORDER_TYPE_MARKET = 'market';
-    private const ORDER_TYPES = [
-        self::ORDER_TYPE_LIMIT,
-        self::ORDER_TYPE_MARKET,
-    ];
-
     private const LIMIT_MIN = 1;
     private const LIMIT_MAX = 500;
 
@@ -54,7 +47,7 @@ class OpenRequest extends AbstractRequest
     public function validate(): void
     {
         $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
-        $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, self::ORDER_TYPES);
+        $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         if ($this->sort) {
             $this->validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }

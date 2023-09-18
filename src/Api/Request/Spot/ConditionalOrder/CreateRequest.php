@@ -12,13 +12,6 @@ class CreateRequest extends AbstractRequest
     protected const PATH = '/v2/algo-orders';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
-    private const ORDER_TYPE_LIMIT = 'limit';
-    private const ORDER_TYPE_MARKET = 'market';
-    private const ORDER_TYPES = [
-        self::ORDER_TYPE_LIMIT,
-        self::ORDER_TYPE_MARKET,
-    ];
-
     private const TIME_BOC = 'boc';
     private const TIME_IOC = 'ioc';
     private const TIME_FOK = 'fok';
@@ -86,29 +79,29 @@ class CreateRequest extends AbstractRequest
     public function validate(): void
     {
         $this->validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
-        $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, self::ORDER_TYPES);
+        $this->validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
             $this->validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
-            if ($this->orderType === self::ORDER_TYPE_MARKET) {
+            if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_PRICE);
             }
         }
         if ($this->orderSize) {
             $this->validateNumeric($this->orderSize, FieldHelper::FIELD_ORDER_SIZE);
-            if ($this->orderType === self::ORDER_TYPE_MARKET && $this->orderSide === EnumHelper::ORDER_SIDE_BUY) {
+            if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET && $this->orderSide === EnumHelper::ORDER_SIDE_BUY) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
         }
         if ($this->orderValue) {
             $this->validateNumeric($this->orderValue, FieldHelper::FIELD_ORDER_VALUE);
-            if ($this->orderType !== self::ORDER_TYPE_MARKET || $this->orderSide !== EnumHelper::ORDER_SIDE_BUY) {
+            if ($this->orderType !== EnumHelper::ORDER_BID_TYPE_MARKET || $this->orderSide !== EnumHelper::ORDER_SIDE_BUY) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
         }
         if ($this->timeInForce) {
             $this->validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, self::TIMES);
-            if ($this->orderType === self::ORDER_TYPE_MARKET && in_array($this->timeInForce, [
+            if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET && in_array($this->timeInForce, [
                 self::TIME_BOC,
                 self::TIME_GTC,
                 self::TIME_FOK,
