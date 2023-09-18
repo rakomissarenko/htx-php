@@ -16,6 +16,7 @@ class FieldHelper
     public const FIELD_CLIENT_ORDER_ID = 'clientOrderId';
     public const FIELD_CLIENT_ORDER_IDS = 'clientOrderIds';
     public const FIELD_CURRENCY = 'currency';
+    public const FIELD_DEPTH = 'depth';
     public const FIELD_DIRECT = 'direct';
     public const FIELD_END_DATE_HYPHEN = 'end-date';
     public const FIELD_END_TIME = 'endTime';
@@ -52,6 +53,7 @@ class FieldHelper
     public const FIELD_SYMBOL = 'symbol';
     public const FIELD_SYMBOLS = 'symbols';
     public const FIELD_TIME_IN_FORCE = 'timeInForce';
+    public const FIELD_TIMEOUT = 'timeout';
     public const FIELD_TO_ACCOUNT_HYPHEN = 'to-account';
     public const FIELD_TO_ACCOUNT_TYPE_HYPHEN = 'to-account-type';
     public const FIELD_TO_USER_HYPHEN = 'to-user';

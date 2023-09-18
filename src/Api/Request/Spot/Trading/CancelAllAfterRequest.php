@@ -2,13 +2,12 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class CancelAllAfterRequest extends AbstractRequest
 {
-    private const FIELD_TIMEOUT = 'timeout';
-
     protected const PATH = '/v2/algo-orders/cancel-all-after';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
@@ -23,14 +22,14 @@ class CancelAllAfterRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->timeout < self::TIMEOUT_MIN && $this->timeout !== self::TIMEOUT_0) {
-            $this->throwValidateException(self::FIELD_TIMEOUT);
+            $this->throwValidateException(FieldHelper::FIELD_TIMEOUT);
         }
     }
 
     public function toArray(): array
     {
         return [
-            self::FIELD_TIMEOUT => $this->timeout,
+            FieldHelper::FIELD_TIMEOUT => $this->timeout,
         ];
     }
 }

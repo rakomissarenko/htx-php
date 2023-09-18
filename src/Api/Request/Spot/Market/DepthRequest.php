@@ -8,8 +8,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class DepthRequest extends AbstractRequest
 {
-    private const FIELD_DEPTH = 'depth';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/market/depth';
 
@@ -58,7 +56,7 @@ class DepthRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->depth) {
-            $this->validateList($this->depth, self::FIELD_DEPTH, self::DEPTHS);
+            $this->validateList($this->depth, FieldHelper::FIELD_DEPTH, self::DEPTHS);
         }
         if ($this->type) {
             $this->validateList($this->type, FieldHelper::FIELD_TYPE, self::STEPS);
@@ -71,7 +69,7 @@ class DepthRequest extends AbstractRequest
             FieldHelper::FIELD_SYMBOL => $this->symbol,
         ];
         if ($this->depth) {
-            $result[self::FIELD_DEPTH] = $this->depth;
+            $result[FieldHelper::FIELD_DEPTH] = $this->depth;
         }
         if ($this->type) {
             $result[FieldHelper::FIELD_TYPE] = $this->type;
