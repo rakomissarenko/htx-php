@@ -4,6 +4,13 @@ namespace Feralonso\Htx\Api\Helper;
 
 class EnumHelper
 {
+    private const ACTION_LOCK = 'lock';
+    private const ACTION_UNLOCK = 'unlock';
+    public const ACTIONS = [
+        self::ACTION_LOCK,
+        self::ACTION_UNLOCK,
+    ];
+
     private const DEPTH_5 = 5;
     private const DEPTH_10 = 10;
     private const DEPTH_20 = 20;
