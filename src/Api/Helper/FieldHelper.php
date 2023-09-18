@@ -34,6 +34,7 @@ class FieldHelper
     public const FIELD_START_DATE_HYPHEN = 'start-date';
     public const FIELD_START_TIME = 'startTime';
     public const FIELD_START_TIME_HYPHEN = 'start-time';
+    public const FIELD_STATE = 'state';
     public const FIELD_STOP_PRICE = 'stopPrice';
     public const FIELD_SUB_UID = 'subUid';
     public const FIELD_SUB_UID_HYPHEN = 'sub-uid';

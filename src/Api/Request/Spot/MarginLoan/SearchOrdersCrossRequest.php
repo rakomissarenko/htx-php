@@ -9,8 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class SearchOrdersCrossRequest extends AbstractRequest
 {
-    private const FIELD_STATE = 'state';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/cross-margin/loan-orders';
 
@@ -83,7 +81,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->state) {
-            $this->validateList($this->state, self::FIELD_STATE, self::STATES);
+            $this->validateList($this->state, FieldHelper::FIELD_STATE, self::STATES);
         }
         if ($this->startDate && !preg_match('/\d{4}-\d{2}-\d{2}/', $this->startDate)) {
             $this->throwValidateException(FieldHelper::FIELD_START_DATE_HYPHEN);
@@ -114,7 +112,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->state) {
-            $result[self::FIELD_STATE] = $this->state;
+            $result[FieldHelper::FIELD_STATE] = $this->state;
         }
         if ($this->startDate) {
             $result[FieldHelper::FIELD_START_DATE_HYPHEN] = $this->startDate;
