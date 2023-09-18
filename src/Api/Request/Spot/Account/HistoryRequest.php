@@ -9,9 +9,6 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class HistoryRequest extends AbstractRequest
 {
-    private const FIELD_TRANSACT_TYPES = 'transact-types';
-    private const FIELD_FROM_ID = 'from-id';
-
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/account/history';
 
@@ -109,9 +106,9 @@ class HistoryRequest extends AbstractRequest
         if ($this->transactTypes) {
             foreach ($this->transactTypes as $type) {
                 if (!is_scalar($type)) {
-                    $this->throwValidateException(self::FIELD_TRANSACT_TYPES);
+                    $this->throwValidateException(FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN);
                 }
-                $this->validateList((string) $type, self::FIELD_TRANSACT_TYPES, self::TYPES);
+                $this->validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN, self::TYPES);
             }
         }
         if ($this->startTime) {
@@ -148,7 +145,7 @@ class HistoryRequest extends AbstractRequest
             $this->validateRange($this->size, FieldHelper::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, self::FIELD_FROM_ID);
+            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID_HYPHEN);
         }
     }
 
@@ -162,7 +159,7 @@ class HistoryRequest extends AbstractRequest
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
         }
         if ($this->transactTypes) {
-            $result[self::FIELD_TRANSACT_TYPES] = implode(',', $this->transactTypes);
+            $result[FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN] = implode(',', $this->transactTypes);
         }
         if ($this->startTime) {
             $result[FieldHelper::FIELD_START_TIME_HYPHEN] = $this->startTime;
@@ -177,7 +174,7 @@ class HistoryRequest extends AbstractRequest
             $result[FieldHelper::FIELD_SIZE] = $this->size;
         }
         if ($this->fromId) {
-            $result[self::FIELD_FROM_ID] = $this->fromId;
+            $result[FieldHelper::FIELD_FROM_ID_HYPHEN] = $this->fromId;
         }
 
         return $result;

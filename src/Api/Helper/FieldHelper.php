@@ -29,6 +29,7 @@ class FieldHelper
     public const FIELD_FROM_ACCOUNT_HYPHEN = 'from-account';
     public const FIELD_FROM_ACCOUNT_TYPE_HYPHEN = 'from-account-type';
     public const FIELD_FROM_ID = 'fromId';
+    public const FIELD_FROM_ID_HYPHEN = 'from-id';
     public const FIELD_FROM_USER_HYPHEN = 'from-user';
     public const FIELD_IP = 'ipAddresses';
     public const FIELD_LIMIT = 'limit';
@@ -67,6 +68,7 @@ class FieldHelper
     public const FIELD_TRAILING_RATE = 'trailingRate';
     public const FIELD_TRANSACT_ID = 'transactId';
     public const FIELD_TRANSACT_TYPES = 'transactTypes';
+    public const FIELD_TRANSACT_TYPES_HYPHEN = 'transact-types';
     public const FIELD_TRANSFERRABLE = 'transferrable';
     public const FIELD_TS = 'ts';
     public const FIELD_TYPE = 'type';
