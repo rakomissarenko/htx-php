@@ -161,6 +161,17 @@ class EnumHelper
         self::STEP_5,
     ];
 
+    public const TIME_BOC = 'boc';
+    private const TIME_IOC = 'ioc';
+    public const TIME_FOK = 'fok';
+    public const TIME_GTC = 'gtc';
+    public const TIMES = [
+        self::TIME_BOC,
+        self::TIME_IOC,
+        self::TIME_FOK,
+        self::TIME_GTC,
+    ];
+
     private const TRANSACTION_TYPE_CREDIT = 'credit';
     private const TRANSACTION_TYPE_DEPOSIT = 'deposit';
     private const TRANSACTION_TYPE_ETF = 'etf';

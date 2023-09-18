@@ -12,17 +12,6 @@ class CreateRequest extends AbstractRequest
     protected const PATH = '/v2/algo-orders';
     protected const PERMISSION = self::PERMISSION_TRADE;
 
-    private const TIME_BOC = 'boc';
-    private const TIME_IOC = 'ioc';
-    private const TIME_FOK = 'fok';
-    private const TIME_GTC = 'gtc';
-    private const TIMES = [
-        self::TIME_BOC,
-        self::TIME_IOC,
-        self::TIME_FOK,
-        self::TIME_GTC,
-    ];
-
     private const CLIENT_ORDER_ID_SIZE = 64;
 
     private const TRAILING_RATE_MIN = 0.001;
@@ -100,11 +89,11 @@ class CreateRequest extends AbstractRequest
             }
         }
         if ($this->timeInForce) {
-            $this->validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, self::TIMES);
+            $this->validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, EnumHelper::TIMES);
             if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET && in_array($this->timeInForce, [
-                self::TIME_BOC,
-                self::TIME_GTC,
-                self::TIME_FOK,
+                EnumHelper::TIME_BOC,
+                EnumHelper::TIME_GTC,
+                EnumHelper::TIME_FOK,
             ], true)) {
                 $this->throwValidateException(FieldHelper::FIELD_TIME_IN_FORCE);
             }
