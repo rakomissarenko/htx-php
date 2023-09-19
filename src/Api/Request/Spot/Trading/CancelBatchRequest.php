@@ -37,15 +37,11 @@ class CancelBatchRequest extends AbstractRequest
             $this->throwValidateException(FieldHelper::FIELD_ORDER_IDS_HYPHEN);
         }
         if ($this->orderIds) {
-            if (count($this->orderIds) > self::ORDER_IDS_SIZE) {
-                $this->throwValidateException(FieldHelper::FIELD_ORDER_IDS_HYPHEN);
-            }
+            ValidateHelper::validateArraySize($this->orderIds, FieldHelper::FIELD_ORDER_IDS_HYPHEN, self::ORDER_IDS_SIZE);
             ValidateHelper::validateArrayScalar($this->orderIds, FieldHelper::FIELD_ORDER_IDS_HYPHEN);
         }
         if ($this->clientOrderIds) {
-            if (count($this->clientOrderIds) > self::CLIENT_ORDER_IDS_SIZE) {
-                $this->throwValidateException(FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN);
-            }
+            ValidateHelper::validateArraySize($this->clientOrderIds, FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN, self::CLIENT_ORDER_IDS_SIZE);
             ValidateHelper::validateArrayScalar($this->clientOrderIds, FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN);
         }
     }

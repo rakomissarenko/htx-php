@@ -27,10 +27,8 @@ class LimitRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->currencies) {
+            ValidateHelper::validateArraySize($this->currencies, FieldHelper::FIELD_CURRENCY, self::CURRENCIES_SIZE);
             ValidateHelper::validateArrayScalar($this->currencies, FieldHelper::FIELD_CURRENCY);
-            if (count($this->currencies) > self::CURRENCIES_SIZE) {
-                $this->throwValidateException(FieldHelper::FIELD_CURRENCY);
-            }
         }
     }
 

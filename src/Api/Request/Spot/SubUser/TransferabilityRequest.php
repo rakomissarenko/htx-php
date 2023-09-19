@@ -26,11 +26,9 @@ class TransferabilityRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateArraySize($this->subUids, FieldHelper::FIELD_SUB_UIDS, self::SUB_UIDS_SIZE);
         foreach ($this->subUids as $subUid) {
             ValidateHelper::validateInteger((string) $subUid, FieldHelper::FIELD_SUB_UIDS);
-        }
-        if (count($this->subUids) > self::SUB_UIDS_SIZE) {
-            $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);
         }
         ValidateHelper::validateList($this->accountType, FieldHelper::FIELD_ACCOUNT_TYPE, EnumHelper::ACCOUNT_TYPES);
     }

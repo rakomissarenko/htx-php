@@ -81,6 +81,16 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validateArraySize(array $value, string $name, int $maxSize): void
+    {
+        if (count($value) > $maxSize) {
+            self::throwValidateException($name);
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function throwValidateException(string $name): void
     {
         throw new HtxValidateException(

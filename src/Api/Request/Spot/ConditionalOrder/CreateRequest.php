@@ -91,12 +91,12 @@ class CreateRequest extends AbstractRequest
         }
         if ($this->timeInForce) {
             ValidateHelper::validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, EnumHelper::TIMES);
-            if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET && in_array($this->timeInForce, [
-                EnumHelper::TIME_BOC,
-                EnumHelper::TIME_GTC,
-                EnumHelper::TIME_FOK,
-            ], true)) {
-                $this->throwValidateException(FieldHelper::FIELD_TIME_IN_FORCE);
+            if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET) {
+                ValidateHelper::validateList($this->timeInForce, FieldHelper::FIELD_TIME_IN_FORCE, [
+                    EnumHelper::TIME_BOC,
+                    EnumHelper::TIME_GTC,
+                    EnumHelper::TIME_FOK,
+                ]);
             }
         }
         if ($this->stopPrice) {
