@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class BalanceRequest extends AbstractRequest
@@ -17,6 +18,11 @@ class BalanceRequest extends AbstractRequest
     public function getPath(): string
     {
         return self::PATH . $this->accountId . self::PATH_AFTER;
+    }
+
+    public function validate(): void
+    {
+        ValidateHelper::validateNotEmptyString($this->accountId, FieldHelper::FIELD_ACCOUNT_ID_HYPHEN);
     }
 
     public function toArray(): array

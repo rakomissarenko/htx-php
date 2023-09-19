@@ -24,6 +24,7 @@ class TransferFuturesRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_FUTURES_TYPES);
     }

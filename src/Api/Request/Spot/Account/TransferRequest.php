@@ -28,10 +28,17 @@ class TransferRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->fromUser, FieldHelper::FIELD_FROM_USER_HYPHEN);
         ValidateHelper::validateInteger($this->fromUser, FieldHelper::FIELD_FROM_USER_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->fromAccountType, FieldHelper::FIELD_FROM_ACCOUNT_TYPE_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->fromAccount, FieldHelper::FIELD_FROM_ACCOUNT_HYPHEN);
         ValidateHelper::validateInteger($this->fromAccount, FieldHelper::FIELD_FROM_ACCOUNT_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->toUser, FieldHelper::FIELD_TO_USER_HYPHEN);
         ValidateHelper::validateInteger($this->toUser, FieldHelper::FIELD_TO_USER_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->toAccountType, FieldHelper::FIELD_TO_ACCOUNT_TYPE_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->toAccount, FieldHelper::FIELD_TO_ACCOUNT_HYPHEN);
         ValidateHelper::validateInteger($this->toAccount, FieldHelper::FIELD_TO_ACCOUNT_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
