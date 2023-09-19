@@ -2,6 +2,8 @@
 
 namespace Feralonso\Htx\Api\Data;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OrderData
@@ -19,36 +21,10 @@ class OrderData
 
     private const CLIENT_ORDER_ID_SIZE = 64;
 
-    private const TYPE_BUY_IOC = 'buy-ioc';
-    private const TYPE_BUY_LIMIT = 'buy-limit';
-    private const TYPE_BUY_LIMIT_FOK = 'buy-limit-fok';
     private const TYPE_BUY_LIMIT_MARKET = 'buy-limit-maker';
     private const TYPE_BUY_MARKET = 'buy-market';
-    private const TYPE_BUY_STOP_LIMIT = 'buy-stop-limit';
-    private const TYPE_BUY_STOP_LIMIT_FOK = 'buy-stop-limit-fok';
-    private const TYPE_SELL_IOC = 'sell-ioc';
-    private const TYPE_SELL_LIMIT = 'sell-limit';
-    private const TYPE_SELL_LIMIT_FOK = 'sell-limit-fok';
     private const TYPE_SELL_LIMIT_MARKET = 'sell-limit-maker';
     private const TYPE_SELL_MARKET = 'sell-market';
-    private const TYPE_SELL_STOP_LIMIT = 'sell-stop-limit';
-    private const TYPE_SELL_STOP_LIMIT_FOK = 'sell-stop-limit-fok';
-    private const TYPES = [
-        self::TYPE_BUY_IOC,
-        self::TYPE_BUY_LIMIT,
-        self::TYPE_BUY_LIMIT_FOK,
-        self::TYPE_BUY_LIMIT_MARKET,
-        self::TYPE_BUY_MARKET,
-        self::TYPE_BUY_STOP_LIMIT,
-        self::TYPE_BUY_STOP_LIMIT_FOK,
-        self::TYPE_SELL_IOC,
-        self::TYPE_SELL_LIMIT,
-        self::TYPE_SELL_LIMIT_FOK,
-        self::TYPE_SELL_LIMIT_MARKET,
-        self::TYPE_SELL_MARKET,
-        self::TYPE_SELL_STOP_LIMIT,
-        self::TYPE_SELL_STOP_LIMIT_FOK,
-    ];
     private const TYPES_MARKET = [
         self::TYPE_BUY_LIMIT_MARKET,
         self::TYPE_BUY_MARKET,
@@ -130,31 +106,29 @@ class OrderData
      */
     public function validate(): void
     {
-        //$this->validateList($this->type, self::FIELD_TYPE, self::TYPES);
-        if (mb_strlen($this->clientOrderId) > self::CLIENT_ORDER_ID_SIZE) {
-            //$this->throwValidateException(self::FIELD_CLIENT_ORDER_ID);
-        }
+        ValidateHelper::validateList($this->type, self::FIELD_TYPE, EnumHelper::ORDER_TYPES);
+        ValidateHelper::validateMaxLength($this->clientOrderId, self::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->amount) {
-            //$this->validateNumeric($this->amount, self::FIELD_AMOUNT);
+            ValidateHelper::validateNumeric($this->amount, self::FIELD_AMOUNT);
             //$this->validateList($this->type, self::FIELD_AMOUNT, self::TYPES_MARKET);
         }
         if ($this->price) {
-            //$this->validateNumeric($this->price, self::FIELD_PRICE);
+            ValidateHelper::validateNumeric($this->price, self::FIELD_PRICE);
             if (in_array($this->type, self::TYPES_MARKET, true)) {
                 //$this->throwValidateException(self::FIELD_PRICE);
             }
         }
         if ($this->source) {
-            //$this->validateList($this->source, self::FIELD_SOURCE, self::SOURCES);
+            ValidateHelper::validateList($this->source, self::FIELD_SOURCE, self::SOURCES);
         }
         if ($this->selfMatchPrevent) {
             //$this->validateList($this->selfMatchPrevent, self::FIELD_SELF_MATCH_PREVENT, self::SELF_TRADINGS);
         }
         if ($this->stopPrice) {
-            //$this->validateNumeric($this->stopPrice, self::FIELD_STOP_PRICE);
+            ValidateHelper::validateNumeric($this->stopPrice, self::FIELD_STOP_PRICE);
         }
         if ($this->operator) {
-            //$this->validateList($this->operator, self::FIELD_OPERATOR, self::OPERATORS);
+            ValidateHelper::validateList($this->operator, self::FIELD_OPERATOR, self::OPERATORS);
         }
     }
 
