@@ -175,6 +175,17 @@ class EnumHelper
         self::SORT_DESC,
     ];
 
+    private const SOURCE_C2C = 'c2c-margin-api';
+    private const SOURCE_MARGIN = 'margin-api';
+    private const SOURCE_SPOT = 'spot-api';
+    private const SOURCE_SUPER_MARGIN = 'super-margin-api';
+    public const SOURCES = [
+        self::SOURCE_C2C,
+        self::SOURCE_MARGIN,
+        self::SOURCE_SPOT,
+        self::SOURCE_SUPER_MARGIN,
+    ];
+
     private const STEP_0 = 'step0';
     private const STEP_1 = 'step1';
     private const STEP_2 = 'step2';

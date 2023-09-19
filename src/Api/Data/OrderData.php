@@ -32,17 +32,6 @@ class OrderData
         self::TYPE_SELL_MARKET,
     ];
 
-    private const SOURCE_C2C = 'c2c-margin-api';
-    private const SOURCE_MARGIN = 'margin-api';
-    private const SOURCE_SPOT = 'spot-api';
-    private const SOURCE_SUPER_MARGIN = 'super-margin-api';
-    private const SOURCES = [
-        self::SOURCE_C2C,
-        self::SOURCE_MARGIN,
-        self::SOURCE_SPOT,
-        self::SOURCE_SUPER_MARGIN,
-    ];
-
     private const SELF_TRADING_ALLOW = 0;
     private const SELF_TRADING_DISALLOW = 1;
     private const SELF_TRADINGS = [
@@ -110,19 +99,23 @@ class OrderData
         ValidateHelper::validateMaxLength($this->clientOrderId, self::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->amount) {
             ValidateHelper::validateNumeric($this->amount, self::FIELD_AMOUNT);
-            //$this->validateList($this->type, self::FIELD_AMOUNT, self::TYPES_MARKET);
+            ValidateHelper::validateList($this->type, self::FIELD_AMOUNT, self::TYPES_MARKET);
         }
         if ($this->price) {
             ValidateHelper::validateNumeric($this->price, self::FIELD_PRICE);
             if (in_array($this->type, self::TYPES_MARKET, true)) {
-                //$this->throwValidateException(self::FIELD_PRICE);
+                ValidateHelper::throwValidateException(self::FIELD_PRICE);
             }
         }
         if ($this->source) {
-            ValidateHelper::validateList($this->source, self::FIELD_SOURCE, self::SOURCES);
+            ValidateHelper::validateList($this->source, self::FIELD_SOURCE, EnumHelper::SOURCES);
         }
         if ($this->selfMatchPrevent) {
-            //$this->validateList($this->selfMatchPrevent, self::FIELD_SELF_MATCH_PREVENT, self::SELF_TRADINGS);
+            ValidateHelper::validateList(
+                (string) $this->selfMatchPrevent,
+                self::FIELD_SELF_MATCH_PREVENT,
+                array_map(static fn (int $item) => (string) $item, self::SELF_TRADINGS),
+            );
         }
         if ($this->stopPrice) {
             ValidateHelper::validateNumeric($this->stopPrice, self::FIELD_STOP_PRICE);
