@@ -70,7 +70,7 @@ class CreateRequest extends AbstractRequest
     {
         ValidateHelper::validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         ValidateHelper::validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
-        $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
+        ValidateHelper::validateMaxLength($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
             ValidateHelper::validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
             if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET) {

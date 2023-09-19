@@ -37,7 +37,7 @@ class ApiKeyCreateRequest extends AbstractRequest
     public function validate(): void
     {
         ValidateHelper::validateInteger($this->otpToken, FieldHelper::FIELD_OTP_TOKEN);
-        $this->validateSize($this->otpToken, FieldHelper::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
+        ValidateHelper::validateMaxLength($this->otpToken, FieldHelper::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
         ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if (mb_strlen($this->note) > self::NOTE_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_NOTE);

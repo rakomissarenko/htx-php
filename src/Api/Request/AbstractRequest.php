@@ -44,16 +44,6 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * @throws HtxValidateException
      */
-    protected function validateSize(string $value, string $name, int $size): void
-    {
-        if (mb_strlen($value) > $size) {
-            $this->throwValidateException($name);
-        }
-    }
-
-    /**
-     * @throws HtxValidateException
-     */
     protected function throwValidateException(string $name): void
     {
         throw new HtxValidateException(
