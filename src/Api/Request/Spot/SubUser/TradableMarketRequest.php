@@ -27,7 +27,7 @@ class TradableMarketRequest extends AbstractRequest
     public function validate(): void
     {
         foreach ($this->subUids as $subUid) {
-            $this->validateInteger((string) $subUid, FieldHelper::FIELD_SUB_UIDS);
+            ValidateHelper::validateInteger((string) $subUid, FieldHelper::FIELD_SUB_UIDS);
         }
         if (count($this->subUids) > self::SUB_UIDS_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_SUB_UIDS);

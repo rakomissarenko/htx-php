@@ -71,10 +71,10 @@ class RepayInfoRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
+            ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
+            ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
         }
         if ($this->sort) {
             ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
@@ -88,7 +88,7 @@ class RepayInfoRequest extends AbstractRequest
             );
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
+            ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 

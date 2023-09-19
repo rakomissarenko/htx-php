@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -24,7 +25,7 @@ class BalanceCrossRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->subUid) {
-            $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
+            ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         }
     }
 

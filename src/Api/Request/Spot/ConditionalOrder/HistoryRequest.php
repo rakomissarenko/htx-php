@@ -45,10 +45,10 @@ class HistoryRequest extends AbstractRequest
             ValidateHelper::validateList($this->orderStatus, FieldHelper::FIELD_ORDER_STATUS, EnumHelper::ORDER_STATUSES);
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
+            ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
+            ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
             if ($this->startTime && $this->startTime > $this->endTime) {
                 $this->throwValidateException(FieldHelper::FIELD_END_TIME);
             }
@@ -65,7 +65,7 @@ class HistoryRequest extends AbstractRequest
             );
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
+            ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 

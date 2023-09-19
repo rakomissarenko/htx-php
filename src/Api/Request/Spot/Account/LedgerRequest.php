@@ -82,7 +82,7 @@ class LedgerRequest extends AbstractRequest
             }
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
+            ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
             $this->validateRange(
                 $this->startTime,
                 FieldHelper::FIELD_START_TIME,
@@ -91,7 +91,7 @@ class LedgerRequest extends AbstractRequest
             );
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
+            ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
             if ($this->startTime) {
                 $this->validateRange(
                     $this->startTime,
@@ -115,7 +115,7 @@ class LedgerRequest extends AbstractRequest
             $this->validateRange($this->limit, FieldHelper::FIELD_LIMIT, (string) self::LIMIT_MIN, (string) self::LIMIT_MAX);
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
+            ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 

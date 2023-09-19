@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -25,7 +26,7 @@ class ApiKeyRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->uid, FieldHelper::FIELD_UID);
+        ValidateHelper::validateInteger($this->uid, FieldHelper::FIELD_UID);
     }
 
     public function toArray(): array

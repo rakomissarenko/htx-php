@@ -59,9 +59,9 @@ class QueryDepositRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
+        ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
+            ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
             $this->validateRange(
                 $this->startTime,
                 FieldHelper::FIELD_START_TIME,
@@ -70,7 +70,7 @@ class QueryDepositRequest extends AbstractRequest
             );
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
+            ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
             if ($this->startTime && $this->startTime > $this->endTime) {
                 $this->throwValidateException(FieldHelper::FIELD_END_TIME);
             }
@@ -87,7 +87,7 @@ class QueryDepositRequest extends AbstractRequest
             );
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
+            ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 

@@ -9,6 +9,16 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validateInteger(string $value, string $name): void
+    {
+        if (preg_match('/\D+/', $value)) {
+            self::throwValidateException($name);
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function validateNumeric(string $value, string $name): void
     {
         if (!is_numeric($value)) {

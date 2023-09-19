@@ -82,7 +82,7 @@ class HistoryRequest extends AbstractRequest
             }
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
+            ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
             $this->validateRange(
                 $this->startTime,
                 FieldHelper::FIELD_START_TIME_HYPHEN,
@@ -91,7 +91,7 @@ class HistoryRequest extends AbstractRequest
             );
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME_HYPHEN);
+            ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME_HYPHEN);
             if ($this->startTime) {
                 $this->validateRange(
                     $this->startTime,
@@ -115,7 +115,7 @@ class HistoryRequest extends AbstractRequest
             $this->validateRange($this->size, FieldHelper::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
         }
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID_HYPHEN);
+            ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID_HYPHEN);
         }
     }
 

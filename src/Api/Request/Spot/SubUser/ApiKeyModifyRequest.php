@@ -35,7 +35,7 @@ class ApiKeyModifyRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
+        ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if (mb_strlen($this->note) > self::NOTE_SIZE) {
             $this->throwValidateException(FieldHelper::FIELD_NOTE);
         }

@@ -26,7 +26,7 @@ class TransferRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
+        ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_TYPES);
     }

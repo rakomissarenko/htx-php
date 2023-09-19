@@ -91,7 +91,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
             $this->validateRange((string) $this->size, FieldHelper::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);
         }
         if ($this->subUid) {
-            $this->validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
+            ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         }
     }
 

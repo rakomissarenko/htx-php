@@ -76,7 +76,7 @@ class MatchResultsRequest extends AbstractRequest
             }
         }
         if ($this->startTime) {
-            $this->validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
+            ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
             $this->validateRange(
                 $this->startTime,
                 FieldHelper::FIELD_START_TIME_HYPHEN,
@@ -85,7 +85,7 @@ class MatchResultsRequest extends AbstractRequest
             );
         }
         if ($this->endTime) {
-            $this->validateInteger($this->endTime, FieldHelper::FIELD_END_TIME_HYPHEN);
+            ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME_HYPHEN);
             if ($this->startTime) {
                 $this->validateRange(
                     $this->startTime,

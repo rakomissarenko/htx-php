@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -24,7 +25,7 @@ class UserListRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->fromId) {
-            $this->validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
+            ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);
         }
     }
 

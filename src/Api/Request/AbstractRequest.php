@@ -54,16 +54,6 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * @throws HtxValidateException
      */
-    protected function validateInteger(string $value, string $name): void
-    {
-        if (preg_match('/\D+/', $value)) {
-            $this->throwValidateException($name);
-        }
-    }
-
-    /**
-     * @throws HtxValidateException
-     */
     protected function validateRange(string $value, string $name, string $min, ?string $max = null): void
     {
         if ($value < $min || ($max && $value > $max)) {
