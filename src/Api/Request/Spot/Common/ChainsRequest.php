@@ -38,7 +38,11 @@ class ChainsRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->showDesc !== null) {
-            $this->validateList($this->showDesc, FieldHelper::FIELD_SHOW_DESC_HYPHEN, EnumHelper::SHOWS);
+            ValidateHelper::validateList(
+                (string) $this->showDesc,
+                FieldHelper::FIELD_SHOW_DESC_HYPHEN,
+                array_map(static fn (int $item) => (string) $item, EnumHelper::SHOWS),
+            );
         }
         if ($this->ts) {
             ValidateHelper::validateInteger($this->ts, FieldHelper::FIELD_TS);

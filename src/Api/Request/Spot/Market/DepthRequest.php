@@ -34,7 +34,11 @@ class DepthRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->depth) {
-            $this->validateList($this->depth, FieldHelper::FIELD_DEPTH, EnumHelper::DEPTHS);
+            ValidateHelper::validateList(
+                (string) $this->depth,
+                FieldHelper::FIELD_DEPTH,
+                array_map(static fn (int $item) => (string) $item, EnumHelper::DEPTHS),
+            );
         }
         if ($this->type) {
             ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::STEPS);
