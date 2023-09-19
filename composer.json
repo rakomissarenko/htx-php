@@ -15,5 +15,8 @@
         "workerman/workerman": "*",
         "workerman/globaldata": "*",
         "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
     }
 }
