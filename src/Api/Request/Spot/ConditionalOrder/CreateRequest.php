@@ -74,19 +74,19 @@ class CreateRequest extends AbstractRequest
         if ($this->orderPrice) {
             ValidateHelper::validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
             if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET) {
-                $this->throwValidateException(FieldHelper::FIELD_ORDER_PRICE);
+                ValidateHelper::throwValidateException(FieldHelper::FIELD_ORDER_PRICE);
             }
         }
         if ($this->orderSize) {
             ValidateHelper::validateNumeric($this->orderSize, FieldHelper::FIELD_ORDER_SIZE);
             if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET && $this->orderSide === EnumHelper::ORDER_SIDE_BUY) {
-                $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
+                ValidateHelper::throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
         }
         if ($this->orderValue) {
             ValidateHelper::validateNumeric($this->orderValue, FieldHelper::FIELD_ORDER_VALUE);
             if ($this->orderType !== EnumHelper::ORDER_BID_TYPE_MARKET || $this->orderSide !== EnumHelper::ORDER_SIDE_BUY) {
-                $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
+                ValidateHelper::throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
         }
         if ($this->timeInForce) {

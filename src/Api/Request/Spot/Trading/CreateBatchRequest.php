@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Data\OrderData;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -26,7 +27,7 @@ class CreateBatchRequest extends AbstractRequest
     public function validate(): void
     {
         if (!$this->orders) {
-            $this->throwValidateException(FieldHelper::FIELD_ORDERS);
+            ValidateHelper::throwValidateException(FieldHelper::FIELD_ORDERS);
         }
         foreach ($this->orders as $orderData) {
             $orderData->validate();

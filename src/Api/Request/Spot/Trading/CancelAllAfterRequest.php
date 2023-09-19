@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -22,7 +23,7 @@ class CancelAllAfterRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->timeout < self::TIMEOUT_MIN && $this->timeout !== self::TIMEOUT_0) {
-            $this->throwValidateException(FieldHelper::FIELD_TIMEOUT);
+            ValidateHelper::throwValidateException(FieldHelper::FIELD_TIMEOUT);
         }
     }
 

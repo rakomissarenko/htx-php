@@ -39,14 +39,12 @@ class ApiKeyCreateRequest extends AbstractRequest
         ValidateHelper::validateInteger($this->otpToken, FieldHelper::FIELD_OTP_TOKEN);
         ValidateHelper::validateMaxLength($this->otpToken, FieldHelper::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
         ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
-        if (mb_strlen($this->note) > self::NOTE_SIZE) {
-            $this->throwValidateException(FieldHelper::FIELD_NOTE);
-        }
+        ValidateHelper::validateMaxLength($this->note, FieldHelper::FIELD_NOTE, self::NOTE_SIZE);
         foreach ($this->permission as $permission) {
             ValidateHelper::validateList((string) $permission, FieldHelper::FIELD_PERMISSION, EnumHelper::PERMISSIONS);
         }
         if (!in_array(EnumHelper::PERMISSION_KEY_READ_ONLY, $this->permission, true)) {
-            $this->throwValidateException(FieldHelper::FIELD_PERMISSION);
+            ValidateHelper::throwValidateException(FieldHelper::FIELD_PERMISSION);
         }
         if ($this->ips) {
             ValidateHelper::validateArraySize($this->ips, FieldHelper::FIELD_IP, self::IPS_SIZE);

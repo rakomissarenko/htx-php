@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
 use Feralonso\Htx\Api\Data\UserData;
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class CreationRequest extends AbstractRequest
@@ -22,7 +23,7 @@ class CreationRequest extends AbstractRequest
     public function validate(): void
     {
         if (!$this->userList) {
-            $this->throwValidateException(FieldHelper::FIELD_USER_LIST);
+            ValidateHelper::throwValidateException(FieldHelper::FIELD_USER_LIST);
         }
         foreach ($this->userList as $userData) {
             $userData->validate();

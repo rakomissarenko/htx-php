@@ -2,8 +2,6 @@
 
 namespace Feralonso\Htx\Api\Request;
 
-use Feralonso\Htx\Exceptions\HtxValidateException;
-
 abstract class AbstractRequest implements RequestInterface
 {
     protected const METHOD_GET = 'GET';
@@ -39,17 +37,6 @@ abstract class AbstractRequest implements RequestInterface
 
     public function validate(): void
     {
-    }
-
-    /**
-     * @throws HtxValidateException
-     */
-    protected function throwValidateException(string $name): void
-    {
-        throw new HtxValidateException(
-            HtxValidateException::getErrorMessage($name),
-            HtxValidateException::ERROR_INPUT_VALUE_INVALID
-        );
     }
 
     public function toArray(): array

@@ -34,7 +34,7 @@ class CancelBatchRequest extends AbstractRequest
     public function validate(): void
     {
         if (!$this->orderIds && !$this->clientOrderIds) {
-            $this->throwValidateException(FieldHelper::FIELD_ORDER_IDS_HYPHEN);
+            ValidateHelper::throwValidateException(FieldHelper::FIELD_ORDER_IDS_HYPHEN);
         }
         if ($this->orderIds) {
             ValidateHelper::validateArraySize($this->orderIds, FieldHelper::FIELD_ORDER_IDS_HYPHEN, self::ORDER_IDS_SIZE);

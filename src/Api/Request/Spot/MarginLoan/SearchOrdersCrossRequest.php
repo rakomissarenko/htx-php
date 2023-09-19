@@ -81,7 +81,7 @@ class SearchOrdersCrossRequest extends AbstractRequest
         if ($this->endDate) {
             ValidateHelper::validatePattern($this->endDate, FieldHelper::FIELD_END_DATE_HYPHEN, self::PATTERN_DATE);
             if ($this->startDate && $this->startDate > $this->endDate) {
-                $this->throwValidateException(FieldHelper::FIELD_END_DATE_HYPHEN);
+                ValidateHelper::throwValidateException(FieldHelper::FIELD_END_DATE_HYPHEN);
             }
         }
         if ($this->direct) {

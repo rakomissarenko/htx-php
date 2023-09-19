@@ -50,7 +50,7 @@ class HistoryRequest extends AbstractRequest
         if ($this->endTime) {
             ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
             if ($this->startTime && $this->startTime > $this->endTime) {
-                $this->throwValidateException(FieldHelper::FIELD_END_TIME);
+                ValidateHelper::throwValidateException(FieldHelper::FIELD_END_TIME);
             }
         }
         if ($this->sort) {

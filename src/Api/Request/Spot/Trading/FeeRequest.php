@@ -20,7 +20,7 @@ class FeeRequest extends AbstractRequest
     public function validate(): void
     {
         if (!$this->symbols) {
-            $this->throwValidateException(FieldHelper::FIELD_SYMBOLS);
+            ValidateHelper::throwValidateException(FieldHelper::FIELD_SYMBOLS);
         }
         ValidateHelper::validateArrayScalar($this->symbols, FieldHelper::FIELD_SYMBOLS);
     }
