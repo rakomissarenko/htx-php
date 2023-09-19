@@ -52,10 +52,9 @@ class ApiKeyCreateRequest extends AbstractRequest
             if (count($this->ips) > self::IPS_SIZE) {
                 $this->throwValidateException(FieldHelper::FIELD_IP);
             }
+            ValidateHelper::validateArrayScalar($this->ips, FieldHelper::FIELD_IP);
             foreach ($this->ips as $ip) {
-                if (!is_scalar($ip) || !filter_var($ip, FILTER_VALIDATE_IP)) {
-                    $this->throwValidateException(FieldHelper::FIELD_IP);
-                }
+                ValidateHelper::validateIp((string) $ip, FieldHelper::FIELD_IP);
             }
         }
     }

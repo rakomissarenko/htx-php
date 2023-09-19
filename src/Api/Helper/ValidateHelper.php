@@ -29,6 +29,16 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validateIp(string $value, string $name): void
+    {
+        if (!filter_var($value, FILTER_VALIDATE_IP)) {
+            self::throwValidateException($name);
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function validateList(string $value, string $name, array $list): void
     {
         if (!in_array($value, $list, true)) {
