@@ -83,7 +83,7 @@ class LedgerRequest extends AbstractRequest
         }
         if ($this->startTime) {
             ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 $this->startTime,
                 FieldHelper::FIELD_START_TIME,
                 (string) (microtime(true) * 1000 - self::TIME_MIN),
@@ -93,14 +93,14 @@ class LedgerRequest extends AbstractRequest
         if ($this->endTime) {
             ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME);
             if ($this->startTime) {
-                $this->validateRange(
+                ValidateHelper::validateRange(
                     $this->startTime,
                     FieldHelper::FIELD_START_TIME,
                     (string) $this->startTime,
                     (string) ($this->startTime + self::TIME_RANGE_MAX),
                 );
             } else {
-                $this->validateRange(
+                ValidateHelper::validateRange(
                     $this->endTime,
                     FieldHelper::FIELD_END_TIME,
                     (string) (microtime(true) * 1000 - self::TIME_MIN + self::TIME_RANGE_MAX),
@@ -112,7 +112,7 @@ class LedgerRequest extends AbstractRequest
             ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
-            $this->validateRange($this->limit, FieldHelper::FIELD_LIMIT, (string) self::LIMIT_MIN, (string) self::LIMIT_MAX);
+            ValidateHelper::validateRange((string) $this->limit, FieldHelper::FIELD_LIMIT, (string) self::LIMIT_MIN, (string) self::LIMIT_MAX);
         }
         if ($this->fromId) {
             ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID);

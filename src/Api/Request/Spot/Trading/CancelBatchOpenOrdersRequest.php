@@ -72,7 +72,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
             ValidateHelper::validateList($this->side, FieldHelper::FIELD_SIDE, EnumHelper::ORDER_SIDES);
         }
         if ($this->size) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 (string) $this->size,
                 FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,

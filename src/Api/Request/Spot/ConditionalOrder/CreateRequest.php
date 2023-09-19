@@ -103,7 +103,7 @@ class CreateRequest extends AbstractRequest
             ValidateHelper::validateNumeric($this->stopPrice, FieldHelper::FIELD_STOP_PRICE);
         }
         if ($this->trailingRate) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 $this->trailingRate,
                 FieldHelper::FIELD_TRAILING_RATE,
                 (string) self::TRAILING_RATE_MIN,

@@ -35,7 +35,7 @@ class CandlesRequest extends AbstractRequest
     {
         ValidateHelper::validateList($this->period, FieldHelper::FIELD_PERIOD, EnumHelper::PERIODS);
         if ($this->size) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 (string) $this->size,
                 FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,

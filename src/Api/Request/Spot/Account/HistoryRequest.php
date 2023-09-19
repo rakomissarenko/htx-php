@@ -83,8 +83,8 @@ class HistoryRequest extends AbstractRequest
         }
         if ($this->startTime) {
             ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME_HYPHEN);
-            $this->validateRange(
-                $this->startTime,
+            ValidateHelper::validateRange(
+                (string) $this->startTime,
                 FieldHelper::FIELD_START_TIME_HYPHEN,
                 (string) (microtime(true) * 1000 - self::TIME_MIN),
                 (string) (microtime(true) * 1000),
@@ -93,14 +93,14 @@ class HistoryRequest extends AbstractRequest
         if ($this->endTime) {
             ValidateHelper::validateInteger($this->endTime, FieldHelper::FIELD_END_TIME_HYPHEN);
             if ($this->startTime) {
-                $this->validateRange(
+                ValidateHelper::validateRange(
                     $this->startTime,
                     FieldHelper::FIELD_START_TIME_HYPHEN,
                     (string) $this->startTime,
                     (string) ($this->startTime + self::TIME_RANGE_MAX),
                 );
             } else {
-                $this->validateRange(
+                ValidateHelper::validateRange(
                     $this->endTime,
                     FieldHelper::FIELD_END_TIME_HYPHEN,
                     (string) (microtime(true) * 1000 - self::TIME_MIN + self::TIME_RANGE_MAX),
@@ -112,7 +112,7 @@ class HistoryRequest extends AbstractRequest
             ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->size) {
-            $this->validateRange($this->size, FieldHelper::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
+            ValidateHelper::validateRange((string) $this->size, FieldHelper::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
         }
         if ($this->fromId) {
             ValidateHelper::validateInteger($this->fromId, FieldHelper::FIELD_FROM_ID_HYPHEN);

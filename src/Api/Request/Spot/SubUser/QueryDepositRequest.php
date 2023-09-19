@@ -62,7 +62,7 @@ class QueryDepositRequest extends AbstractRequest
         ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
         if ($this->startTime) {
             ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 $this->startTime,
                 FieldHelper::FIELD_START_TIME,
                 (string) (microtime(true) * 1000 - self::TIME_MIN),
@@ -79,7 +79,7 @@ class QueryDepositRequest extends AbstractRequest
             ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 (string) $this->limit,
                 FieldHelper::FIELD_LIMIT,
                 (string) self::LIMIT_MIN,

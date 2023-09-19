@@ -56,7 +56,7 @@ class SearchRequest extends AbstractRequest
             ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::WALLET_TYPES);
         }
         if ($this->size) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 (string) $this->size,
                 FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,

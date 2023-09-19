@@ -53,7 +53,7 @@ class OpenRequest extends AbstractRequest
             ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);
         }
         if ($this->limit) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 (string) $this->limit,
                 FieldHelper::FIELD_LIMIT,
                 (string) self::LIMIT_MIN,

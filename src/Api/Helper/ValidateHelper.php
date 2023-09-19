@@ -39,6 +39,16 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validateRange(string $value, string $name, string $min, ?string $max = null): void
+    {
+        if ($value < $min || ($max && $value > $max)) {
+            self::throwValidateException($name);
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function throwValidateException(string $name): void
     {
         throw new HtxValidateException(

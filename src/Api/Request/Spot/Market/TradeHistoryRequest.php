@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Market;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -29,7 +30,7 @@ class TradeHistoryRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->size) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 (string) $this->size,
                 FieldHelper::FIELD_SIZE,
                 (string) self::SIZE_MIN,

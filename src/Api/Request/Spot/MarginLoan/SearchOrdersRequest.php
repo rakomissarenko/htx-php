@@ -93,7 +93,7 @@ class SearchOrdersRequest extends AbstractRequest
             ValidateHelper::validateList($this->direct, FieldHelper::FIELD_DIRECT, EnumHelper::DIRECTS);
         }
         if ($this->size) {
-            $this->validateRange((string) $this->size, FieldHelper::FIELD_SIZE, self::SIZE_MIN, self::SIZE_MAX);
+            ValidateHelper::validateRange((string) $this->size, FieldHelper::FIELD_SIZE, (string) self::SIZE_MIN, (string) self::SIZE_MAX);
         }
     }
 

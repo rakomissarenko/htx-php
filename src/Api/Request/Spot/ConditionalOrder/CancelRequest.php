@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -21,8 +22,8 @@ class CancelRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateRange(
-            count($this->clientOrderIds),
+        ValidateHelper::validateRange(
+            (string) count($this->clientOrderIds),
             FieldHelper::FIELD_CLIENT_ORDER_IDS,
             (string) self::ORDERS_MIN,
             (string) self::ORDERS_MAX,

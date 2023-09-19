@@ -49,7 +49,7 @@ class AddressWithdrawRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->limit) {
-            $this->validateRange(
+            ValidateHelper::validateRange(
                 (string) $this->limit,
                 FieldHelper::FIELD_LIMIT,
                 (string) self::LIMIT_MIN,
