@@ -35,6 +35,8 @@ class HistoryRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyInteger($this->accountId, FieldHelper::FIELD_ACCOUNT_ID);
+        ValidateHelper::validateNotEmptyString($this->symbol, FieldHelper::FIELD_SYMBOL);
         if ($this->orderSide) {
             ValidateHelper::validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
         }

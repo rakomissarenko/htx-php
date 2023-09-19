@@ -47,7 +47,11 @@ class OpenRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyInteger($this->accountId, FieldHelper::FIELD_ACCOUNT_ID);
+        ValidateHelper::validateNotEmptyString($this->symbol, FieldHelper::FIELD_SYMBOL);
+        ValidateHelper::validateNotEmptyString($this->orderSide, FieldHelper::FIELD_ORDER_SIDE);
         ValidateHelper::validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
+        ValidateHelper::validateNotEmptyString($this->orderType, FieldHelper::FIELD_ORDER_TYPE);
         ValidateHelper::validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         if ($this->sort) {
             ValidateHelper::validateList($this->sort, FieldHelper::FIELD_SORT, EnumHelper::SORTS);

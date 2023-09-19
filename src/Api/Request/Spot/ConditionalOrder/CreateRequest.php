@@ -68,8 +68,13 @@ class CreateRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyInteger($this->accountId, FieldHelper::FIELD_ACCOUNT_ID);
+        ValidateHelper::validateNotEmptyString($this->symbol, FieldHelper::FIELD_SYMBOL);
+        ValidateHelper::validateNotEmptyString($this->orderSide, FieldHelper::FIELD_ORDER_SIDE);
         ValidateHelper::validateList($this->orderSide, FieldHelper::FIELD_ORDER_SIDE, EnumHelper::ORDER_SIDES);
+        ValidateHelper::validateNotEmptyString($this->orderType, FieldHelper::FIELD_ORDER_TYPE);
         ValidateHelper::validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
+        ValidateHelper::validateNotEmptyString($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID);
         ValidateHelper::validateMaxLength($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
             ValidateHelper::validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
