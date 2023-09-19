@@ -26,9 +26,7 @@ class CreateBatchRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        if (!$this->orders) {
-            ValidateHelper::throwValidateException(FieldHelper::FIELD_ORDERS);
-        }
+        ValidateHelper::validateNotEmptyArray($this->orders, FieldHelper::FIELD_ORDERS);
         foreach ($this->orders as $orderData) {
             $orderData->validate();
         }

@@ -22,9 +22,7 @@ class CreationRequest extends AbstractRequest
 
     public function validate(): void
     {
-        if (!$this->userList) {
-            ValidateHelper::throwValidateException(FieldHelper::FIELD_USER_LIST);
-        }
+        ValidateHelper::validateNotEmptyArray($this->userList, FieldHelper::FIELD_USER_LIST);
         foreach ($this->userList as $userData) {
             $userData->validate();
         }

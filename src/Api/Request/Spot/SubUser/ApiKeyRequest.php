@@ -26,6 +26,7 @@ class ApiKeyRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->uid, FieldHelper::FIELD_UID);
         ValidateHelper::validateInteger($this->uid, FieldHelper::FIELD_UID);
     }
 

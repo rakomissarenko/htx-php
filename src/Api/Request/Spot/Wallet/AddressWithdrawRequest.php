@@ -48,6 +48,7 @@ class AddressWithdrawRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         if ($this->limit) {
             ValidateHelper::validateRange(
                 (string) $this->limit,

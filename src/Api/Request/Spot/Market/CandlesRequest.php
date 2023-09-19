@@ -33,6 +33,7 @@ class CandlesRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->symbol, FieldHelper::FIELD_SYMBOL);
         ValidateHelper::validateList($this->period, FieldHelper::FIELD_PERIOD, EnumHelper::PERIODS);
         if ($this->size) {
             ValidateHelper::validateRange(

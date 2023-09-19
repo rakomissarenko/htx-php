@@ -29,6 +29,16 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validateNotEmptyArray(array $value, string $name): void
+    {
+        if (!$value) {
+            self::throwValidateException($name);
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function validateInteger(string $value, string $name): void
     {
         if (preg_match('/\D+/', $value)) {

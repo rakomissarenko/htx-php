@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class MatchResultsOrderRequest extends AbstractRequest
@@ -16,6 +17,11 @@ class MatchResultsOrderRequest extends AbstractRequest
     public function getPath(): string
     {
         return self::PATH . $this->orderId . self::PATH_AFTER;
+    }
+
+    public function validate(): void
+    {
+        ValidateHelper::validateNotEmptyString($this->orderId, FieldHelper::FIELD_ORDER_ID_HYPHEN);
     }
 
     public function toArray(): array

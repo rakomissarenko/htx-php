@@ -22,6 +22,7 @@ class TransferInCrossMarginRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 

@@ -36,9 +36,12 @@ class ApiKeyCreateRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->otpToken, FieldHelper::FIELD_OTP_TOKEN);
         ValidateHelper::validateInteger($this->otpToken, FieldHelper::FIELD_OTP_TOKEN);
         ValidateHelper::validateMaxLength($this->otpToken, FieldHelper::FIELD_OTP_TOKEN, self::OTP_TOKEN_SIZE);
+        ValidateHelper::validateNotEmptyString($this->subUid, FieldHelper::FIELD_SUB_UID);
         ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
+        ValidateHelper::validateNotEmptyString($this->note, FieldHelper::FIELD_NOTE);
         ValidateHelper::validateMaxLength($this->note, FieldHelper::FIELD_NOTE, self::NOTE_SIZE);
         foreach ($this->permission as $permission) {
             ValidateHelper::validateList((string) $permission, FieldHelper::FIELD_PERMISSION, EnumHelper::PERMISSIONS);

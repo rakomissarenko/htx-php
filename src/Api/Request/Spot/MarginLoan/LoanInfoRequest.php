@@ -19,6 +19,7 @@ class LoanInfoRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyArray($this->symbols, FieldHelper::FIELD_SYMBOLS);
         ValidateHelper::validateArrayScalar($this->symbols, FieldHelper::FIELD_SYMBOLS);
     }
 

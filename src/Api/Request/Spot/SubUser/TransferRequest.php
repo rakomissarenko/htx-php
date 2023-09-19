@@ -26,9 +26,12 @@ class TransferRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
         ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::TRANSFER_TYPES);
+        ValidateHelper::validateNotEmptyString($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID);
     }
 
     public function toArray(): array

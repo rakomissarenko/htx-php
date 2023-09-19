@@ -35,7 +35,10 @@ class ApiKeyModifyRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->subUid, FieldHelper::FIELD_SUB_UID);
         ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
+        ValidateHelper::validateNotEmptyString($this->accessKey, FieldHelper::FIELD_ACCESS_KEY);
+        ValidateHelper::validateNotEmptyString($this->note, FieldHelper::FIELD_NOTE);
         ValidateHelper::validateMaxLength($this->note, FieldHelper::FIELD_NOTE, self::NOTE_SIZE);
         foreach ($this->permission as $permission) {
             ValidateHelper::validateList((string) $permission, FieldHelper::FIELD_PERMISSION, EnumHelper::PERMISSIONS);

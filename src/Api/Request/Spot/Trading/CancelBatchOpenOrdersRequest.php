@@ -50,6 +50,7 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->accountId, FieldHelper::FIELD_ACCOUNT_ID_HYPHEN);
         if ($this->symbols) {
             ValidateHelper::validateArraySize($this->symbols, FieldHelper::FIELD_SYMBOL, self::SYMBOLS_SIZE);
             ValidateHelper::validateArrayScalar($this->symbols, FieldHelper::FIELD_SYMBOL);

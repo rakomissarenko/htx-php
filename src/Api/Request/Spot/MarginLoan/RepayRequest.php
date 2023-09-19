@@ -24,7 +24,10 @@ class RepayRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->accountId, FieldHelper::FIELD_ACCOUNT_ID);
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
+        ValidateHelper::validateNotEmptyString($this->transactId, FieldHelper::FIELD_TRANSACT_ID);
     }
 
     public function toArray(): array

@@ -48,6 +48,8 @@ class CreateWithdrawRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->address, FieldHelper::FIELD_ADDRESS);
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
         if ($this->fee) {
             ValidateHelper::validateNumeric($this->fee, FieldHelper::FIELD_FEE);

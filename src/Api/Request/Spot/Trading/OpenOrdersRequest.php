@@ -52,6 +52,8 @@ class OpenOrdersRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->accountId, FieldHelper::FIELD_ACCOUNT_ID_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->symbol, FieldHelper::FIELD_SYMBOL);
         ValidateHelper::validateList($this->side, FieldHelper::FIELD_SIDE, EnumHelper::ORDER_SIDES);
         if ($this->types) {
             ValidateHelper::validateArrayScalar($this->types, FieldHelper::FIELD_TYPES);

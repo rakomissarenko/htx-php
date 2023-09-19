@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Wallet;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -25,12 +26,7 @@ class CancelWithdrawRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        if (!is_numeric($this->withdrawId)) {
-            throw new HtxValidateException(
-                HtxValidateException::getErrorMessage(FieldHelper::FIELD_WITHDRAW_ID_HYPHEN),
-                HtxValidateException::ERROR_INPUT_VALUE_INVALID
-            );
-        }
+        ValidateHelper::validateNumeric($this->withdrawId, FieldHelper::FIELD_WITHDRAW_ID_HYPHEN);
     }
 
     public function toArray(): array

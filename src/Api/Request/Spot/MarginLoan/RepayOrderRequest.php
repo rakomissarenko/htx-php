@@ -34,6 +34,7 @@ class RepayOrderRequest extends AbstractRequest
     public function validate(): void
     {
         ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
+        ValidateHelper::validateNotEmptyString($this->orderId, FieldHelper::FIELD_ORDER_ID_HYPHEN);
     }
 
     public function toArray(): array

@@ -19,6 +19,7 @@ class UserStateRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->subUid, FieldHelper::FIELD_SUB_UID);
         ValidateHelper::validateInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
     }
 

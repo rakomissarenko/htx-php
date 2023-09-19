@@ -25,6 +25,7 @@ class DeductModeRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyArray($this->subUids, FieldHelper::FIELD_SUB_UIDS);
         ValidateHelper::validateArraySize($this->subUids, FieldHelper::FIELD_SUB_UIDS, self::SUB_UIDS_SIZE);
         foreach ($this->subUids as $subUid) {
             ValidateHelper::validateInteger((string) $subUid, FieldHelper::FIELD_SUB_UIDS);

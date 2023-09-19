@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Wallet;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class QuotaWithdrawRequest extends AbstractRequest
@@ -12,6 +13,11 @@ class QuotaWithdrawRequest extends AbstractRequest
 
     public function __construct(private string $currency)
     {}
+
+    public function validate(): void
+    {
+        ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
+    }
 
     public function toArray(): array
     {

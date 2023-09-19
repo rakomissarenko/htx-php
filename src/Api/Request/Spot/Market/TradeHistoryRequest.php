@@ -29,6 +29,7 @@ class TradeHistoryRequest extends AbstractRequest
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->symbol, FieldHelper::FIELD_SYMBOL);
         if ($this->size) {
             ValidateHelper::validateRange(
                 (string) $this->size,

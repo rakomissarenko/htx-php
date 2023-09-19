@@ -2,6 +2,8 @@
 
 namespace Feralonso\Htx\Api\Request\Spot\SubUser;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 
 class BalanceRequest extends AbstractRequest
@@ -19,6 +21,7 @@ class BalanceRequest extends AbstractRequest
 
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
     }
 
     public function toArray(): array
