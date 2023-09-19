@@ -9,6 +9,16 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validateNumeric(string $value, string $name): void
+    {
+        if (!is_numeric($value)) {
+            self::throwValidateException($name);
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function validateList(string $value, string $name, array $list): void
     {
         if (!in_array($value, $list, true)) {

@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Account;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -31,7 +32,7 @@ class TransferRequest extends AbstractRequest
         $this->validateInteger($this->fromAccount, FieldHelper::FIELD_FROM_ACCOUNT_HYPHEN);
         $this->validateInteger($this->toUser, FieldHelper::FIELD_TO_USER_HYPHEN);
         $this->validateInteger($this->toAccount, FieldHelper::FIELD_TO_ACCOUNT_HYPHEN);
-        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
+        ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
     public function toArray(): array

@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -22,7 +23,7 @@ class TransferInMarginRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        $this->validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
+        ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
     }
 
     public function toArray(): array

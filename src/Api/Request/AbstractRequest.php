@@ -64,16 +64,6 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * @throws HtxValidateException
      */
-    protected function validateNumeric(string $value, string $name): void
-    {
-        if (!is_numeric($value)) {
-            $this->throwValidateException($name);
-        }
-    }
-
-    /**
-     * @throws HtxValidateException
-     */
     protected function validateRange(string $value, string $name, string $min, ?string $max = null): void
     {
         if ($value < $min || ($max && $value > $max)) {

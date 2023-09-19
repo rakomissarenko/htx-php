@@ -72,19 +72,19 @@ class CreateRequest extends AbstractRequest
         ValidateHelper::validateList($this->orderType, FieldHelper::FIELD_ORDER_TYPE, EnumHelper::ORDER_BID_TYPES);
         $this->validateSize($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
         if ($this->orderPrice) {
-            $this->validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
+            ValidateHelper::validateNumeric($this->orderPrice, FieldHelper::FIELD_ORDER_PRICE);
             if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_PRICE);
             }
         }
         if ($this->orderSize) {
-            $this->validateNumeric($this->orderSize, FieldHelper::FIELD_ORDER_SIZE);
+            ValidateHelper::validateNumeric($this->orderSize, FieldHelper::FIELD_ORDER_SIZE);
             if ($this->orderType === EnumHelper::ORDER_BID_TYPE_MARKET && $this->orderSide === EnumHelper::ORDER_SIDE_BUY) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
         }
         if ($this->orderValue) {
-            $this->validateNumeric($this->orderValue, FieldHelper::FIELD_ORDER_VALUE);
+            ValidateHelper::validateNumeric($this->orderValue, FieldHelper::FIELD_ORDER_VALUE);
             if ($this->orderType !== EnumHelper::ORDER_BID_TYPE_MARKET || $this->orderSide !== EnumHelper::ORDER_SIDE_BUY) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_SIZE);
             }
@@ -100,7 +100,7 @@ class CreateRequest extends AbstractRequest
             }
         }
         if ($this->stopPrice) {
-            $this->validateNumeric($this->stopPrice, FieldHelper::FIELD_STOP_PRICE);
+            ValidateHelper::validateNumeric($this->stopPrice, FieldHelper::FIELD_STOP_PRICE);
         }
         if ($this->trailingRate) {
             $this->validateRange(
