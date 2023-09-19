@@ -54,10 +54,8 @@ class OpenOrdersRequest extends AbstractRequest
     {
         ValidateHelper::validateList($this->side, FieldHelper::FIELD_SIDE, EnumHelper::ORDER_SIDES);
         if ($this->types) {
+            ValidateHelper::validateArrayScalar($this->types, FieldHelper::FIELD_TYPES);
             foreach ($this->types as $type) {
-                if (!is_scalar($type)) {
-                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
-                }
                 ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }

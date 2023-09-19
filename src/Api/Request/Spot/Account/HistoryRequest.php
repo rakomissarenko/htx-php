@@ -74,10 +74,8 @@ class HistoryRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->transactTypes) {
+            ValidateHelper::validateArrayScalar($this->transactTypes, FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN);
             foreach ($this->transactTypes as $type) {
-                if (!is_scalar($type)) {
-                    $this->throwValidateException(FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN);
-                }
                 ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES_HYPHEN, EnumHelper::TRANSACTION_TYPES);
             }
         }

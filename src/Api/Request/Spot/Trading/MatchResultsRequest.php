@@ -68,10 +68,8 @@ class MatchResultsRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->types) {
+            ValidateHelper::validateArrayScalar($this->types, FieldHelper::FIELD_TYPES);
             foreach ($this->types as $type) {
-                if (!is_scalar($type)) {
-                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
-                }
                 ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }

@@ -31,11 +31,7 @@ class SymbolsMarketRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->symbols) {
-            foreach ($this->symbols as $symbol) {
-                if (!is_scalar($symbol)) {
-                    $this->throwValidateException(FieldHelper::FIELD_SYMBOLS);
-                }
-            }
+            ValidateHelper::validateArrayScalar($this->symbols, FieldHelper::FIELD_SYMBOLS);
         }
         if ($this->ts) {
             ValidateHelper::validateInteger($this->ts, FieldHelper::FIELD_TS);

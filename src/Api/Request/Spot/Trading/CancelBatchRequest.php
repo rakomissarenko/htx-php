@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -39,21 +40,13 @@ class CancelBatchRequest extends AbstractRequest
             if (count($this->orderIds) > self::ORDER_IDS_SIZE) {
                 $this->throwValidateException(FieldHelper::FIELD_ORDER_IDS_HYPHEN);
             }
-            foreach ($this->orderIds as $orderId) {
-                if (!is_scalar($orderId)) {
-                    $this->throwValidateException(FieldHelper::FIELD_ORDER_IDS_HYPHEN);
-                }
-            }
+            ValidateHelper::validateArrayScalar($this->orderIds, FieldHelper::FIELD_ORDER_IDS_HYPHEN);
         }
         if ($this->clientOrderIds) {
             if (count($this->clientOrderIds) > self::CLIENT_ORDER_IDS_SIZE) {
                 $this->throwValidateException(FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN);
             }
-            foreach ($this->clientOrderIds as $clientOrderId) {
-                if (!is_scalar($clientOrderId)) {
-                    $this->throwValidateException(FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN);
-                }
-            }
+            ValidateHelper::validateArrayScalar($this->clientOrderIds, FieldHelper::FIELD_CLIENT_ORDER_IDS_HYPHEN);
         }
     }
 

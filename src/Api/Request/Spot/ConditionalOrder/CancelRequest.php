@@ -28,11 +28,7 @@ class CancelRequest extends AbstractRequest
             (string) self::ORDERS_MIN,
             (string) self::ORDERS_MAX,
         );
-        foreach ($this->clientOrderIds as $clientOrderId) {
-            if (!is_scalar($clientOrderId)) {
-                $this->throwValidateException(FieldHelper::FIELD_CLIENT_ORDER_IDS);
-            }
-        }
+        ValidateHelper::validateArrayScalar($this->clientOrderIds, FieldHelper::FIELD_CLIENT_ORDER_IDS);
     }
 
     public function toArray(): array

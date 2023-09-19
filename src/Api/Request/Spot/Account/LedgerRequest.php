@@ -74,10 +74,8 @@ class LedgerRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->transactTypes) {
+            ValidateHelper::validateArrayScalar($this->transactTypes, FieldHelper::FIELD_TRANSACT_TYPES);
             foreach ($this->transactTypes as $type) {
-                if (!is_scalar($type)) {
-                    $this->throwValidateException(FieldHelper::FIELD_TRANSACT_TYPES);
-                }
                 ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TRANSACT_TYPES, EnumHelper::TRANSFER_LEDGER_TYPES);
             }
         }

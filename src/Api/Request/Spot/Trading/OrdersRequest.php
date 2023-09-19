@@ -74,10 +74,8 @@ class OrdersRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->types) {
+            ValidateHelper::validateArrayScalar($this->types, FieldHelper::FIELD_TYPES);
             foreach ($this->types as $type) {
-                if (!is_scalar($type)) {
-                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
-                }
                 ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }
@@ -109,10 +107,8 @@ class OrdersRequest extends AbstractRequest
             }
         }
         if ($this->states) {
+            ValidateHelper::validateArrayScalar($this->states, FieldHelper::FIELD_STATES);
             foreach ($this->states as $state) {
-                if (!is_scalar($state)) {
-                    $this->throwValidateException(FieldHelper::FIELD_STATES);
-                }
                 ValidateHelper::validateList((string) $state, FieldHelper::FIELD_STATES, EnumHelper::ORDER_STATES);
             }
         }

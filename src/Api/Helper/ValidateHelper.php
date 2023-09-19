@@ -59,6 +59,18 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validateArrayScalar(array $value, string $name): void
+    {
+        foreach ($value as $type) {
+            if (!is_scalar($type)) {
+                self::throwValidateException($name);
+            }
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function throwValidateException(string $name): void
     {
         throw new HtxValidateException(

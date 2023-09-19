@@ -54,17 +54,11 @@ class CancelBatchOpenOrdersRequest extends AbstractRequest
             if (count($this->symbols) > self::SYMBOLS_SIZE) {
                 $this->throwValidateException(FieldHelper::FIELD_SYMBOL);
             }
-            foreach ($this->symbols as $symbol) {
-                if (!is_scalar($symbol)) {
-                    $this->throwValidateException(FieldHelper::FIELD_SYMBOL);
-                }
-            }
+            ValidateHelper::validateArrayScalar($this->symbols, FieldHelper::FIELD_SYMBOL);
         }
         if ($this->types) {
+            ValidateHelper::validateArrayScalar($this->types, FieldHelper::FIELD_TYPES);
             foreach ($this->types as $type) {
-                if (!is_scalar($type)) {
-                    $this->throwValidateException(FieldHelper::FIELD_TYPES);
-                }
                 ValidateHelper::validateList((string) $type, FieldHelper::FIELD_TYPES, EnumHelper::ORDER_TYPES);
             }
         }

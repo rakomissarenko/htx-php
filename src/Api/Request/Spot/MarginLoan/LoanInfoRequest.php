@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -18,11 +19,7 @@ class LoanInfoRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        foreach ($this->symbols as $symbol) {
-            if (!is_scalar($symbol)) {
-                $this->throwValidateException(FieldHelper::FIELD_SYMBOLS);
-            }
-        }
+        ValidateHelper::validateArrayScalar($this->symbols, FieldHelper::FIELD_SYMBOLS);
     }
 
     public function toArray(): array

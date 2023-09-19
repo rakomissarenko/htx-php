@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Request\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Helper\FieldHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -26,11 +27,7 @@ class LimitRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->currencies) {
-            foreach ($this->currencies as $currency) {
-                if (!is_scalar($currency)) {
-                    $this->throwValidateException(FieldHelper::FIELD_CURRENCY);
-                }
-            }
+            ValidateHelper::validateArrayScalar($this->currencies, FieldHelper::FIELD_CURRENCY);
             if (count($this->currencies) > self::CURRENCIES_SIZE) {
                 $this->throwValidateException(FieldHelper::FIELD_CURRENCY);
             }

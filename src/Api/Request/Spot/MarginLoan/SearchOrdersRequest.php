@@ -71,10 +71,8 @@ class SearchOrdersRequest extends AbstractRequest
     public function validate(): void
     {
         if ($this->states) {
+            ValidateHelper::validateArrayScalar($this->states, FieldHelper::FIELD_STATES);
             foreach ($this->states as $state) {
-                if (!is_scalar($state)) {
-                    $this->throwValidateException(FieldHelper::FIELD_STATES);
-                }
                 ValidateHelper::validateList((string) $state, FieldHelper::FIELD_STATES, EnumHelper::ORDER_CROSS_STATES);
             }
         }
