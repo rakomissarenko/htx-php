@@ -2,14 +2,12 @@
 
 namespace Feralonso\Htx\Api\Data;
 
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class UserData
 {
-    private const FIELD_USER_NAME = 'userName';
-    private const FIELD_NOTE = 'note';
-
     private const PATTERN_USER_NAME = '/(\da-zA-Z)+/';
 
     private const USER_NAME_SIZE_MIN = 6;
@@ -29,22 +27,22 @@ class UserData
     {
         ValidateHelper::validateRange(
             (string) mb_strlen($this->userName),
-            self::FIELD_USER_NAME,
+            FieldHelper::FIELD_USER_NAME,
             (string) self::USER_NAME_SIZE_MIN,
             (string) self::USER_NAME_SIZE_MAX,
         );
-        ValidateHelper::validatePattern($this->userName, self::FIELD_USER_NAME, self::PATTERN_USER_NAME);
+        ValidateHelper::validatePattern($this->userName, FieldHelper::FIELD_USER_NAME, self::PATTERN_USER_NAME);
         if (is_int(mb_substr($this->userName, 0, 1))) {
-            ValidateHelper::throwValidateException(self::FIELD_USER_NAME);
+            ValidateHelper::throwValidateException(FieldHelper::FIELD_USER_NAME);
         }
-        ValidateHelper::validateMaxLength($this->note, self::FIELD_NOTE, self::NOTE_SIZE_MAX);
+        ValidateHelper::validateMaxLength($this->note, FieldHelper::FIELD_NOTE, self::NOTE_SIZE_MAX);
     }
 
     public function toArray(): array
     {
         return [
-            self::FIELD_USER_NAME => $this->userName,
-            self::FIELD_NOTE      => $this->note,
+            FieldHelper::FIELD_USER_NAME => $this->userName,
+            FieldHelper::FIELD_NOTE      => $this->note,
         ];
     }
 }

@@ -36,6 +36,7 @@ class FieldHelper
     public const FIELD_IP = 'ipAddresses';
     public const FIELD_LIMIT = 'limit';
     public const FIELD_NOTE = 'note';
+    public const FIELD_OPERATOR = 'operator';
     public const FIELD_ORDER_ID_HYPHEN = 'order-id';
     public const FIELD_ORDER_IDS_HYPHEN = 'order-ids';
     public const FIELD_ORDER_PRICE = 'orderPrice';
@@ -48,17 +49,21 @@ class FieldHelper
     public const FIELD_OTP_TOKEN = 'otpToken';
     public const FIELD_PERIOD = 'period';
     public const FIELD_PERMISSION = 'permission';
+    public const FIELD_PRICE = 'price';
     public const FIELD_REPAY_ID = 'repayId';
+    public const FIELD_SELF_MATCH_PREVENT_HYPHEN = 'self-match-prevent';
     public const FIELD_SHOW_DESC_HYPHEN = 'show-desc';
     public const FIELD_SIDE = 'side';
     public const FIELD_SIZE = 'size';
     public const FIELD_SORT = 'sort';
+    public const FIELD_SOURCE = 'source';
     public const FIELD_START_DATE_HYPHEN = 'start-date';
     public const FIELD_START_TIME = 'startTime';
     public const FIELD_START_TIME_HYPHEN = 'start-time';
     public const FIELD_STATE = 'state';
     public const FIELD_STATES = 'states';
     public const FIELD_STOP_PRICE = 'stopPrice';
+    public const FIELD_STOP_PRICE_HYPHEN = 'stop-price';
     public const FIELD_SUB_UID = 'subUid';
     public const FIELD_SUB_UID_HYPHEN = 'sub-uid';
     public const FIELD_SUB_UIDS = 'subUids';
@@ -79,5 +84,6 @@ class FieldHelper
     public const FIELD_TYPES = 'types';
     public const FIELD_UID = 'uid';
     public const FIELD_USER_LIST = 'userList';
+    public const FIELD_USER_NAME = 'userName';
     public const FIELD_WITHDRAW_ID_HYPHEN = 'withdraw-id';
 }

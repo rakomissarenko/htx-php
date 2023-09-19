@@ -53,6 +53,13 @@ class EnumHelper
         self::DIRECT_PREV,
     ];
 
+    private const OPERATOR_GTE = 'gte';
+    private const OPERATOR_LTE = 'lte';
+    public const OPERATORS = [
+        self::OPERATOR_GTE,
+        self::OPERATOR_LTE,
+    ];
+
     private const ORDER_BID_TYPE_LIMIT = 'limit';
     public const ORDER_BID_TYPE_MARKET = 'market';
     public const ORDER_BID_TYPES = [
@@ -128,6 +135,12 @@ class EnumHelper
         self::ORDER_TYPE_SELL_STOP_LIMIT,
         self::ORDER_TYPE_SELL_STOP_LIMIT_FOK,
     ];
+    public const ORDER_MARKET_TYPES = [
+        self::ORDER_TYPE_BUY_LIMIT_MARKET,
+        self::ORDER_TYPE_BUY_MARKET,
+        self::ORDER_TYPE_SELL_LIMIT_MARKET,
+        self::ORDER_TYPE_SELL_MARKET,
+    ];
 
     private const PERIOD_1MIN = '1min';
     private const PERIOD_5MIN = '5min';
@@ -157,6 +170,13 @@ class EnumHelper
     public const PERMISSIONS = [
         self::PERMISSION_KEY_READ_ONLY,
         self::PERMISSION_KEY_TRADE,
+    ];
+
+    private const SELF_TRADING_ALLOW = 0;
+    private const SELF_TRADING_DISALLOW = 1;
+    public const SELF_TRADINGS = [
+        self::SELF_TRADING_ALLOW,
+        self::SELF_TRADING_DISALLOW,
     ];
 
     private const SHOW_NO = 0;

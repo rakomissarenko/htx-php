@@ -3,48 +3,13 @@
 namespace Feralonso\Htx\Api\Data;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class OrderData
 {
-    private const FIELD_ACCOUNT_ID = 'account-id';
-    private const FIELD_AMOUNT = 'amount';
-    private const FIELD_CLIENT_ORDER_ID = 'client-order-id';
-    private const FIELD_OPERATOR = 'operator';
-    private const FIELD_PRICE = 'price';
-    private const FIELD_SELF_MATCH_PREVENT = 'self-match-prevent';
-    private const FIELD_SOURCE = 'source';
-    private const FIELD_STOP_PRICE = 'stop-price';
-    private const FIELD_SYMBOL = 'symbol';
-    private const FIELD_TYPE = 'type';
-
     private const CLIENT_ORDER_ID_SIZE = 64;
-
-    private const TYPE_BUY_LIMIT_MARKET = 'buy-limit-maker';
-    private const TYPE_BUY_MARKET = 'buy-market';
-    private const TYPE_SELL_LIMIT_MARKET = 'sell-limit-maker';
-    private const TYPE_SELL_MARKET = 'sell-market';
-    private const TYPES_MARKET = [
-        self::TYPE_BUY_LIMIT_MARKET,
-        self::TYPE_BUY_MARKET,
-        self::TYPE_SELL_LIMIT_MARKET,
-        self::TYPE_SELL_MARKET,
-    ];
-
-    private const SELF_TRADING_ALLOW = 0;
-    private const SELF_TRADING_DISALLOW = 1;
-    private const SELF_TRADINGS = [
-        self::SELF_TRADING_ALLOW,
-        self::SELF_TRADING_DISALLOW,
-    ];
-
-    private const OPERATOR_GTE = 'gte';
-    private const OPERATOR_LTE = 'lte';
-    private const OPERATORS = [
-        self::OPERATOR_GTE,
-        self::OPERATOR_LTE,
-    ];
 
     private ?string $amount = null;
     private ?string $price = null;
@@ -95,61 +60,61 @@ class OrderData
      */
     public function validate(): void
     {
-        ValidateHelper::validateList($this->type, self::FIELD_TYPE, EnumHelper::ORDER_TYPES);
-        ValidateHelper::validateMaxLength($this->clientOrderId, self::FIELD_CLIENT_ORDER_ID, self::CLIENT_ORDER_ID_SIZE);
+        ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::ORDER_TYPES);
+        ValidateHelper::validateMaxLength($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID_HYPHEN, self::CLIENT_ORDER_ID_SIZE);
         if ($this->amount) {
-            ValidateHelper::validateNumeric($this->amount, self::FIELD_AMOUNT);
-            ValidateHelper::validateList($this->type, self::FIELD_AMOUNT, self::TYPES_MARKET);
+            ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
+            ValidateHelper::validateList($this->type, FieldHelper::FIELD_AMOUNT, EnumHelper::ORDER_MARKET_TYPES);
         }
         if ($this->price) {
-            ValidateHelper::validateNumeric($this->price, self::FIELD_PRICE);
-            if (in_array($this->type, self::TYPES_MARKET, true)) {
-                ValidateHelper::throwValidateException(self::FIELD_PRICE);
+            ValidateHelper::validateNumeric($this->price, FieldHelper::FIELD_PRICE);
+            if (in_array($this->type, EnumHelper::ORDER_MARKET_TYPES, true)) {
+                ValidateHelper::throwValidateException(FieldHelper::FIELD_PRICE);
             }
         }
         if ($this->source) {
-            ValidateHelper::validateList($this->source, self::FIELD_SOURCE, EnumHelper::SOURCES);
+            ValidateHelper::validateList($this->source, FieldHelper::FIELD_SOURCE, EnumHelper::SOURCES);
         }
         if ($this->selfMatchPrevent) {
             ValidateHelper::validateList(
                 (string) $this->selfMatchPrevent,
-                self::FIELD_SELF_MATCH_PREVENT,
-                array_map(static fn (int $item) => (string) $item, self::SELF_TRADINGS),
+                FieldHelper::FIELD_SELF_MATCH_PREVENT_HYPHEN,
+                array_map(static fn (int $item) => (string) $item, EnumHelper::SELF_TRADINGS),
             );
         }
         if ($this->stopPrice) {
-            ValidateHelper::validateNumeric($this->stopPrice, self::FIELD_STOP_PRICE);
+            ValidateHelper::validateNumeric($this->stopPrice, FieldHelper::FIELD_STOP_PRICE_HYPHEN);
         }
         if ($this->operator) {
-            ValidateHelper::validateList($this->operator, self::FIELD_OPERATOR, self::OPERATORS);
+            ValidateHelper::validateList($this->operator, FieldHelper::FIELD_OPERATOR, EnumHelper::OPERATORS);
         }
     }
 
     public function toArray(): array
     {
         $result = [
-            self::FIELD_ACCOUNT_ID      => $this->accountId,
-            self::FIELD_SYMBOL          => $this->symbol,
-            self::FIELD_TYPE            => $this->type,
-            self::FIELD_CLIENT_ORDER_ID => $this->clientOrderId,
+            FieldHelper::FIELD_ACCOUNT_ID_HYPHEN      => $this->accountId,
+            FieldHelper::FIELD_SYMBOL                 => $this->symbol,
+            FieldHelper::FIELD_TYPE                   => $this->type,
+            FieldHelper::FIELD_CLIENT_ORDER_ID_HYPHEN => $this->clientOrderId,
         ];
         if ($this->amount) {
-            $result[self::FIELD_AMOUNT] = $this->amount;
+            $result[FieldHelper::FIELD_AMOUNT] = $this->amount;
         }
         if ($this->price) {
-            $result[self::FIELD_PRICE] = $this->price;
+            $result[FieldHelper::FIELD_PRICE] = $this->price;
         }
         if ($this->source) {
-            $result[self::FIELD_SOURCE] = $this->source;
+            $result[FieldHelper::FIELD_SOURCE] = $this->source;
         }
         if ($this->selfMatchPrevent !== null) {
-            $result[self::FIELD_SELF_MATCH_PREVENT] = $this->selfMatchPrevent;
+            $result[FieldHelper::FIELD_SELF_MATCH_PREVENT_HYPHEN] = $this->selfMatchPrevent;
         }
         if ($this->stopPrice) {
-            $result[self::FIELD_STOP_PRICE] = $this->stopPrice;
+            $result[FieldHelper::FIELD_STOP_PRICE_HYPHEN] = $this->stopPrice;
         }
         if ($this->operator) {
-            $result[self::FIELD_OPERATOR] = $this->operator;
+            $result[FieldHelper::FIELD_OPERATOR] = $this->operator;
         }
 
         return $result;
