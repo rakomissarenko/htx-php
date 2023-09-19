@@ -13,6 +13,8 @@ class SearchOrdersRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/margin/loan-orders';
 
+    private const PATTERN_DATE = '/\d{4}-\d{2}-\d{2}/';
+
     private const SIZE_MIN = 1;
     private const SIZE_MAX = 100;
 
@@ -76,13 +78,11 @@ class SearchOrdersRequest extends AbstractRequest
                 ValidateHelper::validateList((string) $state, FieldHelper::FIELD_STATES, EnumHelper::ORDER_CROSS_STATES);
             }
         }
-        if ($this->startDate && !preg_match('/\d{4}-\d{2}-\d{2}/', $this->startDate)) {
-            $this->throwValidateException(FieldHelper::FIELD_START_DATE_HYPHEN);
+        if ($this->startDate) {
+            ValidateHelper::validatePattern($this->startDate, FieldHelper::FIELD_START_DATE_HYPHEN, self::PATTERN_DATE);
         }
         if ($this->endDate) {
-            if (!preg_match('/\d{4}-\d{2}-\d{2}/', $this->endDate)) {
-                $this->throwValidateException(FieldHelper::FIELD_END_DATE_HYPHEN);
-            }
+            ValidateHelper::validatePattern($this->endDate, FieldHelper::FIELD_END_DATE_HYPHEN, self::PATTERN_DATE);
             if ($this->startDate && $this->startDate > $this->endDate) {
                 $this->throwValidateException(FieldHelper::FIELD_END_DATE_HYPHEN);
             }

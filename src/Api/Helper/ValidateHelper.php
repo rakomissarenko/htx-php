@@ -39,6 +39,16 @@ class ValidateHelper
     /**
      * @throws HtxValidateException
      */
+    public static function validatePattern(string $value, string $name, string $pattern): void
+    {
+        if (!preg_match($pattern, $value)) {
+            self::throwValidateException($name);
+        }
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
     public static function validateList(string $value, string $name, array $list): void
     {
         if (!in_array($value, $list, true)) {
