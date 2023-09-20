@@ -11,12 +11,21 @@ class RepayTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $accountId, string $currency, string $amount, string $transactId): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new RepayRequest('111', ValueHelper::CURRENCY, '100', '12345');
+        $request = new RepayRequest($accountId, $currency, $amount, $transactId);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['111', ValueHelper::CURRENCY, '100', '12345'],
+        ];
     }
 }

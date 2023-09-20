@@ -10,12 +10,21 @@ class LoanInfoTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(array $symbols): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new LoanInfoRequest(['symbol1', 'symbol2']);
+        $request = new LoanInfoRequest($symbols);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [['symbol1', 'symbol2']],
+        ];
     }
 }
