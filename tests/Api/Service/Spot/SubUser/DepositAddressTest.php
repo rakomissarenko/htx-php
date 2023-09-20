@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\DepositAddressRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class DepositAddressTest extends TestCase
@@ -15,7 +16,7 @@ class DepositAddressTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new DepositAddressRequest('555', 'usdt');
+        $request = new DepositAddressRequest('555', ValueHelper::CURRENCY);
         $request->validate();
     }
 }

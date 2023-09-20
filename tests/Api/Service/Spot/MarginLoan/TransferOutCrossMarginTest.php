@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferOutCrossMarginRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class TransferOutCrossMarginTest extends TestCase
@@ -15,7 +16,7 @@ class TransferOutCrossMarginTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferOutCrossMarginRequest('usdt', '100');
+        $request = new TransferOutCrossMarginRequest(ValueHelper::CURRENCY, '100');
         $request->validate();
     }
 }

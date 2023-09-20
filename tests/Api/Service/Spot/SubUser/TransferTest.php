@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\TransferRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class TransferTest extends TestCase
@@ -16,7 +17,7 @@ class TransferTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferRequest('555', 'usdt', '100', EnumHelper::TRANSFER_TYPE_MASTER_TRANSFER_IN, 'clientOrder');
+        $request = new TransferRequest('555', ValueHelper::CURRENCY, '100', EnumHelper::TRANSFER_TYPE_MASTER_TRANSFER_IN, 'clientOrder');
         $request->validate();
     }
 }

@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\OrdersRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class OrdersTest extends TestCase
@@ -15,7 +16,7 @@ class OrdersTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OrdersRequest('symbol', 'usdt', '100');
+        $request = new OrdersRequest('symbol', ValueHelper::CURRENCY, '100');
         $request->validate();
     }
 }

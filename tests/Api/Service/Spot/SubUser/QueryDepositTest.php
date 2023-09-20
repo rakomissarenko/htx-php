@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\QueryDepositRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class QueryDepositTest extends TestCase
@@ -15,7 +16,7 @@ class QueryDepositTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new QueryDepositRequest('555', 'usdt');
+        $request = new QueryDepositRequest('555', ValueHelper::CURRENCY);
         $request->validate();
     }
 }
