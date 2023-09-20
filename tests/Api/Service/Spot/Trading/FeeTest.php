@@ -10,12 +10,21 @@ class FeeTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(array $symbols): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new FeeRequest(['symbol']);
+        $request = new FeeRequest($symbols);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [['symbol']],
+        ];
     }
 }

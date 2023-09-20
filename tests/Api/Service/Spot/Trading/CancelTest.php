@@ -10,12 +10,21 @@ class CancelTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $orderId, string $symbol): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelRequest('orderId', 'symbol');
+        $request = new CancelRequest($orderId, $symbol);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['orderId', 'symbol'],
+        ];
     }
 }

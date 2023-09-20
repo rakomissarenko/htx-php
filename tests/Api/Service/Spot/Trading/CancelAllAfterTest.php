@@ -10,12 +10,21 @@ class CancelAllAfterTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(int $timeout): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelAllAfterRequest(15);
+        $request = new CancelAllAfterRequest($timeout);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [15],
+        ];
     }
 }

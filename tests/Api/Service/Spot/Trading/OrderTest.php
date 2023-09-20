@@ -10,12 +10,21 @@ class OrderTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $orderId): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OrderRequest('111');
+        $request = new OrderRequest($orderId);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['111'],
+        ];
     }
 }

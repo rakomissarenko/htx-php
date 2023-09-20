@@ -11,12 +11,21 @@ class OpenOrdersTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $accountId, string $symbol, string $side): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OpenOrdersRequest('111', 'symbol', EnumHelper::ORDER_SIDE_BUY);
+        $request = new OpenOrdersRequest($accountId, $symbol, $side);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['111', 'symbol', EnumHelper::ORDER_SIDE_BUY],
+        ];
     }
 }

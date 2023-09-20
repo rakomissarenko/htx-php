@@ -12,14 +12,23 @@ class CreateBatchTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $accountId, string $symbol, string $type, string $clientOrderId): void
     {
         $this->expectNotToPerformAssertions();
 
-        $orderData = new OrderData('111', 'symbol', EnumHelper::ORDER_TYPE_BUY_LIMIT, 'clientOrderId');
+        $orderData = new OrderData($accountId, $symbol, $type, $clientOrderId);
         $request = new CreateBatchRequest();
         $request->addOrder($orderData);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['111', 'symbol', EnumHelper::ORDER_TYPE_BUY_LIMIT, 'clientOrderId'],
+        ];
     }
 }

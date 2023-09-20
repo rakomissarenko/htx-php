@@ -10,12 +10,21 @@ class CancelBatchOpenOrdersTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $accountId): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelBatchOpenOrdersRequest('111');
+        $request = new CancelBatchOpenOrdersRequest($accountId);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['111'],
+        ];
     }
 }
