@@ -35,6 +35,7 @@ class UserData
         if (is_int(mb_substr($this->userName, 0, 1))) {
             ValidateHelper::throwValidateException(FieldHelper::FIELD_USER_NAME);
         }
+        ValidateHelper::validateNotEmptyString($this->note, FieldHelper::FIELD_NOTE);
         ValidateHelper::validateMaxLength($this->note, FieldHelper::FIELD_NOTE, self::NOTE_SIZE_MAX);
     }
 

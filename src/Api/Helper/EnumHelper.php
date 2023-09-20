@@ -106,7 +106,7 @@ class EnumHelper
     ];
 
     private const ORDER_TYPE_BUY_IOC = 'buy-ioc';
-    private const ORDER_TYPE_BUY_LIMIT = 'buy-limit';
+    public const ORDER_TYPE_BUY_LIMIT = 'buy-limit';
     private const ORDER_TYPE_BUY_LIMIT_FOK = 'buy-limit-fok';
     private const ORDER_TYPE_BUY_LIMIT_MARKET = 'buy-limit-maker';
     private const ORDER_TYPE_BUY_MARKET = 'buy-market';

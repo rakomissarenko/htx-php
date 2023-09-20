@@ -60,7 +60,10 @@ class OrderData
      */
     public function validate(): void
     {
+        ValidateHelper::validateNotEmptyString($this->accountId, FieldHelper::FIELD_ACCOUNT_ID_HYPHEN);
+        ValidateHelper::validateNotEmptyString($this->symbol, FieldHelper::FIELD_SYMBOL);
         ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::ORDER_TYPES);
+        ValidateHelper::validateNotEmptyString($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID_HYPHEN);
         ValidateHelper::validateMaxLength($this->clientOrderId, FieldHelper::FIELD_CLIENT_ORDER_ID_HYPHEN, self::CLIENT_ORDER_ID_SIZE);
         if ($this->amount) {
             ValidateHelper::validateNumeric($this->amount, FieldHelper::FIELD_AMOUNT);
