@@ -17,19 +17,15 @@ class SearchRequest extends AbstractRequest
     private const SIZE_MAX = 500;
 
     private ?string $currency = null;
-    private ?string $type = null;
     private ?string $from = null;
     private ?int $size = null;
     private ?string $direct = null;
 
+    public function __construct(private string $type) {}
+
     public function setCurrency(string $currency): void
     {
         $this->currency = $currency;
-    }
-
-    public function setType(string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setFrom(string $from): void
@@ -52,9 +48,7 @@ class SearchRequest extends AbstractRequest
      */
     public function validate(): void
     {
-        if ($this->type) {
-            ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::WALLET_TYPES);
-        }
+        ValidateHelper::validateList($this->type, FieldHelper::FIELD_TYPE, EnumHelper::WALLET_TYPES);
         if ($this->size) {
             ValidateHelper::validateRange(
                 (string) $this->size,
@@ -70,12 +64,11 @@ class SearchRequest extends AbstractRequest
 
     public function toArray(): array
     {
-        $result = [];
+        $result = [
+            FieldHelper::FIELD_TYPE => $this->type,
+        ];
         if ($this->currency) {
             $result[FieldHelper::FIELD_CURRENCY] = $this->currency;
-        }
-        if ($this->type) {
-            $result[FieldHelper::FIELD_TYPE] = $this->type;
         }
         if ($this->from) {
             $result[FieldHelper::FIELD_FROM] = $this->from;
