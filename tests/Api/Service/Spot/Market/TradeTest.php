@@ -10,12 +10,21 @@ class TradeTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $symbol): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TradeRequest('symbol');
+        $request = new TradeRequest($symbol);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['symbol'],
+        ];
     }
 }

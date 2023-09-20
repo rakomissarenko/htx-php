@@ -10,12 +10,21 @@ class DepthTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $symbol): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new DepthRequest('symbol');
+        $request = new DepthRequest($symbol);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['symbol'],
+        ];
     }
 }

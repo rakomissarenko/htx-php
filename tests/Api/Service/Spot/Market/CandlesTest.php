@@ -11,12 +11,21 @@ class CandlesTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $symbol, string $period): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CandlesRequest('symbol', EnumHelper::PERIOD_1MIN);
+        $request = new CandlesRequest($symbol, $period);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['symbol', EnumHelper::PERIOD_1MIN],
+        ];
     }
 }
