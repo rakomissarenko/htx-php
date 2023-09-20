@@ -30,7 +30,7 @@ class EnumHelper
         self::ACTIVATION_DEACTIVATED,
     ];
 
-    private const DEDUCT_MODE_MASTER = 'master';
+    public const DEDUCT_MODE_MASTER = 'master';
     private const DEDUCT_MODE_SUB = 'sub';
     public const DEDUCT_MODES = [
         self::DEDUCT_MODE_MASTER,
