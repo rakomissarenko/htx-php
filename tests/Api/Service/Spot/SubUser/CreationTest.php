@@ -11,14 +11,22 @@ class CreationTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $userName, string $note): void
     {
         $this->expectNotToPerformAssertions();
 
-        $userData = new UserData('username', 'note');
         $request = new CreationRequest();
-        $request->addUserData($userData);
+        $request->addUserData(new UserData($userName, $note));
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['username', 'note'],
+        ];
     }
 }

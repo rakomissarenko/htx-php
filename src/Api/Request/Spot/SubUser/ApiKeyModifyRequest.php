@@ -22,7 +22,7 @@ class ApiKeyModifyRequest extends AbstractRequest
         private string $subUid,
         private string $accessKey,
         private string $note,
-        private array $permission,
+        private array  $permissions,
     ) {}
 
     public function setIps(array $ips): void
@@ -40,10 +40,10 @@ class ApiKeyModifyRequest extends AbstractRequest
         ValidateHelper::validateNotEmptyString($this->accessKey, FieldHelper::FIELD_ACCESS_KEY);
         ValidateHelper::validateNotEmptyString($this->note, FieldHelper::FIELD_NOTE);
         ValidateHelper::validateMaxLength($this->note, FieldHelper::FIELD_NOTE, self::NOTE_SIZE);
-        foreach ($this->permission as $permission) {
+        foreach ($this->permissions as $permission) {
             ValidateHelper::validateList((string) $permission, FieldHelper::FIELD_PERMISSION, EnumHelper::PERMISSIONS);
         }
-        if (!in_array(EnumHelper::PERMISSION_KEY_READ_ONLY, $this->permission, true)) {
+        if (!in_array(EnumHelper::PERMISSION_KEY_READ_ONLY, $this->permissions, true)) {
             ValidateHelper::throwValidateException(FieldHelper::FIELD_PERMISSION);
         }
         if ($this->ips) {
@@ -61,7 +61,7 @@ class ApiKeyModifyRequest extends AbstractRequest
             FieldHelper::FIELD_SUB_UID    => $this->subUid,
             FieldHelper::FIELD_ACCESS_KEY => $this->accessKey,
             FieldHelper::FIELD_NOTE       => $this->note,
-            FieldHelper::FIELD_PERMISSION => implode(',', $this->permission),
+            FieldHelper::FIELD_PERMISSION => implode(',', $this->permissions),
         ];
         if ($this->ips) {
             $result[FieldHelper::FIELD_IP] = implode(',', $this->ips);

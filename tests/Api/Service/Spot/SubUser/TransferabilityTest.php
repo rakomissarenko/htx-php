@@ -11,12 +11,21 @@ class TransferabilityTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(array $subUids, string $accountType, bool $transferrable): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferabilityRequest(['555'], EnumHelper::ACCOUNT_TYPE_SPOT, true);
+        $request = new TransferabilityRequest($subUids, $accountType, $transferrable);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [['555'], EnumHelper::ACCOUNT_TYPE_SPOT, true],
+        ];
     }
 }

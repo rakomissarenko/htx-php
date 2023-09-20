@@ -11,12 +11,21 @@ class ManagementTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $subUid, string $action): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ManagementRequest('555', EnumHelper::ACTION_LOCK);
+        $request = new ManagementRequest($subUid, $action);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['555', EnumHelper::ACTION_LOCK],
+        ];
     }
 }

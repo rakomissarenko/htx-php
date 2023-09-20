@@ -10,12 +10,21 @@ class ApiKeyDeleteTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $subUid, string $accessKey): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ApiKeyDeleteRequest('555', 'accessKey');
+        $request = new ApiKeyDeleteRequest($subUid, $accessKey);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['555', 'accessKey'],
+        ];
     }
 }
