@@ -8,7 +8,7 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 
 class UserData
 {
-    private const PATTERN_USER_NAME = '/(\da-zA-Z)+/';
+    private const PATTERN_USER_NAME = '/[\da-zA-Z]+/';
 
     private const USER_NAME_SIZE_MIN = 6;
     private const USER_NAME_SIZE_MAX = 20;

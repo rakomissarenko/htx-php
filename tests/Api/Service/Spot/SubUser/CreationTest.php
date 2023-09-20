@@ -2,6 +2,7 @@
 
 namespace Api\Service\Spot\SubUser;
 
+use Feralonso\Htx\Api\Data\UserData;
 use Feralonso\Htx\Api\Request\Spot\SubUser\CreationRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
@@ -15,7 +16,9 @@ class CreationTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
+        $userData = new UserData('username', 'note');
         $request = new CreationRequest();
+        $request->addUserData($userData);
         $request->validate();
     }
 }
