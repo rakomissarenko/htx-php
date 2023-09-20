@@ -4,26 +4,26 @@ namespace Feralonso\Htx\Api\Helper;
 
 class EnumHelper
 {
-    private const ACCOUNT_TYPE_SPOT = 'spot';
+    public const ACCOUNT_TYPE_SPOT = 'spot';
     public const ACCOUNT_TYPES = [
         self::ACCOUNT_TYPE_SPOT,
     ];
 
-    private const ACCOUNT_MARKET_TYPE_CROSS = 'cross-margin';
+    public const ACCOUNT_MARKET_TYPE_CROSS = 'cross-margin';
     private const ACCOUNT_MARKET_TYPE_ISOLATED = 'isolated-margin';
     public const ACCOUNT_MARKET_TYPES = [
         self::ACCOUNT_MARKET_TYPE_CROSS,
         self::ACCOUNT_MARKET_TYPE_ISOLATED,
     ];
 
-    private const ACTION_LOCK = 'lock';
+    public const ACTION_LOCK = 'lock';
     private const ACTION_UNLOCK = 'unlock';
     public const ACTIONS = [
         self::ACTION_LOCK,
         self::ACTION_UNLOCK,
     ];
 
-    private const ACTIVATION_ACTIVATED = 'activated';
+    public const ACTIVATION_ACTIVATED = 'activated';
     private const ACTIVATION_DEACTIVATED = 'deactivated';
     public const ACTIVATIONS = [
         self::ACTIVATION_ACTIVATED,
@@ -275,7 +275,7 @@ class EnumHelper
         self::TRANSFER_LEDGER_TYPE_TRANSFER,
     ];
 
-    private const TRANSFER_TYPE_MASTER_TRANSFER_IN = 'master-transfer-in';
+    public const TRANSFER_TYPE_MASTER_TRANSFER_IN = 'master-transfer-in';
     private const TRANSFER_TYPE_MASTER_TRANSFER_OUT = 'master-transfer-out';
     private const TRANSFER_TYPE_MASTER_POINT_TRANSFER_IN = 'master-point-transfer-in';
     private const TRANSFER_TYPE_MASTER_POINT_TRANSFER_OUT = 'master-point-transfer-out';
