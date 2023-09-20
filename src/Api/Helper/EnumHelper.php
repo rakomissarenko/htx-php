@@ -142,7 +142,7 @@ class EnumHelper
         self::ORDER_TYPE_SELL_MARKET,
     ];
 
-    private const PERIOD_1MIN = '1min';
+    public const PERIOD_1MIN = '1min';
     private const PERIOD_5MIN = '5min';
     private const PERIOD_15MIN = '15min';
     private const PERIOD_30MIN = '30min';
