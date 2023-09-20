@@ -11,12 +11,21 @@ class CreateWithdrawTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $address, string $currency, string $amount): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CreateWithdrawRequest('address', ValueHelper::CURRENCY, '100');
+        $request = new CreateWithdrawRequest($address, $currency, $amount);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['address', ValueHelper::CURRENCY, '100'],
+        ];
     }
 }

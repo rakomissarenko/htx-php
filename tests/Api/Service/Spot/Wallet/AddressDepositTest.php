@@ -11,12 +11,21 @@ class AddressDepositTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $currency): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new AddressDepositRequest(ValueHelper::CURRENCY);
+        $request = new AddressDepositRequest($currency);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [ValueHelper::CURRENCY],
+        ];
     }
 }
