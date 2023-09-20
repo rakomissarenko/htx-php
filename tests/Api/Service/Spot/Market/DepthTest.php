@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\Market;
+namespace Feralonso\Tests\Api\Service\Spot\Market;
 
 use Feralonso\Htx\Api\Request\Spot\Market\DepthRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

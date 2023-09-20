@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\Account;
+namespace Feralonso\Tests\Api\Service\Spot\Account;
 
 use Feralonso\Htx\Api\Request\Spot\Account\BalanceRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

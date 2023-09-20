@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\MarginLoan;
+namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\BalanceRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

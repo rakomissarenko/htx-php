@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\Trading;
+namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Request\Spot\Trading\HistoryRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

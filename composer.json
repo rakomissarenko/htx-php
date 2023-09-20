@@ -9,6 +9,11 @@
             "Feralonso\\Htx\\": "./src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Feralonso\\Tests\\": "./tests/"
+        }
+    },
     "require": {
         "php": ">=8.0",
         "guzzlehttp/guzzle": "*",

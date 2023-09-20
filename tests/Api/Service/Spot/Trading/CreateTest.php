@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\Trading;
+namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Data\OrderData;
 use Feralonso\Htx\Api\Helper\EnumHelper;

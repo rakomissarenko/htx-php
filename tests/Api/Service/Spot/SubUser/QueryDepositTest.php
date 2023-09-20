@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\SubUser;
+namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\QueryDepositRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

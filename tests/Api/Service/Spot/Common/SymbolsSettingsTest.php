@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\Common;
+namespace Feralonso\Tests\Api\Service\Spot\Common;
 
 use Feralonso\Htx\Api\Request\Spot\Common\SymbolsSettingsRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

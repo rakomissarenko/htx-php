@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\ConditionalOrder;
+namespace Feralonso\Tests\Api\Service\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Request\Spot\ConditionalOrder\CancelRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

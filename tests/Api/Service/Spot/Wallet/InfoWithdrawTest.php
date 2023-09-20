@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\Wallet;
+namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 
 use Feralonso\Htx\Api\Request\Spot\Wallet\InfoWithdrawRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;

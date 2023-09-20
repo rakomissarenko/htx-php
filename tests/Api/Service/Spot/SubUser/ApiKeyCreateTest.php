@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Service\Spot\SubUser;
+namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyCreateRequest;
