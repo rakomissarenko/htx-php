@@ -10,12 +10,21 @@ class HistoryTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(int $accountId, string $symbol): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new HistoryRequest(111, 'symbol');
+        $request = new HistoryRequest($accountId, $symbol);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [111, 'symbol'],
+        ];
     }
 }

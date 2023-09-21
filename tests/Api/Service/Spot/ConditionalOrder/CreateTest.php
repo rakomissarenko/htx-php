@@ -11,12 +11,21 @@ class CreateTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(int $accountId, string $symbol, string $orderSide, string $orderType, string $clientOrderId): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CreateRequest(111, 'symbol', EnumHelper::ORDER_SIDE_BUY, EnumHelper::ORDER_BID_TYPE_MARKET, '222');
+        $request = new CreateRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [111, 'symbol', EnumHelper::ORDER_SIDE_BUY, EnumHelper::ORDER_BID_TYPE_MARKET, '222'],
+        ];
     }
 }
