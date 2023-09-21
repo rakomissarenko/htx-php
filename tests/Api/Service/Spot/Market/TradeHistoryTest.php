@@ -17,8 +17,7 @@ class TradeHistoryTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TradeHistoryRequest($symbol);
-        $request->validate();
+        $this->getRequest($symbol)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class TradeHistoryTest extends TestCase
         return [
             ['symbol'],
         ];
+    }
+
+    private function getRequest(string $symbol): TradeHistoryRequest
+    {
+        return new TradeHistoryRequest($symbol);
     }
 }

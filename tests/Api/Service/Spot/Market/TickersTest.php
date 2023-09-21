@@ -15,7 +15,11 @@ class TickersTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TickersRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): TickersRequest
+    {
+        return new TickersRequest();
     }
 }

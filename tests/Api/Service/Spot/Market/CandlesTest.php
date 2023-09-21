@@ -18,8 +18,7 @@ class CandlesTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CandlesRequest($symbol, $period);
-        $request->validate();
+        $this->getRequest($symbol, $period)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class CandlesTest extends TestCase
         return [
             ['symbol', EnumHelper::PERIOD_1MIN],
         ];
+    }
+
+    private function getRequest(string $symbol, string $period): CandlesRequest
+    {
+        return new CandlesRequest($symbol, $period);
     }
 }

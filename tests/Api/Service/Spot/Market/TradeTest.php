@@ -17,8 +17,7 @@ class TradeTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TradeRequest($symbol);
-        $request->validate();
+        $this->getRequest($symbol)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class TradeTest extends TestCase
         return [
             ['symbol'],
         ];
+    }
+
+    private function getRequest(string $symbol): TradeRequest
+    {
+        return new TradeRequest($symbol);
     }
 }

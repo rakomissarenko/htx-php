@@ -17,8 +17,7 @@ class TickerTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TickerRequest($symbol);
-        $request->validate();
+        $this->getRequest($symbol)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class TickerTest extends TestCase
         return [
             ['symbol'],
         ];
+    }
+
+    private function getRequest(string $symbol): TickerRequest
+    {
+        return new TickerRequest($symbol);
     }
 }

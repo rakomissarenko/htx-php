@@ -17,8 +17,7 @@ class DetailTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new DetailRequest($symbol);
-        $request->validate();
+        $this->getRequest($symbol)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class DetailTest extends TestCase
         return [
             ['symbol'],
         ];
+    }
+
+    private function getRequest(string $symbol): DetailRequest
+    {
+        return new DetailRequest($symbol);
     }
 }

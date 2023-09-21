@@ -17,8 +17,7 @@ class DepthTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new DepthRequest($symbol);
-        $request->validate();
+        $this->getRequest($symbol)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class DepthTest extends TestCase
         return [
             ['symbol'],
         ];
+    }
+
+    private function getRequest(string $symbol): DepthRequest
+    {
+        return new DepthRequest($symbol);
     }
 }
