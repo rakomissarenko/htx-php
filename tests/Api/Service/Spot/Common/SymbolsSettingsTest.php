@@ -15,7 +15,11 @@ class SymbolsSettingsTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new SymbolsSettingsRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): SymbolsSettingsRequest
+    {
+        return new SymbolsSettingsRequest();
     }
 }

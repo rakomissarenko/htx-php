@@ -15,7 +15,11 @@ class SymbolsMarketTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new SymbolsMarketRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): SymbolsMarketRequest
+    {
+        return new SymbolsMarketRequest();
     }
 }

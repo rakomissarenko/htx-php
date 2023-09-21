@@ -15,7 +15,11 @@ class TimestampTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TimestampRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): TimestampRequest
+    {
+        return new TimestampRequest();
     }
 }

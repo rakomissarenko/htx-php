@@ -15,7 +15,11 @@ class ChainsTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ChainsRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): ChainsRequest
+    {
+        return new ChainsRequest();
     }
 }

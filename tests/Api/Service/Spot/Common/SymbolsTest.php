@@ -15,7 +15,11 @@ class SymbolsTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new SymbolsRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): SymbolsRequest
+    {
+        return new SymbolsRequest();
     }
 }

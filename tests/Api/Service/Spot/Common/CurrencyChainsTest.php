@@ -15,7 +15,11 @@ class CurrencyChainsTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CurrencyChainsRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): CurrencyChainsRequest
+    {
+        return new CurrencyChainsRequest();
     }
 }

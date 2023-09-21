@@ -15,8 +15,7 @@ class CurrenciesTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CurrenciesRequest();
-        $request->validate();
+        $this->getRequest()->validate();
     }
 
     /**
@@ -26,8 +25,13 @@ class CurrenciesTest extends TestCase
     {
         $this->expectException(HtxValidateException::class);
 
-        $request = new CurrenciesRequest();
+        $request = $this->getRequest();
         $request->setTs('word');
         $request->validate();
+    }
+
+    private function getRequest(): CurrenciesRequest
+    {
+        return new CurrenciesRequest();
     }
 }

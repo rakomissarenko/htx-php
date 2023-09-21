@@ -15,7 +15,11 @@ class StatusMarketTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new StatusMarketRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): StatusMarketRequest
+    {
+        return new StatusMarketRequest();
     }
 }
