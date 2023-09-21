@@ -10,7 +10,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use JsonException;
 
-class AbstractApi
+abstract class AbstractApi
 {
     private const HOST = 'https://api.huobi.pro';
     private const TIMEOUT = 15;

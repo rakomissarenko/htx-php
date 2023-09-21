@@ -19,8 +19,7 @@ class TransferFuturesTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferFuturesRequest($currency, $amount, $type);
-        $request->validate();
+        $this->getRequest($currency, $amount, $type)->validate();
     }
 
     public function validateProvider(): array
@@ -28,5 +27,10 @@ class TransferFuturesTest extends TestCase
         return [
             [ValueHelper::CURRENCY, '100', EnumHelper::TRANSFER_FUTURES_TYPE_FUTURES_TO_PRO],
         ];
+    }
+
+    private function getRequest(string $currency, string $amount, string $type): TransferFuturesRequest
+    {
+        return new TransferFuturesRequest($currency, $amount, $type);
     }
 }

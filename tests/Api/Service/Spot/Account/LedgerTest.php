@@ -15,7 +15,11 @@ class LedgerTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new LedgerRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): LedgerRequest
+    {
+        return new LedgerRequest();
     }
 }

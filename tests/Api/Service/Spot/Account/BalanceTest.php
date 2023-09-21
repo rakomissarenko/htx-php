@@ -17,8 +17,7 @@ class BalanceTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new BalanceRequest($accountId);
-        $request->validate();
+        $this->getRequest($accountId)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class BalanceTest extends TestCase
         return [
             ['12345'],
         ];
+    }
+
+    private function getRequest(string $accountId): BalanceRequest
+    {
+        return new BalanceRequest($accountId);
     }
 }

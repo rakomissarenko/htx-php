@@ -22,13 +22,12 @@ class TransferTest extends TestCase
         string $toAccountType,
         string $toAccount,
         string $currency,
-        string $amount
+        string $amount,
     ): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount);
-        $request->validate();
+        $this->getRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount)->validate();
     }
 
     public function validateProvider(): array
@@ -36,5 +35,19 @@ class TransferTest extends TestCase
         return [
             ['111', 'from', '112', '222', 'to', '223', ValueHelper::CURRENCY, '100'],
         ];
+    }
+
+    private function getRequest(
+        string $fromUser,
+        string $fromAccountType,
+        string $fromAccount,
+        string $toUser,
+        string $toAccountType,
+        string $toAccount,
+        string $currency,
+        string $amount,
+    ): TransferRequest
+    {
+        return new TransferRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount);
     }
 }

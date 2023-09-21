@@ -15,7 +15,11 @@ class AccountsTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new AccountsRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): AccountsRequest
+    {
+        return new AccountsRequest();
     }
 }
