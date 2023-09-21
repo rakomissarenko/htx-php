@@ -11,12 +11,30 @@ class TransferTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(
+        string $fromUser,
+        string $fromAccountType,
+        string $fromAccount,
+        string $toUser,
+        string $toAccountType,
+        string $toAccount,
+        string $currency,
+        string $amount
+    ): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferRequest('111', 'from', '112', '222', 'to', '223', ValueHelper::CURRENCY, '100');
+        $request = new TransferRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            ['111', 'from', '112', '222', 'to', '223', ValueHelper::CURRENCY, '100'],
+        ];
     }
 }

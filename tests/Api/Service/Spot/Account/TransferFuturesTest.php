@@ -12,12 +12,21 @@ class TransferFuturesTest extends TestCase
 {
     /**
      * @throws HtxValidateException
+     *
+     * @dataProvider validateProvider
      */
-    public function testValidate(): void
+    public function testValidate(string $currency, string $amount, string $type): void
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferFuturesRequest(ValueHelper::CURRENCY, '100', EnumHelper::TRANSFER_FUTURES_TYPE_FUTURES_TO_PRO);
+        $request = new TransferFuturesRequest($currency, $amount, $type);
         $request->validate();
+    }
+
+    public function validateProvider(): array
+    {
+        return [
+            [ValueHelper::CURRENCY, '100', EnumHelper::TRANSFER_FUTURES_TYPE_FUTURES_TO_PRO],
+        ];
     }
 }
