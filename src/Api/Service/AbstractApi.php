@@ -8,11 +8,15 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use JsonException;
 
 class AbstractApi
 {
     private const HOST = 'https://api.huobi.pro';
     private const TIMEOUT = 15;
+    private const HEADERS = [
+        'Content-Type' => 'application/json',
+    ];
 
     private const FIELD_ACCESS_KEY = 'AccessKeyId';
     private const FIELD_SIGNATURE = 'Signature';
@@ -45,12 +49,19 @@ class AbstractApi
         $method = $request->getMethod();
         if ($request->isMethodGet()) {
             $url .= '?' . http_build_query($params);
+            $headers = [];
             $body = null;
         } else {
-            $body = $params;
+            try {
+                $body = json_encode($params, JSON_THROW_ON_ERROR);
+            } catch (JsonException) {
+                $body = null;
+            }
+            $url .= '?' . http_build_query($params);
+            $headers = self::HEADERS;
         }
 
-        $httpRequest = new Request($method, $url, [], $body);
+        $httpRequest = new Request($method, $url, $headers, $body);
         $httpClient = new Client();
 
         $options = [RequestOptions::TIMEOUT => self::TIMEOUT];

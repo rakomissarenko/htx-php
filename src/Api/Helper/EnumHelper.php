@@ -287,7 +287,7 @@ class EnumHelper
     ];
 
     public const WALLET_TYPE_DEPOSIT = 'deposit';
-    private const WALLET_TYPE_WITHDRAW = 'withdraw';
+    public const WALLET_TYPE_WITHDRAW = 'withdraw';
     public const WALLET_TYPES = [
         self::WALLET_TYPE_DEPOSIT,
         self::WALLET_TYPE_WITHDRAW,
