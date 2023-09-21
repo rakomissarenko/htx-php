@@ -18,8 +18,7 @@ class OrdersTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OrdersRequest($symbol, $currency, $amount);
-        $request->validate();
+        $this->getRequest($symbol, $currency, $amount)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class OrdersTest extends TestCase
         return [
             ['symbol', ValueHelper::CURRENCY, '100'],
         ];
+    }
+
+    private function getRequest(string $symbol, string $currency, string $amount): OrdersRequest
+    {
+        return new OrdersRequest($symbol, $currency, $amount);
     }
 }

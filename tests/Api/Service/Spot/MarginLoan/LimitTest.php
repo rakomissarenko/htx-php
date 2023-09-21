@@ -15,7 +15,11 @@ class LimitTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new LimitRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): LimitRequest
+    {
+        return new LimitRequest();
     }
 }

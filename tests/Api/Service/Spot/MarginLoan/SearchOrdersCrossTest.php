@@ -15,7 +15,11 @@ class SearchOrdersCrossTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new SearchOrdersCrossRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): SearchOrdersCrossRequest
+    {
+        return new SearchOrdersCrossRequest();
     }
 }

@@ -17,8 +17,7 @@ class LoanInfoTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new LoanInfoRequest($symbols);
-        $request->validate();
+        $this->getRequest($symbols)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class LoanInfoTest extends TestCase
         return [
             [['symbol1', 'symbol2']],
         ];
+    }
+
+    private function getRequest(array $symbols): LoanInfoRequest
+    {
+        return new LoanInfoRequest($symbols);
     }
 }

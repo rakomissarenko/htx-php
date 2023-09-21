@@ -15,7 +15,11 @@ class LoanInfoCrossTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new LoanInfoCrossRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): LoanInfoCrossRequest
+    {
+        return new LoanInfoCrossRequest();
     }
 }

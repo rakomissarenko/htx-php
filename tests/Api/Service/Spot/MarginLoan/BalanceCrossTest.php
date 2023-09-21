@@ -15,7 +15,11 @@ class BalanceCrossTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new BalanceCrossRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): BalanceCrossRequest
+    {
+        return new BalanceCrossRequest();
     }
 }

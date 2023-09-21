@@ -18,8 +18,7 @@ class TransferOutMarginTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferOutMarginRequest($symbol, $currency, $amount);
-        $request->validate();
+        $this->getRequest($symbol, $currency, $amount)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class TransferOutMarginTest extends TestCase
         return [
             ['symbol', ValueHelper::CURRENCY, '100'],
         ];
+    }
+
+    private function getRequest(string $symbol, string $currency, string $amount): TransferOutMarginRequest
+    {
+        return new TransferOutMarginRequest($symbol, $currency, $amount);
     }
 }

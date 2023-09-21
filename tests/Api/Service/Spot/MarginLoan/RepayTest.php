@@ -18,8 +18,7 @@ class RepayTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new RepayRequest($accountId, $currency, $amount, $transactId);
-        $request->validate();
+        $this->getRequest($accountId, $currency, $amount, $transactId)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class RepayTest extends TestCase
         return [
             ['111', ValueHelper::CURRENCY, '100', '12345'],
         ];
+    }
+
+    private function getRequest(string $accountId, string $currency, string $amount, string $transactId): RepayRequest
+    {
+        return new RepayRequest($accountId, $currency, $amount, $transactId);
     }
 }

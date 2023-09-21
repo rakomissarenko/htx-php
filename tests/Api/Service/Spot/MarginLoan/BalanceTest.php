@@ -15,7 +15,11 @@ class BalanceTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new BalanceRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): BalanceRequest
+    {
+        return new BalanceRequest();
     }
 }

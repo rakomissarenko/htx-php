@@ -15,7 +15,11 @@ class RepayInfoTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new RepayInfoRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): RepayInfoRequest
+    {
+        return new RepayInfoRequest();
     }
 }

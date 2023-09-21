@@ -17,8 +17,7 @@ class RepayOrderCrossTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new RepayOrderCrossRequest($orderId, $amount);
-        $request->validate();
+        $this->getRequest($orderId, $amount)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class RepayOrderCrossTest extends TestCase
         return [
             ['111', '100'],
         ];
+    }
+
+    private function getRequest(string $orderId, string $amount): RepayOrderCrossRequest
+    {
+        return new RepayOrderCrossRequest($orderId, $amount);
     }
 }

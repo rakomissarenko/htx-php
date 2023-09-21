@@ -18,8 +18,7 @@ class TransferOutCrossMarginTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferOutCrossMarginRequest($currency, $amount);
-        $request->validate();
+        $this->getRequest($currency, $amount)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class TransferOutCrossMarginTest extends TestCase
         return [
             [ValueHelper::CURRENCY, '100'],
         ];
+    }
+
+    private function getRequest(string $currency, string $amount): TransferOutCrossMarginRequest
+    {
+        return new TransferOutCrossMarginRequest($currency, $amount);
     }
 }
