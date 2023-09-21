@@ -17,8 +17,7 @@ class CancelTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelRequest($clientOrderIds);
-        $request->validate();
+        $this->getRequest($clientOrderIds)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class CancelTest extends TestCase
         return [
             [['111', '222']],
         ];
+    }
+
+    private function getRequest(array $clientOrderIds): CancelRequest
+    {
+        return new CancelRequest($clientOrderIds);
     }
 }

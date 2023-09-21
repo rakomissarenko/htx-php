@@ -18,8 +18,7 @@ class CreateTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CreateRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId);
-        $request->validate();
+        $this->getRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class CreateTest extends TestCase
         return [
             [111, 'symbol', EnumHelper::ORDER_SIDE_BUY, EnumHelper::ORDER_BID_TYPE_MARKET, '222'],
         ];
+    }
+
+    private function getRequest(int $accountId, string $symbol, string $orderSide, string $orderType, string $clientOrderId): CreateRequest
+    {
+        return new CreateRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId);
     }
 }

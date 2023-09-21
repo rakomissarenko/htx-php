@@ -17,8 +17,7 @@ class HistoryTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new HistoryRequest($accountId, $symbol);
-        $request->validate();
+        $this->getRequest($accountId, $symbol)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class HistoryTest extends TestCase
         return [
             [111, 'symbol'],
         ];
+    }
+
+    private function getRequest(int $accountId, string $symbol): HistoryRequest
+    {
+        return new HistoryRequest($accountId, $symbol);
     }
 }
