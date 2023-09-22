@@ -18,8 +18,7 @@ class TransferabilityTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferabilityRequest($subUids, $accountType, $transferrable);
-        $request->validate();
+        $this->getRequest($subUids, $accountType, $transferrable)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class TransferabilityTest extends TestCase
         return [
             [['555'], EnumHelper::ACCOUNT_TYPE_SPOT, true],
         ];
+    }
+
+    private function getRequest(array $subUids, string $accountType, bool $transferrable): TransferabilityRequest
+    {
+        return new TransferabilityRequest($subUids, $accountType, $transferrable);
     }
 }

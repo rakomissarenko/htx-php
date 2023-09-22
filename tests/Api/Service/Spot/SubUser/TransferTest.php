@@ -19,8 +19,7 @@ class TransferTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TransferRequest($subUid, $currency, $amount, $type, $clientOrderId);
-        $request->validate();
+        $this->getRequest($subUid, $currency, $amount, $type, $clientOrderId)->validate();
     }
 
     public function validateProvider(): array
@@ -28,5 +27,10 @@ class TransferTest extends TestCase
         return [
             ['555', ValueHelper::CURRENCY, '100', EnumHelper::TRANSFER_TYPE_MASTER_TRANSFER_IN, 'clientOrder'],
         ];
+    }
+
+    private function getRequest(string $subUid, string $currency, string $amount, string $type, string $clientOrderId): TransferRequest
+    {
+        return new TransferRequest($subUid, $currency, $amount, $type, $clientOrderId);
     }
 }

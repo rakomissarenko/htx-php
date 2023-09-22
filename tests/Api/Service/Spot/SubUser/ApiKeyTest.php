@@ -17,8 +17,7 @@ class ApiKeyTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ApiKeyRequest($uid);
-        $request->validate();
+        $this->getRequest($uid)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class ApiKeyTest extends TestCase
         return [
             ['111'],
         ];
+    }
+
+    private function getRequest(string $uid): ApiKeyRequest
+    {
+        return new ApiKeyRequest($uid);
     }
 }

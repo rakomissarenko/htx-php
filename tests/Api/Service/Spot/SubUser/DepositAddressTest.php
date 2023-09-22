@@ -18,8 +18,7 @@ class DepositAddressTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new DepositAddressRequest($subUid, $currency);
-        $request->validate();
+        $this->getRequest($subUid, $currency)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class DepositAddressTest extends TestCase
         return [
             ['555', ValueHelper::CURRENCY],
         ];
+    }
+
+    private function getRequest(string $subUid, string $currency): DepositAddressRequest
+    {
+        return new DepositAddressRequest($subUid, $currency);
     }
 }

@@ -18,8 +18,7 @@ class ApiKeyModifyTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ApiKeyModifyRequest($subUid, $accessKey, $note, $permissions);
-        $request->validate();
+        $this->getRequest($subUid, $accessKey, $note, $permissions)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class ApiKeyModifyTest extends TestCase
         return [
             ['555', 'accessKey', 'note', [EnumHelper::PERMISSION_KEY_READ_ONLY]],
         ];
+    }
+
+    private function getRequest(string $subUid, string $accessKey, string $note, array $permissions): ApiKeyModifyRequest
+    {
+        return new ApiKeyModifyRequest($subUid, $accessKey, $note, $permissions);
     }
 }

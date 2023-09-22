@@ -15,7 +15,11 @@ class AggregateBalanceTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new AggregateBalanceRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): AggregateBalanceRequest
+    {
+        return new AggregateBalanceRequest();
     }
 }

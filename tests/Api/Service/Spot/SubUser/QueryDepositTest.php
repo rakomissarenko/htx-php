@@ -18,8 +18,7 @@ class QueryDepositTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new QueryDepositRequest($subUid, $currency);
-        $request->validate();
+        $this->getRequest($subUid, $currency)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class QueryDepositTest extends TestCase
         return [
             ['555', ValueHelper::CURRENCY],
         ];
+    }
+
+    private function getRequest(string $subUid, string $currency): QueryDepositRequest
+    {
+        return new QueryDepositRequest($subUid, $currency);
     }
 }

@@ -17,8 +17,7 @@ class ApiKeyDeleteTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ApiKeyDeleteRequest($subUid, $accessKey);
-        $request->validate();
+        $this->getRequest($subUid, $accessKey)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class ApiKeyDeleteTest extends TestCase
         return [
             ['555', 'accessKey'],
         ];
+    }
+
+    private function getRequest(string $subUid, string $accessKey): ApiKeyDeleteRequest
+    {
+        return new ApiKeyDeleteRequest($subUid, $accessKey);
     }
 }

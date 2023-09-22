@@ -18,8 +18,7 @@ class TradableMarketTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new TradableMarketRequest($subUids, $accountType, $activation);
-        $request->validate();
+        $this->getRequest($subUids, $accountType, $activation)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class TradableMarketTest extends TestCase
         return [
             [['555'], EnumHelper::ACCOUNT_MARKET_TYPE_CROSS, EnumHelper::ACTIVATION_ACTIVATED],
         ];
+    }
+
+    private function getRequest(array $subUids, string $accountType, string $activation): TradableMarketRequest
+    {
+        return new TradableMarketRequest($subUids, $accountType, $activation);
     }
 }

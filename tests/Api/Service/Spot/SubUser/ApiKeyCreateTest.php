@@ -18,8 +18,7 @@ class ApiKeyCreateTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ApiKeyCreateRequest($otpToken, $subUid, $note, $permissions);
-        $request->validate();
+        $this->getRequest($otpToken, $subUid, $note, $permissions)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class ApiKeyCreateTest extends TestCase
         return [
             ['9999', '555', 'note', [EnumHelper::PERMISSION_KEY_READ_ONLY]],
         ];
+    }
+
+    private function getRequest(string $otpToken, string $subUid, string $note, array $permissions): ApiKeyCreateRequest
+    {
+        return new ApiKeyCreateRequest($otpToken, $subUid, $note, $permissions);
     }
 }

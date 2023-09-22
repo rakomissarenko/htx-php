@@ -18,8 +18,7 @@ class ManagementTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new ManagementRequest($subUid, $action);
-        $request->validate();
+        $this->getRequest($subUid, $action)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class ManagementTest extends TestCase
         return [
             ['555', EnumHelper::ACTION_LOCK],
         ];
+    }
+
+    private function getRequest(string $subUid, string $action): ManagementRequest
+    {
+        return new ManagementRequest($subUid, $action);
     }
 }

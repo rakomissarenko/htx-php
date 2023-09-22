@@ -17,8 +17,7 @@ class AccountListTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new AccountListRequest($subUid);
-        $request->validate();
+        $this->getRequest($subUid)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class AccountListTest extends TestCase
         return [
             ['555'],
         ];
+    }
+
+    private function getRequest(string $subUid): AccountListRequest
+    {
+        return new AccountListRequest($subUid);
     }
 }

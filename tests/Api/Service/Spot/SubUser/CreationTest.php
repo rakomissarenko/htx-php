@@ -18,9 +18,7 @@ class CreationTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CreationRequest();
-        $request->addUserData(new UserData($userName, $note));
-        $request->validate();
+        $this->getRequest($userName, $note)->validate();
     }
 
     public function validateProvider(): array
@@ -28,5 +26,13 @@ class CreationTest extends TestCase
         return [
             ['username', 'note'],
         ];
+    }
+
+    private function getRequest(string $userName, string $note): CreationRequest
+    {
+        $result = new CreationRequest();
+        $result->addUserData(new UserData($userName, $note));
+
+        return $result;
     }
 }

@@ -17,8 +17,7 @@ class UserStateTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new UserStateRequest($subUid);
-        $request->validate();
+        $this->getRequest($subUid)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class UserStateTest extends TestCase
         return [
             ['555'],
         ];
+    }
+
+    private function getRequest(string $subUid): UserStateRequest
+    {
+        return new UserStateRequest($subUid);
     }
 }

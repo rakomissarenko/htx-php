@@ -15,7 +15,11 @@ class UserListTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new UserListRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): UserListRequest
+    {
+        return new UserListRequest();
     }
 }

@@ -15,7 +15,11 @@ class UidTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new UidRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): UidRequest
+    {
+        return new UidRequest();
     }
 }

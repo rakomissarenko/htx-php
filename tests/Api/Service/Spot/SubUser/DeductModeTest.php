@@ -18,8 +18,7 @@ class DeductModeTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new DeductModeRequest($subUids, $deductMode);
-        $request->validate();
+        $this->getRequest($subUids, $deductMode)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class DeductModeTest extends TestCase
         return [
             [['555'], EnumHelper::DEDUCT_MODE_MASTER],
         ];
+    }
+
+    private function getRequest(array $subUids, string $deductMode): DeductModeRequest
+    {
+        return new DeductModeRequest($subUids, $deductMode);
     }
 }
