@@ -18,8 +18,7 @@ class CreateWithdrawTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CreateWithdrawRequest($address, $currency, $amount);
-        $request->validate();
+        $this->getRequest($address, $currency, $amount)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class CreateWithdrawTest extends TestCase
         return [
             ['address', ValueHelper::CURRENCY, '100'],
         ];
+    }
+
+    private function getRequest(string $address, string $currency, string $amount): CreateWithdrawRequest
+    {
+        return new CreateWithdrawRequest($address, $currency, $amount);
     }
 }

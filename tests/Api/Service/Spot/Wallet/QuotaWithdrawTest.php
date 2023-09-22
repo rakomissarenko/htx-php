@@ -18,8 +18,7 @@ class QuotaWithdrawTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new QuotaWithdrawRequest($currency);
-        $request->validate();
+        $this->getRequest($currency)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class QuotaWithdrawTest extends TestCase
         return [
             [ValueHelper::CURRENCY],
         ];
+    }
+
+    private function getRequest(string $currency): QuotaWithdrawRequest
+    {
+        return new QuotaWithdrawRequest($currency);
     }
 }

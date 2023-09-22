@@ -17,8 +17,7 @@ class InfoWithdrawTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new InfoWithdrawRequest($clientOrderId);
-        $request->validate();
+        $this->getRequest($clientOrderId)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class InfoWithdrawTest extends TestCase
         return [
             ['clientOrderId'],
         ];
+    }
+
+    private function getRequest(string $clientOrderId): InfoWithdrawRequest
+    {
+        return new InfoWithdrawRequest($clientOrderId);
     }
 }

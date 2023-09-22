@@ -17,8 +17,7 @@ class CancelWithdrawTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelWithdrawRequest($withdrawId);
-        $request->validate();
+        $this->getRequest($withdrawId)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class CancelWithdrawTest extends TestCase
         return [
             ['7777'],
         ];
+    }
+
+    private function getRequest(string $withdrawId): CancelWithdrawRequest
+    {
+        return new CancelWithdrawRequest($withdrawId);
     }
 }

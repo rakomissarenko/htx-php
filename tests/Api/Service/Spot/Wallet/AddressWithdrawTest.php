@@ -18,8 +18,7 @@ class AddressWithdrawTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new AddressWithdrawRequest($currency);
-        $request->validate();
+        $this->getRequest($currency)->validate();
     }
 
     /**
@@ -31,8 +30,7 @@ class AddressWithdrawTest extends TestCase
     {
         $this->expectException(HtxValidateException::class);
 
-        $request = new AddressWithdrawRequest($currency);
-        $request->validate();
+        $this->getRequest($currency)->validate();
     }
 
     public function validateProvider(): array
@@ -47,5 +45,10 @@ class AddressWithdrawTest extends TestCase
         return [
             [ValueHelper::EMPTY_STRING],
         ];
+    }
+
+    private function getRequest(string $currency): AddressWithdrawRequest
+    {
+        return new AddressWithdrawRequest($currency);
     }
 }

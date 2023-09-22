@@ -18,8 +18,7 @@ class SearchTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new SearchRequest($type);
-        $request->validate();
+        $this->getRequest($type)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class SearchTest extends TestCase
         return [
             [EnumHelper::WALLET_TYPE_DEPOSIT],
         ];
+    }
+
+    private function getRequest(string $type): SearchRequest
+    {
+        return new SearchRequest($type);
     }
 }
