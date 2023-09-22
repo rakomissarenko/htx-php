@@ -26,7 +26,7 @@ class CreateTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', ValueHelper::SYMBOL, EnumHelper::ORDER_TYPE_BUY_LIMIT, 'clientOrderId'],
+            [ValueHelper::ACCOUNT_ID, ValueHelper::SYMBOL, EnumHelper::ORDER_TYPE_BUY_LIMIT, 'clientOrderId'],
         ];
     }
 

@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelBatchRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class CancelBatchTest extends TestCase
@@ -23,7 +24,7 @@ class CancelBatchTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            [['111']],
+            [[ValueHelper::ACCOUNT_ID]],
         ];
     }
 

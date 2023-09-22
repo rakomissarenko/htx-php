@@ -24,7 +24,7 @@ class RepayOrderTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', ValueHelper::AMOUNT],
+            [ValueHelper::ACCOUNT_ID, ValueHelper::AMOUNT],
         ];
     }
 

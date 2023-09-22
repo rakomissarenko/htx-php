@@ -25,7 +25,7 @@ class OpenOrdersTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', ValueHelper::SYMBOL, EnumHelper::ORDER_SIDE_BUY],
+            [ValueHelper::ACCOUNT_ID, ValueHelper::SYMBOL, EnumHelper::ORDER_SIDE_BUY],
         ];
     }
 

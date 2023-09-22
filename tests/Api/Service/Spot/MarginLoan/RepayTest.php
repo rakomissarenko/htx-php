@@ -24,7 +24,7 @@ class RepayTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', ValueHelper::CURRENCY, ValueHelper::AMOUNT, '12345'],
+            [ValueHelper::ACCOUNT_ID, ValueHelper::CURRENCY, ValueHelper::AMOUNT, '12345'],
         ];
     }
 
