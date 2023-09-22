@@ -10,6 +10,7 @@ use Feralonso\Htx\Api\Request\Spot\Market\TickersRequest;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeHistoryRequest;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeRequest;
 use Feralonso\Htx\Api\Response\Response;
+use Feralonso\Htx\Api\Response\Spot\Market\TickersResponse;
 use Feralonso\Htx\Api\Service\AbstractApi;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -50,9 +51,9 @@ class MarketApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function tickers(TickersRequest $request): Response
+    public function tickers(TickersRequest $request): TickersResponse
     {
-        return new Response($this->send($request));
+        return new TickersResponse($this->send($request));
     }
 
     /**
