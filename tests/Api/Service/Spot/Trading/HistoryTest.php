@@ -15,7 +15,11 @@ class HistoryTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new HistoryRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): HistoryRequest
+    {
+        return new HistoryRequest();
     }
 }

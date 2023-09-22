@@ -18,8 +18,7 @@ class OpenOrdersTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OpenOrdersRequest($accountId, $symbol, $side);
-        $request->validate();
+        $this->getRequest($accountId, $symbol, $side)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +26,10 @@ class OpenOrdersTest extends TestCase
         return [
             ['111', 'symbol', EnumHelper::ORDER_SIDE_BUY],
         ];
+    }
+
+    private function getRequest(string $accountId, string $symbol, string $side): OpenOrdersRequest
+    {
+        return new OpenOrdersRequest($accountId, $symbol, $side);
     }
 }

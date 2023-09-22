@@ -17,8 +17,7 @@ class CancelBatchOpenOrdersTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelBatchOpenOrdersRequest($accountId);
-        $request->validate();
+        $this->getRequest($accountId)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class CancelBatchOpenOrdersTest extends TestCase
         return [
             ['111'],
         ];
+    }
+
+    private function getRequest(string $accountId): CancelBatchOpenOrdersRequest
+    {
+        return new CancelBatchOpenOrdersRequest($accountId);
     }
 }

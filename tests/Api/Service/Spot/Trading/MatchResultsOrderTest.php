@@ -17,8 +17,7 @@ class MatchResultsOrderTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new MatchResultsOrderRequest($orderId);
-        $request->validate();
+        $this->getRequest($orderId)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class MatchResultsOrderTest extends TestCase
         return [
             ['111'],
         ];
+    }
+
+    private function getRequest(string $orderId): MatchResultsOrderRequest
+    {
+        return new MatchResultsOrderRequest($orderId);
     }
 }

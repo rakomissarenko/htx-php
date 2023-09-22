@@ -17,8 +17,7 @@ class CancelAllAfterTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelAllAfterRequest($timeout);
-        $request->validate();
+        $this->getRequest($timeout)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class CancelAllAfterTest extends TestCase
         return [
             [15],
         ];
+    }
+
+    private function getRequest(int $timeout): CancelAllAfterRequest
+    {
+        return new CancelAllAfterRequest($timeout);
     }
 }

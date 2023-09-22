@@ -15,7 +15,11 @@ class OrdersTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OrdersRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): OrdersRequest
+    {
+        return new OrdersRequest();
     }
 }

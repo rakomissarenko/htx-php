@@ -17,8 +17,7 @@ class OrderClientTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OrderClientRequest($clientOrderId);
-        $request->validate();
+        $this->getRequest($clientOrderId)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class OrderClientTest extends TestCase
         return [
             ['clientOrderId'],
         ];
+    }
+
+    private function getRequest(string $clientOrderId): OrderClientRequest
+    {
+        return new OrderClientRequest($clientOrderId);
     }
 }

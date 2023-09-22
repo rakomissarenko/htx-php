@@ -19,10 +19,7 @@ class CreateBatchTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $orderData = new OrderData($accountId, $symbol, $type, $clientOrderId);
-        $request = new CreateBatchRequest();
-        $request->addOrder($orderData);
-        $request->validate();
+        $this->getRequest($accountId, $symbol, $type, $clientOrderId)->validate();
     }
 
     public function validateProvider(): array
@@ -30,5 +27,13 @@ class CreateBatchTest extends TestCase
         return [
             ['111', 'symbol', EnumHelper::ORDER_TYPE_BUY_LIMIT, 'clientOrderId'],
         ];
+    }
+
+    private function getRequest(string $accountId, string $symbol, string $type, string $clientOrderId): CreateBatchRequest
+    {
+        $result = new CreateBatchRequest();
+        $result->addOrder(new OrderData($accountId, $symbol, $type, $clientOrderId));
+
+        return $result;
     }
 }

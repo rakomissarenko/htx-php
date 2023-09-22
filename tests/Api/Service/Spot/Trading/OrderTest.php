@@ -17,8 +17,7 @@ class OrderTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new OrderRequest($orderId);
-        $request->validate();
+        $this->getRequest($orderId)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class OrderTest extends TestCase
         return [
             ['111'],
         ];
+    }
+
+    private function getRequest(string $orderId): OrderRequest
+    {
+        return new OrderRequest($orderId);
     }
 }

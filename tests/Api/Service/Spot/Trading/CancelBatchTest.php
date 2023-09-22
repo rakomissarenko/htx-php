@@ -17,9 +17,7 @@ class CancelBatchTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new CancelBatchRequest();
-        $request->setOrderIds($orderIds);
-        $request->validate();
+        $this->getRequest($orderIds)->validate();
     }
 
     public function validateProvider(): array
@@ -27,5 +25,13 @@ class CancelBatchTest extends TestCase
         return [
             [['111']],
         ];
+    }
+
+    private function getRequest(array $orderIds): CancelBatchRequest
+    {
+        $result = new CancelBatchRequest();
+        $result->setOrderIds($orderIds);
+
+        return $result;
     }
 }

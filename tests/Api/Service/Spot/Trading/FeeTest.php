@@ -17,8 +17,7 @@ class FeeTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new FeeRequest($symbols);
-        $request->validate();
+        $this->getRequest($symbols)->validate();
     }
 
     public function validateProvider(): array
@@ -26,5 +25,10 @@ class FeeTest extends TestCase
         return [
             [['symbol']],
         ];
+    }
+
+    private function getRequest(array $symbols): FeeRequest
+    {
+        return new FeeRequest($symbols);
     }
 }

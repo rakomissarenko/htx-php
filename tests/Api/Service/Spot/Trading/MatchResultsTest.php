@@ -15,7 +15,11 @@ class MatchResultsTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
 
-        $request = new MatchResultsRequest();
-        $request->validate();
+        $this->getRequest()->validate();
+    }
+
+    private function getRequest(): MatchResultsRequest
+    {
+        return new MatchResultsRequest();
     }
 }
