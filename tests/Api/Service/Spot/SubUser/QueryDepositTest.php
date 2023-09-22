@@ -24,7 +24,7 @@ class QueryDepositTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['555', ValueHelper::CURRENCY],
+            [ValueHelper::SUB_UID, ValueHelper::CURRENCY],
         ];
     }
 

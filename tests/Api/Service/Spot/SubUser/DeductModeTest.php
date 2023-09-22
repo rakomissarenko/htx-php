@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\DeductModeRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class DeductModeTest extends TestCase
@@ -24,7 +25,7 @@ class DeductModeTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            [['555'], EnumHelper::DEDUCT_MODE_MASTER],
+            [[ValueHelper::SUB_UID], EnumHelper::DEDUCT_MODE_MASTER],
         ];
     }
 

@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\TransferabilityRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class TransferabilityTest extends TestCase
@@ -24,7 +25,7 @@ class TransferabilityTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            [['555'], EnumHelper::ACCOUNT_TYPE_SPOT, true],
+            [[ValueHelper::SUB_UID], EnumHelper::ACCOUNT_TYPE_SPOT, true],
         ];
     }
 

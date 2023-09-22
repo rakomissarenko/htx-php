@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ManagementRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class ManagementTest extends TestCase
@@ -24,7 +25,7 @@ class ManagementTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['555', EnumHelper::ACTION_LOCK],
+            [ValueHelper::SUB_UID, EnumHelper::ACTION_LOCK],
         ];
     }
 

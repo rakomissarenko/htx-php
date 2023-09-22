@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\AccountListRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class AccountListTest extends TestCase
@@ -23,7 +24,7 @@ class AccountListTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['555'],
+            [ValueHelper::SUB_UID],
         ];
     }
 

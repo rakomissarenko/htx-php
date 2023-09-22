@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyDeleteRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class ApiKeyDeleteTest extends TestCase
@@ -23,7 +24,7 @@ class ApiKeyDeleteTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['555', 'accessKey'],
+            [ValueHelper::SUB_UID, 'accessKey'],
         ];
     }
 
