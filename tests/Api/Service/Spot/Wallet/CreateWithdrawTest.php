@@ -24,7 +24,7 @@ class CreateWithdrawTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['address', ValueHelper::CURRENCY, '100'],
+            ['address', ValueHelper::CURRENCY, ValueHelper::AMOUNT],
         ];
     }
 

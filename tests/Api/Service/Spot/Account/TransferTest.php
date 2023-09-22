@@ -33,7 +33,7 @@ class TransferTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', 'from', '112', '222', 'to', '223', ValueHelper::CURRENCY, '100'],
+            ['111', 'from', '112', '222', 'to', '223', ValueHelper::CURRENCY, ValueHelper::AMOUNT],
         ];
     }
 

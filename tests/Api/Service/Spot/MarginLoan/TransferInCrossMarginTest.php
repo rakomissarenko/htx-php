@@ -24,7 +24,7 @@ class TransferInCrossMarginTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            [ValueHelper::CURRENCY, '100'],
+            [ValueHelper::CURRENCY, ValueHelper::AMOUNT],
         ];
     }
 

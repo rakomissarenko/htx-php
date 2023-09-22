@@ -25,7 +25,7 @@ class TransferFuturesTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            [ValueHelper::CURRENCY, '100', EnumHelper::TRANSFER_FUTURES_TYPE_FUTURES_TO_PRO],
+            [ValueHelper::CURRENCY, ValueHelper::AMOUNT, EnumHelper::TRANSFER_FUTURES_TYPE_FUTURES_TO_PRO],
         ];
     }
 

@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\RepayOrderCrossRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class RepayOrderCrossTest extends TestCase
@@ -23,7 +24,7 @@ class RepayOrderCrossTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', '100'],
+            ['111', ValueHelper::AMOUNT],
         ];
     }
 

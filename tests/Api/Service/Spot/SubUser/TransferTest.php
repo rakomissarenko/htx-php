@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
+use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\TransferRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
@@ -25,7 +26,7 @@ class TransferTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['555', ValueHelper::CURRENCY, '100', EnumHelper::TRANSFER_TYPE_MASTER_TRANSFER_IN, 'clientOrder'],
+            ['555', ValueHelper::CURRENCY, ValueHelper::AMOUNT, EnumHelper::TRANSFER_TYPE_MASTER_TRANSFER_IN, 'clientOrder'],
         ];
     }
 
