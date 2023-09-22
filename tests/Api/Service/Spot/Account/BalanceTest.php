@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Account;
 
 use Feralonso\Htx\Api\Request\Spot\Account\BalanceRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class BalanceTest extends TestCase
@@ -23,7 +24,7 @@ class BalanceTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['12345'],
+            [ValueHelper::ACCOUNT_ID],
         ];
     }
 
