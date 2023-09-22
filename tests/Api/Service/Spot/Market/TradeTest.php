@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 
 use Feralonso\Htx\Api\Request\Spot\Market\TradeRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class TradeTest extends TestCase
@@ -23,7 +24,7 @@ class TradeTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['symbol'],
+            [ValueHelper::SYMBOL],
         ];
     }
 

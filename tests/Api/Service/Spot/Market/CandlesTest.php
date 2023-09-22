@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Market\CandlesRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class CandlesTest extends TestCase
@@ -24,7 +25,7 @@ class CandlesTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['symbol', EnumHelper::PERIOD_1MIN],
+            [ValueHelper::SYMBOL, EnumHelper::PERIOD_1MIN],
         ];
     }
 

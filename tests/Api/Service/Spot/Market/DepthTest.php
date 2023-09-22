@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 
 use Feralonso\Htx\Api\Request\Spot\Market\DepthRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class DepthTest extends TestCase
@@ -23,7 +24,7 @@ class DepthTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['symbol'],
+            [ValueHelper::SYMBOL],
         ];
     }
 

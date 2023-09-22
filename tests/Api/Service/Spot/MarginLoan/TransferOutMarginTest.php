@@ -24,7 +24,7 @@ class TransferOutMarginTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['symbol', ValueHelper::CURRENCY, '100'],
+            [ValueHelper::SYMBOL, ValueHelper::CURRENCY, '100'],
         ];
     }
 

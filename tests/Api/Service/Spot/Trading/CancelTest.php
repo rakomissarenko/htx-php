@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class CancelTest extends TestCase
@@ -23,7 +24,7 @@ class CancelTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['orderId', 'symbol'],
+            ['orderId', ValueHelper::SYMBOL],
         ];
     }
 

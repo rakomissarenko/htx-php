@@ -6,6 +6,7 @@ use Feralonso\Htx\Api\Data\OrderData;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Trading\CreateRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class CreateTest extends TestCase
@@ -25,7 +26,7 @@ class CreateTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', 'symbol', EnumHelper::ORDER_TYPE_BUY_LIMIT, 'clientOrderId'],
+            ['111', ValueHelper::SYMBOL, EnumHelper::ORDER_TYPE_BUY_LIMIT, 'clientOrderId'],
         ];
     }
 

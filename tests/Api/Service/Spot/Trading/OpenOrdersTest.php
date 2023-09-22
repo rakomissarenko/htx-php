@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Trading\OpenOrdersRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
 
 class OpenOrdersTest extends TestCase
@@ -24,7 +25,7 @@ class OpenOrdersTest extends TestCase
     public function validateProvider(): array
     {
         return [
-            ['111', 'symbol', EnumHelper::ORDER_SIDE_BUY],
+            ['111', ValueHelper::SYMBOL, EnumHelper::ORDER_SIDE_BUY],
         ];
     }
 
