@@ -20,6 +20,23 @@ use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferInMarginRequest;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferOutCrossMarginRequest;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferOutMarginRequest;
 use Feralonso\Htx\Api\Response\Response;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\BalanceCrossResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\BalanceResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\LimitResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\LoanInfoCrossResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\LoanInfoResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\OrdersCrossResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\OrdersResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\RepayInfoResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\RepayOrderCrossResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\RepayOrderResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\RepayResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\SearchOrdersCrossResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\SearchOrdersResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\TransferInCrossMarginResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\TransferInMarginResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\TransferOutCrossMarginResponse;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\TransferOutMarginResponse;
 use Feralonso\Htx\Api\Service\AbstractApi;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -28,136 +45,136 @@ class MarginLoanApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function balance(BalanceRequest $request): Response
+    public function balance(BalanceRequest $request): BalanceResponse
     {
-        return new Response($this->send($request));
+        return new BalanceResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function balanceCross(BalanceCrossRequest $request): Response
+    public function balanceCross(BalanceCrossRequest $request): BalanceCrossResponse
     {
-        return new Response($this->send($request));
+        return new BalanceCrossResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function limit(LimitRequest $request): Response
+    public function limit(LimitRequest $request): LimitResponse
     {
-        return new Response($this->send($request));
+        return new LimitResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function loanInfo(LoanInfoRequest $request): Response
+    public function loanInfo(LoanInfoRequest $request): LoanInfoResponse
     {
-        return new Response($this->send($request));
+        return new LoanInfoResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function loanInfoCross(LoanInfoCrossRequest $request): Response
+    public function loanInfoCross(LoanInfoCrossRequest $request): LoanInfoCrossResponse
     {
-        return new Response($this->send($request));
+        return new LoanInfoCrossResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function orders(OrdersRequest $request): Response
+    public function orders(OrdersRequest $request): OrdersResponse
     {
-        return new Response($this->send($request));
+        return new OrdersResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function ordersCross(OrdersCrossRequest $request): Response
+    public function ordersCross(OrdersCrossRequest $request): OrdersCrossResponse
     {
-        return new Response($this->send($request));
+        return new OrdersCrossResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function repay(RepayRequest $request): Response
+    public function repay(RepayRequest $request): RepayResponse
     {
-        return new Response($this->send($request));
+        return new RepayResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function repayInfo(RepayInfoRequest $request): Response
+    public function repayInfo(RepayInfoRequest $request): RepayInfoResponse
     {
-        return new Response($this->send($request));
+        return new RepayInfoResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function repayOrder(RepayOrderRequest $request): Response
+    public function repayOrder(RepayOrderRequest $request): RepayOrderResponse
     {
-        return new Response($this->send($request));
+        return new RepayOrderResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function repayOrderCross(RepayOrderCrossRequest $request): Response
+    public function repayOrderCross(RepayOrderCrossRequest $request): RepayOrderCrossResponse
     {
-        return new Response($this->send($request));
+        return new RepayOrderCrossResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function searchOrders(SearchOrdersRequest $request): Response
+    public function searchOrders(SearchOrdersRequest $request): SearchOrdersResponse
     {
-        return new Response($this->send($request));
+        return new SearchOrdersResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function searchOrdersCross(SearchOrdersCrossRequest $request): Response
+    public function searchOrdersCross(SearchOrdersCrossRequest $request): SearchOrdersCrossResponse
     {
-        return new Response($this->send($request));
+        return new SearchOrdersCrossResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function transferInCrossMargin(TransferInCrossMarginRequest $request): Response
+    public function transferInCrossMargin(TransferInCrossMarginRequest $request): TransferInCrossMarginResponse
     {
-        return new Response($this->send($request));
+        return new TransferInCrossMarginResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function transferInMargin(TransferInMarginRequest $request): Response
+    public function transferInMargin(TransferInMarginRequest $request): TransferInMarginResponse
     {
-        return new Response($this->send($request));
+        return new TransferInMarginResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function transferOutCrossMargin(TransferOutCrossMarginRequest $request): Response
+    public function transferOutCrossMargin(TransferOutCrossMarginRequest $request): TransferOutCrossMarginResponse
     {
-        return new Response($this->send($request));
+        return new TransferOutCrossMarginResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function transferOutMargin(TransferOutMarginRequest $request): Response
+    public function transferOutMargin(TransferOutMarginRequest $request): TransferOutMarginResponse
     {
-        return new Response($this->send($request));
+        return new TransferOutMarginResponse($this->send($request));
     }
 }
