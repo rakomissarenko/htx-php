@@ -3,7 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 
 use Feralonso\Htx\Api\Request\Spot\Wallet\AddressDepositRequest;
-use Feralonso\Htx\Api\Response\Response;
+use Feralonso\Htx\Api\Response\Spot\Wallet\AddressDepositResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\FileHelper;
 use Feralonso\Tests\Helper\ValueHelper;
@@ -59,8 +59,8 @@ class AddressDepositTest extends TestCase
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): Response
+    private function getResponse(string $response): AddressDepositResponse
     {
-        return new Response($response);
+        return new AddressDepositResponse($response);
     }
 }

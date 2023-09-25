@@ -3,7 +3,6 @@
 namespace Feralonso\Htx\Api\Response\Spot\Wallet;
 
 use Feralonso\Htx\Api\Data\AddressData;
-use Feralonso\Htx\Api\Data\TickerData;
 use Feralonso\Htx\Api\Helper\FormatHelper;
 use Feralonso\Htx\Api\Response\AbstractResponse;
 
@@ -23,11 +22,14 @@ class AddressDepositResponse extends AbstractResponse
         $data = FormatHelper::getArrayValueInArray($responseArray, self::FIELD_DATA);
         foreach ($data as $addressData) {
             if (is_array($addressData)) {
-                $this->addresses[] = TickerData::initByArray($addressData);
+                $this->addresses[] = AddressData::initByArray($addressData);
             }
         }
     }
 
+    /**
+     * @return AddressData[]
+     */
     public function getAddresses(): array
     {
         return $this->addresses;
