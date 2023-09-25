@@ -9,7 +9,6 @@ use Feralonso\Htx\Api\Request\Spot\Wallet\CreateWithdrawRequest;
 use Feralonso\Htx\Api\Request\Spot\Wallet\InfoWithdrawRequest;
 use Feralonso\Htx\Api\Request\Spot\Wallet\QuotaWithdrawRequest;
 use Feralonso\Htx\Api\Request\Spot\Wallet\SearchRequest;
-use Feralonso\Htx\Api\Response\Response;
 use Feralonso\Htx\Api\Response\Spot\Wallet\AddressDepositResponse;
 use Feralonso\Htx\Api\Response\Spot\Wallet\AddressWithdrawResponse;
 use Feralonso\Htx\Api\Response\Spot\Wallet\CancelWithdrawResponse;

@@ -9,7 +9,6 @@ use Feralonso\Htx\Api\Request\Spot\Market\TickerRequest;
 use Feralonso\Htx\Api\Request\Spot\Market\TickersRequest;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeHistoryRequest;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeRequest;
-use Feralonso\Htx\Api\Response\Response;
 use Feralonso\Htx\Api\Response\Spot\Market\CandlesResponse;
 use Feralonso\Htx\Api\Response\Spot\Market\DepthResponse;
 use Feralonso\Htx\Api\Response\Spot\Market\DetailResponse;
