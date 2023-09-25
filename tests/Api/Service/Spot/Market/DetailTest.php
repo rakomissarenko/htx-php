@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Market;
 
 use Feralonso\Htx\Api\Request\Spot\Market\DetailRequest;
+use Feralonso\Htx\Api\Response\Spot\Market\DetailResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class DetailTest extends TestCase
     private function getRequest(string $symbol): DetailRequest
     {
         return new DetailRequest($symbol);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): DetailResponse
+    {
+        return new DetailResponse($response);
     }
 }

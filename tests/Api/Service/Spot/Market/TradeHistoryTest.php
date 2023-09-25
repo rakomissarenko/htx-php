@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Market;
 
 use Feralonso\Htx\Api\Request\Spot\Market\TradeHistoryRequest;
+use Feralonso\Htx\Api\Response\Spot\Market\TradeHistoryResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class TradeHistoryTest extends TestCase
     private function getRequest(string $symbol): TradeHistoryRequest
     {
         return new TradeHistoryRequest($symbol);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): TradeHistoryResponse
+    {
+        return new TradeHistoryResponse($response);
     }
 }
