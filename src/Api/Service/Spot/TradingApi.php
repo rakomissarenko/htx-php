@@ -18,6 +18,21 @@ use Feralonso\Htx\Api\Request\Spot\Trading\OrderClientRequest;
 use Feralonso\Htx\Api\Request\Spot\Trading\OrderRequest;
 use Feralonso\Htx\Api\Request\Spot\Trading\OrdersRequest;
 use Feralonso\Htx\Api\Response\Response;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelAllAfterResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelBatchOpenOrdersResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelBatchResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelClientResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\CreateBatchResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\CreateResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\FeeResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\HistoryResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\MatchResultsOrderResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\MatchResultsResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\OpenOrdersResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\OrderClientResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\OrderResponse;
+use Feralonso\Htx\Api\Response\Spot\Trading\OrdersResponse;
 use Feralonso\Htx\Api\Service\AbstractApi;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -26,120 +41,120 @@ class TradingApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function cancel(CancelRequest $request): Response
+    public function cancel(CancelRequest $request): CancelResponse
     {
-        return new Response($this->send($request));
+        return new CancelResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function cancelAllAfter(CancelAllAfterRequest $request): Response
+    public function cancelAllAfter(CancelAllAfterRequest $request): CancelAllAfterResponse
     {
-        return new Response($this->send($request));
+        return new CancelAllAfterResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function cancelBatch(CancelBatchRequest $request): Response
+    public function cancelBatch(CancelBatchRequest $request): CancelBatchResponse
     {
-        return new Response($this->send($request));
+        return new CancelBatchResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function cancelBatchOpenOrders(CancelBatchOpenOrdersRequest $request): Response
+    public function cancelBatchOpenOrders(CancelBatchOpenOrdersRequest $request): CancelBatchOpenOrdersResponse
     {
-        return new Response($this->send($request));
+        return new CancelBatchOpenOrdersResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function cancelClient(CancelClientRequest $request): Response
+    public function cancelClient(CancelClientRequest $request): CancelClientResponse
     {
-        return new Response($this->send($request));
+        return new CancelClientResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function create(CreateRequest $request): Response
+    public function create(CreateRequest $request): CreateResponse
     {
-        return new Response($this->send($request));
+        return new CreateResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function createBatch(CreateBatchRequest $request): Response
+    public function createBatch(CreateBatchRequest $request): CreateBatchResponse
     {
-        return new Response($this->send($request));
+        return new CreateBatchResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function fee(FeeRequest $request): Response
+    public function fee(FeeRequest $request): FeeResponse
     {
-        return new Response($this->send($request));
+        return new FeeResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function history(HistoryRequest $request): Response
+    public function history(HistoryRequest $request): HistoryResponse
     {
-        return new Response($this->send($request));
+        return new HistoryResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function matchResults(MatchResultsRequest $request): Response
+    public function matchResults(MatchResultsRequest $request): MatchResultsResponse
     {
-        return new Response($this->send($request));
+        return new MatchResultsResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function matchResultsOrder(MatchResultsOrderRequest $request): Response
+    public function matchResultsOrder(MatchResultsOrderRequest $request): MatchResultsOrderResponse
     {
-        return new Response($this->send($request));
+        return new MatchResultsOrderResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function openOrders(OpenOrdersRequest $request): Response
+    public function openOrders(OpenOrdersRequest $request): OpenOrdersResponse
     {
-        return new Response($this->send($request));
+        return new OpenOrdersResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function order(OrderRequest $request): Response
+    public function order(OrderRequest $request): OrderResponse
     {
-        return new Response($this->send($request));
+        return new OrderResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function orderClient(OrderClientRequest $request): Response
+    public function orderClient(OrderClientRequest $request): OrderClientResponse
     {
-        return new Response($this->send($request));
+        return new OrderClientResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function orders(OrdersRequest $request): Response
+    public function orders(OrdersRequest $request): OrdersResponse
     {
-        return new Response($this->send($request));
+        return new OrdersResponse($this->send($request));
     }
 }
