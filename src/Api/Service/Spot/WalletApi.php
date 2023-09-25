@@ -11,7 +11,11 @@ use Feralonso\Htx\Api\Request\Spot\Wallet\QuotaWithdrawRequest;
 use Feralonso\Htx\Api\Request\Spot\Wallet\SearchRequest;
 use Feralonso\Htx\Api\Response\Response;
 use Feralonso\Htx\Api\Response\Spot\Wallet\AddressDepositResponse;
+use Feralonso\Htx\Api\Response\Spot\Wallet\AddressWithdrawResponse;
+use Feralonso\Htx\Api\Response\Spot\Wallet\CancelWithdrawResponse;
 use Feralonso\Htx\Api\Response\Spot\Wallet\CreateWithdrawResponse;
+use Feralonso\Htx\Api\Response\Spot\Wallet\InfoWithdrawResponse;
+use Feralonso\Htx\Api\Response\Spot\Wallet\QuotaWithdrawResponse;
 use Feralonso\Htx\Api\Response\Spot\Wallet\SearchResponse;
 use Feralonso\Htx\Api\Service\AbstractApi;
 use Feralonso\Htx\Exceptions\HtxValidateException;
@@ -29,17 +33,17 @@ class WalletApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function addressWithdraw(AddressWithdrawRequest $request): Response
+    public function addressWithdraw(AddressWithdrawRequest $request): AddressWithdrawResponse
     {
-        return new Response($this->send($request));
+        return new AddressWithdrawResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function cancelWithdraw(CancelWithdrawRequest $request): Response
+    public function cancelWithdraw(CancelWithdrawRequest $request): CancelWithdrawResponse
     {
-        return new Response($this->send($request));
+        return new CancelWithdrawResponse($this->send($request));
     }
 
     /**
@@ -53,17 +57,17 @@ class WalletApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function infoWithdraw(InfoWithdrawRequest $request): Response
+    public function infoWithdraw(InfoWithdrawRequest $request): InfoWithdrawResponse
     {
-        return new Response($this->send($request));
+        return new InfoWithdrawResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function quotaWithdraw(QuotaWithdrawRequest $request): Response
+    public function quotaWithdraw(QuotaWithdrawRequest $request): QuotaWithdrawResponse
     {
-        return new Response($this->send($request));
+        return new QuotaWithdrawResponse($this->send($request));
     }
 
     /**
