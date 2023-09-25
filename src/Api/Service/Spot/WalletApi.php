@@ -11,6 +11,7 @@ use Feralonso\Htx\Api\Request\Spot\Wallet\QuotaWithdrawRequest;
 use Feralonso\Htx\Api\Request\Spot\Wallet\SearchRequest;
 use Feralonso\Htx\Api\Response\Response;
 use Feralonso\Htx\Api\Response\Spot\Wallet\AddressDepositResponse;
+use Feralonso\Htx\Api\Response\Spot\Wallet\CreateWithdrawResponse;
 use Feralonso\Htx\Api\Response\Spot\Wallet\SearchResponse;
 use Feralonso\Htx\Api\Service\AbstractApi;
 use Feralonso\Htx\Exceptions\HtxValidateException;
@@ -44,9 +45,9 @@ class WalletApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function createWithdraw(CreateWithdrawRequest $request): Response
+    public function createWithdraw(CreateWithdrawRequest $request): CreateWithdrawResponse
     {
-        return new Response($this->send($request));
+        return new CreateWithdrawResponse($this->send($request));
     }
 
     /**
