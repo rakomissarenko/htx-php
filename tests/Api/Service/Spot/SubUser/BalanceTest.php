@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\BalanceRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\BalanceResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class BalanceTest extends TestCase
     private function getRequest(int $subUid): BalanceRequest
     {
         return new BalanceRequest($subUid);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): BalanceResponse
+    {
+        return new BalanceResponse($response);
     }
 }

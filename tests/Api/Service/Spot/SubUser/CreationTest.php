@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Data\UserData;
 use Feralonso\Htx\Api\Request\Spot\SubUser\CreationRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\CreationResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -34,5 +35,13 @@ class CreationTest extends TestCase
         $result->addUserData(new UserData($userName, $note));
 
         return $result;
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CreationResponse
+    {
+        return new CreationResponse($response);
     }
 }

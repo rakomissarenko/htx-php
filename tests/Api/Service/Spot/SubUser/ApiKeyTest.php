@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class ApiKeyTest extends TestCase
     private function getRequest(string $uid): ApiKeyRequest
     {
         return new ApiKeyRequest($uid);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): ApiKeyResponse
+    {
+        return new ApiKeyResponse($response);
     }
 }

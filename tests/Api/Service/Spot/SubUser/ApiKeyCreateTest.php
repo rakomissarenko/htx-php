@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyCreateRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyCreateResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -32,5 +33,13 @@ class ApiKeyCreateTest extends TestCase
     private function getRequest(string $otpToken, string $subUid, string $note, array $permissions): ApiKeyCreateRequest
     {
         return new ApiKeyCreateRequest($otpToken, $subUid, $note, $permissions);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): ApiKeyCreateResponse
+    {
+        return new ApiKeyCreateResponse($response);
     }
 }

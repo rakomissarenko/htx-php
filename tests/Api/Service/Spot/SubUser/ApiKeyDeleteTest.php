@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyDeleteRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyDeleteResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class ApiKeyDeleteTest extends TestCase
     private function getRequest(string $subUid, string $accessKey): ApiKeyDeleteRequest
     {
         return new ApiKeyDeleteRequest($subUid, $accessKey);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): ApiKeyDeleteResponse
+    {
+        return new ApiKeyDeleteResponse($response);
     }
 }

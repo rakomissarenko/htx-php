@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyModifyRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyModifyResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -32,5 +33,13 @@ class ApiKeyModifyTest extends TestCase
     private function getRequest(string $subUid, string $accessKey, string $note, array $permissions): ApiKeyModifyRequest
     {
         return new ApiKeyModifyRequest($subUid, $accessKey, $note, $permissions);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): ApiKeyModifyResponse
+    {
+        return new ApiKeyModifyResponse($response);
     }
 }

@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\TransferRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\TransferResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -33,5 +34,13 @@ class TransferTest extends TestCase
     private function getRequest(string $subUid, string $currency, string $amount, string $type, string $clientOrderId): TransferRequest
     {
         return new TransferRequest($subUid, $currency, $amount, $type, $clientOrderId);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): TransferResponse
+    {
+        return new TransferResponse($response);
     }
 }

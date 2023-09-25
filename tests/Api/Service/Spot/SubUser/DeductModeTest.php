@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\DeductModeRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\DeductModeResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -32,5 +33,13 @@ class DeductModeTest extends TestCase
     private function getRequest(array $subUids, string $deductMode): DeductModeRequest
     {
         return new DeductModeRequest($subUids, $deductMode);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): DeductModeResponse
+    {
+        return new DeductModeResponse($response);
     }
 }

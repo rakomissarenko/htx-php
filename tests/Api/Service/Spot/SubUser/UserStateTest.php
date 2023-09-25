@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\UserStateRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\UserStateResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class UserStateTest extends TestCase
     private function getRequest(string $subUid): UserStateRequest
     {
         return new UserStateRequest($subUid);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): UserStateResponse
+    {
+        return new UserStateResponse($response);
     }
 }

@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\QueryDepositRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\QueryDepositResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class QueryDepositTest extends TestCase
     private function getRequest(string $subUid, string $currency): QueryDepositRequest
     {
         return new QueryDepositRequest($subUid, $currency);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): QueryDepositResponse
+    {
+        return new QueryDepositResponse($response);
     }
 }

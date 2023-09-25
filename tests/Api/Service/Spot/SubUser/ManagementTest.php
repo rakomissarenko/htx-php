@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ManagementRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ManagementResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -32,5 +33,13 @@ class ManagementTest extends TestCase
     private function getRequest(string $subUid, string $action): ManagementRequest
     {
         return new ManagementRequest($subUid, $action);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): ManagementResponse
+    {
+        return new ManagementResponse($response);
     }
 }
