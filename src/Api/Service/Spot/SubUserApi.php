@@ -20,7 +20,24 @@ use Feralonso\Htx\Api\Request\Spot\SubUser\TransferRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\UidRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\UserListRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\UserStateRequest;
-use Feralonso\Htx\Api\Response\Response;
+use Feralonso\Htx\Api\Response\Spot\SubUser\AccountListResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\AggregateBalanceResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyCreateResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyDeleteResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyModifyResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\BalanceResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\CreationResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\DeductModeResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\DepositAddressResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\ManagementResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\QueryDepositResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\TradableMarketResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\TransferabilityResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\TransferResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\UidResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\UserListResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\UserStateResponse;
 use Feralonso\Htx\Api\Service\AbstractApi;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -29,144 +46,144 @@ class SubUserApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function accountList(AccountListRequest $request): Response
+    public function accountList(AccountListRequest $request): AccountListResponse
     {
-        return new Response($this->send($request));
+        return new AccountListResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function aggregateBalance(AggregateBalanceRequest $request): Response
+    public function aggregateBalance(AggregateBalanceRequest $request): AggregateBalanceResponse
     {
-        return new Response($this->send($request));
+        return new AggregateBalanceResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function apiKey(ApiKeyRequest $request): Response
+    public function apiKey(ApiKeyRequest $request): ApiKeyResponse
     {
-        return new Response($this->send($request));
+        return new ApiKeyResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function apiKeyCreate(ApiKeyCreateRequest $request): Response
+    public function apiKeyCreate(ApiKeyCreateRequest $request): ApiKeyCreateResponse
     {
-        return new Response($this->send($request));
+        return new ApiKeyCreateResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function apiKeyDelete(ApiKeyDeleteRequest $request): Response
+    public function apiKeyDelete(ApiKeyDeleteRequest $request): ApiKeyDeleteResponse
     {
-        return new Response($this->send($request));
+        return new ApiKeyDeleteResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function apiKeyModify(ApiKeyModifyRequest $request): Response
+    public function apiKeyModify(ApiKeyModifyRequest $request): ApiKeyModifyResponse
     {
-        return new Response($this->send($request));
+        return new ApiKeyModifyResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function balance(BalanceRequest $request): Response
+    public function balance(BalanceRequest $request): BalanceResponse
     {
-        return new Response($this->send($request));
+        return new BalanceResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function creation(CreationRequest $request): Response
+    public function creation(CreationRequest $request): CreationResponse
     {
-        return new Response($this->send($request));
+        return new CreationResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function deductMode(DeductModeRequest $request): Response
+    public function deductMode(DeductModeRequest $request): DeductModeResponse
     {
-        return new Response($this->send($request));
+        return new DeductModeResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function depositAddress(DepositAddressRequest $request): Response
+    public function depositAddress(DepositAddressRequest $request): DepositAddressResponse
     {
-        return new Response($this->send($request));
+        return new DepositAddressResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function management(ManagementRequest $request): Response
+    public function management(ManagementRequest $request): ManagementResponse
     {
-        return new Response($this->send($request));
+        return new ManagementResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function queryDeposit(QueryDepositRequest $request): Response
+    public function queryDeposit(QueryDepositRequest $request): QueryDepositResponse
     {
-        return new Response($this->send($request));
+        return new QueryDepositResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function tradableMarket(TradableMarketRequest $request): Response
+    public function tradableMarket(TradableMarketRequest $request): TradableMarketResponse
     {
-        return new Response($this->send($request));
+        return new TradableMarketResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function transfer(TransferRequest $request): Response
+    public function transfer(TransferRequest $request): TransferResponse
     {
-        return new Response($this->send($request));
+        return new TransferResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function transferability(TransferabilityRequest $request): Response
+    public function transferability(TransferabilityRequest $request): TransferabilityResponse
     {
-        return new Response($this->send($request));
+        return new TransferabilityResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function uid(UidRequest $request): Response
+    public function uid(UidRequest $request): UidResponse
     {
-        return new Response($this->send($request));
+        return new UidResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function userList(UserListRequest $request): Response
+    public function userList(UserListRequest $request): UserListResponse
     {
-        return new Response($this->send($request));
+        return new UserListResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function userState(UserStateRequest $request): Response
+    public function userState(UserStateRequest $request): UserStateResponse
     {
-        return new Response($this->send($request));
+        return new UserStateResponse($this->send($request));
     }
 }

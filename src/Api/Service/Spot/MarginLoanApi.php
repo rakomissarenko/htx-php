@@ -19,7 +19,6 @@ use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferInCrossMarginRequest;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferInMarginRequest;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferOutCrossMarginRequest;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferOutMarginRequest;
-use Feralonso\Htx\Api\Response\Response;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\BalanceCrossResponse;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\BalanceResponse;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\LimitResponse;
