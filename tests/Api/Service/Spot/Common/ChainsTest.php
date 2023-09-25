@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Common;
 
 use Feralonso\Htx\Api\Request\Spot\Common\ChainsRequest;
+use Feralonso\Htx\Api\Response\Spot\Common\ChainsResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -21,5 +22,13 @@ class ChainsTest extends TestCase
     private function getRequest(): ChainsRequest
     {
         return new ChainsRequest();
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): ChainsResponse
+    {
+        return new ChainsResponse($response);
     }
 }

@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Common;
 
 use Feralonso\Htx\Api\Request\Spot\Common\CurrenciesRequest;
+use Feralonso\Htx\Api\Response\Spot\Common\CurrenciesResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -33,5 +34,13 @@ class CurrenciesTest extends TestCase
     private function getRequest(): CurrenciesRequest
     {
         return new CurrenciesRequest();
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CurrenciesResponse
+    {
+        return new CurrenciesResponse($response);
     }
 }
