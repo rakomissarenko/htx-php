@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelBatchOpenOrdersRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelBatchOpenOrdersResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class CancelBatchOpenOrdersTest extends TestCase
     private function getRequest(string $accountId): CancelBatchOpenOrdersRequest
     {
         return new CancelBatchOpenOrdersRequest($accountId);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CancelBatchOpenOrdersResponse
+    {
+        return new CancelBatchOpenOrdersResponse($response);
     }
 }

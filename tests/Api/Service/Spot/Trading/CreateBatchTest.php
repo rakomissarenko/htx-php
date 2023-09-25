@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Data\OrderData;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Trading\CreateBatchRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\CreateBatchResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -36,5 +37,13 @@ class CreateBatchTest extends TestCase
         $result->addOrder(new OrderData($accountId, $symbol, $type, $clientOrderId));
 
         return $result;
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CreateBatchResponse
+    {
+        return new CreateBatchResponse($response);
     }
 }

@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelAllAfterRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelAllAfterResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class CancelAllAfterTest extends TestCase
     private function getRequest(int $timeout): CancelAllAfterRequest
     {
         return new CancelAllAfterRequest($timeout);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CancelAllAfterResponse
+    {
+        return new CancelAllAfterResponse($response);
     }
 }

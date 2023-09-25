@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Request\Spot\Trading\OrderClientRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\OrderClientResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class OrderClientTest extends TestCase
     private function getRequest(string $clientOrderId): OrderClientRequest
     {
         return new OrderClientRequest($clientOrderId);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): OrderClientResponse
+    {
+        return new OrderClientResponse($response);
     }
 }

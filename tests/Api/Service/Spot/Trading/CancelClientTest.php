@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelClientRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\CancelClientResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class CancelClientTest extends TestCase
     private function getRequest(string $clientOrderId): CancelClientRequest
     {
         return new CancelClientRequest($clientOrderId);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CancelClientResponse
+    {
+        return new CancelClientResponse($response);
     }
 }

@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 
 use Feralonso\Htx\Api\Request\Spot\Wallet\CreateWithdrawRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\OrderClientResponse;
 use Feralonso\Htx\Api\Response\Spot\Wallet\CreateWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\FileHelper;
@@ -60,8 +61,8 @@ class CreateWithdrawTest extends TestCase
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): CreateWithdrawResponse
+    private function getResponse(string $response): OrderClientResponse
     {
-        return new CreateWithdrawResponse($response);
+        return new OrderClientResponse($response);
     }
 }

@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Trading\OpenOrdersRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\OpenOrdersResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -32,5 +33,13 @@ class OpenOrdersTest extends TestCase
     private function getRequest(string $accountId, string $symbol, string $side): OpenOrdersRequest
     {
         return new OpenOrdersRequest($accountId, $symbol, $side);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): OpenOrdersResponse
+    {
+        return new OpenOrdersResponse($response);
     }
 }

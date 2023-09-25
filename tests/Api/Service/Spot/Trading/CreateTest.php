@@ -5,6 +5,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Data\OrderData;
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Trading\CreateRequest;
+use Feralonso\Htx\Api\Response\Spot\Trading\CreateResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -33,5 +34,13 @@ class CreateTest extends TestCase
     private function getRequest(string $accountId, string $symbol, string $type, string $clientOrderId): CreateRequest
     {
         return new CreateRequest(new OrderData($accountId, $symbol, $type, $clientOrderId));
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CreateResponse
+    {
+        return new CreateResponse($response);
     }
 }
