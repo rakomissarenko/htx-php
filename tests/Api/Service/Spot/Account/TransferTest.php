@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Account;
 
 use Feralonso\Htx\Api\Request\Spot\Account\TransferRequest;
+use Feralonso\Htx\Api\Response\Spot\Account\TransferResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -49,5 +50,13 @@ class TransferTest extends TestCase
     ): TransferRequest
     {
         return new TransferRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): TransferResponse
+    {
+        return new TransferResponse($response);
     }
 }

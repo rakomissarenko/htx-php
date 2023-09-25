@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\Account;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Account\TransferFuturesRequest;
+use Feralonso\Htx\Api\Response\Spot\Account\TransferFuturesResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -32,5 +33,13 @@ class TransferFuturesTest extends TestCase
     private function getRequest(string $currency, string $amount, string $type): TransferFuturesRequest
     {
         return new TransferFuturesRequest($currency, $amount, $type);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): TransferFuturesResponse
+    {
+        return new TransferFuturesResponse($response);
     }
 }
