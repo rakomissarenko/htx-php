@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\RepayRequest;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\RepayResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class RepayTest extends TestCase
     private function getRequest(string $accountId, string $currency, string $amount, string $transactId): RepayRequest
     {
         return new RepayRequest($accountId, $currency, $amount, $transactId);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): RepayResponse
+    {
+        return new RepayResponse($response);
     }
 }

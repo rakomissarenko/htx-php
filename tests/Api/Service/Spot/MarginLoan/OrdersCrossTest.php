@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\OrdersCrossRequest;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\OrdersCrossResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class OrdersCrossTest extends TestCase
     private function getRequest(string $currency, string $amount): OrdersCrossRequest
     {
         return new OrdersCrossRequest($currency, $amount);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): OrdersCrossResponse
+    {
+        return new OrdersCrossResponse($response);
     }
 }

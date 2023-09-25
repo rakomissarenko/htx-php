@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\LoanInfoRequest;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\LoanInfoResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class LoanInfoTest extends TestCase
     private function getRequest(array $symbols): LoanInfoRequest
     {
         return new LoanInfoRequest($symbols);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): LoanInfoResponse
+    {
+        return new LoanInfoResponse($response);
     }
 }

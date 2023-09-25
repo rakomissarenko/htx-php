@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferOutMarginRequest;
+use Feralonso\Htx\Api\Response\Spot\MarginLoan\TransferOutMarginResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class TransferOutMarginTest extends TestCase
     private function getRequest(string $symbol, string $currency, string $amount): TransferOutMarginRequest
     {
         return new TransferOutMarginRequest($symbol, $currency, $amount);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): TransferOutMarginResponse
+    {
+        return new TransferOutMarginResponse($response);
     }
 }
