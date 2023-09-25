@@ -17,7 +17,6 @@ use Feralonso\Htx\Api\Request\Spot\Trading\OpenOrdersRequest;
 use Feralonso\Htx\Api\Request\Spot\Trading\OrderClientRequest;
 use Feralonso\Htx\Api\Request\Spot\Trading\OrderRequest;
 use Feralonso\Htx\Api\Request\Spot\Trading\OrdersRequest;
-use Feralonso\Htx\Api\Response\Response;
 use Feralonso\Htx\Api\Response\Spot\Trading\CancelAllAfterResponse;
 use Feralonso\Htx\Api\Response\Spot\Trading\CancelBatchOpenOrdersResponse;
 use Feralonso\Htx\Api\Response\Spot\Trading\CancelBatchResponse;

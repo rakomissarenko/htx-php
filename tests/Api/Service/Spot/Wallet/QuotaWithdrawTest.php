@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 
 use Feralonso\Htx\Api\Request\Spot\Wallet\QuotaWithdrawRequest;
+use Feralonso\Htx\Api\Response\Spot\Wallet\QuotaWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class QuotaWithdrawTest extends TestCase
     private function getRequest(string $currency): QuotaWithdrawRequest
     {
         return new QuotaWithdrawRequest($currency);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): QuotaWithdrawResponse
+    {
+        return new QuotaWithdrawResponse($response);
     }
 }

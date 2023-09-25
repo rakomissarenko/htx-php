@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 
 use Feralonso\Htx\Api\Request\Spot\Wallet\InfoWithdrawRequest;
+use Feralonso\Htx\Api\Response\Spot\Wallet\InfoWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class InfoWithdrawTest extends TestCase
     private function getRequest(string $clientOrderId): InfoWithdrawRequest
     {
         return new InfoWithdrawRequest($clientOrderId);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): InfoWithdrawResponse
+    {
+        return new InfoWithdrawResponse($response);
     }
 }

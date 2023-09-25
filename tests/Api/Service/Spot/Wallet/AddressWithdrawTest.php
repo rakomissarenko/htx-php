@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 
 use Feralonso\Htx\Api\Request\Spot\Wallet\AddressWithdrawRequest;
+use Feralonso\Htx\Api\Response\Spot\Wallet\AddressWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -50,5 +51,13 @@ class AddressWithdrawTest extends TestCase
     private function getRequest(string $currency): AddressWithdrawRequest
     {
         return new AddressWithdrawRequest($currency);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): AddressWithdrawResponse
+    {
+        return new AddressWithdrawResponse($response);
     }
 }
