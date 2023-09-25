@@ -33,7 +33,6 @@ class TickersTest extends TestCase
     {
         $response = $this->getResponse($content);
 
-        var_dump($response);
         $this->assertArrayHasKey('data', $response->toArray());
     }
 

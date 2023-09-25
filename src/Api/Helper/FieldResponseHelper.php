@@ -4,6 +4,7 @@ namespace Feralonso\Htx\Api\Helper;
 
 class FieldResponseHelper
 {
+    public const FIELD_ADDRESS_TAG = 'addressTag';
     public const FIELD_ASK = 'ask';
     public const FIELD_ASK_SIZE = 'askSize';
     public const FIELD_BID = 'bid';
@@ -14,4 +15,5 @@ class FieldResponseHelper
     public const FIELD_LOW = 'low';
     public const FIELD_OPEN = 'open';
     public const FIELD_VOL = 'vol';
+    public const FIELD_USER_ID = 'userId';
 }
