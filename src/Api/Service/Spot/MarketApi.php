@@ -10,7 +10,13 @@ use Feralonso\Htx\Api\Request\Spot\Market\TickersRequest;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeHistoryRequest;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeRequest;
 use Feralonso\Htx\Api\Response\Response;
+use Feralonso\Htx\Api\Response\Spot\Market\CandlesResponse;
+use Feralonso\Htx\Api\Response\Spot\Market\DepthResponse;
+use Feralonso\Htx\Api\Response\Spot\Market\DetailResponse;
+use Feralonso\Htx\Api\Response\Spot\Market\TickerResponse;
 use Feralonso\Htx\Api\Response\Spot\Market\TickersResponse;
+use Feralonso\Htx\Api\Response\Spot\Market\TradeHistoryResponse;
+use Feralonso\Htx\Api\Response\Spot\Market\TradeResponse;
 use Feralonso\Htx\Api\Service\AbstractApi;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
@@ -19,33 +25,33 @@ class MarketApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function candles(CandlesRequest $request): Response
+    public function candles(CandlesRequest $request): CandlesResponse
     {
-        return new Response($this->send($request));
+        return new CandlesResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function depth(DepthRequest $request): Response
+    public function depth(DepthRequest $request): DepthResponse
     {
-        return new Response($this->send($request));
+        return new DepthResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function detail(DetailRequest $request): Response
+    public function detail(DetailRequest $request): DetailResponse
     {
-        return new Response($this->send($request));
+        return new DetailResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function ticker(TickerRequest $request): Response
+    public function ticker(TickerRequest $request): TickerResponse
     {
-        return new Response($this->send($request));
+        return new TickerResponse($this->send($request));
     }
 
     /**
@@ -59,16 +65,16 @@ class MarketApi extends AbstractApi
     /**
      * @throws HtxValidateException
      */
-    public function trade(TradeRequest $request): Response
+    public function trade(TradeRequest $request): TradeResponse
     {
-        return new Response($this->send($request));
+        return new TradeResponse($this->send($request));
     }
 
     /**
      * @throws HtxValidateException
      */
-    public function tradeHistory(TradeHistoryRequest $request): Response
+    public function tradeHistory(TradeHistoryRequest $request): TradeHistoryResponse
     {
-        return new Response($this->send($request));
+        return new TradeHistoryResponse($this->send($request));
     }
 }
