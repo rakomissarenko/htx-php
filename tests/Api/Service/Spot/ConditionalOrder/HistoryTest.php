@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Request\Spot\ConditionalOrder\HistoryRequest;
+use Feralonso\Htx\Api\Response\Spot\ConditionalOrder\HistoryResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -31,5 +32,13 @@ class HistoryTest extends TestCase
     private function getRequest(int $accountId, string $symbol): HistoryRequest
     {
         return new HistoryRequest($accountId, $symbol);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): HistoryResponse
+    {
+        return new HistoryResponse($response);
     }
 }

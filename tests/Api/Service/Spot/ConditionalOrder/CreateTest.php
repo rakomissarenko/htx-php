@@ -4,6 +4,7 @@ namespace Feralonso\Tests\Api\Service\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\ConditionalOrder\CreateRequest;
+use Feralonso\Htx\Api\Response\Spot\ConditionalOrder\CreateResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\ValueHelper;
 use PHPUnit\Framework\TestCase;
@@ -32,5 +33,13 @@ class CreateTest extends TestCase
     private function getRequest(int $accountId, string $symbol, string $orderSide, string $orderType, string $clientOrderId): CreateRequest
     {
         return new CreateRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CreateResponse
+    {
+        return new CreateResponse($response);
     }
 }

@@ -3,6 +3,7 @@
 namespace Feralonso\Tests\Api\Service\Spot\ConditionalOrder;
 
 use Feralonso\Htx\Api\Request\Spot\ConditionalOrder\CancelRequest;
+use Feralonso\Htx\Api\Response\Spot\ConditionalOrder\CancelResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,13 @@ class CancelTest extends TestCase
     private function getRequest(array $clientOrderIds): CancelRequest
     {
         return new CancelRequest($clientOrderIds);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    private function getResponse(string $response): CancelResponse
+    {
+        return new CancelResponse($response);
     }
 }
