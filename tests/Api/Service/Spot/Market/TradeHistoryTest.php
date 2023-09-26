@@ -17,7 +17,7 @@ class TradeHistoryTest extends AbstractTest
      */
     public function testValidate(string $symbol): void
     {
-        $this->validateRequest($this->getRequest($symbol));
+        $this->validateRequest(self::getRequest($symbol));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class TradeHistoryTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $symbol): TradeHistoryRequest
+    private static function getRequest(string $symbol): TradeHistoryRequest
     {
         return new TradeHistoryRequest($symbol);
     }

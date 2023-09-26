@@ -18,7 +18,7 @@ class CancelWithdrawTest extends AbstractTest
     {
         $this->expectNotToPerformAssertions();
 
-        $this->validateRequest($this->getRequest($withdrawId));
+        $this->validateRequest(self::getRequest($withdrawId));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class CancelWithdrawTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $withdrawId): CancelWithdrawRequest
+    private static function getRequest(string $withdrawId): CancelWithdrawRequest
     {
         return new CancelWithdrawRequest($withdrawId);
     }

@@ -16,7 +16,7 @@ class CancelAllAfterTest extends AbstractTest
      */
     public function testValidate(int $timeout): void
     {
-        $this->validateRequest($this->getRequest($timeout));
+        $this->validateRequest(self::getRequest($timeout));
     }
 
     public function validateProvider(): array
@@ -26,7 +26,7 @@ class CancelAllAfterTest extends AbstractTest
         ];
     }
 
-    private function getRequest(int $timeout): CancelAllAfterRequest
+    private static function getRequest(int $timeout): CancelAllAfterRequest
     {
         return new CancelAllAfterRequest($timeout);
     }

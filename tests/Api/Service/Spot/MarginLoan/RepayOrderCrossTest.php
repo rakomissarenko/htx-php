@@ -17,7 +17,7 @@ class RepayOrderCrossTest extends AbstractTest
      */
     public function testValidate(string $orderId, string $amount): void
     {
-        $this->validateRequest($this->getRequest($orderId, $amount));
+        $this->validateRequest(self::getRequest($orderId, $amount));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class RepayOrderCrossTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $orderId, string $amount): RepayOrderCrossRequest
+    private static function getRequest(string $orderId, string $amount): RepayOrderCrossRequest
     {
         return new RepayOrderCrossRequest($orderId, $amount);
     }

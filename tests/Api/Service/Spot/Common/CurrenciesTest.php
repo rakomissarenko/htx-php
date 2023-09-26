@@ -14,7 +14,7 @@ class CurrenciesTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
     /**
@@ -24,12 +24,12 @@ class CurrenciesTest extends AbstractTest
     {
         $this->expectException(HtxValidateException::class);
 
-        $request = $this->getRequest();
+        $request = self::getRequest();
         $request->setTs('word');
         $request->validate();
     }
 
-    private function getRequest(): CurrenciesRequest
+    private static function getRequest(): CurrenciesRequest
     {
         return new CurrenciesRequest();
     }

@@ -16,7 +16,7 @@ class OrderClientTest extends AbstractTest
      */
     public function testValidate(string $clientOrderId): void
     {
-        $this->validateRequest($this->getRequest($clientOrderId));
+        $this->validateRequest(self::getRequest($clientOrderId));
     }
 
     public function validateProvider(): array
@@ -26,7 +26,7 @@ class OrderClientTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $clientOrderId): OrderClientRequest
+    private static function getRequest(string $clientOrderId): OrderClientRequest
     {
         return new OrderClientRequest($clientOrderId);
     }

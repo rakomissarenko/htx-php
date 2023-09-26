@@ -16,7 +16,7 @@ class ApiKeyTest extends AbstractTest
      */
     public function testValidate(string $uid): void
     {
-        $this->validateRequest($this->getRequest($uid));
+        $this->validateRequest(self::getRequest($uid));
     }
 
     public function validateProvider(): array
@@ -26,7 +26,7 @@ class ApiKeyTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $uid): ApiKeyRequest
+    private static function getRequest(string $uid): ApiKeyRequest
     {
         return new ApiKeyRequest($uid);
     }

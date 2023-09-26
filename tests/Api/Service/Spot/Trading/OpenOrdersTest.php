@@ -18,7 +18,7 @@ class OpenOrdersTest extends AbstractTest
      */
     public function testValidate(string $accountId, string $symbol, string $side): void
     {
-        $this->validateRequest($this->getRequest($accountId, $symbol, $side));
+        $this->validateRequest(self::getRequest($accountId, $symbol, $side));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class OpenOrdersTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $accountId, string $symbol, string $side): OpenOrdersRequest
+    private static function getRequest(string $accountId, string $symbol, string $side): OpenOrdersRequest
     {
         return new OpenOrdersRequest($accountId, $symbol, $side);
     }

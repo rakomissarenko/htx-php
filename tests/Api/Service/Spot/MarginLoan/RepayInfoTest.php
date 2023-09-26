@@ -14,10 +14,10 @@ class RepayInfoTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): RepayInfoRequest
+    private static function getRequest(): RepayInfoRequest
     {
         return new RepayInfoRequest();
     }

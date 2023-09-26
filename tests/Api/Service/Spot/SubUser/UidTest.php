@@ -14,10 +14,10 @@ class UidTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): UidRequest
+    private static function getRequest(): UidRequest
     {
         return new UidRequest();
     }

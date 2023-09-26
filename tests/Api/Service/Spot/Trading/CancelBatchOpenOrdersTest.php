@@ -17,7 +17,7 @@ class CancelBatchOpenOrdersTest extends AbstractTest
      */
     public function testValidate(string $accountId): void
     {
-        $this->validateRequest($this->getRequest($accountId));
+        $this->validateRequest(self::getRequest($accountId));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class CancelBatchOpenOrdersTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $accountId): CancelBatchOpenOrdersRequest
+    private static function getRequest(string $accountId): CancelBatchOpenOrdersRequest
     {
         return new CancelBatchOpenOrdersRequest($accountId);
     }

@@ -17,7 +17,7 @@ class TransferInCrossMarginTest extends AbstractTest
      */
     public function testValidate(string $currency, string $amount): void
     {
-        $this->validateRequest($this->getRequest($currency, $amount));
+        $this->validateRequest(self::getRequest($currency, $amount));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class TransferInCrossMarginTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $currency, string $amount): TransferInCrossMarginRequest
+    private static function getRequest(string $currency, string $amount): TransferInCrossMarginRequest
     {
         return new TransferInCrossMarginRequest($currency, $amount);
     }

@@ -17,7 +17,7 @@ class RepayTest extends AbstractTest
      */
     public function testValidate(string $accountId, string $currency, string $amount, string $transactId): void
     {
-        $this->validateRequest($this->getRequest($accountId, $currency, $amount, $transactId));
+        $this->validateRequest(self::getRequest($accountId, $currency, $amount, $transactId));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class RepayTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $accountId, string $currency, string $amount, string $transactId): RepayRequest
+    private static function getRequest(string $accountId, string $currency, string $amount, string $transactId): RepayRequest
     {
         return new RepayRequest($accountId, $currency, $amount, $transactId);
     }

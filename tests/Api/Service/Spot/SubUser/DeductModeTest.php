@@ -18,7 +18,7 @@ class DeductModeTest extends AbstractTest
      */
     public function testValidate(array $subUids, string $deductMode): void
     {
-        $this->validateRequest($this->getRequest($subUids, $deductMode));
+        $this->validateRequest(self::getRequest($subUids, $deductMode));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class DeductModeTest extends AbstractTest
         ];
     }
 
-    private function getRequest(array $subUids, string $deductMode): DeductModeRequest
+    private static function getRequest(array $subUids, string $deductMode): DeductModeRequest
     {
         return new DeductModeRequest($subUids, $deductMode);
     }

@@ -14,10 +14,10 @@ class LoanInfoCrossTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): LoanInfoCrossRequest
+    private static function getRequest(): LoanInfoCrossRequest
     {
         return new LoanInfoCrossRequest();
     }

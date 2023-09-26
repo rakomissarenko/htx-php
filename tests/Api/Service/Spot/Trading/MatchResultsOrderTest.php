@@ -17,7 +17,7 @@ class MatchResultsOrderTest extends AbstractTest
      */
     public function testValidate(string $orderId): void
     {
-        $this->validateRequest($this->getRequest($orderId));
+        $this->validateRequest(self::getRequest($orderId));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class MatchResultsOrderTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $orderId): MatchResultsOrderRequest
+    private static function getRequest(string $orderId): MatchResultsOrderRequest
     {
         return new MatchResultsOrderRequest($orderId);
     }

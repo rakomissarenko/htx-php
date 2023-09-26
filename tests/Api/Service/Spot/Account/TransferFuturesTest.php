@@ -18,7 +18,7 @@ class TransferFuturesTest extends AbstractTest
      */
     public function testValidate(string $currency, string $amount, string $type): void
     {
-        $this->validateRequest($this->getRequest($currency, $amount, $type));
+        $this->validateRequest(self::getRequest($currency, $amount, $type));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class TransferFuturesTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $currency, string $amount, string $type): TransferFuturesRequest
+    private static function getRequest(string $currency, string $amount, string $type): TransferFuturesRequest
     {
         return new TransferFuturesRequest($currency, $amount, $type);
     }

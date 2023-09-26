@@ -18,7 +18,7 @@ class TransferabilityTest extends AbstractTest
      */
     public function testValidate(array $subUids, string $accountType, bool $transferrable): void
     {
-        $this->validateRequest($this->getRequest($subUids, $accountType, $transferrable));
+        $this->validateRequest(self::getRequest($subUids, $accountType, $transferrable));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class TransferabilityTest extends AbstractTest
         ];
     }
 
-    private function getRequest(array $subUids, string $accountType, bool $transferrable): TransferabilityRequest
+    private static function getRequest(array $subUids, string $accountType, bool $transferrable): TransferabilityRequest
     {
         return new TransferabilityRequest($subUids, $accountType, $transferrable);
     }

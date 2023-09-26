@@ -17,7 +17,7 @@ class HistoryTest extends AbstractTest
      */
     public function testValidate(int $accountId, string $symbol): void
     {
-        $this->validateRequest($this->getRequest($accountId, $symbol));
+        $this->validateRequest(self::getRequest($accountId, $symbol));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class HistoryTest extends AbstractTest
         ];
     }
 
-    private function getRequest(int $accountId, string $symbol): HistoryRequest
+    private static function getRequest(int $accountId, string $symbol): HistoryRequest
     {
         return new HistoryRequest($accountId, $symbol);
     }

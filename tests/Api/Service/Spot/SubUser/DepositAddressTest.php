@@ -17,7 +17,7 @@ class DepositAddressTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $currency): void
     {
-        $this->validateRequest($this->getRequest($subUid, $currency));
+        $this->validateRequest(self::getRequest($subUid, $currency));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class DepositAddressTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $subUid, string $currency): DepositAddressRequest
+    private static function getRequest(string $subUid, string $currency): DepositAddressRequest
     {
         return new DepositAddressRequest($subUid, $currency);
     }

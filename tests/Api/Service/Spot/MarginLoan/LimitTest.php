@@ -14,10 +14,10 @@ class LimitTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): LimitRequest
+    private static function getRequest(): LimitRequest
     {
         return new LimitRequest();
     }

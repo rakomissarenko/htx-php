@@ -14,10 +14,10 @@ class SymbolsMarketTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): SymbolsMarketRequest
+    private static function getRequest(): SymbolsMarketRequest
     {
         return new SymbolsMarketRequest();
     }

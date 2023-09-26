@@ -14,10 +14,10 @@ class StatusMarketTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): StatusMarketRequest
+    private static function getRequest(): StatusMarketRequest
     {
         return new StatusMarketRequest();
     }

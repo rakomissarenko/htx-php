@@ -17,7 +17,7 @@ class CancelBatchTest extends AbstractTest
      */
     public function testValidate(array $orderIds): void
     {
-        $this->validateRequest($this->getRequest($orderIds));
+        $this->validateRequest(self::getRequest($orderIds));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class CancelBatchTest extends AbstractTest
         ];
     }
 
-    private function getRequest(array $orderIds): CancelBatchRequest
+    private static function getRequest(array $orderIds): CancelBatchRequest
     {
         $result = new CancelBatchRequest();
         $result->setOrderIds($orderIds);

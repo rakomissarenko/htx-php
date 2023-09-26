@@ -26,7 +26,7 @@ class TransferTest extends AbstractTest
         string $amount,
     ): void
     {
-        $this->validateRequest($this->getRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount));
+        $this->validateRequest(self::getRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount));
     }
 
     public function validateProvider(): array
@@ -36,7 +36,7 @@ class TransferTest extends AbstractTest
         ];
     }
 
-    private function getRequest(
+    private static function getRequest(
         string $fromUser,
         string $fromAccountType,
         string $fromAccount,

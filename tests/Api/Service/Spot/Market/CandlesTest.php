@@ -18,7 +18,7 @@ class CandlesTest extends AbstractTest
      */
     public function testValidate(string $symbol, string $period): void
     {
-        $this->validateRequest($this->getRequest($symbol, $period));
+        $this->validateRequest(self::getRequest($symbol, $period));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class CandlesTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $symbol, string $period): CandlesRequest
+    private static function getRequest(string $symbol, string $period): CandlesRequest
     {
         return new CandlesRequest($symbol, $period);
     }

@@ -14,10 +14,10 @@ class LedgerTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): LedgerRequest
+    private static function getRequest(): LedgerRequest
     {
         return new LedgerRequest();
     }

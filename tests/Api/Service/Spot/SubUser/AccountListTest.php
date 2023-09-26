@@ -17,7 +17,7 @@ class AccountListTest extends AbstractTest
      */
     public function testValidate(string $subUid): void
     {
-        $this->validateRequest($this->getRequest($subUid));
+        $this->validateRequest(self::getRequest($subUid));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class AccountListTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $subUid): AccountListRequest
+    private static function getRequest(string $subUid): AccountListRequest
     {
         return new AccountListRequest($subUid);
     }

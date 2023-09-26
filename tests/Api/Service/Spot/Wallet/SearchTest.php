@@ -22,7 +22,7 @@ class SearchTest extends AbstractTest
      */
     public function testValidate(string $type): void
     {
-        $this->validateRequest($this->getRequest($type));
+        $this->validateRequest(self::getRequest($type));
     }
 
     /**
@@ -44,7 +44,7 @@ class SearchTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $type): SearchRequest
+    private static function getRequest(string $type): SearchRequest
     {
         return new SearchRequest($type);
     }

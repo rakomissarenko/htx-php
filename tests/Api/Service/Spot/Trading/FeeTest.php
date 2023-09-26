@@ -17,7 +17,7 @@ class FeeTest extends AbstractTest
      */
     public function testValidate(array $symbols): void
     {
-        $this->validateRequest($this->getRequest($symbols));
+        $this->validateRequest(self::getRequest($symbols));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class FeeTest extends AbstractTest
         ];
     }
 
-    private function getRequest(array $symbols): FeeRequest
+    private static function getRequest(array $symbols): FeeRequest
     {
         return new FeeRequest($symbols);
     }

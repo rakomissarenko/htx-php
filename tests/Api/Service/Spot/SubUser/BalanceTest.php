@@ -16,7 +16,7 @@ class BalanceTest extends AbstractTest
      */
     public function testValidate(int $subUid): void
     {
-        $this->validateRequest($this->getRequest($subUid));
+        $this->validateRequest(self::getRequest($subUid));
     }
 
     public function validateProvider(): array
@@ -26,7 +26,7 @@ class BalanceTest extends AbstractTest
         ];
     }
 
-    private function getRequest(int $subUid): BalanceRequest
+    private static function getRequest(int $subUid): BalanceRequest
     {
         return new BalanceRequest($subUid);
     }

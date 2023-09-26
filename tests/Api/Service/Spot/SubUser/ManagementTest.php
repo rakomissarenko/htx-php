@@ -18,7 +18,7 @@ class ManagementTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $action): void
     {
-        $this->validateRequest($this->getRequest($subUid, $action));
+        $this->validateRequest(self::getRequest($subUid, $action));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class ManagementTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $subUid, string $action): ManagementRequest
+    private static function getRequest(string $subUid, string $action): ManagementRequest
     {
         return new ManagementRequest($subUid, $action);
     }

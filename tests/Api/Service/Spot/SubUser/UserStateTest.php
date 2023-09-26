@@ -17,7 +17,7 @@ class UserStateTest extends AbstractTest
      */
     public function testValidate(string $subUid): void
     {
-        $this->validateRequest($this->getRequest($subUid));
+        $this->validateRequest(self::getRequest($subUid));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class UserStateTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $subUid): UserStateRequest
+    private static function getRequest(string $subUid): UserStateRequest
     {
         return new UserStateRequest($subUid);
     }

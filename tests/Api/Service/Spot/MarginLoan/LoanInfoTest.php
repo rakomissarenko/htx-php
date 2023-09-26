@@ -16,7 +16,7 @@ class LoanInfoTest extends AbstractTest
      */
     public function testValidate(array $symbols): void
     {
-        $this->validateRequest($this->getRequest($symbols));
+        $this->validateRequest(self::getRequest($symbols));
     }
 
     public function validateProvider(): array
@@ -26,7 +26,7 @@ class LoanInfoTest extends AbstractTest
         ];
     }
 
-    private function getRequest(array $symbols): LoanInfoRequest
+    private static function getRequest(array $symbols): LoanInfoRequest
     {
         return new LoanInfoRequest($symbols);
     }

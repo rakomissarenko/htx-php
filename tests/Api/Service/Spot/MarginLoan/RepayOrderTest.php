@@ -17,7 +17,7 @@ class RepayOrderTest extends AbstractTest
      */
     public function testValidate(string $orderId, string $amount): void
     {
-        $this->validateRequest($this->getRequest($orderId, $amount));
+        $this->validateRequest(self::getRequest($orderId, $amount));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class RepayOrderTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $orderId, string $amount): RepayOrderRequest
+    private static function getRequest(string $orderId, string $amount): RepayOrderRequest
     {
         return new RepayOrderRequest($orderId, $amount);
     }

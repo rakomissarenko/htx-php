@@ -17,7 +17,7 @@ class CreationTest extends AbstractTest
      */
     public function testValidate(string $userName, string $note): void
     {
-        $this->validateRequest($this->getRequest($userName, $note));
+        $this->validateRequest(self::getRequest($userName, $note));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class CreationTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $userName, string $note): CreationRequest
+    private static function getRequest(string $userName, string $note): CreationRequest
     {
         $result = new CreationRequest();
         $result->addUserData(new UserData($userName, $note));

@@ -17,7 +17,7 @@ class ApiKeyDeleteTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $accessKey): void
     {
-        $this->validateRequest($this->getRequest($subUid, $accessKey));
+        $this->validateRequest(self::getRequest($subUid, $accessKey));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class ApiKeyDeleteTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $subUid, string $accessKey): ApiKeyDeleteRequest
+    private static function getRequest(string $subUid, string $accessKey): ApiKeyDeleteRequest
     {
         return new ApiKeyDeleteRequest($subUid, $accessKey);
     }

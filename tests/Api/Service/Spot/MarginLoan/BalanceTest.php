@@ -14,10 +14,10 @@ class BalanceTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): BalanceRequest
+    private static function getRequest(): BalanceRequest
     {
         return new BalanceRequest();
     }

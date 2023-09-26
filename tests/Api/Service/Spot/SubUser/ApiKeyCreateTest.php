@@ -18,7 +18,7 @@ class ApiKeyCreateTest extends AbstractTest
      */
     public function testValidate(string $otpToken, string $subUid, string $note, array $permissions): void
     {
-        $this->validateRequest($this->getRequest($otpToken, $subUid, $note, $permissions));
+        $this->validateRequest(self::getRequest($otpToken, $subUid, $note, $permissions));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class ApiKeyCreateTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $otpToken, string $subUid, string $note, array $permissions): ApiKeyCreateRequest
+    private static function getRequest(string $otpToken, string $subUid, string $note, array $permissions): ApiKeyCreateRequest
     {
         return new ApiKeyCreateRequest($otpToken, $subUid, $note, $permissions);
     }

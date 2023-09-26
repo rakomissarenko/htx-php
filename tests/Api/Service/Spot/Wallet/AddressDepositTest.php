@@ -21,7 +21,7 @@ class AddressDepositTest extends AbstractTest
      */
     public function testValidate(string $currency): void
     {
-        $this->validateRequest($this->getRequest($currency));
+        $this->validateRequest(self::getRequest($currency));
     }
 
     /**
@@ -43,7 +43,7 @@ class AddressDepositTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $currency): AddressDepositRequest
+    private static function getRequest(string $currency): AddressDepositRequest
     {
         return new AddressDepositRequest($currency);
     }

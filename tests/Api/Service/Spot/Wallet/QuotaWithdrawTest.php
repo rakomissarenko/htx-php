@@ -17,7 +17,7 @@ class QuotaWithdrawTest extends AbstractTest
      */
     public function testValidate(string $currency): void
     {
-        $this->validateRequest($this->getRequest($currency));
+        $this->validateRequest(self::getRequest($currency));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class QuotaWithdrawTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $currency): QuotaWithdrawRequest
+    private static function getRequest(string $currency): QuotaWithdrawRequest
     {
         return new QuotaWithdrawRequest($currency);
     }

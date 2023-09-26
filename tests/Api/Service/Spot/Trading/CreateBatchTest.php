@@ -19,7 +19,7 @@ class CreateBatchTest extends AbstractTest
      */
     public function testValidate(string $accountId, string $symbol, string $type, string $clientOrderId): void
     {
-        $this->validateRequest($this->getRequest($accountId, $symbol, $type, $clientOrderId));
+        $this->validateRequest(self::getRequest($accountId, $symbol, $type, $clientOrderId));
     }
 
     public function validateProvider(): array
@@ -29,7 +29,7 @@ class CreateBatchTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $accountId, string $symbol, string $type, string $clientOrderId): CreateBatchRequest
+    private static function getRequest(string $accountId, string $symbol, string $type, string $clientOrderId): CreateBatchRequest
     {
         $result = new CreateBatchRequest();
         $result->addOrder(new OrderData($accountId, $symbol, $type, $clientOrderId));

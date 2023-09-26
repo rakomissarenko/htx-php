@@ -18,7 +18,7 @@ class ApiKeyModifyTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $accessKey, string $note, array $permissions): void
     {
-        $this->validateRequest($this->getRequest($subUid, $accessKey, $note, $permissions));
+        $this->validateRequest(self::getRequest($subUid, $accessKey, $note, $permissions));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class ApiKeyModifyTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $subUid, string $accessKey, string $note, array $permissions): ApiKeyModifyRequest
+    private static function getRequest(string $subUid, string $accessKey, string $note, array $permissions): ApiKeyModifyRequest
     {
         return new ApiKeyModifyRequest($subUid, $accessKey, $note, $permissions);
     }

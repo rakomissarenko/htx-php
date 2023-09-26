@@ -14,10 +14,10 @@ class HistoryTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): HistoryRequest
+    private static function getRequest(): HistoryRequest
     {
         return new HistoryRequest();
     }

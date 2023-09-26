@@ -18,7 +18,7 @@ class TradableMarketTest extends AbstractTest
      */
     public function testValidate(array $subUids, string $accountType, string $activation): void
     {
-        $this->validateRequest($this->getRequest($subUids, $accountType, $activation));
+        $this->validateRequest(self::getRequest($subUids, $accountType, $activation));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class TradableMarketTest extends AbstractTest
         ];
     }
 
-    private function getRequest(array $subUids, string $accountType, string $activation): TradableMarketRequest
+    private static function getRequest(array $subUids, string $accountType, string $activation): TradableMarketRequest
     {
         return new TradableMarketRequest($subUids, $accountType, $activation);
     }

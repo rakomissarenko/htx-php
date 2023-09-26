@@ -24,7 +24,7 @@ class CreateWithdrawTest extends AbstractTest
     {
         $this->expectNotToPerformAssertions();
 
-        $this->validateRequest($this->getRequest($address, $currency, $amount));
+        $this->validateRequest(self::getRequest($address, $currency, $amount));
     }
 
     /**
@@ -46,7 +46,7 @@ class CreateWithdrawTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $address, string $currency, string $amount): CreateWithdrawRequest
+    private static function getRequest(string $address, string $currency, string $amount): CreateWithdrawRequest
     {
         return new CreateWithdrawRequest($address, $currency, $amount);
     }

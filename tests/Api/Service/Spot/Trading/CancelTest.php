@@ -17,7 +17,7 @@ class CancelTest extends AbstractTest
      */
     public function testValidate(string $orderId, string $symbol): void
     {
-        $this->validateRequest($this->getRequest($orderId, $symbol));
+        $this->validateRequest(self::getRequest($orderId, $symbol));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class CancelTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $orderId, string $symbol): CancelRequest
+    private static function getRequest(string $orderId, string $symbol): CancelRequest
     {
         return new CancelRequest($orderId, $symbol);
     }

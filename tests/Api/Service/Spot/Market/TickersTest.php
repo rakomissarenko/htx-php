@@ -18,7 +18,7 @@ class TickersTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
     /**
@@ -33,7 +33,7 @@ class TickersTest extends AbstractTest
         $this->assertArrayHasKey('data', $response->toArray());
     }
 
-    private function getRequest(): TickersRequest
+    private static function getRequest(): TickersRequest
     {
         return new TickersRequest();
     }

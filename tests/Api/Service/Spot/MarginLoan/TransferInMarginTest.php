@@ -17,7 +17,7 @@ class TransferInMarginTest extends AbstractTest
      */
     public function testValidate(string $symbol, string $currency, string $amount): void
     {
-        $this->validateRequest($this->getRequest($symbol, $currency, $amount));
+        $this->validateRequest(self::getRequest($symbol, $currency, $amount));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class TransferInMarginTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $symbol, string $currency, string $amount): TransferInMarginRequest
+    private static function getRequest(string $symbol, string $currency, string $amount): TransferInMarginRequest
     {
         return new TransferInMarginRequest($symbol, $currency, $amount);
     }

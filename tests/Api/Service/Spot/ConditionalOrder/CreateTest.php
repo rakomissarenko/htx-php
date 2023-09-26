@@ -18,7 +18,7 @@ class CreateTest extends AbstractTest
      */
     public function testValidate(int $accountId, string $symbol, string $orderSide, string $orderType, string $clientOrderId): void
     {
-        $this->validateRequest($this->getRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId));
+        $this->validateRequest(self::getRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class CreateTest extends AbstractTest
         ];
     }
 
-    private function getRequest(int $accountId, string $symbol, string $orderSide, string $orderType, string $clientOrderId): CreateRequest
+    private static function getRequest(int $accountId, string $symbol, string $orderSide, string $orderType, string $clientOrderId): CreateRequest
     {
         return new CreateRequest($accountId, $symbol, $orderSide, $orderType, $clientOrderId);
     }

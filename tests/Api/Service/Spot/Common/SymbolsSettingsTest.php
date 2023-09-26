@@ -14,10 +14,10 @@ class SymbolsSettingsTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): SymbolsSettingsRequest
+    private static function getRequest(): SymbolsSettingsRequest
     {
         return new SymbolsSettingsRequest();
     }

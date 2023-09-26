@@ -14,10 +14,10 @@ class TimestampTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): TimestampRequest
+    private static function getRequest(): TimestampRequest
     {
         return new TimestampRequest();
     }

@@ -14,10 +14,10 @@ class CurrencyChainsTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): CurrencyChainsRequest
+    private static function getRequest(): CurrencyChainsRequest
     {
         return new CurrencyChainsRequest();
     }

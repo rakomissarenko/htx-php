@@ -17,7 +17,7 @@ class DetailTest extends AbstractTest
      */
     public function testValidate(string $symbol): void
     {
-        $this->validateRequest($this->getRequest($symbol));
+        $this->validateRequest(self::getRequest($symbol));
     }
 
     public function validateProvider(): array
@@ -27,7 +27,7 @@ class DetailTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $symbol): DetailRequest
+    private static function getRequest(string $symbol): DetailRequest
     {
         return new DetailRequest($symbol);
     }

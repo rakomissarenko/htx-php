@@ -14,10 +14,10 @@ class OrdersTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->validateRequest($this->getRequest());
+        $this->validateRequest(self::getRequest());
     }
 
-    private function getRequest(): OrdersRequest
+    private static function getRequest(): OrdersRequest
     {
         return new OrdersRequest();
     }

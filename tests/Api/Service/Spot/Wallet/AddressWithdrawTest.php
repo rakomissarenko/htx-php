@@ -17,7 +17,7 @@ class AddressWithdrawTest extends AbstractTest
      */
     public function testValidate(string $currency): void
     {
-        $this->validateRequest($this->getRequest($currency));
+        $this->validateRequest(self::getRequest($currency));
     }
 
     /**
@@ -29,7 +29,7 @@ class AddressWithdrawTest extends AbstractTest
     {
         $this->expectException(HtxValidateException::class);
 
-        $this->getRequest($currency)->validate();
+        self::getRequest($currency)->validate();
     }
 
     public function validateProvider(): array
@@ -46,7 +46,7 @@ class AddressWithdrawTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $currency): AddressWithdrawRequest
+    private static function getRequest(string $currency): AddressWithdrawRequest
     {
         return new AddressWithdrawRequest($currency);
     }

@@ -18,7 +18,7 @@ class TransferTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $currency, string $amount, string $type, string $clientOrderId): void
     {
-        $this->validateRequest($this->getRequest($subUid, $currency, $amount, $type, $clientOrderId));
+        $this->validateRequest(self::getRequest($subUid, $currency, $amount, $type, $clientOrderId));
     }
 
     public function validateProvider(): array
@@ -28,7 +28,7 @@ class TransferTest extends AbstractTest
         ];
     }
 
-    private function getRequest(string $subUid, string $currency, string $amount, string $type, string $clientOrderId): TransferRequest
+    private static function getRequest(string $subUid, string $currency, string $amount, string $type, string $clientOrderId): TransferRequest
     {
         return new TransferRequest($subUid, $currency, $amount, $type, $clientOrderId);
     }
