@@ -25,7 +25,7 @@ class TimestampTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): TimestampResponse
+    protected static function getResponse(string $response): TimestampResponse
     {
         return new TimestampResponse($response);
     }

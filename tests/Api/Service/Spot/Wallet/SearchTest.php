@@ -25,18 +25,6 @@ class SearchTest extends AbstractTest
         $this->validateRequest(self::getRequest($type));
     }
 
-    /**
-     * @throws HtxValidateException
-     *
-     * @dataProvider responseSuccessProvider
-     */
-    public function testResponseSuccess(string $content): void
-    {
-        $response = self::getResponse($content);
-
-        $this->checkResponse($response);
-    }
-
     public function validateProvider(): array
     {
         return [
@@ -52,7 +40,7 @@ class SearchTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): SearchResponse
+    protected static function getResponse(string $response): SearchResponse
     {
         return new SearchResponse($response);
     }

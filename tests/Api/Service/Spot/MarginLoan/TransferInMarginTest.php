@@ -35,7 +35,7 @@ class TransferInMarginTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): TransferInMarginResponse
+    protected static function getResponse(string $response): TransferInMarginResponse
     {
         return new TransferInMarginResponse($response);
     }

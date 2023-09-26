@@ -36,7 +36,7 @@ class ManagementTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): ManagementResponse
+    protected static function getResponse(string $response): ManagementResponse
     {
         return new ManagementResponse($response);
     }

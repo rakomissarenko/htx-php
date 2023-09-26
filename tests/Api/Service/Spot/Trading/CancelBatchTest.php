@@ -38,7 +38,7 @@ class CancelBatchTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): CancelBatchResponse
+    protected static function getResponse(string $response): CancelBatchResponse
     {
         return new CancelBatchResponse($response);
     }

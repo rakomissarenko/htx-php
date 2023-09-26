@@ -26,7 +26,19 @@ abstract class AbstractTest extends TestCase
         $request->validate();
     }
 
-    protected function checkResponse(ResponseInterface $response): void
+    /**
+     * @throws HtxValidateException
+     *
+     * @dataProvider responseSuccessProvider
+     */
+    public function testResponseSuccess(string $content): void
+    {
+        $response = static::getResponse($content);
+
+        $this->checkResponse($response);
+    }
+
+    private function checkResponse(ResponseInterface $response): void
     {
         $this->assertArrayHasKey(self::FIELD_RESPONSE_DATA, $response->toArray());
     }
@@ -34,5 +46,13 @@ abstract class AbstractTest extends TestCase
     public function responseSuccessProvider(): array
     {
         return FileHelper::getResponsesProvider(static::RESPONSES_SUCCESS);
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    protected static function getResponse(string $response): ResponseInterface
+    {
+        throw new HtxValidateException();
     }
 }

@@ -36,7 +36,7 @@ class CandlesTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): CandlesResponse
+    protected static function getResponse(string $response): CandlesResponse
     {
         return new CandlesResponse($response);
     }

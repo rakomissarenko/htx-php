@@ -25,7 +25,7 @@ class BalanceTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): BalanceResponse
+    protected static function getResponse(string $response): BalanceResponse
     {
         return new BalanceResponse($response);
     }

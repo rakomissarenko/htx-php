@@ -35,7 +35,7 @@ class CancelBatchOpenOrdersTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): CancelBatchOpenOrdersResponse
+    protected static function getResponse(string $response): CancelBatchOpenOrdersResponse
     {
         return new CancelBatchOpenOrdersResponse($response);
     }

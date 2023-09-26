@@ -35,7 +35,7 @@ class DepositAddressTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): DepositAddressResponse
+    protected static function getResponse(string $response): DepositAddressResponse
     {
         return new DepositAddressResponse($response);
     }

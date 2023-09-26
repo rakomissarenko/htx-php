@@ -34,7 +34,7 @@ class InfoWithdrawTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): InfoWithdrawResponse
+    protected static function getResponse(string $response): InfoWithdrawResponse
     {
         return new InfoWithdrawResponse($response);
     }

@@ -25,7 +25,7 @@ class SearchOrdersTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): SearchOrdersResponse
+    protected static function getResponse(string $response): SearchOrdersResponse
     {
         return new SearchOrdersResponse($response);
     }

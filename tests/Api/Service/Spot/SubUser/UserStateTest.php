@@ -35,7 +35,7 @@ class UserStateTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): UserStateResponse
+    protected static function getResponse(string $response): UserStateResponse
     {
         return new UserStateResponse($response);
     }

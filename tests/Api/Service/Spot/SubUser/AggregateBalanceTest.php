@@ -25,7 +25,7 @@ class AggregateBalanceTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): AggregateBalanceResponse
+    protected static function getResponse(string $response): AggregateBalanceResponse
     {
         return new AggregateBalanceResponse($response);
     }

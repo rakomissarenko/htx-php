@@ -25,7 +25,7 @@ class StatusMarketTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): StatusMarketResponse
+    protected static function getResponse(string $response): StatusMarketResponse
     {
         return new StatusMarketResponse($response);
     }

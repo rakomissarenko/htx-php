@@ -37,7 +37,7 @@ class CurrenciesTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): CurrenciesResponse
+    protected static function getResponse(string $response): CurrenciesResponse
     {
         return new CurrenciesResponse($response);
     }

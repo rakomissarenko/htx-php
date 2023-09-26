@@ -35,7 +35,7 @@ class TickerTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): TickerResponse
+    protected static function getResponse(string $response): TickerResponse
     {
         return new TickerResponse($response);
     }

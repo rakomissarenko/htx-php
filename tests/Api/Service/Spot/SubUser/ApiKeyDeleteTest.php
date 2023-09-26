@@ -35,7 +35,7 @@ class ApiKeyDeleteTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): ApiKeyDeleteResponse
+    protected static function getResponse(string $response): ApiKeyDeleteResponse
     {
         return new ApiKeyDeleteResponse($response);
     }

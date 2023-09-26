@@ -25,18 +25,6 @@ class CreateWithdrawTest extends AbstractTest
         $this->validateRequest(self::getRequest($address, $currency, $amount));
     }
 
-    /**
-     * @throws HtxValidateException
-     *
-     * @dataProvider responseSuccessProvider
-     */
-    public function testResponseSuccess(string $content): void
-    {
-        $response = self::getResponse($content);
-
-        $this->checkResponse($response);
-    }
-
     public function validateProvider(): array
     {
         return [
@@ -52,7 +40,7 @@ class CreateWithdrawTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): CreateWithdrawResponse
+    protected static function getResponse(string $response): CreateWithdrawResponse
     {
         return new CreateWithdrawResponse($response);
     }

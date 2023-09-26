@@ -35,7 +35,7 @@ class DetailTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): DetailResponse
+    protected static function getResponse(string $response): DetailResponse
     {
         return new DetailResponse($response);
     }

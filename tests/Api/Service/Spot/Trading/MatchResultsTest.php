@@ -25,7 +25,7 @@ class MatchResultsTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): MatchResultsResponse
+    protected static function getResponse(string $response): MatchResultsResponse
     {
         return new MatchResultsResponse($response);
     }

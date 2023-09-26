@@ -21,18 +21,6 @@ class TickersTest extends AbstractTest
         $this->validateRequest(self::getRequest());
     }
 
-    /**
-     * @throws HtxValidateException
-     *
-     * @dataProvider responseSuccessProvider
-     */
-    public function testResponseSuccess(string $content): void
-    {
-        $response = self::getResponse($content);
-
-        $this->checkResponse($response);
-    }
-
     private static function getRequest(): TickersRequest
     {
         return new TickersRequest();
@@ -41,7 +29,7 @@ class TickersTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): TickersResponse
+    protected static function getResponse(string $response): TickersResponse
     {
         return new TickersResponse($response);
     }

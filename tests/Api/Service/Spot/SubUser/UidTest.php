@@ -25,7 +25,7 @@ class UidTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): UidResponse
+    protected static function getResponse(string $response): UidResponse
     {
         return new UidResponse($response);
     }

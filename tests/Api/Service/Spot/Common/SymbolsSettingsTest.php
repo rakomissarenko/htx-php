@@ -25,7 +25,7 @@ class SymbolsSettingsTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): SymbolsSettingsResponse
+    protected static function getResponse(string $response): SymbolsSettingsResponse
     {
         return new SymbolsSettingsResponse($response);
     }

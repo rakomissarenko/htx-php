@@ -36,7 +36,7 @@ class DeductModeTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): DeductModeResponse
+    protected static function getResponse(string $response): DeductModeResponse
     {
         return new DeductModeResponse($response);
     }

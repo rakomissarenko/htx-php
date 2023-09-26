@@ -34,7 +34,7 @@ class LoanInfoTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): LoanInfoResponse
+    protected static function getResponse(string $response): LoanInfoResponse
     {
         return new LoanInfoResponse($response);
     }

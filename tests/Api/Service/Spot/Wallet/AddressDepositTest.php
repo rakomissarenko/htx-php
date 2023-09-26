@@ -24,18 +24,6 @@ class AddressDepositTest extends AbstractTest
         $this->validateRequest(self::getRequest($currency));
     }
 
-    /**
-     * @throws HtxValidateException
-     *
-     * @dataProvider responseSuccessProvider
-     */
-    public function testResponseSuccess(string $content): void
-    {
-        $response = self::getResponse($content);
-
-        $this->checkResponse($response);
-    }
-
     public function validateProvider(): array
     {
         return [
@@ -51,7 +39,7 @@ class AddressDepositTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private static function getResponse(string $response): AddressDepositResponse
+    protected static function getResponse(string $response): AddressDepositResponse
     {
         return new AddressDepositResponse($response);
     }
