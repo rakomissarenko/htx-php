@@ -5,12 +5,11 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 use Feralonso\Htx\Api\Request\Spot\Market\TickersRequest;
 use Feralonso\Htx\Api\Response\Spot\Market\TickersResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Helper\FileHelper;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class TickersTest extends TestCase
+class TickersTest extends AbstractTest
 {
-    private const RESPONSES_SUCCESS = [
+    protected const RESPONSES_SUCCESS = [
         'Spot/Market/TickersSuccess.json',
     ];
 
@@ -34,11 +33,6 @@ class TickersTest extends TestCase
         $response = $this->getResponse($content);
 
         $this->assertArrayHasKey('data', $response->toArray());
-    }
-
-    public function responseSuccessProvider(): array
-    {
-        return FileHelper::getResponsesProvider(self::RESPONSES_SUCCESS);
     }
 
     private function getRequest(): TickersRequest

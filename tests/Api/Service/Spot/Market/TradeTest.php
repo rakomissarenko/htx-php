@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeRequest;
 use Feralonso\Htx\Api\Response\Spot\Market\TradeResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class TradeTest extends TestCase
+class TradeTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

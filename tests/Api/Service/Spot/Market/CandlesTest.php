@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Market\CandlesRequest;
 use Feralonso\Htx\Api\Response\Spot\Market\CandlesResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class CandlesTest extends TestCase
+class CandlesTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

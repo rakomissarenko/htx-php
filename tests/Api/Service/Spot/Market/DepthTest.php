@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 use Feralonso\Htx\Api\Request\Spot\Market\DepthRequest;
 use Feralonso\Htx\Api\Response\Spot\Market\DepthResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class DepthTest extends TestCase
+class DepthTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
