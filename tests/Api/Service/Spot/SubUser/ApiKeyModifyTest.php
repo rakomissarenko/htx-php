@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyModifyRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyModifyResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class ApiKeyModifyTest extends TestCase
+class ApiKeyModifyTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

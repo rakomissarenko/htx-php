@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class ApiKeyTest extends TestCase
+class ApiKeyTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

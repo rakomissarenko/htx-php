@@ -3,14 +3,13 @@
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
 use Feralonso\Htx\Api\Helper\EnumHelper;
-use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\TransferRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\TransferResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class TransferTest extends TestCase
+class TransferTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

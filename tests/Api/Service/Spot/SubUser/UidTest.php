@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Request\Spot\SubUser\UidRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\UidResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class UidTest extends TestCase
+class UidTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
