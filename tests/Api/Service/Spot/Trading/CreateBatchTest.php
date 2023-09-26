@@ -40,7 +40,7 @@ class CreateBatchTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): CreateBatchResponse
+    private static function getResponse(string $response): CreateBatchResponse
     {
         return new CreateBatchResponse($response);
     }

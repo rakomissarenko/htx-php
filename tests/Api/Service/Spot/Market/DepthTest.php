@@ -35,7 +35,7 @@ class DepthTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): DepthResponse
+    private static function getResponse(string $response): DepthResponse
     {
         return new DepthResponse($response);
     }

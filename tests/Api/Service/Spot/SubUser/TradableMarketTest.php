@@ -36,7 +36,7 @@ class TradableMarketTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): TradableMarketResponse
+    private static function getResponse(string $response): TradableMarketResponse
     {
         return new TradableMarketResponse($response);
     }

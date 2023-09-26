@@ -25,7 +25,7 @@ class LoanInfoCrossTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): LoanInfoCrossResponse
+    private static function getResponse(string $response): LoanInfoCrossResponse
     {
         return new LoanInfoCrossResponse($response);
     }

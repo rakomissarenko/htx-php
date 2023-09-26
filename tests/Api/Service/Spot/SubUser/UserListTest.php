@@ -25,7 +25,7 @@ class UserListTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): UserListResponse
+    private static function getResponse(string $response): UserListResponse
     {
         return new UserListResponse($response);
     }

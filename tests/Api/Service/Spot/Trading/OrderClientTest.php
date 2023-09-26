@@ -34,7 +34,7 @@ class OrderClientTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): OrderClientResponse
+    private static function getResponse(string $response): OrderClientResponse
     {
         return new OrderClientResponse($response);
     }

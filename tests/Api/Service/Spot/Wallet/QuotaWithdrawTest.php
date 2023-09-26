@@ -35,7 +35,7 @@ class QuotaWithdrawTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): QuotaWithdrawResponse
+    private static function getResponse(string $response): QuotaWithdrawResponse
     {
         return new QuotaWithdrawResponse($response);
     }

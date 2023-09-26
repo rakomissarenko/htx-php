@@ -35,7 +35,7 @@ class QueryDepositTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): QueryDepositResponse
+    private static function getResponse(string $response): QueryDepositResponse
     {
         return new QueryDepositResponse($response);
     }

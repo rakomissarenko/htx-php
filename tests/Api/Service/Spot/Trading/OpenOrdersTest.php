@@ -36,7 +36,7 @@ class OpenOrdersTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): OpenOrdersResponse
+    private static function getResponse(string $response): OpenOrdersResponse
     {
         return new OpenOrdersResponse($response);
     }

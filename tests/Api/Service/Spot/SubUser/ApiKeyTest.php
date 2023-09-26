@@ -34,7 +34,7 @@ class ApiKeyTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): ApiKeyResponse
+    private static function getResponse(string $response): ApiKeyResponse
     {
         return new ApiKeyResponse($response);
     }

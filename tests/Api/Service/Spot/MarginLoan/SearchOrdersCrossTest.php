@@ -25,7 +25,7 @@ class SearchOrdersCrossTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): SearchOrdersCrossResponse
+    private static function getResponse(string $response): SearchOrdersCrossResponse
     {
         return new SearchOrdersCrossResponse($response);
     }

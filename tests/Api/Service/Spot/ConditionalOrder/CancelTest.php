@@ -34,7 +34,7 @@ class CancelTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): CancelResponse
+    private static function getResponse(string $response): CancelResponse
     {
         return new CancelResponse($response);
     }

@@ -38,7 +38,7 @@ class CreationTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): CreationResponse
+    private static function getResponse(string $response): CreationResponse
     {
         return new CreationResponse($response);
     }

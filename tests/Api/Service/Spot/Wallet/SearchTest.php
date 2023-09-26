@@ -32,7 +32,7 @@ class SearchTest extends AbstractTest
      */
     public function testResponseSuccess(string $content): void
     {
-        $response = $this->getResponse($content);
+        $response = self::getResponse($content);
 
         $this->assertArrayHasKey('data', $response->toArray());
     }
@@ -52,7 +52,7 @@ class SearchTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): SearchResponse
+    private static function getResponse(string $response): SearchResponse
     {
         return new SearchResponse($response);
     }

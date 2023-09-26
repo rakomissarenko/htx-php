@@ -25,7 +25,7 @@ class HistoryTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): HistoryResponse
+    private static function getResponse(string $response): HistoryResponse
     {
         return new HistoryResponse($response);
     }

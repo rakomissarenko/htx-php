@@ -54,7 +54,7 @@ class AddressWithdrawTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): AddressWithdrawResponse
+    private static function getResponse(string $response): AddressWithdrawResponse
     {
         return new AddressWithdrawResponse($response);
     }

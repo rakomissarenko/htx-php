@@ -25,7 +25,7 @@ class LedgerTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): LedgerResponse
+    private static function getResponse(string $response): LedgerResponse
     {
         return new LedgerResponse($response);
     }

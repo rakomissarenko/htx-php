@@ -25,7 +25,7 @@ class RepayInfoTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): RepayInfoResponse
+    private static function getResponse(string $response): RepayInfoResponse
     {
         return new RepayInfoResponse($response);
     }

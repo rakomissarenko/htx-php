@@ -35,7 +35,7 @@ class TransferOutMarginTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): TransferOutMarginResponse
+    private static function getResponse(string $response): TransferOutMarginResponse
     {
         return new TransferOutMarginResponse($response);
     }

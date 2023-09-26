@@ -35,7 +35,7 @@ class RepayOrderCrossTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): RepayOrderCrossResponse
+    private static function getResponse(string $response): RepayOrderCrossResponse
     {
         return new RepayOrderCrossResponse($response);
     }

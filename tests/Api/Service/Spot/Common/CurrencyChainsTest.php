@@ -25,7 +25,7 @@ class CurrencyChainsTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): CurrencyChainsResponse
+    private static function getResponse(string $response): CurrencyChainsResponse
     {
         return new CurrencyChainsResponse($response);
     }

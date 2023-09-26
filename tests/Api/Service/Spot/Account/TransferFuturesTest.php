@@ -36,7 +36,7 @@ class TransferFuturesTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): TransferFuturesResponse
+    private static function getResponse(string $response): TransferFuturesResponse
     {
         return new TransferFuturesResponse($response);
     }

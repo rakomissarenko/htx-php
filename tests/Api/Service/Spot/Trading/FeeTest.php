@@ -35,7 +35,7 @@ class FeeTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): FeeResponse
+    private static function getResponse(string $response): FeeResponse
     {
         return new FeeResponse($response);
     }

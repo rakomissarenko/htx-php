@@ -25,7 +25,7 @@ class LimitTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): LimitResponse
+    private static function getResponse(string $response): LimitResponse
     {
         return new LimitResponse($response);
     }

@@ -25,7 +25,7 @@ class ChainsTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): ChainsResponse
+    private static function getResponse(string $response): ChainsResponse
     {
         return new ChainsResponse($response);
     }

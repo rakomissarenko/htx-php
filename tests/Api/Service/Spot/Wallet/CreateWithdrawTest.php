@@ -34,7 +34,7 @@ class CreateWithdrawTest extends AbstractTest
      */
     public function testResponseSuccess(string $content): void
     {
-        $response = $this->getResponse($content);
+        $response = self::getResponse($content);
 
         $this->assertArrayHasKey('data', $response->toArray());
     }
@@ -54,7 +54,7 @@ class CreateWithdrawTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): CreateWithdrawResponse
+    private static function getResponse(string $response): CreateWithdrawResponse
     {
         return new CreateWithdrawResponse($response);
     }

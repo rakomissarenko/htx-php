@@ -28,7 +28,7 @@ class TickersTest extends AbstractTest
      */
     public function testResponseSuccess(string $content): void
     {
-        $response = $this->getResponse($content);
+        $response = self::getResponse($content);
 
         $this->assertArrayHasKey('data', $response->toArray());
     }
@@ -41,7 +41,7 @@ class TickersTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): TickersResponse
+    private static function getResponse(string $response): TickersResponse
     {
         return new TickersResponse($response);
     }

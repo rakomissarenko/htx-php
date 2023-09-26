@@ -35,7 +35,7 @@ class MatchResultsOrderTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): MatchResultsOrderResponse
+    private static function getResponse(string $response): MatchResultsOrderResponse
     {
         return new MatchResultsOrderResponse($response);
     }

@@ -31,7 +31,7 @@ class AddressDepositTest extends AbstractTest
      */
     public function testResponseSuccess(string $content): void
     {
-        $response = $this->getResponse($content);
+        $response = self::getResponse($content);
 
         $this->assertArrayHasKey('data', $response->toArray());
     }
@@ -51,7 +51,7 @@ class AddressDepositTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): AddressDepositResponse
+    private static function getResponse(string $response): AddressDepositResponse
     {
         return new AddressDepositResponse($response);
     }

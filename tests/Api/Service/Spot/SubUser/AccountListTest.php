@@ -35,7 +35,7 @@ class AccountListTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): AccountListResponse
+    private static function getResponse(string $response): AccountListResponse
     {
         return new AccountListResponse($response);
     }

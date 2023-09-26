@@ -25,7 +25,7 @@ class SymbolsMarketTest extends AbstractTest
     /**
      * @throws HtxValidateException
      */
-    private function getResponse(string $response): SymbolsMarketResponse
+    private static function getResponse(string $response): SymbolsMarketResponse
     {
         return new SymbolsMarketResponse($response);
     }
