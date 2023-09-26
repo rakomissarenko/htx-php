@@ -14,9 +14,7 @@ class HistoryTest extends AbstractTest
      */
     public function testValidate(): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest()->validate();
+        $this->validateRequest($this->getRequest());
     }
 
     private function getRequest(): HistoryRequest

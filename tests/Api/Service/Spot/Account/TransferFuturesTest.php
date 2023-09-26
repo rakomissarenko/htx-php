@@ -18,9 +18,7 @@ class TransferFuturesTest extends AbstractTest
      */
     public function testValidate(string $currency, string $amount, string $type): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($currency, $amount, $type)->validate();
+        $this->validateRequest($this->getRequest($currency, $amount, $type));
     }
 
     public function validateProvider(): array

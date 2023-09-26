@@ -17,9 +17,7 @@ class BalanceTest extends AbstractTest
      */
     public function testValidate(string $accountId): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($accountId)->validate();
+        $this->validateRequest($this->getRequest($accountId));
     }
 
     public function validateProvider(): array

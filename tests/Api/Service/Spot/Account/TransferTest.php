@@ -26,9 +26,7 @@ class TransferTest extends AbstractTest
         string $amount,
     ): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount)->validate();
+        $this->validateRequest($this->getRequest($fromUser, $fromAccountType, $fromAccount, $toUser, $toAccountType, $toAccount, $currency, $amount));
     }
 
     public function validateProvider(): array
