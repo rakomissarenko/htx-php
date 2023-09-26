@@ -17,9 +17,7 @@ class CreationTest extends AbstractTest
      */
     public function testValidate(string $userName, string $note): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($userName, $note)->validate();
+        $this->validateRequest($this->getRequest($userName, $note));
     }
 
     public function validateProvider(): array

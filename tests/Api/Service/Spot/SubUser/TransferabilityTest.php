@@ -18,9 +18,7 @@ class TransferabilityTest extends AbstractTest
      */
     public function testValidate(array $subUids, string $accountType, bool $transferrable): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($subUids, $accountType, $transferrable)->validate();
+        $this->validateRequest($this->getRequest($subUids, $accountType, $transferrable));
     }
 
     public function validateProvider(): array

@@ -17,9 +17,7 @@ class ApiKeyDeleteTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $accessKey): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($subUid, $accessKey)->validate();
+        $this->validateRequest($this->getRequest($subUid, $accessKey));
     }
 
     public function validateProvider(): array

@@ -17,9 +17,7 @@ class AccountListTest extends AbstractTest
      */
     public function testValidate(string $subUid): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($subUid)->validate();
+        $this->validateRequest($this->getRequest($subUid));
     }
 
     public function validateProvider(): array

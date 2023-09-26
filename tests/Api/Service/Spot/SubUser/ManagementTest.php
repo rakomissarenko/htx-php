@@ -18,9 +18,7 @@ class ManagementTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $action): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($subUid, $action)->validate();
+        $this->validateRequest($this->getRequest($subUid, $action));
     }
 
     public function validateProvider(): array

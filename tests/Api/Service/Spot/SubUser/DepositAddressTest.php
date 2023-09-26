@@ -17,9 +17,7 @@ class DepositAddressTest extends AbstractTest
      */
     public function testValidate(string $subUid, string $currency): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($subUid, $currency)->validate();
+        $this->validateRequest($this->getRequest($subUid, $currency));
     }
 
     public function validateProvider(): array

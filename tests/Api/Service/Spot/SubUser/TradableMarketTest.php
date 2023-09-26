@@ -18,9 +18,7 @@ class TradableMarketTest extends AbstractTest
      */
     public function testValidate(array $subUids, string $accountType, string $activation): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($subUids, $accountType, $activation)->validate();
+        $this->validateRequest($this->getRequest($subUids, $accountType, $activation));
     }
 
     public function validateProvider(): array

@@ -18,9 +18,7 @@ class ApiKeyCreateTest extends AbstractTest
      */
     public function testValidate(string $otpToken, string $subUid, string $note, array $permissions): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($otpToken, $subUid, $note, $permissions)->validate();
+        $this->validateRequest($this->getRequest($otpToken, $subUid, $note, $permissions));
     }
 
     public function validateProvider(): array

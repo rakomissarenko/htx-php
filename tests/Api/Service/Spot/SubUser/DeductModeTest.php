@@ -18,9 +18,7 @@ class DeductModeTest extends AbstractTest
      */
     public function testValidate(array $subUids, string $deductMode): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($subUids, $deductMode)->validate();
+        $this->validateRequest($this->getRequest($subUids, $deductMode));
     }
 
     public function validateProvider(): array

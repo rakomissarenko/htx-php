@@ -16,9 +16,7 @@ class ApiKeyTest extends AbstractTest
      */
     public function testValidate(string $uid): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($uid)->validate();
+        $this->validateRequest($this->getRequest($uid));
     }
 
     public function validateProvider(): array
