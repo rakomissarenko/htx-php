@@ -20,7 +20,11 @@ class FieldResponseHelper
     public const FIELD_HIGH = 'high';
     public const FIELD_ID = 'id';
     public const FIELD_LOW = 'low';
+    public const FIELD_MAX_WITHDRAW_AMT = 'maxWithdrawAmt';
     public const FIELD_OPEN = 'open';
+    public const FIELD_REMAIN_WITHDRAW_QUOTA_DAY = 'remainWithdrawQuotaPerDay';
+    public const FIELD_REMAIN_WITHDRAW_QUOTA_YEAR = 'remainWithdrawQuotaPerYear';
+    public const FIELD_REMAIN_WITHDRAW_QUOTA_TOTAL = 'remainWithdrawQuotaTotal';
     public const FIELD_REQUEST_ID_HYPHEN = 'request-id';
     public const FIELD_SUB_TYPE_HYPHEN = 'sub-type';
     public const FIELD_TX_HASH_HYPHEN = 'tx-hash';
@@ -28,4 +32,7 @@ class FieldResponseHelper
     public const FIELD_UPDATED_AT_HYPHEN = 'updated-at';
     public const FIELD_USER_ID = 'userId';
     public const FIELD_WALLET_CONFIRM_HYPHEN = 'wallet-confirm';
+    public const FIELD_WITHDRAW_QUOTA_DAY = 'withdrawQuotaPerDay';
+    public const FIELD_WITHDRAW_QUOTA_YEAR = 'withdrawQuotaPerYear';
+    public const FIELD_WITHDRAW_QUOTA_TOTAL = 'withdrawQuotaTotal';
 }
