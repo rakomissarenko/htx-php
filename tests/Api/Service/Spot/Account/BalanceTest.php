@@ -10,6 +10,10 @@ use Feralonso\Tests\Helper\ValueHelper;
 
 class BalanceTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/Account/BalanceSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      *
