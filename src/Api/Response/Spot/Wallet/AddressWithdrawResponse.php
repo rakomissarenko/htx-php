@@ -2,8 +2,5 @@
 
 namespace Feralonso\Htx\Api\Response\Spot\Wallet;
 
-use Feralonso\Htx\Api\Response\AbstractResponse;
-
-class AddressWithdrawResponse extends AbstractResponse
-{
-}
+class AddressWithdrawResponse extends AddressDepositResponse
+{}

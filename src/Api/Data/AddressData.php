@@ -12,6 +12,7 @@ class AddressData
     private ?string $addressTag = null;
     private ?string $currency = null;
     private ?string $userId = null;
+    private ?string $note = null;
 
     /**
      * Blockchain name
@@ -37,6 +38,10 @@ class AddressData
         $userId = FormatHelper::getNumericValueInArray($data, FieldResponseHelper::FIELD_USER_ID);
         if ($userId !== null) {
             $result->setUserId($userId);
+        }
+        $note = FormatHelper::getStringValueInArray($data, FieldHelper::FIELD_NOTE);
+        if ($note !== null) {
+            $result->setNote($note);
         }
         $chain = FormatHelper::getStringValueInArray($data, FieldHelper::FIELD_CHAIN);
         if ($chain !== null) {
@@ -66,6 +71,11 @@ class AddressData
         $this->userId = $userId;
     }
 
+    public function setNote(string $note): void
+    {
+        $this->note = $note;
+    }
+
     public function setChain(string $chain): void
     {
         $this->chain = $chain;
@@ -78,6 +88,7 @@ class AddressData
             FieldResponseHelper::FIELD_ADDRESS_TAG => $this->addressTag,
             FieldHelper::FIELD_CURRENCY            => $this->currency,
             FieldResponseHelper::FIELD_USER_ID     => $this->userId,
+            FieldHelper::FIELD_NOTE                => $this->note,
             FieldHelper::FIELD_CHAIN               => $this->chain,
         ];
     }
