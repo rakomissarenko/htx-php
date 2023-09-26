@@ -26,6 +26,7 @@ class FieldResponseHelper
     public const FIELD_REMAIN_WITHDRAW_QUOTA_YEAR = 'remainWithdrawQuotaPerYear';
     public const FIELD_REMAIN_WITHDRAW_QUOTA_TOTAL = 'remainWithdrawQuotaTotal';
     public const FIELD_REQUEST_ID_HYPHEN = 'request-id';
+    public const FIELD_SUB_TYPE = 'subtype';
     public const FIELD_SUB_TYPE_HYPHEN = 'sub-type';
     public const FIELD_TX_HASH_HYPHEN = 'tx-hash';
     public const FIELD_VOL = 'vol';
