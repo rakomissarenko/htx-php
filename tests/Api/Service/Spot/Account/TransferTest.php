@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Account;
 use Feralonso\Htx\Api\Request\Spot\Account\TransferRequest;
 use Feralonso\Htx\Api\Response\Spot\Account\TransferResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class TransferTest extends TestCase
+class TransferTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

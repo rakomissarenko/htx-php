@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Account;
 use Feralonso\Htx\Api\Request\Spot\Account\LedgerRequest;
 use Feralonso\Htx\Api\Response\Spot\Account\LedgerResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class LedgerTest extends TestCase
+class LedgerTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
