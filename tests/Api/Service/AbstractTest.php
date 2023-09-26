@@ -12,7 +12,9 @@ abstract class AbstractTest extends TestCase
 {
     private const FIELD_RESPONSE_DATA = 'data';
 
-    protected const RESPONSES_SUCCESS = [];
+    protected const RESPONSES_SUCCESS = [
+        'General.json',
+    ];
 
     /**
      * @throws HtxValidateException
