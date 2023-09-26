@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Common;
 use Feralonso\Htx\Api\Request\Spot\Common\SymbolsSettingsRequest;
 use Feralonso\Htx\Api\Response\Spot\Common\SymbolsSettingsResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class SymbolsSettingsTest extends TestCase
+class SymbolsSettingsTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

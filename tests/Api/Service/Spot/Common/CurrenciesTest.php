@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Common;
 use Feralonso\Htx\Api\Request\Spot\Common\CurrenciesRequest;
 use Feralonso\Htx\Api\Response\Spot\Common\CurrenciesResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class CurrenciesTest extends TestCase
+class CurrenciesTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
