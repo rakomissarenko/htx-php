@@ -17,9 +17,7 @@ class DetailTest extends AbstractTest
      */
     public function testValidate(string $symbol): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($symbol)->validate();
+        $this->validateRequest($this->getRequest($symbol));
     }
 
     public function validateProvider(): array

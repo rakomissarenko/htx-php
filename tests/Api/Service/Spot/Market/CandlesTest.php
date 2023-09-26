@@ -18,9 +18,7 @@ class CandlesTest extends AbstractTest
      */
     public function testValidate(string $symbol, string $period): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($symbol, $period)->validate();
+        $this->validateRequest($this->getRequest($symbol, $period));
     }
 
     public function validateProvider(): array
