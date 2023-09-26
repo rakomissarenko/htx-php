@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 use Feralonso\Htx\Api\Request\Spot\Market\TickersRequest;
 use Feralonso\Htx\Api\Response\Spot\Market\TickersResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class TickersTest extends GeneralTest
+class TickersTest extends AbstractTestCase
 {
     protected const RESPONSES_SUCCESS = [
         'Spot/Market/TickersSuccess.json',

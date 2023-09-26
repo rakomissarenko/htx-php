@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Common;
 use Feralonso\Htx\Api\Request\Spot\Common\TimestampRequest;
 use Feralonso\Htx\Api\Response\Spot\Common\TimestampResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class TimestampTest extends GeneralTest
+class TimestampTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

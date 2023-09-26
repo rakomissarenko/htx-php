@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ManagementRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ManagementResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class ManagementTest extends GeneralTest
+class ManagementTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

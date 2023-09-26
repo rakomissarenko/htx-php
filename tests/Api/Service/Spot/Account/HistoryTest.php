@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Account;
 use Feralonso\Htx\Api\Request\Spot\Account\HistoryRequest;
 use Feralonso\Htx\Api\Response\Spot\Account\HistoryResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class HistoryTest extends GeneralTest
+class HistoryTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

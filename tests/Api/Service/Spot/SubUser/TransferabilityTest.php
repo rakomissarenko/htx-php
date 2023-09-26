@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\TransferabilityRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\TransferabilityResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class TransferabilityTest extends GeneralTest
+class TransferabilityTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

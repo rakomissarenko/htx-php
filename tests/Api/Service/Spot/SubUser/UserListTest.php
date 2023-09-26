@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Request\Spot\SubUser\UserListRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\UserListResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class UserListTest extends GeneralTest
+class UserListTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

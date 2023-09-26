@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Account;
 use Feralonso\Htx\Api\Request\Spot\Account\AccountsRequest;
 use Feralonso\Htx\Api\Response\Spot\Account\AccountsResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class AccountsTest extends GeneralTest
+class AccountsTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Request\Spot\SubUser\AccountListRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\AccountListResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class AccountListTest extends GeneralTest
+class AccountListTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Common;
 use Feralonso\Htx\Api\Request\Spot\Common\StatusMarketRequest;
 use Feralonso\Htx\Api\Response\Spot\Common\StatusMarketResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class StatusMarketTest extends GeneralTest
+class StatusMarketTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Request\Spot\Trading\OrderClientRequest;
 use Feralonso\Htx\Api\Response\Spot\Trading\OrderClientResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class OrderClientTest extends GeneralTest
+class OrderClientTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

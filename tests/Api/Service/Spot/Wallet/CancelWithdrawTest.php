@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 use Feralonso\Htx\Api\Request\Spot\Wallet\CancelWithdrawRequest;
 use Feralonso\Htx\Api\Response\Spot\Wallet\CancelWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class CancelWithdrawTest extends GeneralTest
+class CancelWithdrawTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

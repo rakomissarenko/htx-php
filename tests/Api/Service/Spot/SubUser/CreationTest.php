@@ -6,9 +6,9 @@ use Feralonso\Htx\Api\Data\UserData;
 use Feralonso\Htx\Api\Request\Spot\SubUser\CreationRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\CreationResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class CreationTest extends GeneralTest
+class CreationTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

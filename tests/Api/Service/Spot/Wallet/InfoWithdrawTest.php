@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 use Feralonso\Htx\Api\Request\Spot\Wallet\InfoWithdrawRequest;
 use Feralonso\Htx\Api\Response\Spot\Wallet\InfoWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class InfoWithdrawTest extends GeneralTest
+class InfoWithdrawTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

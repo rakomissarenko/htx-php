@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 use Feralonso\Htx\Api\Request\Spot\Wallet\AddressDepositRequest;
 use Feralonso\Htx\Api\Response\Spot\Wallet\AddressDepositResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class AddressDepositTest extends GeneralTest
+class AddressDepositTest extends AbstractTestCase
 {
     protected const RESPONSES_SUCCESS = [
         'Spot/Wallet/AddressDepositSuccess.json',

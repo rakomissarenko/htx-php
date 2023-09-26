@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\RepayOrderRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\RepayOrderResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class RepayOrderTest extends GeneralTest
+class RepayOrderTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

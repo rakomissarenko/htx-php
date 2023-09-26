@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\BalanceCrossRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\BalanceCrossResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class BalanceCrossTest extends GeneralTest
+class BalanceCrossTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Request\Spot\Trading\MatchResultsOrderRequest;
 use Feralonso\Htx\Api\Response\Spot\Trading\MatchResultsOrderResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class MatchResultsOrderTest extends GeneralTest
+class MatchResultsOrderTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

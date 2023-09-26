@@ -8,7 +8,7 @@ use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Helper\FileHelper;
 use PHPUnit\Framework\TestCase;
 
-abstract class AbstractTest extends TestCase
+abstract class AbstractTestCase extends TestCase
 {
     private const FIELD_RESPONSE_DATA = 'data';
 
@@ -26,7 +26,19 @@ abstract class AbstractTest extends TestCase
         $request->validate();
     }
 
-    protected function checkResponse(ResponseInterface $response): void
+    /**
+     * @throws HtxValidateException
+     *
+     * @dataProvider responseSuccessProvider
+     */
+    public function testResponseSuccess(string $content): void
+    {
+        $response = static::getResponse($content);
+
+        $this->checkResponse($response);
+    }
+
+    private function checkResponse(ResponseInterface $response): void
     {
         $this->assertArrayHasKey(self::FIELD_RESPONSE_DATA, $response->toArray());
     }

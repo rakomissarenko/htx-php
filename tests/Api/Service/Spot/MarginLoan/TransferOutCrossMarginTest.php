@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\TransferOutCrossMarginRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\TransferOutCrossMarginResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class TransferOutCrossMarginTest extends GeneralTest
+class TransferOutCrossMarginTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException

@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelAllAfterRequest;
 use Feralonso\Htx\Api\Response\Spot\Trading\CancelAllAfterResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\GeneralTest;
+use Feralonso\Tests\Api\Service\AbstractTestCase;
 
-class CancelAllAfterTest extends GeneralTest
+class CancelAllAfterTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException
