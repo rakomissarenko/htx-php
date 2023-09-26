@@ -16,9 +16,7 @@ class OrderClientTest extends AbstractTest
      */
     public function testValidate(string $clientOrderId): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($clientOrderId)->validate();
+        $this->validateRequest($this->getRequest($clientOrderId));
     }
 
     public function validateProvider(): array

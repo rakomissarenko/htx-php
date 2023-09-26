@@ -19,9 +19,7 @@ class CreateTest extends AbstractTest
      */
     public function testValidate(string $accountId, string $symbol, string $type, string $clientOrderId): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($accountId, $symbol, $type, $clientOrderId)->validate();
+        $this->validateRequest($this->getRequest($accountId, $symbol, $type, $clientOrderId));
     }
 
     public function validateProvider(): array

@@ -18,9 +18,7 @@ class OpenOrdersTest extends AbstractTest
      */
     public function testValidate(string $accountId, string $symbol, string $side): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($accountId, $symbol, $side)->validate();
+        $this->validateRequest($this->getRequest($accountId, $symbol, $side));
     }
 
     public function validateProvider(): array

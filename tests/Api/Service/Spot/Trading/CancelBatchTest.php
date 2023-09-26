@@ -17,9 +17,7 @@ class CancelBatchTest extends AbstractTest
      */
     public function testValidate(array $orderIds): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($orderIds)->validate();
+        $this->validateRequest($this->getRequest($orderIds));
     }
 
     public function validateProvider(): array

@@ -17,9 +17,7 @@ class MatchResultsOrderTest extends AbstractTest
      */
     public function testValidate(string $orderId): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($orderId)->validate();
+        $this->validateRequest($this->getRequest($orderId));
     }
 
     public function validateProvider(): array

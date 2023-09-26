@@ -16,9 +16,7 @@ class CancelAllAfterTest extends AbstractTest
      */
     public function testValidate(int $timeout): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($timeout)->validate();
+        $this->validateRequest($this->getRequest($timeout));
     }
 
     public function validateProvider(): array
