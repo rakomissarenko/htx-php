@@ -9,6 +9,10 @@ use Feralonso\Tests\Api\Service\AbstractTestCase;
 
 class AccountsTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/Account/AccountsSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      */
