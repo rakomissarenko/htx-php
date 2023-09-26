@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 use Feralonso\Htx\Api\Request\Spot\Wallet\AddressWithdrawRequest;
 use Feralonso\Htx\Api\Response\Spot\Wallet\AddressWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class AddressWithdrawTest extends TestCase
+class AddressWithdrawTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

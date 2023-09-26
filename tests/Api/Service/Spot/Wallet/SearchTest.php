@@ -6,12 +6,11 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Wallet\SearchRequest;
 use Feralonso\Htx\Api\Response\Spot\Wallet\SearchResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Helper\FileHelper;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class SearchTest extends TestCase
+class SearchTest extends AbstractTest
 {
-    private const RESPONSES_SUCCESS = [
+    protected const RESPONSES_SUCCESS = [
         'Spot/Wallet/SearchDepositSuccess.json',
         'Spot/Wallet/SearchWithdrawSuccess.json',
     ];
@@ -45,11 +44,6 @@ class SearchTest extends TestCase
         return [
             [EnumHelper::WALLET_TYPE_DEPOSIT],
         ];
-    }
-
-    public function responseSuccessProvider(): array
-    {
-        return FileHelper::getResponsesProvider(self::RESPONSES_SUCCESS);
     }
 
     private function getRequest(string $type): SearchRequest

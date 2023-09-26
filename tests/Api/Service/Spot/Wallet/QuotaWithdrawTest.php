@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Wallet;
 use Feralonso\Htx\Api\Request\Spot\Wallet\QuotaWithdrawRequest;
 use Feralonso\Htx\Api\Response\Spot\Wallet\QuotaWithdrawResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class QuotaWithdrawTest extends TestCase
+class QuotaWithdrawTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
