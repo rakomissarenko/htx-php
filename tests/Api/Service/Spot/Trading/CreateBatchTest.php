@@ -7,10 +7,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Trading\CreateBatchRequest;
 use Feralonso\Htx\Api\Response\Spot\Trading\CreateBatchResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class CreateBatchTest extends TestCase
+class CreateBatchTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

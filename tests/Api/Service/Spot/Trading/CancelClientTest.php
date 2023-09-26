@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelClientRequest;
 use Feralonso\Htx\Api\Response\Spot\Trading\CancelClientResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class CancelClientTest extends TestCase
+class CancelClientTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
