@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\BalanceRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\BalanceResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class BalanceTest extends TestCase
+class BalanceTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

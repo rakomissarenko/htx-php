@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\LoanInfoCrossRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\LoanInfoCrossResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class LoanInfoCrossTest extends TestCase
+class LoanInfoCrossTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

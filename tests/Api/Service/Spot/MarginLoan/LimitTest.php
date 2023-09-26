@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\LimitRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\LimitResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class LimitTest extends TestCase
+class LimitTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

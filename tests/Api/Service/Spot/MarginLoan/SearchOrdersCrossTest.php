@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\SearchOrdersCrossRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\SearchOrdersCrossResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class SearchOrdersCrossTest extends TestCase
+class SearchOrdersCrossTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
