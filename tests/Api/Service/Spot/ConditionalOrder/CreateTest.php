@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\ConditionalOrder\CreateRequest;
 use Feralonso\Htx\Api\Response\Spot\ConditionalOrder\CreateResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
+use Feralonso\Tests\Api\Service\AbstractTest;
 use Feralonso\Tests\Helper\ValueHelper;
-use PHPUnit\Framework\TestCase;
 
-class CreateTest extends TestCase
+class CreateTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException

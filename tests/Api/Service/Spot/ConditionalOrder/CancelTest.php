@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\ConditionalOrder;
 use Feralonso\Htx\Api\Request\Spot\ConditionalOrder\CancelRequest;
 use Feralonso\Htx\Api\Response\Spot\ConditionalOrder\CancelResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use PHPUnit\Framework\TestCase;
+use Feralonso\Tests\Api\Service\AbstractTest;
 
-class CancelTest extends TestCase
+class CancelTest extends AbstractTest
 {
     /**
      * @throws HtxValidateException
