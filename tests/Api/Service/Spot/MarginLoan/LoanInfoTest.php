@@ -16,9 +16,7 @@ class LoanInfoTest extends AbstractTest
      */
     public function testValidate(array $symbols): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($symbols)->validate();
+        $this->validateRequest($this->getRequest($symbols));
     }
 
     public function validateProvider(): array

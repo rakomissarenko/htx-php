@@ -17,9 +17,7 @@ class OrdersCrossTest extends AbstractTest
      */
     public function testValidate(string $currency, string $amount): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($currency, $amount)->validate();
+        $this->validateRequest($this->getRequest($currency, $amount));
     }
 
     public function validateProvider(): array

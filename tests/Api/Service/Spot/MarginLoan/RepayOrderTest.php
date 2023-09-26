@@ -17,9 +17,7 @@ class RepayOrderTest extends AbstractTest
      */
     public function testValidate(string $orderId, string $amount): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($orderId, $amount)->validate();
+        $this->validateRequest($this->getRequest($orderId, $amount));
     }
 
     public function validateProvider(): array

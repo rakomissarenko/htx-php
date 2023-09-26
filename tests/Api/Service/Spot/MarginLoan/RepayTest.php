@@ -17,9 +17,7 @@ class RepayTest extends AbstractTest
      */
     public function testValidate(string $accountId, string $currency, string $amount, string $transactId): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($accountId, $currency, $amount, $transactId)->validate();
+        $this->validateRequest($this->getRequest($accountId, $currency, $amount, $transactId));
     }
 
     public function validateProvider(): array

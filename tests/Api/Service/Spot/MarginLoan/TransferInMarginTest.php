@@ -17,9 +17,7 @@ class TransferInMarginTest extends AbstractTest
      */
     public function testValidate(string $symbol, string $currency, string $amount): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($symbol, $currency, $amount)->validate();
+        $this->validateRequest($this->getRequest($symbol, $currency, $amount));
     }
 
     public function validateProvider(): array
