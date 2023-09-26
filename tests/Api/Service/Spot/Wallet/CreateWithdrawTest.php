@@ -22,8 +22,6 @@ class CreateWithdrawTest extends AbstractTest
      */
     public function testValidate(string $address, string $currency, string $amount): void
     {
-        $this->expectNotToPerformAssertions();
-
         $this->validateRequest(self::getRequest($address, $currency, $amount));
     }
 
@@ -36,7 +34,7 @@ class CreateWithdrawTest extends AbstractTest
     {
         $response = self::getResponse($content);
 
-        $this->assertArrayHasKey('data', $response->toArray());
+        $this->checkResponse($response);
     }
 
     public function validateProvider(): array

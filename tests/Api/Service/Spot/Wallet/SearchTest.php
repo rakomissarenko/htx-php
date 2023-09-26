@@ -34,7 +34,7 @@ class SearchTest extends AbstractTest
     {
         $response = self::getResponse($content);
 
-        $this->assertArrayHasKey('data', $response->toArray());
+        $this->checkResponse($response);
     }
 
     public function validateProvider(): array
