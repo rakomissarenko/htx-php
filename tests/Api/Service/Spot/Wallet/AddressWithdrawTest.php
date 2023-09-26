@@ -10,6 +10,10 @@ use Feralonso\Tests\Helper\ValueHelper;
 
 class AddressWithdrawTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/Wallet/AddressWithdrawSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      *
