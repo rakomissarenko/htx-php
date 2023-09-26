@@ -16,9 +16,7 @@ class CancelTest extends AbstractTest
      */
     public function testValidate(array $clientOrderIds): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($clientOrderIds)->validate();
+        $this->validateRequest($this->getRequest($clientOrderIds));
     }
 
     public function validateProvider(): array

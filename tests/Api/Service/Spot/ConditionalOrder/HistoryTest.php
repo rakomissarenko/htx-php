@@ -17,9 +17,7 @@ class HistoryTest extends AbstractTest
      */
     public function testValidate(int $accountId, string $symbol): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($accountId, $symbol)->validate();
+        $this->validateRequest($this->getRequest($accountId, $symbol));
     }
 
     public function validateProvider(): array
