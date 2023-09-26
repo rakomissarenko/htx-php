@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyCreateRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyCreateResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class ApiKeyCreateTest extends AbstractTest
+class ApiKeyCreateTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

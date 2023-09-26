@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Trading\OpenOrdersRequest;
 use Feralonso\Htx\Api\Response\Spot\Trading\OpenOrdersResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class OpenOrdersTest extends AbstractTest
+class OpenOrdersTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

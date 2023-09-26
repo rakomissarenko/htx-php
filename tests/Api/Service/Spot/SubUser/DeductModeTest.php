@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\SubUser\DeductModeRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\DeductModeResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class DeductModeTest extends AbstractTest
+class DeductModeTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

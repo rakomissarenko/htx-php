@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Trading;
 use Feralonso\Htx\Api\Request\Spot\Trading\CancelBatchRequest;
 use Feralonso\Htx\Api\Response\Spot\Trading\CancelBatchResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class CancelBatchTest extends AbstractTest
+class CancelBatchTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

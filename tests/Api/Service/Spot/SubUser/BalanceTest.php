@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Request\Spot\SubUser\BalanceRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\BalanceResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 
-class BalanceTest extends AbstractTest
+class BalanceTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

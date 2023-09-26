@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\Common;
 use Feralonso\Htx\Api\Request\Spot\Common\ChainsRequest;
 use Feralonso\Htx\Api\Response\Spot\Common\ChainsResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 
-class ChainsTest extends AbstractTest
+class ChainsTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

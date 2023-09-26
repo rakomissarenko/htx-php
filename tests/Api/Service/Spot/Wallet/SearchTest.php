@@ -6,9 +6,9 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Wallet\SearchRequest;
 use Feralonso\Htx\Api\Response\Spot\Wallet\SearchResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 
-class SearchTest extends AbstractTest
+class SearchTest extends GeneralTest
 {
     protected const RESPONSES_SUCCESS = [
         'Spot/Wallet/SearchDepositSuccess.json',

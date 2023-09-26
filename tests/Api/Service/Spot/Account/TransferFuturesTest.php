@@ -6,10 +6,10 @@ use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Request\Spot\Account\TransferFuturesRequest;
 use Feralonso\Htx\Api\Response\Spot\Account\TransferFuturesResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class TransferFuturesTest extends AbstractTest
+class TransferFuturesTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 
-class ApiKeyTest extends AbstractTest
+class ApiKeyTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

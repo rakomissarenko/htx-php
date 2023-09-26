@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\Market;
 use Feralonso\Htx\Api\Request\Spot\Market\TradeHistoryRequest;
 use Feralonso\Htx\Api\Response\Spot\Market\TradeHistoryResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class TradeHistoryTest extends AbstractTest
+class TradeHistoryTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

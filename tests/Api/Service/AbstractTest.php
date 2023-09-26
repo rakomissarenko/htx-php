@@ -26,19 +26,7 @@ abstract class AbstractTest extends TestCase
         $request->validate();
     }
 
-    /**
-     * @throws HtxValidateException
-     *
-     * @dataProvider responseSuccessProvider
-     */
-    public function testResponseSuccess(string $content): void
-    {
-        $response = static::getResponse($content);
-
-        $this->checkResponse($response);
-    }
-
-    private function checkResponse(ResponseInterface $response): void
+    protected function checkResponse(ResponseInterface $response): void
     {
         $this->assertArrayHasKey(self::FIELD_RESPONSE_DATA, $response->toArray());
     }

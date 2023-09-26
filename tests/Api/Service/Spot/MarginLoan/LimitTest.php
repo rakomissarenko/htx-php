@@ -5,9 +5,9 @@ namespace Feralonso\Tests\Api\Service\Spot\MarginLoan;
 use Feralonso\Htx\Api\Request\Spot\MarginLoan\LimitRequest;
 use Feralonso\Htx\Api\Response\Spot\MarginLoan\LimitResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 
-class LimitTest extends AbstractTest
+class LimitTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException

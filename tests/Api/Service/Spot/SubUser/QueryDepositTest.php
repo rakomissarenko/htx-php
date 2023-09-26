@@ -5,10 +5,10 @@ namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 use Feralonso\Htx\Api\Request\Spot\SubUser\QueryDepositRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\QueryDepositResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
-use Feralonso\Tests\Api\Service\AbstractTest;
+use Feralonso\Tests\Api\Service\GeneralTest;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class QueryDepositTest extends AbstractTest
+class QueryDepositTest extends GeneralTest
 {
     /**
      * @throws HtxValidateException
