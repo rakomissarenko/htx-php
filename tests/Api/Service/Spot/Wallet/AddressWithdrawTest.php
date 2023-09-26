@@ -17,9 +17,7 @@ class AddressWithdrawTest extends AbstractTest
      */
     public function testValidate(string $currency): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($currency)->validate();
+        $this->validateRequest($this->getRequest($currency));
     }
 
     /**

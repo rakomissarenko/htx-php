@@ -18,7 +18,7 @@ class CancelWithdrawTest extends AbstractTest
     {
         $this->expectNotToPerformAssertions();
 
-        $this->getRequest($withdrawId)->validate();
+        $this->validateRequest($this->getRequest($withdrawId));
     }
 
     public function validateProvider(): array

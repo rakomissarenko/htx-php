@@ -22,9 +22,7 @@ class SearchTest extends AbstractTest
      */
     public function testValidate(string $type): void
     {
-        $this->expectNotToPerformAssertions();
-
-        $this->getRequest($type)->validate();
+        $this->validateRequest($this->getRequest($type));
     }
 
     /**

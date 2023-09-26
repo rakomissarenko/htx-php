@@ -24,7 +24,7 @@ class CreateWithdrawTest extends AbstractTest
     {
         $this->expectNotToPerformAssertions();
 
-        $this->getRequest($address, $currency, $amount)->validate();
+        $this->validateRequest($this->getRequest($address, $currency, $amount));
     }
 
     /**
