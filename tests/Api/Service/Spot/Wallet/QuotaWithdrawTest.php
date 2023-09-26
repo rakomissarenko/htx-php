@@ -10,6 +10,10 @@ use Feralonso\Tests\Helper\ValueHelper;
 
 class QuotaWithdrawTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/Wallet/QuotaWithdrawSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      *
