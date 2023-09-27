@@ -9,11 +9,14 @@ class FieldResponseHelper
     public const FIELD_ADDRESS_TAG_HYPHEN = 'address-tag';
     public const FIELD_ASK = 'ask';
     public const FIELD_ASK_SIZE = 'askSize';
+    public const FIELD_AVAILABLE = 'available';
+    public const FIELD_BALANCE = 'balance';
     public const FIELD_BID = 'bid';
     public const FIELD_BID_SIZE = 'bidSize';
     public const FIELD_CLOSE = 'close';
     public const FIELD_COUNT = 'count';
     public const FIELD_CREATED_AT_HYPHEN = 'created-at';
+    public const FIELD_DEBT = 'debt';
     public const FIELD_ERROR_CODE_HYPHEN = 'error-code';
     public const FIELD_ERROR_MSG_HYPHEN = 'error-msg';
     public const FIELD_FROM_ADDR_TAG = 'from-addr-tag';
@@ -26,6 +29,7 @@ class FieldResponseHelper
     public const FIELD_REMAIN_WITHDRAW_QUOTA_YEAR = 'remainWithdrawQuotaPerYear';
     public const FIELD_REMAIN_WITHDRAW_QUOTA_TOTAL = 'remainWithdrawQuotaTotal';
     public const FIELD_REQUEST_ID_HYPHEN = 'request-id';
+    public const FIELD_SEQ_NUM_HYPHEN = 'seq-num';
     public const FIELD_SUB_TYPE = 'subtype';
     public const FIELD_SUB_TYPE_HYPHEN = 'sub-type';
     public const FIELD_TX_HASH_HYPHEN = 'tx-hash';
