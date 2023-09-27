@@ -17,8 +17,6 @@
     "require": {
         "php": ">=8.0",
         "guzzlehttp/guzzle": "*",
-        "workerman/workerman": "*",
-        "workerman/globaldata": "*",
         "ext-mbstring": "*"
     },
     "require-dev": {
