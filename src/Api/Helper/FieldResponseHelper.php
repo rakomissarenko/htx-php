@@ -22,6 +22,7 @@ class FieldResponseHelper
     public const FIELD_FROM_ADDR_TAG = 'from-addr-tag';
     public const FIELD_HIGH = 'high';
     public const FIELD_ID = 'id';
+    public const FIELD_LIST = 'list';
     public const FIELD_LOW = 'low';
     public const FIELD_MAX_WITHDRAW_AMT = 'maxWithdrawAmt';
     public const FIELD_OPEN = 'open';
