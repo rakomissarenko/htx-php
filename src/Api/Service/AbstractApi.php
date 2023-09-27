@@ -36,6 +36,11 @@ abstract class AbstractApi
         private string $secretKey,
     ) {}
 
+    public function setProxy(string $proxy): void
+    {
+        $this->proxy = $proxy;
+    }
+
     /**
      * @throws HtxValidateException
      */

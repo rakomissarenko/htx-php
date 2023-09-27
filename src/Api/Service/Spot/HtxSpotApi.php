@@ -4,48 +4,95 @@ namespace Feralonso\Htx\Api\Service\Spot;
 
 class HtxSpotApi
 {
+    private ?string $proxy = null;
+
     public function __construct(
         private string $accessKey,
         private string $secretKey,
     ) {}
 
+    public function setProxy(string $proxy): void
+    {
+        $this->proxy = $proxy;
+    }
+
     public function account(): AccountApi
     {
-        return new AccountApi($this->accessKey, $this->secretKey);
+        $result = new AccountApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 
     public function common(): CommonApi
     {
-        return new CommonApi($this->accessKey, $this->secretKey);
+        $result = new CommonApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 
     public function conditionalOrder(): ConditionalOrderApi
     {
-        return new ConditionalOrderApi($this->accessKey, $this->secretKey);
+        $result = new ConditionalOrderApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 
     public function marginLoan(): MarginLoanApi
     {
-        return new MarginLoanApi($this->accessKey, $this->secretKey);
+        $result = new MarginLoanApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 
     public function market(): MarketApi
     {
-        return new MarketApi($this->accessKey, $this->secretKey);
+        $result = new MarketApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 
     public function subUser(): SubUserApi
     {
-        return new SubUserApi($this->accessKey, $this->secretKey);
+        $result = new SubUserApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 
     public function trading(): TradingApi
     {
-        return new TradingApi($this->accessKey, $this->secretKey);
+        $result = new TradingApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 
     public function wallet(): WalletApi
     {
-        return new WalletApi($this->accessKey, $this->secretKey);
+        $result = new WalletApi($this->accessKey, $this->secretKey);
+        if ($this->proxy) {
+            $result->setProxy($this->proxy);
+        }
+
+        return $result;
     }
 }
