@@ -8,6 +8,8 @@ use Feralonso\Htx\Api\Helper\FormatHelper;
 
 class BalanceData
 {
+    private const ZERO = '0';
+
     private ?string $available = null;
 
     /**
@@ -92,6 +94,14 @@ class BalanceData
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    public function isNotZero(): bool
+    {
+        return
+            ($this->balance && bccomp($this->balance, self::ZERO)) ||
+            ($this->available && bccomp($this->available, self::ZERO)) ||
+            ($this->debt && bccomp($this->debt, self::ZERO));
     }
 
     public function toArray(): array

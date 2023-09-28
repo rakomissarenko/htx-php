@@ -32,7 +32,7 @@ class BalanceResponse extends AbstractResponse
 
             $list = FormatHelper::getArrayValueInArray($data, FieldResponseHelper::FIELD_LIST);
             if ($list) {
-                foreach ($data as $balanceData) {
+                foreach ($list as $balanceData) {
                     if (is_array($balanceData)) {
                         $this->balances[] = BalanceData::initByArray($balanceData);
                     }
@@ -41,9 +41,28 @@ class BalanceResponse extends AbstractResponse
         }
     }
 
+    /**
+     * @return BalanceData[]
+     */
     public function getBalances(): array
     {
         return $this->balances;
+    }
+
+    /**
+     * @return BalanceData[]
+     */
+    public function getNotZeroBalances(): array
+    {
+        $result = [];
+
+        foreach ($this->balances as $balanceData) {
+            if ($balanceData->isNotZero()) {
+                $result[] = $balanceData;
+            }
+        }
+
+        return $result;
     }
 
     public function getId(): ?string
