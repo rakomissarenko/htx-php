@@ -31,4 +31,19 @@ class AccountsResponse extends AbstractResponse
     {
         return $this->accounts;
     }
+
+    public function getAccountByType(string $type): ?AccountData
+    {
+        $result = null;
+
+        $accountData = reset($this->accounts);
+        while ($result === null && $accountData !== false) {
+            if ($accountData->getType() === $type) {
+                $result = $accountData;
+            }
+            $accountData = next($this->accounts);
+        }
+
+        return $result;
+    }
 }

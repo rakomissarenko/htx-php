@@ -8,6 +8,16 @@ use Feralonso\Htx\Api\Helper\FormatHelper;
 
 class AccountData
 {
+    public const TYPE_BORROW = 'borrow';
+    public const TYPE_GRID_TRADING = 'grid-trading';
+    public const TYPE_INVESTMENT = 'investment';
+    public const TYPE_MARGIN = 'margin';
+    public const TYPE_OTC = 'otc';
+    public const TYPE_OTC_OPTIONS = 'otc-options';
+    public const TYPE_POINT = 'point';
+    public const TYPE_SPOT = 'spot';
+    public const TYPE_SUPER_MARGIN = 'super-margin';
+
     /**
      * Unique account id
      */
@@ -52,6 +62,11 @@ class AccountData
         return $result;
     }
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
     public function setId(string $id): void
     {
         $this->id = $id;
@@ -65,6 +80,11 @@ class AccountData
     public function setSubtype(string $subtype): void
     {
         $this->subtype = $subtype;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
     }
 
     public function setType(string $type): void
