@@ -9,6 +9,10 @@ use Feralonso\Tests\Api\Service\AbstractTestCase;
 
 class BalanceTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/SubUser/BalanceSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      *

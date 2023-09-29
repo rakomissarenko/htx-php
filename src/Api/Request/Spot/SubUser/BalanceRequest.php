@@ -11,7 +11,7 @@ class BalanceRequest extends AbstractRequest
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v1/account/accounts';
 
-    public function __construct(private int $subUid)
+    public function __construct(private string $subUid)
     {}
 
     public function getPath(): string
@@ -21,7 +21,7 @@ class BalanceRequest extends AbstractRequest
 
     public function validate(): void
     {
-        ValidateHelper::validateNotEmptyInteger($this->subUid, FieldHelper::FIELD_SUB_UID);
+        ValidateHelper::validateNotEmptyString($this->subUid, FieldHelper::FIELD_SUB_UID);
     }
 
     public function toArray(): array
