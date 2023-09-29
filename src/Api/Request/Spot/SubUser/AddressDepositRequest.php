@@ -7,7 +7,7 @@ use Feralonso\Htx\Api\Helper\ValidateHelper;
 use Feralonso\Htx\Api\Request\AbstractRequest;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 
-class DepositAddressRequest extends AbstractRequest
+class AddressDepositRequest extends AbstractRequest
 {
     protected const METHOD = self::METHOD_GET;
     protected const PATH = '/v2/sub-user/deposit-address';

@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Service\Spot;
 
 use Feralonso\Htx\Api\Request\Spot\SubUser\AccountListRequest;
+use Feralonso\Htx\Api\Request\Spot\SubUser\AddressDepositRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\AggregateBalanceRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyCreateRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyDeleteRequest;
@@ -11,7 +12,6 @@ use Feralonso\Htx\Api\Request\Spot\SubUser\ApiKeyRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\BalanceRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\CreationRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\DeductModeRequest;
-use Feralonso\Htx\Api\Request\Spot\SubUser\DepositAddressRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\ManagementRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\QueryDepositRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\TradableMarketRequest;
@@ -21,6 +21,7 @@ use Feralonso\Htx\Api\Request\Spot\SubUser\UidRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\UserListRequest;
 use Feralonso\Htx\Api\Request\Spot\SubUser\UserStateRequest;
 use Feralonso\Htx\Api\Response\Spot\SubUser\AccountListResponse;
+use Feralonso\Htx\Api\Response\Spot\SubUser\AddressDepositResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\AggregateBalanceResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyCreateResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyDeleteResponse;
@@ -29,7 +30,6 @@ use Feralonso\Htx\Api\Response\Spot\SubUser\ApiKeyResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\BalanceResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\CreationResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\DeductModeResponse;
-use Feralonso\Htx\Api\Response\Spot\SubUser\DepositAddressResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\ManagementResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\QueryDepositResponse;
 use Feralonso\Htx\Api\Response\Spot\SubUser\TradableMarketResponse;
@@ -49,6 +49,14 @@ class SubUserApi extends AbstractApi
     public function accountList(AccountListRequest $request): AccountListResponse
     {
         return new AccountListResponse($this->send($request));
+    }
+
+    /**
+     * @throws HtxValidateException
+     */
+    public function addressDeposit(AddressDepositRequest $request): AddressDepositResponse
+    {
+        return new AddressDepositResponse($this->send($request));
     }
 
     /**
@@ -113,14 +121,6 @@ class SubUserApi extends AbstractApi
     public function deductMode(DeductModeRequest $request): DeductModeResponse
     {
         return new DeductModeResponse($this->send($request));
-    }
-
-    /**
-     * @throws HtxValidateException
-     */
-    public function depositAddress(DepositAddressRequest $request): DepositAddressResponse
-    {
-        return new DepositAddressResponse($this->send($request));
     }
 
     /**

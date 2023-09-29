@@ -2,13 +2,13 @@
 
 namespace Feralonso\Tests\Api\Service\Spot\SubUser;
 
-use Feralonso\Htx\Api\Request\Spot\SubUser\DepositAddressRequest;
-use Feralonso\Htx\Api\Response\Spot\SubUser\DepositAddressResponse;
+use Feralonso\Htx\Api\Request\Spot\SubUser\AddressDepositRequest;
+use Feralonso\Htx\Api\Response\Spot\SubUser\AddressDepositResponse;
 use Feralonso\Htx\Exceptions\HtxValidateException;
 use Feralonso\Tests\Api\Service\AbstractTestCase;
 use Feralonso\Tests\Helper\ValueHelper;
 
-class DepositAddressTest extends AbstractTestCase
+class AddressDepositTest extends AbstractTestCase
 {
     /**
      * @throws HtxValidateException
@@ -27,16 +27,16 @@ class DepositAddressTest extends AbstractTestCase
         ];
     }
 
-    private static function getRequest(string $subUid, string $currency): DepositAddressRequest
+    private static function getRequest(string $subUid, string $currency): AddressDepositRequest
     {
-        return new DepositAddressRequest($subUid, $currency);
+        return new AddressDepositRequest($subUid, $currency);
     }
 
     /**
      * @throws HtxValidateException
      */
-    protected static function getResponse(string $response): DepositAddressResponse
+    protected static function getResponse(string $response): AddressDepositResponse
     {
-        return new DepositAddressResponse($response);
+        return new AddressDepositResponse($response);
     }
 }

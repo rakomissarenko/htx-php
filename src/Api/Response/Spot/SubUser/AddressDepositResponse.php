@@ -4,6 +4,6 @@ namespace Feralonso\Htx\Api\Response\Spot\SubUser;
 
 use Feralonso\Htx\Api\Response\AbstractResponse;
 
-class DepositAddressResponse extends AbstractResponse
+class AddressDepositResponse extends AbstractResponse
 {
 }
