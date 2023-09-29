@@ -37,6 +37,7 @@ class FieldResponseHelper
     public const FIELD_VOL = 'vol';
     public const FIELD_UPDATED_AT_HYPHEN = 'updated-at';
     public const FIELD_USER_ID = 'userId';
+    public const FIELD_USER_STATE = 'userState';
     public const FIELD_WALLET_CONFIRM_HYPHEN = 'wallet-confirm';
     public const FIELD_WITHDRAW_QUOTA_DAY = 'withdrawQuotaPerDay';
     public const FIELD_WITHDRAW_QUOTA_YEAR = 'withdrawQuotaPerYear';
