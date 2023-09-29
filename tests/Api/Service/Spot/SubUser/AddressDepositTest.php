@@ -10,6 +10,10 @@ use Feralonso\Tests\Helper\ValueHelper;
 
 class AddressDepositTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/SubUser/AddressDepositSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      *
