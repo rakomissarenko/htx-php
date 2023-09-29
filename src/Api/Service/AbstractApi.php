@@ -58,7 +58,7 @@ abstract class AbstractApi
             $body = null;
         } else {
             try {
-                $body = json_encode($params, JSON_THROW_ON_ERROR);
+                $body = json_encode($request->toArray(), JSON_THROW_ON_ERROR);
             } catch (JsonException) {
                 $body = null;
             }
@@ -95,7 +95,11 @@ abstract class AbstractApi
 
     private function getParams(RequestInterface $request): array
     {
-        $result = array_merge($this->getDefaultParams(), $request->toArray());
+        if ($request->isMethodGet()) {
+            $result = array_merge($this->getDefaultParams(), $request->toArray());
+        } else {
+            $result = $this->getDefaultParams();
+        }
         ksort($result);
 
         $result[self::FIELD_SIGNATURE] = $this->getSignature(implode(PHP_EOL, [

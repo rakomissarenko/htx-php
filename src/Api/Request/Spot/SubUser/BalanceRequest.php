@@ -16,7 +16,7 @@ class BalanceRequest extends AbstractRequest
 
     public function getPath(): string
     {
-        return self::PATH . $this->subUid;
+        return self::PATH . '/' . $this->subUid;
     }
 
     public function validate(): void

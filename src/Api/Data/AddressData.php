@@ -51,6 +51,11 @@ class AddressData
         return $result;
     }
 
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
     public function setAddress(string $address): void
     {
         $this->address = $address;
@@ -59,6 +64,11 @@ class AddressData
     public function setAddressTag(string $addressTag): void
     {
         $this->addressTag = $addressTag;
+    }
+
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
     }
 
     public function setCurrency(string $currency): void
@@ -74,6 +84,11 @@ class AddressData
     public function setNote(string $note): void
     {
         $this->note = $note;
+    }
+
+    public function getChain(): ?string
+    {
+        return $this->chain;
     }
 
     public function setChain(string $chain): void
