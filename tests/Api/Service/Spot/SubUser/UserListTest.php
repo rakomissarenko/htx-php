@@ -9,6 +9,10 @@ use Feralonso\Tests\Api\Service\AbstractTestCase;
 
 class UserListTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/SubUser/UserListSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      */
