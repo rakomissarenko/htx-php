@@ -63,6 +63,30 @@ class BalanceAccountData
         $this->type = $type;
     }
 
+    /**
+     * @return BalanceData[]
+     */
+    public function getBalances(): array
+    {
+        return $this->balances;
+    }
+
+    /**
+     * @return BalanceData[]
+     */
+    public function getNotZeroBalances(): array
+    {
+        $result = [];
+
+        foreach ($this->balances as $balanceData) {
+            if ($balanceData->isNotZero()) {
+                $result[] = $balanceData;
+            }
+        }
+
+        return $result;
+    }
+
     public function addBalanceData(BalanceData $balanceData): void
     {
         $this->balances[] = $balanceData;
