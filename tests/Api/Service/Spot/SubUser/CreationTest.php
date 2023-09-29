@@ -10,6 +10,10 @@ use Feralonso\Tests\Api\Service\AbstractTestCase;
 
 class CreationTest extends AbstractTestCase
 {
+    protected const RESPONSES_SUCCESS = [
+        'Spot/SubUser/CreationSuccess.json',
+    ];
+
     /**
      * @throws HtxValidateException
      *
