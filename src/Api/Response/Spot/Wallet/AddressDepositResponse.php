@@ -50,4 +50,21 @@ class AddressDepositResponse extends AbstractResponse
 
         return $result;
     }
+
+    /**
+     * @return AddressData[]
+     */
+    public function getAddressesByCurrencyChains(string $currency, array $chains): array
+    {
+        $result = [];
+
+        foreach ($this->addresses as $addressData) {
+            $chain = $addressData->getChain();
+            if ($chain && $addressData->getCurrency() === $currency && in_array($chain, $chains, true)) {
+                $result[] = $addressData;
+            }
+        }
+
+        return $result;
+    }
 }
