@@ -27,8 +27,30 @@ class UserListResponse extends AbstractResponse
         }
     }
 
+    /**
+     * @return SubUserData[]
+     */
     public function getSubUsers(): array
     {
         return $this->subUsers;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getActiveUids(): array
+    {
+        $result = [];
+
+        foreach ($this->subUsers as $subUser) {
+            if ($subUser->isUserActive()) {
+                $uid = $subUser->getUid();
+                if ($uid) {
+                    $result[] = $uid;
+                }
+            }
+        }
+
+        return $result;
     }
 }

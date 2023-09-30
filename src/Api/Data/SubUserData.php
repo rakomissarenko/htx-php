@@ -8,6 +8,9 @@ use Feralonso\Htx\Api\Helper\FormatHelper;
 
 class SubUserData
 {
+    private const STATE_LOCK = 'lock';
+    private const STATE_NORMAL = 'normal';
+
     private ?string $uid = null;
     private ?string $userState = null;
 
@@ -27,9 +30,19 @@ class SubUserData
         return $result;
     }
 
+    public function getUid(): ?string
+    {
+        return $this->uid;
+    }
+
     public function setUid(string $uid): void
     {
         $this->uid = $uid;
+    }
+
+    public function isUserActive(): bool
+    {
+        return $this->userState === self::STATE_NORMAL;
     }
 
     public function setUserState(string $userState): void
