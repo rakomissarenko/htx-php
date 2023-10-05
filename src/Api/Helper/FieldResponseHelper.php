@@ -25,6 +25,7 @@ class FieldResponseHelper
     public const FIELD_LIST = 'list';
     public const FIELD_LOW = 'low';
     public const FIELD_MAX_WITHDRAW_AMT = 'maxWithdrawAmt';
+    public const FIELD_NEXT_ID = 'nextId';
     public const FIELD_OPEN = 'open';
     public const FIELD_REMAIN_WITHDRAW_QUOTA_DAY = 'remainWithdrawQuotaPerDay';
     public const FIELD_REMAIN_WITHDRAW_QUOTA_YEAR = 'remainWithdrawQuotaPerYear';
