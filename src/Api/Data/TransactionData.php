@@ -2,6 +2,7 @@
 
 namespace Feralonso\Htx\Api\Data;
 
+use Feralonso\Htx\Api\Helper\EnumHelper;
 use Feralonso\Htx\Api\Helper\FieldHelper;
 use Feralonso\Htx\Api\Helper\FieldResponseHelper;
 use Feralonso\Htx\Api\Helper\FormatHelper;
@@ -162,9 +163,19 @@ class TransactionData
         return $result;
     }
 
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
     public function setAddress(string $address): void
     {
         $this->address = $address;
+    }
+
+    public function getAddressId(): ?string
+    {
+        return $this->addressId;
     }
 
     public function setAddressId(string $addressId): void
@@ -172,9 +183,19 @@ class TransactionData
         $this->addressId = $addressId;
     }
 
+    public function getAddressTag(): ?string
+    {
+        return $this->addressTag;
+    }
+
     public function setAddressTag(string $addressTag): void
     {
         $this->addressTag = $addressTag;
+    }
+
+    public function getAmount(): ?string
+    {
+        return $this->amount;
     }
 
     public function setAmount(string $amount): void
@@ -182,9 +203,19 @@ class TransactionData
         $this->amount = $amount;
     }
 
+    public function getChain(): ?string
+    {
+        return $this->chain;
+    }
+
     public function setChain(string $chain): void
     {
         $this->chain = $chain;
+    }
+
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
     }
 
     public function setCreatedAt(string $createdAt): void
@@ -192,9 +223,19 @@ class TransactionData
         $this->createdAt = $createdAt;
     }
 
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
     public function setCurrency(string $currency): void
     {
         $this->currency = $currency;
+    }
+
+    public function getErrorCode(): ?string
+    {
+        return $this->errorCode;
     }
 
     public function setErrorCode(string $errorCode): void
@@ -202,9 +243,19 @@ class TransactionData
         $this->errorCode = $errorCode;
     }
 
+    public function getErrorMsg(): ?string
+    {
+        return $this->errorMsg;
+    }
+
     public function setErrorMsg(string $errorMsg): void
     {
         $this->errorMsg = $errorMsg;
+    }
+
+    public function getFee(): ?string
+    {
+        return $this->fee;
     }
 
     public function setFee(string $fee): void
@@ -212,9 +263,19 @@ class TransactionData
         $this->fee = $fee;
     }
 
+    public function getFromAddrTag(): ?string
+    {
+        return $this->fromAddrTag;
+    }
+
     public function setFromAddrTag(string $fromAddrTag): void
     {
         $this->fromAddrTag = $fromAddrTag;
+    }
+
+    public function getId(): ?string
+    {
+        return $this->id;
     }
 
     public function setId(string $id): void
@@ -222,9 +283,19 @@ class TransactionData
         $this->id = $id;
     }
 
+    public function getRequestId(): ?string
+    {
+        return $this->requestId;
+    }
+
     public function setRequestId(string $requestId): void
     {
         $this->requestId = $requestId;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
     }
 
     public function setState(string $state): void
@@ -232,9 +303,19 @@ class TransactionData
         $this->state = $state;
     }
 
+    public function getSubType(): ?string
+    {
+        return $this->subType;
+    }
+
     public function setSubType(string $subType): void
     {
         $this->subType = $subType;
+    }
+
+    public function getTxHash(): ?string
+    {
+        return $this->txHash;
     }
 
     public function setTxHash(string $txHash): void
@@ -242,9 +323,19 @@ class TransactionData
         $this->txHash = $txHash;
     }
 
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
     }
 
     public function setUpdatedAt(string $updatedAt): void
@@ -252,9 +343,19 @@ class TransactionData
         $this->updatedAt = $updatedAt;
     }
 
+    public function getWalletConfirm(): ?int
+    {
+        return $this->walletConfirm;
+    }
+
     public function setWalletConfirm(int $walletConfirm): void
     {
         $this->walletConfirm = $walletConfirm;
+    }
+
+    public function isStateSafe(): bool
+    {
+        return $this->state === EnumHelper::TRANSACTION_STATE_SAFE;
     }
 
     public function toArray(): array
