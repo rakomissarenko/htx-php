@@ -2,8 +2,7 @@
 
 namespace Feralonso\Htx\Api\Response\Spot\SubUser;
 
-use Feralonso\Htx\Api\Response\AbstractResponse;
+use Feralonso\Htx\Api\Response\Spot\Wallet\SearchResponse;
 
-class QueryDepositResponse extends AbstractResponse
-{
-}
+class QueryDepositResponse extends SearchResponse
+{}

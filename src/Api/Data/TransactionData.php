@@ -97,6 +97,9 @@ class TransactionData
             $result->setChain($chain);
         }
         $createdAt = FormatHelper::getNumericValueInArray($data, FieldResponseHelper::FIELD_CREATED_AT_HYPHEN);
+        if ($createdAt === null) {
+            $createdAt = FormatHelper::getNumericValueInArray($data, FieldResponseHelper::FIELD_CREATE_TIME);
+        }
         if ($createdAt !== null) {
             $result->setCreatedAt($createdAt);
         }
@@ -145,6 +148,9 @@ class TransactionData
             $result->setType($type);
         }
         $updatedAt = FormatHelper::getNumericValueInArray($data, FieldResponseHelper::FIELD_UPDATED_AT_HYPHEN);
+        if ($updatedAt === null) {
+            $updatedAt = FormatHelper::getNumericValueInArray($data, FieldResponseHelper::FIELD_UPDATE_TIME);
+        }
         if ($updatedAt !== null) {
             $result->setUpdatedAt($updatedAt);
         }

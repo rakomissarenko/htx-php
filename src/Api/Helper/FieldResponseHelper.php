@@ -15,6 +15,7 @@ class FieldResponseHelper
     public const FIELD_BID_SIZE = 'bidSize';
     public const FIELD_CLOSE = 'close';
     public const FIELD_COUNT = 'count';
+    public const FIELD_CREATE_TIME = 'createTime';
     public const FIELD_CREATED_AT_HYPHEN = 'created-at';
     public const FIELD_DEBT = 'debt';
     public const FIELD_ERROR_CODE_HYPHEN = 'error-code';
@@ -36,6 +37,7 @@ class FieldResponseHelper
     public const FIELD_SUB_TYPE_HYPHEN = 'sub-type';
     public const FIELD_TX_HASH_HYPHEN = 'tx-hash';
     public const FIELD_VOL = 'vol';
+    public const FIELD_UPDATE_TIME = 'updateTime';
     public const FIELD_UPDATED_AT_HYPHEN = 'updated-at';
     public const FIELD_USER_ID = 'userId';
     public const FIELD_USER_STATE = 'userState';

@@ -3,6 +3,7 @@
 namespace Feralonso\Htx\Api\Response\Spot\Wallet;
 
 use Feralonso\Htx\Api\Data\TransactionData;
+use Feralonso\Htx\Api\Helper\FieldResponseHelper;
 use Feralonso\Htx\Api\Helper\FormatHelper;
 use Feralonso\Htx\Api\Response\AbstractResponse;
 
@@ -12,6 +13,7 @@ class SearchResponse extends AbstractResponse
      * @var TransactionData[]
      */
     private array $transactions = [];
+    private ?string $nextId;
 
     public function __construct(string $response)
     {
@@ -25,6 +27,7 @@ class SearchResponse extends AbstractResponse
                 $this->transactions[] = TransactionData::initByArray($transactionData);
             }
         }
+        $this->nextId = FormatHelper::getNumericValueInArray($responseArray, FieldResponseHelper::FIELD_NEXT_ID);
     }
 
     /**
@@ -33,5 +36,10 @@ class SearchResponse extends AbstractResponse
     public function getTransactions(): array
     {
         return $this->transactions;
+    }
+
+    public function getNextId(): ?string
+    {
+        return $this->nextId;
     }
 }
