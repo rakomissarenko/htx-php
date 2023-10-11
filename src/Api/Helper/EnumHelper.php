@@ -232,6 +232,8 @@ class EnumHelper
         self::TIME_GTC,
     ];
 
+    public const TRANSACTION_STATE_SAFE = 'safe';
+
     private const TRANSACTION_TYPE_CREDIT = 'credit';
     private const TRANSACTION_TYPE_DEPOSIT = 'deposit';
     private const TRANSACTION_TYPE_ETF = 'etf';

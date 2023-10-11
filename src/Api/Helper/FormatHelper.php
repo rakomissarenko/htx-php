@@ -7,6 +7,8 @@ use Exception;
 
 class FormatHelper
 {
+    public const SCALE_SIZE = 8;
+
     public static function getIntValueInArray(array $array, string $key): ?int
     {
         return isset($array[$key]) && is_numeric($array[$key]) ? (int) $array[$key] : null;

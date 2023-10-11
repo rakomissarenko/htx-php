@@ -38,6 +38,22 @@ class SearchResponse extends AbstractResponse
         return $this->transactions;
     }
 
+    public function getTransactionByAmount(string $amount): ?TransactionData
+    {
+        $result = null;
+
+        foreach ($this->transactions as $transactionData) {
+            if (
+                bccomp($transactionData->getAmount(), $amount, FormatHelper::SCALE_SIZE) === 0 &&
+                ($result === null || $result->getCreatedAt() < $transactionData->getCreatedAt())
+            ) {
+                $result = $transactionData;
+            }
+        }
+
+        return $result;
+    }
+
     public function getNextId(): ?string
     {
         return $this->nextId;
