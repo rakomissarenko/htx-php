@@ -16,7 +16,7 @@ class SearchResponse extends AbstractResponse
     private array $transactions = [];
     private ?string $nextId;
     private ?int $status;
-    private ?int $message;
+    private ?string $message;
 
     public function __construct(string $response)
     {
@@ -64,6 +64,11 @@ class SearchResponse extends AbstractResponse
     public function getNextId(): ?string
     {
         return $this->nextId;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
     }
 
     public function isSuccessResponse(): bool
