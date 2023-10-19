@@ -26,6 +26,7 @@ class FieldResponseHelper
     public const FIELD_LIST = 'list';
     public const FIELD_LOW = 'low';
     public const FIELD_MAX_WITHDRAW_AMT = 'maxWithdrawAmt';
+    public const FIELD_MESSAGE = 'message';
     public const FIELD_NEXT_ID = 'nextId';
     public const FIELD_OPEN = 'open';
     public const FIELD_REMAIN_WITHDRAW_QUOTA_DAY = 'remainWithdrawQuotaPerDay';
@@ -33,6 +34,7 @@ class FieldResponseHelper
     public const FIELD_REMAIN_WITHDRAW_QUOTA_TOTAL = 'remainWithdrawQuotaTotal';
     public const FIELD_REQUEST_ID_HYPHEN = 'request-id';
     public const FIELD_SEQ_NUM_HYPHEN = 'seq-num';
+    public const FIELD_STATUS = 'status';
     public const FIELD_SUB_TYPE = 'subtype';
     public const FIELD_SUB_TYPE_HYPHEN = 'sub-type';
     public const FIELD_TX_HASH = 'txHash';

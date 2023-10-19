@@ -172,6 +172,8 @@ class EnumHelper
         self::PERMISSION_KEY_TRADE,
     ];
 
+    public const RESPONSE_STATUS_SUCCESS = 200;
+
     private const SELF_TRADING_ALLOW = 0;
     private const SELF_TRADING_DISALLOW = 1;
     public const SELF_TRADINGS = [
