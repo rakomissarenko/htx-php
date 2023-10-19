@@ -35,6 +35,7 @@ class FieldResponseHelper
     public const FIELD_SEQ_NUM_HYPHEN = 'seq-num';
     public const FIELD_SUB_TYPE = 'subtype';
     public const FIELD_SUB_TYPE_HYPHEN = 'sub-type';
+    public const FIELD_TX_HASH = 'txHash';
     public const FIELD_TX_HASH_HYPHEN = 'tx-hash';
     public const FIELD_VOL = 'vol';
     public const FIELD_UPDATE_TIME = 'updateTime';

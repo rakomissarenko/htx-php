@@ -141,6 +141,9 @@ class TransactionData
             $result->setSubType($subType);
         }
         $txHash = FormatHelper::getStringValueInArray($data, FieldResponseHelper::FIELD_TX_HASH_HYPHEN);
+        if ($txHash === null) {
+            $txHash = FormatHelper::getStringValueInArray($data, FieldResponseHelper::FIELD_TX_HASH);
+        }
         if ($txHash !== null) {
             $result->setTxHash($txHash);
         }
