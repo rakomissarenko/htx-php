@@ -15,7 +15,7 @@ class SearchResponse extends AbstractResponse
      */
     private array $transactions = [];
     private ?string $nextId;
-    private ?int $status;
+    private ?int $code;
     private ?string $message;
 
     public function __construct(string $response)
@@ -33,7 +33,7 @@ class SearchResponse extends AbstractResponse
             }
         }
         $this->nextId = FormatHelper::getNumericValueInArray($responseArray, FieldResponseHelper::FIELD_NEXT_ID);
-        $this->status = FormatHelper::getIntValueInArray($responseArray, FieldResponseHelper::FIELD_STATUS);
+        $this->code = FormatHelper::getIntValueInArray($responseArray, FieldResponseHelper::FIELD_CODE);
         $this->message = FormatHelper::getStringValueInArray($responseArray, FieldResponseHelper::FIELD_MESSAGE);
     }
 
@@ -73,6 +73,6 @@ class SearchResponse extends AbstractResponse
 
     public function isSuccessResponse(): bool
     {
-        return $this->status === EnumHelper::RESPONSE_STATUS_SUCCESS && $this->message === null;
+        return $this->code === EnumHelper::RESPONSE_CODE_SUCCESS && $this->message === null;
     }
 }
