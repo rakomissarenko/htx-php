@@ -66,9 +66,19 @@ class BalanceData
         return $result;
     }
 
+    public function getAvailable(): ?string
+    {
+        return $this->available;
+    }
+
     public function setAvailable(string $available): void
     {
         $this->available = $available;
+    }
+
+    public function getBalance(): ?string
+    {
+        return $this->balance;
     }
 
     public function setBalance(string $balance): void
@@ -76,9 +86,19 @@ class BalanceData
         $this->balance = $balance;
     }
 
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
     public function setCurrency(string $currency): void
     {
         $this->currency = $currency;
+    }
+
+    public function getDebt(): ?string
+    {
+        return $this->debt;
     }
 
     public function setDebt(string $debt): void
@@ -86,9 +106,19 @@ class BalanceData
         $this->debt = $debt;
     }
 
+    public function getSeqNum(): ?string
+    {
+        return $this->seqNum;
+    }
+
     public function setSeqNum(string $seqNum): void
     {
         $this->seqNum = $seqNum;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
     }
 
     public function setType(string $type): void
