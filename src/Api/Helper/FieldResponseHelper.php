@@ -19,6 +19,8 @@ class FieldResponseHelper
     public const FIELD_CREATE_TIME = 'createTime';
     public const FIELD_CREATED_AT_HYPHEN = 'created-at';
     public const FIELD_DEBT = 'debt';
+    public const FIELD_ERR_CODE_HYPHEN = 'err-code';
+    public const FIELD_ERR_MSG_HYPHEN = 'err-msg';
     public const FIELD_ERROR_CODE_HYPHEN = 'error-code';
     public const FIELD_ERROR_MSG_HYPHEN = 'error-msg';
     public const FIELD_FROM_ADDR_TAG = 'from-addr-tag';
@@ -35,6 +37,7 @@ class FieldResponseHelper
     public const FIELD_REMAIN_WITHDRAW_QUOTA_TOTAL = 'remainWithdrawQuotaTotal';
     public const FIELD_REQUEST_ID_HYPHEN = 'request-id';
     public const FIELD_SEQ_NUM_HYPHEN = 'seq-num';
+    public const FIELD_STATUS = 'status';
     public const FIELD_SUB_TYPE = 'subtype';
     public const FIELD_SUB_TYPE_HYPHEN = 'sub-type';
     public const FIELD_TX_HASH = 'txHash';

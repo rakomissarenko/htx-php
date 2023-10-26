@@ -53,6 +53,8 @@ class EnumHelper
         self::DIRECT_PREV,
     ];
 
+    public const ERROR_CODE_INSUFFICIENT_BALANCE = 'dw-insufficient-balance';
+
     private const OPERATOR_GTE = 'gte';
     private const OPERATOR_LTE = 'lte';
     public const OPERATORS = [
@@ -207,6 +209,9 @@ class EnumHelper
         self::SOURCE_SPOT,
         self::SOURCE_SUPER_MARGIN,
     ];
+
+    public const STATUS_ERROR = 'error';
+    public const STATUS_OK = 'ok';
 
     private const STEP_0 = 'step0';
     private const STEP_1 = 'step1';
