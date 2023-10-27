@@ -361,6 +361,11 @@ class TransactionData
         return $this->state === EnumHelper::TRANSACTION_STATE_SAFE;
     }
 
+    public function isStateWithdrawConfirmed(): bool
+    {
+        return $this->state === EnumHelper::TRANSACTION_STATE_WITHDRAW_CONFIRMED;
+    }
+
     public function toArray(): array
     {
         return [

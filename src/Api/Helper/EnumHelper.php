@@ -240,6 +240,7 @@ class EnumHelper
     ];
 
     public const TRANSACTION_STATE_SAFE = 'safe';
+    public const TRANSACTION_STATE_WITHDRAW_CONFIRMED = 'confirmed';
 
     private const TRANSACTION_TYPE_CREDIT = 'credit';
     private const TRANSACTION_TYPE_DEPOSIT = 'deposit';
