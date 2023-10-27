@@ -50,10 +50,36 @@ class SearchResponse extends AbstractResponse
         $result = null;
 
         foreach ($this->transactions as $transactionData) {
+            if ($this->checkConditionsAmount($transactionData, $result, $amount)) {
+                $result = $transactionData;
+            }
+        }
+
+        return $result;
+    }
+
+    public function getTransactionByAmountAndAddress(string $amount, string $address): ?TransactionData
+    {
+        $result = null;
+
+        foreach ($this->transactions as $transactionData) {
             if (
-                bccomp($transactionData->getAmount(), $amount, FormatHelper::SCALE_SIZE) === 0 &&
-                ($result === null || $result->getCreatedAt() < $transactionData->getCreatedAt())
+                $this->checkConditionsAmount($transactionData, $result, $amount) &&
+                $transactionData->getAddress() === $address
             ) {
+                $result = $transactionData;
+            }
+        }
+
+        return $result;
+    }
+
+    public function getTransactionById(string $id): ?TransactionData
+    {
+        $result = null;
+
+        foreach ($this->transactions as $transactionData) {
+            if ($transactionData->getId() === $id) {
                 $result = $transactionData;
             }
         }
@@ -74,5 +100,16 @@ class SearchResponse extends AbstractResponse
     public function isSuccessResponse(): bool
     {
         return $this->code === EnumHelper::RESPONSE_CODE_SUCCESS && $this->message === null;
+    }
+
+    private function checkConditionsAmount(
+        TransactionData $transactionData,
+        ?TransactionData $currentTransactionData,
+        string $amount,
+    ): bool
+    {
+        return
+            bccomp($transactionData->getAmount(), $amount, FormatHelper::SCALE_SIZE) === 0 &&
+            ($currentTransactionData === null || $currentTransactionData->getCreatedAt() < $transactionData->getCreatedAt());
     }
 }

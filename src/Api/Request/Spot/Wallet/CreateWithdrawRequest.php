@@ -73,7 +73,7 @@ class CreateWithdrawRequest extends AbstractRequest
             $result[FieldHelper::FIELD_ADDR_TAG_HYPHEN] = $this->addrTag;
         }
         if ($this->clientOrderId) {
-            $result[FieldHelper::FIELD_CLIENT_ORDER_ID] = $this->clientOrderId;
+            $result[FieldHelper::FIELD_CLIENT_ORDER_ID_HYPHEN] = $this->clientOrderId;
         }
 
         return $result;
