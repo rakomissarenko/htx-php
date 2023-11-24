@@ -58,6 +58,6 @@ class CreateWithdrawResponse extends AbstractResponse
 
     public function isErrorInsufficientBalance(): bool
     {
-        return $this->errorCode = EnumHelper::ERROR_CODE_INSUFFICIENT_BALANCE;
+        return $this->errorCode === EnumHelper::ERROR_CODE_INSUFFICIENT_BALANCE;
     }
 }
