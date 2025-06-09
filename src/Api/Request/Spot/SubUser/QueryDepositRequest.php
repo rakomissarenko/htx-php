@@ -64,11 +64,12 @@ class QueryDepositRequest extends AbstractRequest
         ValidateHelper::validateNotEmptyString($this->currency, FieldHelper::FIELD_CURRENCY);
         if ($this->startTime) {
             ValidateHelper::validateInteger($this->startTime, FieldHelper::FIELD_START_TIME);
+            $startTimeMax = $this->endTime ?: microtime(true) * 1000;
             ValidateHelper::validateRange(
                 $this->startTime,
                 FieldHelper::FIELD_START_TIME,
-                (string) (microtime(true) * 1000 - self::TIME_MIN),
-                (string) (microtime(true) * 1000),
+                (string) ($startTimeMax - self::TIME_MIN),
+                (string) $startTimeMax,
             );
         }
         if ($this->endTime) {
